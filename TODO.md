@@ -10,3 +10,4 @@
 
 # Nice to have / ideas
 - keyboard shortcuts for watch inputs
+- move css to scss folder
