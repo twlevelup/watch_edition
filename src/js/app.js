@@ -1,8 +1,16 @@
+'use strict';
+
 var _ = require('underscore'),
   $ = require('jquery'),
   Backbone = require('backbone');
 
-var FriendModel = require('./models/contact'),
-    FriendsCollection = require('./collections/contacts');
+var ContactModel = require('./models/contact'),
+  ContactsCollection = require('./collections/contacts');
 
-module.exports = App = function App() {};
+var App = function App () {};
+
+module.exports = App;
+
+App.prototype.start = function () {
+  var contacts = new ContactsCollection();
+};

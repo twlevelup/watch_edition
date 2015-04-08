@@ -1,14 +1,10 @@
+'use strict';
+
 module.exports = function (grunt, options) {
   return {
     options: {
+      jshintrc: true,
       reporter: require('jshint-stylish'),
-      curly: false,
-      eqeqeq: true,
-      eqnull: true,
-      browser: true,
-      globals: {
-        jQuery: true
-      },
     },
     all: [
       'Gruntfile.js',

@@ -1,5 +1,7 @@
 var Backbone = require('backbone');
 
-module.exports = Contact = Backbone.Model.extend({
+var Contact = Backbone.Model.extend({
     name: null
 });
+
+module.exports = Contact;
