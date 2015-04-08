@@ -1,0 +1,12 @@
+- bower for dependencies?
+- grunt tasks
+- - jshintrc
+- - pre-commit
+- README with installation instructions
+- jasmine and jasmine test runner
+- grunt tasks to copy over and minify files?
+- mockup watch
+- watch input with HTML elements
+- - keyboard shortcuts?
+- CI setup
+- use require or common js to load dependencies

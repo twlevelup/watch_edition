@@ -1,0 +1,15 @@
+default:
+  - 'build'
+  - 'connect'
+
+lint:
+  - 'jshint'
+
+test:
+  - 'jasmine'
+
+build:
+  - 'lint'
+  - 'clean'
+  - 'copy'
+  - 'browserify'

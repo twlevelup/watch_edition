@@ -1,0 +1,20 @@
+{
+  "name": "proto-watch",
+  "version": "0.0.1",
+  "description": "Scaffoling for a proto watch app",
+  "author": "LevelUp",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-browserify": "^3.6.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jasmine": "^0.8.2",
+    "grunt-contrib-jshint": "^0.11.1",
+    "jquery": "^2.1.3",
+    "load-grunt-config": "^0.16.0",
+    "underscore": "^1.8.3"
+  }
+}
