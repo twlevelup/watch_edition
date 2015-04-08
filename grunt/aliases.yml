@@ -6,6 +6,7 @@ lint:
   - 'jshint'
 
 test:
+  - 'watchify'
   - 'jasmine'
 
 build:
