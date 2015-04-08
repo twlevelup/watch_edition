@@ -7,7 +7,6 @@
 - Watch inputs with HTML elements
 - Make a nice index page
 - Visuals for actual watch
-- Proper JSHint config (include code complexity metrics!)
 
 # Nice to have / ideas
 - keyboard shortcuts for watch inputs
