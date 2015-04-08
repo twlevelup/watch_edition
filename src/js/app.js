@@ -1,10 +1,8 @@
-// app.js
-global._ = require('underscore');
-global.$ = require('jquery');
-global.Backbone = require('backbone');
+var _ = require('underscore'),
+  $ = require('jquery'),
+  Backbone = require('backbone');
 
-var Friend = Backbone.Model.extend({
-  name: null
-});
+var FriendModel = require('./models/contact'),
+    FriendsCollection = require('./collections/contacts');
 
-var foo = new Friend();
+module.exports = App = function App() {};
