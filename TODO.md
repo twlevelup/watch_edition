@@ -1,12 +1,13 @@
+# Important
+
+- SNAP CI setup
+- SCSS compiler NOT DEPENDANT ON RUBY
+- README with full installation instructions
+- mockup basic watch app using Backbone
+- watch inputs with HTML elements
+- make a nice index page
+- visuals for actual watch
+
+# Ideas
 - bower for dependencies?
-- grunt tasks
-- - jshintrc
-- - pre-commit
-- README with installation instructions
-- jasmine and jasmine test runner
-- grunt tasks to copy over and minify files?
-- mockup watch
-- watch input with HTML elements
-- - keyboard shortcuts?
-- CI setup
-- use require or common js to load dependencies
+- keyboard shortcuts for watch inputs
