@@ -12,6 +12,12 @@ module.exports = {
             cwd: 'src/',
             src: 'img/**',
             dest: 'public/'
+          },
+          {
+            expand: true,
+            cwd: 'src/',
+            src: ['*.html', '*.txt'],
+            dest: 'public/'
           }
       ]
     }
