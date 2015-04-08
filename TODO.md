@@ -1,13 +1,18 @@
 # Important
 
 - SNAP CI setup
-- Watch task to recompile app when web server is running (npm install grunt-watchify --save-dev)
+- Recompile app when src changes and web server is running (use watchify?)
 - README with full installation instructions
+
 - Mockup basic watch app using Backbone
-- Watch inputs with HTML elements
+
 - Make a nice index page
+- Watch inputs with HTML elements
 - Visuals for actual watch
 
 # Nice to have / ideas
 - keyboard shortcuts for watch inputs
 - move css to scss folder
+
+# Known Issues
+- node-sass compatibility problems with different versions of Node (0.10.x v.s. 0.12.x)
