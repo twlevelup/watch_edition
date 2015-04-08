@@ -1,7 +1,7 @@
 # Important
 
 - SNAP CI setup
-- watch task to recompile app when web server is running
+- watch task to recompile app when web server is running (npm install grunt-watchify --save-dev)
 - README with full installation instructions
 - mockup basic watch app using Backbone
 - watch inputs with HTML elements
