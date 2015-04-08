@@ -1,7 +1,7 @@
 # Important
 
 - SNAP CI setup
-- SCSS compiler NOT DEPENDANT ON RUBY
+- watch task to recompile app when web server is running
 - README with full installation instructions
 - mockup basic watch app using Backbone
 - watch inputs with HTML elements

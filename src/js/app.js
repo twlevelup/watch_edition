@@ -1,6 +1,12 @@
 // app.js
-var $ = require('jquery');
-var _ = require('underscore');
+global._ = require('underscore');
+global.$ = require('jquery');
+global.Backbone = require('backbone');
+
 var greetings = require('./greetings');
 
-alert(greetings('Christophe'));
+var Friend = Backbone.Model.extend({
+  name: null
+});
+
+var foo = new Friend();
