@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 _SpecRunner.html
+spec/spec-bundle.js
 .grunt/
 dist/
 public/

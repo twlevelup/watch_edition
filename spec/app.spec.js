@@ -1,4 +1,4 @@
-var App = require('../src/app.js');
+var App = require('../src/js/app.js');
 
 describe('App', function() {
     var app = new App();
