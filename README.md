@@ -27,6 +27,7 @@ Now that you have Git and NodeJS installed you can download this repo and get th
 
 ```shell
 npm install -g browserify
+npm install -g node-sass
 npm install -g grunt-cli
 npm install
 ```
