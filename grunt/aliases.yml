@@ -1,4 +1,8 @@
 default:
+  - 'prompt:dev'
+  - 'inputHandler'
+
+dev:
   - 'build'
   - 'connect'
 
@@ -6,6 +10,7 @@ lint:
   - 'jshint'
 
 test:
+  - 'build'
   - 'watchify:test'
   - 'jasmine'
 
