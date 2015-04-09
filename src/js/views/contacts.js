@@ -14,7 +14,7 @@ var ContactsView = Backbone.View.extend({
     template: require('../../templates/views/contacts.hbs'),
 
     initialize: function(){
-      _.bindAll(this, 'render', 'appendItem');
+      _.bindAll(this, 'render', 'appendItem', 'a');
 
       this.collection = new ContactsCollection();
 
@@ -27,12 +27,19 @@ var ContactsView = Backbone.View.extend({
       this.render();
     },
 
+    a: function (e) {
+      window.location.hash = '/';
+    },
+
     render: function(){
       var self = this;
       this.$el.html(this.template());
       _.each(this.collection.models, function (contact){
         self.appendItem(contact);
       }, this);
+
+      $('#a').click(this.a);
+
     },
 
     appendItem: function(contact){
