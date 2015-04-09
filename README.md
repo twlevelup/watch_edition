@@ -1,4 +1,4 @@
-# Introduction
+# Setup Instructions
 
 ## Prerequisites
 
@@ -26,11 +26,11 @@ This will allow you to monitor the status of the CI build.
 3. Add the XML config to CCTray or CCMenu on your dev machine
 
 
-# Setup
+## Setting up the sample project
 
 Now that you have Git and NodeJS installed you can download this repo and get the project up and running.
 
-## 1. Install the dependencies
+### 1. Install the dependencies
 
 ```shell
 npm install -g browserify
@@ -39,7 +39,7 @@ npm install -g grunt-cli
 npm install
 ```
 
-## 2. Check everything's working
+### 2. Check everything's working
 
 ```shell
 grunt test
@@ -59,10 +59,31 @@ Select "Start your development environment"
 
 2. [click here](http://localhost:9001)
 
-# CI
+## CI
 
 You can access the CI server here [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch)
 
+# The Tech Stack
+
+## The App
+
+[Jasmine](http://jasmine.github.io/) - Testing
+[Backbone](http://backbonejs.org/) - App framework / structure
+[Underscore](http://underscorejs.org/) - JS Utility methods
+[jQuery](https://jquery.com/) - HTML/DOM Manipulation
+[Handlebars](http://handlebarsjs.com/) - Templating
+[SCSS](http://sass-lang.com/) - Styling
+
+## Infrastructure
+
+[Grunt](http://gruntjs.com/) - Automation
+[Snap](https://snap-ci.com/) - CI Builds
+[Heroku](https://www.heroku.com/) - Staging environment
+
 # Recommended Reading
 
-- [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
+[Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/) You don't need to read the whole book but it's worth going over the first couple of chapters to understand how this is different from a regular MVC framework.
+
+[Official Backbone docs](http://backbonejs.org/)
+
+[Official Underscore docs](http://underscorejs.org/)
