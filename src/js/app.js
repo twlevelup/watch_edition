@@ -10,7 +10,6 @@ var App = function App () {},
 
 HomeView = require('./views/home.js');
 
-
 module.exports = App;
 
 App.prototype.start = function () {

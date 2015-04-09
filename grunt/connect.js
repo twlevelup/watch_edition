@@ -3,7 +3,6 @@ module.exports = {
     options: {
       port: 9001,
       base: 'public',
-      keepalive: true,
       livereload: true
     }
   },
