@@ -1,6 +1,5 @@
 # Important
 
-- Recompile app when src changes and web server is running (use watchify?)
 - README with full installation instructions
 
 - Add example model and collection
