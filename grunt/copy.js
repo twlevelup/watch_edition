@@ -5,9 +5,9 @@ module.exports = {
       files: [
           {
             expand: true,
-            cwd: 'src/',
-            src: 'css/**',
-            dest: 'public/'
+            cwd: 'src/styles/',
+            src: 'vendor/**',
+            dest: 'public/styles/'
           },
           {
             expand: true,

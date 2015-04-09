@@ -7,7 +7,7 @@ module.exports = function (grunt, options) {
     },
     app: {
         files: {
-            'public/css/app.css': 'src/scss/app.scss'
+            'public/styles/app.css': 'src/styles/app.scss'
         }
     }
   };

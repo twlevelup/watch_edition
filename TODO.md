@@ -12,7 +12,6 @@
 
 # Nice to have / ideas
 - keyboard shortcuts for watch inputs
-- move css to scss folder
 
 # Known Issues
 - node-sass compatibility problems with different versions of Node (0.10.x v.s. 0.12.x)
