@@ -4,7 +4,9 @@ default:
 
 dev:
   - 'build'
+  - 'watchify:app'
   - 'connect'
+  - 'watch'
 
 lint:
   - 'jshint'
