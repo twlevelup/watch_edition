@@ -14,6 +14,10 @@ module.exports = {
             {
               name: 'Prepare to commit',
               value: 'test'
+            },
+            {
+              name: 'Run a local staging environment',
+              value: 'staging'
             }
           ]
         }

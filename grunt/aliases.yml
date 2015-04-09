@@ -22,3 +22,7 @@ build:
   - 'copy'
   - 'sass'
   - 'browserify'
+
+staging:
+  - 'build'
+  - 'connect:staging'
