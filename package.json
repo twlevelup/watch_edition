@@ -4,7 +4,7 @@
   "description": "Scaffoling for a proto watch app",
   "author": "LevelUp",
   "scripts": {
-    "start": "grunt connect:staging",	  
+    "start": "grunt build && grunt connect:staging",	  
     "test": "grunt test"
   },
   "dependencies": {
