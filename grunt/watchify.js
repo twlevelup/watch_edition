@@ -1,6 +1,9 @@
 module.exports = {
   options: {
-    transform: ['hbsfy']
+    callback: function(b) {
+      b.transform('hbsfy');
+      return b;
+    }
   },
   test: {
     src: './spec/**/*.spec.js',
