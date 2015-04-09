@@ -2,6 +2,7 @@
 
 - README with full installation instructions
 - rewrite with tests
+- clean up views after navigation?
 
 # Nice to have / ideas
 - keyboard shortcuts for watch inputs
