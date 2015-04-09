@@ -1,6 +1,5 @@
 # Important
 
-- SNAP CI setup
 - Recompile app when src changes and web server is running (use watchify?)
 - README with full installation instructions
 
