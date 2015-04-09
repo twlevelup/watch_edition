@@ -17,6 +17,13 @@ Make sure you have NodeJS Installed.
 - Windows users [get the installer here](https://nodejs.org/download/)
 - For OS X users we recommend installing NodeJS using [Homebrew](http://brew.sh/)
 
+### CCTray / CCMenu
+
+This will allow you to monitor the status of the CI build.
+
+1. Install [CCTray](http://www.cruisecontrolnet.org/projects/cctray) (Windows) or [CCMenu](http://ccmenu.org/) (OS X)
+2. Visit https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch and click "CCTray" in the top right of the screen
+3. Add the XML config to CCTray or CCMenu on your dev machine
 
 
 # Setup
@@ -51,6 +58,10 @@ grunt
 Select "Start your development environment"
 
 2. [click here](http://localhost:9001)
+
+# CI
+
+You can access the CI server here [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch)
 
 # Recommended Reading
 
