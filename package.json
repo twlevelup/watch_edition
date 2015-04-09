@@ -1,6 +1,6 @@
 {
   "name": "proto-watch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scaffoling for a proto watch app",
   "author": "LevelUp",
   "scripts": {
