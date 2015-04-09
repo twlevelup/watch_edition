@@ -18,10 +18,10 @@ var ContactsView = Backbone.View.extend({
 
       this.collection = new ContactsCollection();
 
-      this.collection.add([
-        {name: 'Adam'},
-        {name: 'Sam'},
-        {name: 'Shaheedha'}
+      this.collection.push([
+        {name: 'Adam', phoneNumber: '0431 111 111'},
+        {name: 'Sam', phoneNumber: '0431 222 222'},
+        {name: 'Shaheedha', phoneNumber: '0431 333 333'}
       ]);
 
       this.render();
