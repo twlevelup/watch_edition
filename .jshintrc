@@ -81,6 +81,7 @@
     // browser or node.js.
 
     "browserify"    : true,     // Browserify support
+    "jasmine"       : true,     // This option defines globals exposed by the Jasmine unit testing framework.
     "browser"       : true,     // Standard browser globals e.g. `window`, `document`.
     "couch"         : false,    // Enable globals exposed by CouchDB.
     "devel"         : false,    // Allow development statements e.g. `console.log();`.
