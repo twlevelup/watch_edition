@@ -4,7 +4,6 @@
 - Recompile app when src changes and web server is running (use watchify?)
 - README with full installation instructions
 
-- Add example SCSS for views
 - Add example model and collection
 - Add example navigation
 - Watch inputs with HTML elements
