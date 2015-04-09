@@ -1,8 +1,8 @@
 # Introduction
 
-# Prerequisites
+## Prerequisites
 
-## 1. Git
+### Git
 
 Make sure you have Git installed.
 
@@ -10,7 +10,7 @@ Make sure you have Git installed.
 - For OS X users we recommend installing NodeJS using [Homebrew](http://brew.sh/)
 
 
-## 2. NodeJS
+### NodeJS
 
 Make sure you have NodeJS Installed.
 
@@ -23,7 +23,7 @@ Make sure you have NodeJS Installed.
 
 Now that you have Git and NodeJS installed you can download this repo and get the project up and running.
 
-## 1. Install the Node dependencies
+## 1. Install the dependencies
 
 ```shell
 npm install -g browserify
@@ -40,12 +40,18 @@ grunt test
 
 All the tests should pass.
 
-## 3. View the demo app
+## 3. Launch the demo app
 
 1. Start the server
 
 ```shell
-grunt start
+grunt
 ```
 
+Select "Start your development environment"
+
 2. [click here](http://localhost:9001)
+
+# Recommended Reading
+
+- [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
