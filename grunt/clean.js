@@ -1,9 +1,5 @@
-'use strict';
-
-module.exports = function (grunt, options) {
-  return {
-    public: [
-      "public/*"
-    ]
-  };
+module.exports = {
+  public: [
+    "public/*"
+  ]
 };
