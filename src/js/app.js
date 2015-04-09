@@ -7,11 +7,12 @@ var $ = require('jquery'),
 Backbone.$ = $;
 
 var App = function App () {},
-
-HomeView = require('./views/home.js');
+  HomeScreen = require('./views/home.js'),
+  ConcactsScreen = require('./views/contacts.js');
 
 module.exports = App;
 
 App.prototype.start = function () {
-  var contactView = new HomeView();
+  // var homeView = new HomeScreen();
+  var contactsScreen = new HomeScreen();
 };
