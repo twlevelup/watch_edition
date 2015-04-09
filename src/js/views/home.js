@@ -6,7 +6,7 @@ var $ = require('jquery'),
 
 var homeScreen = Backbone.View.extend({
 
-  el: $('#watch-face'),
+  // el: $('#watch-face'),
 
   template: require('../../templates/views/home.hbs'),
 
@@ -20,7 +20,9 @@ var homeScreen = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template());
+    // this.$el.html(this.template());
+
+    $('#watch-face').html(this.template());
 
     $('#a').click(this.a);
     $('#b').click(this.b);

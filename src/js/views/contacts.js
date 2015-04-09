@@ -33,7 +33,8 @@ var ContactsView = Backbone.View.extend({
 
     render: function(){
       var self = this;
-      this.$el.html(this.template());
+      // this.$el.html(this.template());
+      $('#watch-face').html(this.template());
       _.each(this.collection.models, function (contact){
         self.appendItem(contact);
       }, this);
