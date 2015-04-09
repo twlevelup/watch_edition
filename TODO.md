@@ -12,5 +12,4 @@
 - Visuals for actual watch
 
 # Known Issues
-- node-sass compatibility problems with different versions of Node (0.10.x v.s. 0.12.x)
 - Why do we have to do Backbone.$ = $ after requiring Backbone and jquery?
