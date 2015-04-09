@@ -3,8 +3,8 @@
 module.exports = function (grunt, options) {
   return {
     js: {
-      src: ['src/js/app.js', 'src/templates/*.hbs'],
-      dest: 'public/js/app.js',
+      src: ['src/js/main.js', 'src/templates/*.hbs'],
+      dest: 'public/js/main.js',
       options: {
         transform: ['hbsfy']
       }
