@@ -1,12 +1,14 @@
 # Proto Watch App Development Environment
 
+This git repo contains all the code you need to prototype apps for the Proto Watch.
+
 There are a few things you need to do before you can use the sample project.
 
 ## Prerequisites
 
 Before you can setup your Proto Watch development environment you need to have Git, NodeJS and CCTray/CCMenu installed and working.
 
-It's up to you how you install these and as long as they work correctly it doesn't matter but if you're not sure you can follow these instructions.
+It's up to you how you install these and as long – as they work correctly it doesn't matter – but if you're not sure you can follow these instructions.
 
 ### Windows Setup Instructions
 - Install [Git ](http://git-scm.com/)
@@ -16,9 +18,10 @@ It's up to you how you install these and as long as they work correctly it doesn
 
 ### OS X Setup Instructions
 
-- Install [Homebrew](http://brew.sh/)
+This article will help you get Node and NPM installed using Homebrew (our preferred way of installing dev tools on OS X)
+
+- [Installing Node.js and npm using Homebrew on OS X](https://thechangelog.com/install-node-js-with-homebrew-on-os-x/)
 - Install [CCMenu](http://ccmenu.org/)
-- `brew install node`
 
 ## Setting Up The Sample Project
 
@@ -27,20 +30,21 @@ Now that you have Git and NodeJS installed you are ready to download this Git re
 ```shell
 npm install -g browserify node-sass grunt-cli
 npm install
-grunt test
 grunt
 ```
 
 When the prompt appears select "Start your development environment"
 
-2. [View the demo app](http://localhost:9001)
+You should now be able to view the demo Proto Watch app in your browser at http://localhost:9001.
 
 ## Continuous Integration
 
-You can access the CI server here [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch)
+To view the build status and get notifications about the build status:
 
-2. Visit https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch and click "CCTray" in the top right of the screen
-3. Add the XML config to CCTray or CCMenu on your dev machine
+1. Visit [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch) and click "CCTray" in the top right of the screen
+2. Add the XML config to CCTray or CCMenu on your dev machine
+
+You can also access the CI server and view the status of the build here [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch)
 
 
 ## About The Tech Stack
@@ -49,7 +53,7 @@ There are a number of pieces in the tech stack but many of them are just to prov
 
 During the project you'll mostly be working with JavaScript, Backbone and Jasmine.
 
-### App
+### App Components
 
 - [Jasmine](http://jasmine.github.io/) - Javascript testing
 - [Backbone](http://backbonejs.org/) - Javascript app framework
@@ -64,7 +68,11 @@ During the project you'll mostly be working with JavaScript, Backbone and Jasmin
 - [Snap](https://snap-ci.com/) - CI Builds
 - [Heroku](https://www.heroku.com/) - Staging environment
 
-## Recommended Reading
+## Further Reading
 
 ### [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
 You don't need to read the whole book but it's worth going over the first couple of chapters to understand how this is different from a regular MVC framework.
+
+### [tryGit](https://try.github.io)
+
+An excellent online tutorial for getting started with Git.
