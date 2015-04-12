@@ -2,7 +2,7 @@
 
 - README with full installation instructions
 - rewrite with tests
-- add automed check for test coverage (set at 80% and fail the build?)
+- add automated check for test coverage (set at 80% and fail the build?)
 - fix watch/copy task so that index.html is reloaded when in dev mode
 - clean up views after navigation (half finished, see code in router)
 
