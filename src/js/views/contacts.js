@@ -9,11 +9,11 @@ var ContactsCollection = require('../collections/contacts'),
 
 var ContactsView = Backbone.View.extend({
 
-    el: $('#watch-face'),
+  el: $('#watch-face'),
 
-    template: require('../../templates/views/contacts.hbs'),
+  template: require('../../templates/views/contacts.hbs'),
 
-    initialize: function(){
+  initialize: function() {
       _.bindAll(this, 'render', 'appendItem', 'a');
 
       this.collection = new ContactsCollection();
@@ -27,15 +27,16 @@ var ContactsView = Backbone.View.extend({
       this.render();
     },
 
-    a: function (e) {
+  a: function(e) {
       window.location.hash = '/';
     },
 
-    render: function(){
+  render: function() {
       var self = this;
+
       // this.$el.html(this.template());
       $('#watch-face').html(this.template());
-      _.each(this.collection.models, function (contact){
+      _.each(this.collection.models, function(contact) {
         self.appendItem(contact);
       }, this);
 
@@ -43,14 +44,14 @@ var ContactsView = Backbone.View.extend({
 
     },
 
-    appendItem: function(contact){
+  appendItem: function(contact) {
       var contactView = new ContactView({
         model: contact
       });
       $('ul', this.el).append(contactView.render().el);
     }
 
-  }
+}
 );
 
 module.exports = ContactsView;

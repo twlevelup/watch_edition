@@ -6,14 +6,15 @@ var $ = require('jquery'),
 
 Backbone.$ = $;
 
-var App = function App () {},
+var App = function App() {},
+
   Router = require('./router');
 
 module.exports = App;
 
 App.prototype.router = new Router();
 
-App.prototype.start = function () {
+App.prototype.start = function() {
 
   Backbone.history.start();
 

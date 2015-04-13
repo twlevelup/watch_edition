@@ -10,11 +10,11 @@ var homeScreen = Backbone.View.extend({
 
   template: require('../../templates/views/home.hbs'),
 
-  a: function (e) {
+  a: function(e) {
     window.location.hash = '/contacts';
   },
 
-  initialize: function(){
+  initialize: function() {
     _.bindAll(this, 'render');
     this.render();
   },

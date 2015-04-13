@@ -10,11 +10,11 @@ var ContactView = Backbone.View.extend({
 
   template: require('../../templates/views/contact.hbs'),
 
-  initialize: function(){
+  initialize: function() {
     _.bindAll(this, 'render');
   },
 
-  render: function(){
+  render: function() {
     this.$el.html(this.template(this.model.attributes));
     return this;
   }
