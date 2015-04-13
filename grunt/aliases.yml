@@ -1,27 +1,27 @@
 default:
-  - 'prompt:dev'
-  - 'inputHandler'
+  - prompt:dev
+  - inputHandler
 
 lint:
-  - 'jshint'
+  - jshint
 
 test:
-  - 'watchify:test'
-  - 'jasmine'
+  - lint
+  - watchify:test
+  - jasmine
 
 build:
-  - 'lint'
-  - 'test'
-  - 'clean'
-  - 'copy'
-  - 'sass'
-  - 'watchify:app'
+  - test
+  - clean
+  - copy
+  - sass
+  - watchify:app
 
 staging:
-  - 'build'
-  - 'connect:staging'
+  - build
+  - connect:staging
 
 dev:
-  - 'build'
-  - 'connect:dev'
-  - 'watch'
+  - build
+  - connect:dev
+  - watch
