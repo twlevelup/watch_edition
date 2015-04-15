@@ -1,4 +1,4 @@
-var App = require('./app'),
-  myapp = new App();
+var Watch = require('./watch'),
+  watch = new Watch();
 
-myapp.start();
+watch.start();
