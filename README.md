@@ -68,6 +68,20 @@ During the project you'll mostly be working with JavaScript, Backbone and Jasmin
 - [Snap](https://snap-ci.com/) - CI Builds
 - [Heroku](https://www.heroku.com/) - Staging environment
 
+## Watch Specs
+
+- **Audio**: speaker
+- **Input**: 5 mechanical buttons
+- **Screen**: 240-by-240-pixel resolution. 1.54” (diagonal) colour TFT display
+- **Capacity**: 256MB enough for a large amount of text, no video or images (beyond UI elements i.e. not photos, video or music)
+- **GPS**: Yes
+- **Expansion**: None
+- **Networking**: GPRS or less
+- **Battery and Power**: Build in rechargeable batter
+
+### Notes
+With regards to networking the actual speed depends on your target audience i.e. do some research but will be capped at GPRS speeds. Basically make ajax network requests for JSON data
+
 ## Further Reading
 
 ### [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
