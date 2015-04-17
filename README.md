@@ -1,4 +1,4 @@
-# Proto Watch App Development Environment
+# LevelUp Watch Edition App Development Environment
 
 This git repo contains all the code you need to prototype apps for the Proto Watch.
 
