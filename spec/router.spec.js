@@ -13,14 +13,15 @@ describe('Router', function() {
   describe('The Routes', function () {
 
     describe('home', function () {
-      xit('should load the home screen', function () {
+      it('should load the home screen', function () {
         router.home();
       });
     });
 
     describe('contacts', function () {
-      xit('should load the contacts screen', function () {
+      it('should load the contacts screen', function () {
         router.contacts();
+        expect(true).toBeTruthy();
       });
     });
 

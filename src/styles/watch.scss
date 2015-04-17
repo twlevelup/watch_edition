@@ -1,8 +1,156 @@
-#watch-face {
-  height: 240px;
-  width: 320px;
-  border: 1px solid #333;
+.screen {
+  padding-left: 3em;
+  padding-top: 2em;
   font-family: monospace;
   color: #FFF;
+}
+
+#button-wrapper {
+  display: inline-block;
+  width: 10px;
+  margin-top: 3.6em;
+  margin-left: -5px;
+}
+
+.watch-button {
+  margin-bottom: 10px;
+  width: 3em;
+  height: 3em;
+}
+
+#watch {
   background-color: #00F;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.watch{
+  position:relative;
+  margin:0 auto;
+  width:22.8em;
+  padding:7.3em 0
+}
+.case{
+  position:relative;
+  z-index:2;
+  background:#030303;
+  width:21.2em;
+  height:24.7em;
+  border-radius:4em;
+  box-shadow: inset 0 0 0 0.1em #bdbdbd, inset 0 0 0.2em 0.2em #bebebe, inset 0 0.3em 0.3em 0.4em #070707, inset 0 -0.3em 0.1em 0.1em #070707, inset 0 0 0 0.9em #fff,inset 0 0 0 1.05em #313131, inset 3.5em -0.5em 2em -2em #a4a4a4, inset -1.2em -0em 0.5em 0em #a4a4a4, inset -0.4em -1.1em 0.5em 0em #a4a4a4;
+}
+.case:before{
+  content:'';
+  position:absolute;
+  top:0.3em;
+  left:2.5em;
+  right:2.5em;
+  height:8%;
+  background:linear-gradient(to bottom, rgba(255,255,255,0.5) 1%,rgba(255,255,255,0.5) 41%,rgba(255,255,255,0.2) 100%);
+  border-radius:10em 10em 11em 11em / 4em 4em 4em 4em;
+}
+.strap{
+  position:absolute;
+  z-index:1;
+  left:2.5em;
+  width:16.2em;
+  height:7.6em;
+}
+.strap.strap-top{
+  top:0;
+}
+.strap.strap-bottom{
+  bottom:0;
+  transform: rotate(180deg);
+}
+.strap:before {
+  content: '';
+  position: absolute;
+  left: -3.2em;
+  bottom: -0.3em;
+  height: 3.7em;
+  width: 3.7em;
+  border-radius: 50%;
+  box-shadow: 2.2em 2.2em 0 -0.5em #B8B8B8;
+}
+.strap:after {
+  content: '';
+  position: absolute;
+  right: -3.2em;
+  bottom: -0.3em;
+  height: 3.7em;
+  width: 3.7em;
+  border-radius: 50%;
+  box-shadow: -2.2em 2.2em 0 -0.5em #A0A0A0;
+}
+.mesh{
+  position:absolute;
+  box-shadow: inset 0 0.1em 0 #FFF, 0 -0.7em 0 -0.6em rgba(0, 0, 0, 0.6), 0 -0.75em 0 -0.6em rgba(255, 255, 255, 0.5);
+}
+.mesh:nth-child(1){
+  z-index:5;
+  bottom:-0.5em;
+  left:0;
+  width:100%;
+  height:2.5em;
+  background:linear-gradient(to top, #a1a1a1 1%,#eeeeee 100%);
+  border-radius: 2em 2em 0 0 / 2.5em 2.5em 0 0;
+  overflow:hidden;
+}
+.mesh:nth-child(1):before{
+  content:'';
+  position:absolute;
+  bottom:-1em;
+  width:100%;
+  height:5em;
+  left:0;
+  box-shadow: inset 0 -2.6em 1em -0.5em rgba(0, 0, 0, 0.3);
+  transform: rotate(-4deg);
+}
+.mesh:nth-child(2){
+  z-index:4;
+  bottom:1.5em;
+  width:90%;
+  left:5%;
+  height:2.5em;
+  background:linear-gradient(to bottom, #d2d2d2 1%,#e9e9e9 100%);
+  border-radius: 1.5em 1.5em 0 0 / 2.5em 2.5em 0 0;
+  box-shadow: inset 0 0.1em 0 #FFF, 0 -0.4em 0 -0.3em rgba(0, 0, 0, 0.6), 0 -0.75em 0 -0.6em rgba(255, 255, 255, 0.5);
+}
+.mesh:nth-child(3){
+  z-index:3;
+  bottom:3.5em;
+  width:82%;
+  left:9%;
+  height:2.3em;
+  background:linear-gradient(to bottom, #d7d7d7 1%,#ececec 100%);
+  border-radius: 1.1em 1.1em 0 0 / 2.2em 2.2em 0 0;
+  box-shadow: inset 0 0.1em 0 #FFF, 0 -0.25em 0 -0.15em rgba(0, 0, 0, 0.6), 0 -0.75em 0 -0.6em rgba(255, 255, 255, 0.5);
+}
+.mesh:nth-child(4){
+  z-index:2;
+  bottom: 5.1em;
+  width: 78%;
+  left: 11%;
+  height:2em;
+  background:linear-gradient(to bottom, #d5d5d5 1%,#ebebeb 100%);
+  border-radius: 1em 1em 0 0 / 1.9em 1.9em 0 0;
+  box-shadow: inset 0 0.1em 0 #FFF, 0 -0.25em 0 -0.15em rgba(0, 0, 0, 0.6), 0 -0.75em 0 -0.6em rgba(255, 255, 255, 0.5);
+}
+.mesh:nth-child(5) {
+  z-index: 1;
+  bottom: 6.75em;
+  width: 74%;
+  left: 13%;
+  height: 1.2em;
+  background: linear-gradient(to bottom, #c3c3c3 1%,#e2e2e2 100%);
+  border-radius: 0.7em 0.7em 0 0 / 1.2em 1.2em 0 0;
+  box-shadow: inset 0 0.1em 0 #FFF, 0 -0.75em 0 -0.6em rgba(255, 255, 255, 0.5);
+}
+
+.resizer{
+  position:absolute;
+  top:1em;
+  left:1em;
+  width:230px;
 }

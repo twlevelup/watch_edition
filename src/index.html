@@ -12,13 +12,44 @@
     </head>
     <body>
 
-        <h1>Proto Watch Demo App</h1>
+        <div id="left">
+            <h1>Proto Watch Demo App</h1>
 
-        <p>This is Proto Watch prototype app.</p>
+            <p>This is Proto Watch prototype app.</p>
+        </div>
 
-        <div id="watch"></div>
+        <div id="right">
 
-        <script src="js/main.js"></script>
+          <div class="watch">
+            <div class="strap strap-top">
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+            </div>
+            <div id="watch-wrapper">
+              <div id="watch" class="case">
+              </div>
+              <div id="button-wrapper">
+                <button class="watch-button" type="button" id="a">a</button>
+                <button class="watch-button" type="button" id="b">b</button>
+                <button class="watch-button" type="button" id="c">c</button>
+                <button class="watch-button" type="button" id="d">d</button>
+                <button class="watch-button" type="button" id="e">e</button>
+              </div>
+            </div>
+            <div class="strap strap-bottom">
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+              <div class="mesh"></div>
+            </div>
+          </div>
+
+          <script src="js/main.js"></script>
+        </div>
 
     </body>
 </html>
