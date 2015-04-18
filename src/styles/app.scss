@@ -62,14 +62,32 @@ textarea {
 @import 'watch';
 @import 'views/home';
 
+@font-face {
+    font-family: OpenSans;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
 
+@font-face { 
+    font-family: OpenSans-Light;
+    src: url(fonts/OpenSans-Light.ttf);
+}
 
 #left {
     float:left;
+    margin-left: 20%;
+    width: 44%;
+    margin-left: 10%;
+    font-family: OpenSans;
+    h1{
+        font-family: OpenSans-Light;
+        font-weight: normal;
+        font-size: 42pt;
+        color: #5E5E5E;
+    }
 }
 #right {
     float:right;
-    margin-right: 20%;
+    margin-right: 15%;
 }
 
 

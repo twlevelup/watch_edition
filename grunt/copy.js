@@ -4,7 +4,7 @@ module.exports = {
         {
           expand: true,
           cwd: 'src/styles/',
-          src: 'vendor/**',
+          src: ['vendor/**', 'fonts/**'],
           dest: 'public/styles/'
         },
         {
