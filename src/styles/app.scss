@@ -79,16 +79,23 @@ textarea {
 
 #left {
     float:left;
-    margin-left: 20%;
-    width: 44%;
-    margin-left: 10%;
-    font-family: OpenSans-Light;
+    width: 100%;
+    margin-left: 5%;
+    font-family: OpenSans, Helvetica, Arial, sans-serif;
+
     h1 {
+        font-family: OpenSans-Light, Helvetica, Arial, sans-serif;
         font-weight: normal;
         font-size: 42pt;
-        color: #5E5E5E;
+        color: #5e5e5e;
+    }
+
+    p {
+        font-size: 16pt;
+        color: #999999;
     }
 }
+
 #right {
     float:right;
     margin-right: 15%;
@@ -97,13 +104,20 @@ textarea {
 
 
 
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 68.75em) { 
+    #left { 
+        width: 45%;
+    }
+}
 
+@media only screen and (min-width: 35em) {
+    #left { 
+        margin-left: 10%;
+    }
 }
 
 @media print,
