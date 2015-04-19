@@ -12,7 +12,7 @@ module.exports = {
               value: 'dev'
             },
             {
-              name: 'Prepare to commit',
+              name: 'Prepare to commit (Run the tests)',
               value: 'test'
             },
             {
