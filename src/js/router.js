@@ -21,12 +21,12 @@ var Router = Backbone.Router.extend({
     this.changeView(new ContactsScreen());
   },
 
-  _removeOldView: function () {
-      this.currentView.removeButtonEvents();
-      this.currentView.remove();
+  _removeOldView: function() {
+    this.currentView.removeButtonEvents();
+    this.currentView.remove();
   },
 
-  _loadNewView: function (view) {
+  _loadNewView: function(view) {
     this.currentView = view;
     $('#watch-face').html(this.currentView.render().el);
     this.currentView.setButtonEvents();
@@ -36,6 +36,7 @@ var Router = Backbone.Router.extend({
     if (this.currentView) {
       this._removeOldView();
     }
+
     this._loadNewView(view);
   }
 

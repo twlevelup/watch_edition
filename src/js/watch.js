@@ -7,6 +7,7 @@ var $ = require('jquery'),
 Backbone.$ = $;
 
 var Watch = function Watch() {},
+
   Router = require('./router'),
   WatchView = require('./views/watch');
 

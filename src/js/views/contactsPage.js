@@ -13,7 +13,7 @@ var ContactsView = PageView.extend({
   template: require('../../templates/views/contacts.hbs'),
 
   buttonEvents: {
-    'a': 'navigate'
+    a: 'navigate'
   },
 
   initialize: function() {
@@ -25,7 +25,7 @@ var ContactsView = PageView.extend({
 
   },
 
-  loadContacts: function () {
+  loadContacts: function() {
     this.contactsCollection.push([
       {name: 'Adam', phoneNumber: '0431 111 111'},
       {name: 'Sam', phoneNumber: '0431 222 222'},
@@ -57,10 +57,10 @@ var ContactsView = PageView.extend({
       var view = new ContactView({
         model: contact
       });
-  		return view.render().el;
+      return view.render().el;
     }
 
-  }
+}
 );
 
 module.exports = ContactsView;
