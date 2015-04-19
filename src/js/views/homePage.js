@@ -9,20 +9,17 @@ var homeScreen = PageView.extend({
 
   template: require('../../templates/views/home.hbs'),
 
-  a: function(e) {
-    window.location.hash = '/contacts';
+  buttonEvents: {
+    a: 'goToContacts'
   },
 
-  initialize: function() {
-    _.bindAll(this, 'render');
-    this.render();
+  goToContacts: function(e) {
+    window.location.hash = '/contacts';
   },
 
   render: function() {
 
     this.$el.html(this.template());
-
-    $('body').on('click', '#a', this.a);
 
     return this;
 

@@ -13,16 +13,12 @@ var ContactsView = PageView.extend({
   template: require('../../templates/views/contacts.hbs'),
 
   buttonEvents: {
-    a: 'navigate'
+    a: 'goToHomePage'
   },
 
   initialize: function() {
-    _.bindAll(this, 'render', 'createContactHTML', 'navigate');
-
     this.contactsCollection = new ContactsCollection();
-
     this.loadContacts();
-
   },
 
   loadContacts: function() {
@@ -33,7 +29,7 @@ var ContactsView = PageView.extend({
     ]);
   },
 
-  navigate: function() {
+  goToHomePage: function() {
     window.location.hash = '/';
   },
 
