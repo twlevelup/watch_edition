@@ -58,49 +58,10 @@ textarea {
 
 
 
-
+@import 'fonts';
+@import 'layout';
 @import 'watch';
 @import 'views/home';
-
-@font-face {
-    font-family: OpenSans;
-    src: url(fonts/OpenSans-Regular.ttf);
-}
-
-@font-face { 
-    font-family: OpenSans-Light;
-    src: url(fonts/OpenSans-Light.ttf);
-}
-
-@font-face { 
-    font-family: OpenSans-Bold;
-    src: url(fonts/OpenSans-Bold.ttf);
-}
-
-#left {
-    float:left;
-    width: 100%;
-    margin-left: 5%;
-    font-family: OpenSans, Helvetica, Arial, sans-serif;
-
-    h1 {
-        font-family: OpenSans-Light, Helvetica, Arial, sans-serif;
-        font-weight: normal;
-        font-size: 42pt;
-        color: #5e5e5e;
-    }
-
-    p {
-        font-size: 16pt;
-        color: #999999;
-    }
-}
-
-#right {
-    float:right;
-    margin-right: 15%;
-}
-
 
 
 
@@ -108,14 +69,14 @@ textarea {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 68.75em) { 
-    #left { 
+@media only screen and (min-width: 68.75em) {
+    #left {
         width: 45%;
     }
 }
 
 @media only screen and (min-width: 35em) {
-    #left { 
+    #left {
         margin-left: 10%;
     }
 }
