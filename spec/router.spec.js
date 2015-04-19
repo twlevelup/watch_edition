@@ -1,6 +1,7 @@
 'use strict';
 
-var Router = require('../src/js/router.js');
+var Router = require('../src/js/router.js'),
+  PageView = require('../src/js/framework/page');
 
 describe('Router', function() {
 
@@ -13,13 +14,13 @@ describe('Router', function() {
   describe('The Routes', function () {
 
     describe('home', function () {
-      it('should load the home screen', function () {
+      xit('should load the home screen', function () {
         router.home();
       });
     });
 
     describe('contacts', function () {
-      it('should load the contacts screen', function () {
+      xit('should load the contacts screen', function () {
         router.contacts();
         expect(true).toBeTruthy();
       });
@@ -29,30 +30,39 @@ describe('Router', function() {
 
   describe('changeView', function () {
 
+    var view, viewConstructor;
+
     beforeEach(function (){
-      router.view = {
-        remove: jasmine.createSpy(),
-        render: jasmine.createSpy()
-      };
+      viewConstructor = PageView.extend({});
+      view = new PageView();
     });
 
-    xit('should unbind the button events', function () {
-      router.changeView();
+    describe('When there is a new view', function () {
+
+      xit('should cache the new view', function () {
+        router.changeView('a view');
+        expect(router.view).toEqual('a view');
+      });
+
+      xit('should render the new view', function () {
+        spyOn(view, 'render');
+        router.changeView(view);
+        expect(view.render).toHaveBeenCalled();
+      });
+
     });
 
-    xit('should cache the new view', function () {
-      router.changeView('a view');
-      expect(router.view).toEqual('a view');
-    });
+    describe('When there is a previous', function () {
 
-    xit('should remove the old view', function () {
-      router.changeView();
-      expect(router.view.remove).toHaveBeenCalled();
-    });
+      xit('should unbind the button events', function () {
+        router.view.changeView();
+      });
 
-    xit('should render the new view', function () {
-      router.changeView();
-      expect(router.view.render).toHaveBeenCalled();
+      xit('should remove the old view', function () {
+        router.changeView();
+        expect(router.view.remove).toHaveBeenCalled();
+      });
+
     });
 
   });

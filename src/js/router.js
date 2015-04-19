@@ -14,21 +14,29 @@ var Router = Backbone.Router.extend({
   },
 
   home: function() {
-    this.changeView(HomeScreen);
+    this.changeView(new HomeScreen());
   },
 
   contacts: function() {
-    this.changeView(ContactsScreen);
+    this.changeView(new ContactsScreen());
   },
 
-  changeView: function(View) {
+  _removeOldView: function () {
     if (this.view) {
       this.view.removeButtonEvents();
       this.view.remove();
     }
-    this.view = new View();
+  },
+
+  _loadNewView: function (view) {
+    this.view = view;
     $('#watch-face').html(this.view.render().el);
     this.view.setButtonEvents();
+  },
+
+  changeView: function(view) {
+    this._removeOldView();
+    this._loadNewView(view);
   }
 
 });
