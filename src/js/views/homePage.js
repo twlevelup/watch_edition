@@ -3,7 +3,7 @@
 var $ = require('jquery'),
   _ = require('underscore'),
   Backbone = require('backbone'),
-  PageView = require('./page');
+  PageView = require('../framework/page');
 
 var homeScreen = PageView.extend({
 

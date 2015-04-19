@@ -3,7 +3,7 @@
 var $ = require('jquery'),
   _ = require('underscore'),
   Backbone = require('backbone'),
-  PageView = require('./page');
+  PageView = require('../framework/page');
 
 var ContactsCollection = require('../collections/contacts'),
   ContactView = require('./contact');
@@ -11,6 +11,10 @@ var ContactsCollection = require('../collections/contacts'),
 var ContactsView = PageView.extend({
 
   template: require('../../templates/views/contacts.hbs'),
+
+  buttonEvents: {
+    'a': 'navigate'
+  },
 
   initialize: function() {
     _.bindAll(this, 'render', 'createContactHTML', 'navigate');
@@ -38,8 +42,6 @@ var ContactsView = PageView.extend({
     this.$el.html(this.template());
 
     var contactsHTML = document.createDocumentFragment();
-
-    $('body').on('click', '#a', this.navigate);
 
     this.contactsCollection.each(function(contact) {
       $(contactsHTML).append(this.createContactHTML(contact));

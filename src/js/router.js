@@ -3,8 +3,8 @@
 var Backbone = require('backbone'),
   $ = require('jquery');
 
-var HomeScreen = require('./views/homeScreen.js'),
-  ContactsScreen = require('./views/contactsScreen.js');
+var HomeScreen = require('./views/homePage.js'),
+  ContactsScreen = require('./views/contactsPage.js');
 
 var Router = Backbone.Router.extend({
 
@@ -21,21 +21,14 @@ var Router = Backbone.Router.extend({
     this.changeView(ContactsScreen);
   },
 
-  resetButtons: function () {
-    $('body').off('click', '#a')
-      .off('click', '#b')
-      .off('click', '#c')
-      .off('click', '#d')
-      .off('click', '#e');
-  },
-
   changeView: function(View) {
-    this.resetButtons();
     if (this.view) {
+      this.view.removeButtonEvents();
       this.view.remove();
     }
     this.view = new View();
     $('#watch-face').html(this.view.render().el);
+    this.view.setButtonEvents();
   }
 
 });
