@@ -2,14 +2,13 @@
 
 var $ = require('jquery'),
   _ = require('underscore'),
-  Backbone = require('backbone');
+  Backbone = require('backbone'),
+  PageView = require('./page');
 
 var ContactsCollection = require('../collections/contacts'),
   ContactView = require('./contact');
 
-var ContactsView = Backbone.View.extend({
-
-  className: 'screen',
+var ContactsView = PageView.extend({
 
   template: require('../../templates/views/contacts.hbs'),
 

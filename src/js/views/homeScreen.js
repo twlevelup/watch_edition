@@ -2,11 +2,10 @@
 
 var $ = require('jquery'),
   _ = require('underscore'),
-  Backbone = require('backbone');
+  Backbone = require('backbone'),
+  PageView = require('./page');
 
-var homeScreen = Backbone.View.extend({
-
-  className: 'screen',
+var homeScreen = PageView.extend({
 
   template: require('../../templates/views/home.hbs'),
 
