@@ -6,7 +6,7 @@ var $ = require('jquery'),
 
 var pageView = Backbone.View.extend({
 
-  className: 'screen',
+  className: 'page',
 
   setButtonEvents: function () {
     _.each(this.buttonEvents, function (eventHandler, buttonID) {
