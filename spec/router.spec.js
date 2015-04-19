@@ -30,39 +30,51 @@ describe('Router', function() {
 
   describe('changeView', function () {
 
-    var view, viewConstructor;
+    var view;
 
     beforeEach(function (){
-      viewConstructor = PageView.extend({});
       view = new PageView();
     });
 
     describe('When there is a new view', function () {
 
-      xit('should cache the new view', function () {
-        router.changeView('a view');
-        expect(router.view).toEqual('a view');
-      });
-
-      xit('should render the new view', function () {
-        spyOn(view, 'render');
+      it('should load the new view', function () {
+        spyOn(router, '_loadNewView');
         router.changeView(view);
-        expect(view.render).toHaveBeenCalled();
+        expect(router._loadNewView).toHaveBeenCalledWith(view);
       });
 
     });
 
-    describe('When there is a previous', function () {
+    describe('When there is a previous view', function () {
 
-      xit('should unbind the button events', function () {
-        router.view.changeView();
+      it('should remove the old view', function () {
+        spyOn(router, '_removeOldView');
+        router.currentView = new PageView();
+        router.changeView(view);
+        expect(router._removeOldView).toHaveBeenCalled();
       });
 
-      xit('should remove the old view', function () {
-        router.changeView();
-        expect(router.view.remove).toHaveBeenCalled();
-      });
+    });
 
+    describe('_loadNewView', function () {
+      it('should set the set the current view', function () {
+        router._loadNewView(view);
+        expect(router.currentView).toEqual(view);
+      });
+      it('should render the current view', function () {
+        spyOn(view, 'render').and.callThrough();
+        router._loadNewView(view);
+        expect(view.render).toHaveBeenCalled();
+      });
+      it('should setup the buttons', function () {
+        spyOn(view, 'setButtonEvents');
+        router._loadNewView(view);
+        expect(view.setButtonEvents).toHaveBeenCalled();
+      });
+      xit('should render the view in the watch face', function () {
+
+      });
     });
 
   });

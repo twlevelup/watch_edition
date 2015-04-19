@@ -22,20 +22,20 @@ var Router = Backbone.Router.extend({
   },
 
   _removeOldView: function () {
-    if (this.view) {
-      this.view.removeButtonEvents();
-      this.view.remove();
-    }
+      this.currentView.removeButtonEvents();
+      this.currentView.remove();
   },
 
   _loadNewView: function (view) {
-    this.view = view;
-    $('#watch-face').html(this.view.render().el);
-    this.view.setButtonEvents();
+    this.currentView = view;
+    $('#watch-face').html(this.currentView.render().el);
+    this.currentView.setButtonEvents();
   },
 
   changeView: function(view) {
-    this._removeOldView();
+    if (this.currentView) {
+      this._removeOldView();
+    }
     this._loadNewView(view);
   }
 
