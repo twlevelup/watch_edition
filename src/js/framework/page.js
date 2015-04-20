@@ -23,6 +23,10 @@ var pageView = Backbone.View.extend({
       .off('click', '#watch-face');
   },
 
+  navigate: function (loc) {
+    global.router.navigate(loc, true);
+  },
+
   back: function() {
     history.back();
   }

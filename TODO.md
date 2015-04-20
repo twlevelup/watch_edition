@@ -9,6 +9,11 @@
 - add build indicator to README.md
 
 - make jasmine line numbers useful (http://nick.perfectedz.com/browserify-unit-testing-p2/)
+- example test for loading data
+
+- example of sending a notifications (extra buttons on index page?)
+- example of receiving a notification
+
 
 
 # Nice to have / ideas
