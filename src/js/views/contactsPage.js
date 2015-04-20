@@ -13,7 +13,8 @@ var ContactsView = PageView.extend({
   template: require('../../templates/views/contacts.hbs'),
 
   buttonEvents: {
-    a: 'goToHomePage'
+    a: 'goToHomePage',
+    e: 'doSomething'
   },
 
   initialize: function() {
@@ -27,6 +28,10 @@ var ContactsView = PageView.extend({
       {name: 'Sam', phoneNumber: '0431 222 222'},
       {name: 'Shaheedha', phoneNumber: '0431 333 333'}
     ]);
+  },
+
+  doSomething: function() {
+    alert('something');
   },
 
   goToHomePage: function() {
