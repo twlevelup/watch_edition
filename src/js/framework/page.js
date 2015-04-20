@@ -16,10 +16,10 @@ var pageView = Backbone.View.extend({
 
   // TODO simplify this
   removeButtonEvents: function() {
-    $('body').off('click', '#a')
-      .off('click', '#b')
-      .off('click', '#c')
-      .off('click', '#d')
+    $('body').off('click', '#button-right')
+      .off('click', '#button-left')
+      .off('click', '#button-bottom')
+      .off('click', '#button-top')
       .off('click', '#watch-face');
   }
 

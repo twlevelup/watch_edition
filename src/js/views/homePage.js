@@ -10,9 +10,9 @@ var homeScreen = PageView.extend({
   template: require('../../templates/views/home.hbs'),
 
   buttonEvents: {
-    a: 'goToContacts',
-    d: 'scrollUp',
-    c: 'scrollDown'
+    'button-right': 'goToContacts',
+    'button-top': 'scrollUp',
+    'button-bottom': 'scrollDown'
   },
 
   goToContacts: function(e) {
@@ -20,12 +20,10 @@ var homeScreen = PageView.extend({
   },
 
   scrollUp: function() {
-    console.log("scrolling");
     $('#watch-face').animate({scrollTop: '+=70px'});
   },
 
   scrollDown: function() {
-    console.log("scrolling");
     $('#watch-face').animate({scrollTop: '-=70px'});
   },
 

@@ -13,8 +13,8 @@ var ContactsView = PageView.extend({
   template: require('../../templates/views/contacts.hbs'),
 
   buttonEvents: {
-    a: 'goToHomePage',
-    'watch-face': 'doSomething'
+    'button-right': 'goToHomePage',
+    'watch-face': 'screenClickExample'
   },
 
   initialize: function() {
@@ -30,8 +30,8 @@ var ContactsView = PageView.extend({
     ]);
   },
 
-  doSomething: function() {
-    alert('something');
+    screenClickExample: function() {
+    alert('you should NEVER use alerts!');
   },
 
   goToHomePage: function() {
