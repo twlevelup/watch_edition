@@ -10,11 +10,23 @@ var homeScreen = PageView.extend({
   template: require('../../templates/views/home.hbs'),
 
   buttonEvents: {
-    a: 'goToContacts'
+    a: 'goToContacts',
+    d: 'scrollUp',
+    c: 'scrollDown'
   },
 
   goToContacts: function(e) {
     window.location.hash = '/contacts';
+  },
+
+  scrollUp: function() {
+    console.log("scrolling");
+    $('#watch-face').animate({scrollTop: '+=70px'});
+  },
+
+  scrollDown: function() {
+    console.log("scrolling");
+    $('#watch-face').animate({scrollTop: '-=70px'});
   },
 
   render: function() {
