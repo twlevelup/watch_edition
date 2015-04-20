@@ -20,11 +20,11 @@ var homeScreen = PageView.extend({
   },
 
   scrollUp: function() {
-    $('#watch-face').animate({scrollTop: '+=70px'});
+    $('#watch-face').animate({scrollTop: '-=70px'});
   },
 
   scrollDown: function() {
-    $('#watch-face').animate({scrollTop: '-=70px'});
+    $('#watch-face').animate({scrollTop: '+=70px'});
   },
 
   render: function() {
