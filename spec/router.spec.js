@@ -1,7 +1,9 @@
 'use strict';
 
 var Router = require('../src/js/router.js'),
-  PageView = require('../src/js/framework/page');
+  PageView = require('../src/js/framework/page'),
+  HomePage = require('../src/js/views/homePage'),
+  ContactPage = require('../src/js/views/contactsPage');
 
 describe('Router', function() {
 
@@ -13,16 +15,23 @@ describe('Router', function() {
 
   describe('The Routes', function() {
 
+    beforeEach(function () {
+      spyOn(router, 'changeView');
+    });
+
     describe('home', function() {
-      xit('should load the home screen', function() {
+      it('should load the home screen', function() {
         router.home();
+        var isHomePage = router.changeView.calls.argsFor(0)[0] instanceof HomePage;
+        expect(isHomePage).toBeTruthy();
       });
     });
 
     describe('contacts', function() {
-      xit('should load the contacts screen', function() {
+      it('should load the contacts screen', function() {
         router.contacts();
-        expect(true).toBeTruthy();
+        var isContactPage = router.changeView.calls.argsFor(0)[0] instanceof ContactPage;
+        expect(isContactPage).toBeTruthy();
       });
     });
 
