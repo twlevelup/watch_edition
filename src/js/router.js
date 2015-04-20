@@ -5,8 +5,8 @@ var Backbone = require('backbone'),
 
 Backbone.$ = $;
 
-var HomePage = require('./views/homePage.js'),
-  ContactsPage = require('./views/contactsPage.js'),
+var HomePage = require('./views/homePage'),
+  ContactsPage = require('./views/contactsPage'),
   homePage = new HomePage(),
   contactsPage = new ContactsPage();
 
