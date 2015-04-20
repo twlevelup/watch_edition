@@ -14,7 +14,7 @@ var ContactsView = PageView.extend({
 
   buttonEvents: {
     a: 'goToHomePage',
-    e: 'doSomething'
+    'watch-face': 'doSomething'
   },
 
   initialize: function() {

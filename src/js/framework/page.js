@@ -20,7 +20,7 @@ var pageView = Backbone.View.extend({
       .off('click', '#b')
       .off('click', '#c')
       .off('click', '#d')
-      .off('click', '#e');
+      .off('click', '#watch-face');
   }
 
 });
