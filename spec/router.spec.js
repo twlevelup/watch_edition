@@ -15,7 +15,7 @@ describe('Router', function() {
 
   describe('The Routes', function() {
 
-    beforeEach(function () {
+    beforeEach(function() {
       spyOn(router, 'changeView');
     });
 

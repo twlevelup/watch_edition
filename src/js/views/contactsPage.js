@@ -31,7 +31,7 @@ var ContactsView = PageView.extend({
     ]);
   },
 
-    screenClickExample: function() {
+  screenClickExample: function() {
     alert('you should NEVER use alerts!');
   },
 

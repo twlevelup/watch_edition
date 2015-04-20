@@ -23,7 +23,7 @@ var pageView = Backbone.View.extend({
       .off('click', '#watch-face');
   },
 
-  back: function () {
+  back: function() {
     history.back();
   }
 
