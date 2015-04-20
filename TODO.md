@@ -2,8 +2,6 @@
 
 - rewrite with tests
 - reorganise the folder structure
-- use backbone methods for navigation / window location
-- check integration with back button history
 - fix watch/copy task so that index.html is reloaded when in dev mode
 - hook up mongo db backend (dev and heroku)
 - hook up heroku & fork repo for each team
@@ -16,6 +14,7 @@
 
 
 # Nice to have / ideas
+- click and hold for buttons i.e. scrolling
 - pick a code style and make exec:jscs work properly as part of running tests and the build(?) task
 - keyboard shortcuts for watch inputs
 - Separate stylesheets for layout/scafloding and actual app

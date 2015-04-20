@@ -3,22 +3,26 @@
 var Backbone = require('backbone'),
   $ = require('jquery');
 
-var HomeScreen = require('./views/homePage.js'),
-  ContactsScreen = require('./views/contactsPage.js');
+Backbone.$ = $;
+
+var HomePage = require('./views/homePage.js'),
+  ContactsPage = require('./views/contactsPage.js'),
+  homePage = new HomePage(),
+  contactsPage = new ContactsPage();
 
 var Router = Backbone.Router.extend({
 
   routes: {
-    contacts: 'contacts',
-    '*actions': 'home'
+    '': 'home',
+    contacts: 'contacts'
   },
 
   home: function() {
-    this.changeView(new HomeScreen());
+    this.changeView(homePage);
   },
 
   contacts: function() {
-    this.changeView(new ContactsScreen());
+    this.changeView(contactsPage);
   },
 
   _removeOldView: function() {

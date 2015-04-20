@@ -14,7 +14,8 @@ var ContactsView = PageView.extend({
 
   buttonEvents: {
     'button-right': 'goToHomePage',
-    'watch-face': 'screenClickExample'
+    'watch-face': 'screenClickExample',
+    'button-left': 'back'
   },
 
   initialize: function() {
@@ -35,7 +36,7 @@ var ContactsView = PageView.extend({
   },
 
   goToHomePage: function() {
-    window.location.hash = '/';
+    global.router.navigate('', true);
   },
 
   render: function() {

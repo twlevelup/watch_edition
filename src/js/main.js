@@ -1,4 +1,14 @@
-var Watch = require('./watch'),
+'use strict';
+
+var $ = require('jquery')(window),
+    Backbone = require('backbone');
+
+Backbone.$ = $;
+
+var Router = require('./router');
+global.router = new Router();
+
+var Watch = require('./framework/watch'),
   watch = new Watch();
 
-watch.start();
+  Backbone.history.start();

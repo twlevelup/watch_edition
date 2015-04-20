@@ -12,11 +12,12 @@ var homeScreen = PageView.extend({
   buttonEvents: {
     'button-right': 'goToContacts',
     'button-top': 'scrollUp',
-    'button-bottom': 'scrollDown'
+    'button-bottom': 'scrollDown',
+    'button-left': 'back'
   },
 
   goToContacts: function(e) {
-    window.location.hash = '/contacts';
+    global.router.navigate('contacts', true);
   },
 
   scrollUp: function() {
