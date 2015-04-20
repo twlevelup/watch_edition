@@ -5,10 +5,11 @@ var $ = require('jquery')(window),
 
 Backbone.$ = $;
 
-var Router = require('./router');
+var Router = require('./router'),
+  Watch = require('./framework/watch');
+
 global.router = new Router();
 
-var Watch = require('./framework/watch'),
-  watch = new Watch();
+var watch = new Watch();
 
-  Backbone.history.start();
+Backbone.history.start();
