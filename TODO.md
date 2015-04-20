@@ -1,6 +1,15 @@
 # Important
 
 - rewrite with tests
+- reorganise the folder structure
+- use backbone methods for navigation / window location
+- check integration with back button history
+- fix watch/copy task so that index.html is reloaded when in dev mode
+- hook up mongo db backend (dev and heroku)
+- hook up heroku & fork repo for each team
+- make sure snap CI is working
+- add build indicator to README.md
+
 - Make a nice index page
 - fix watch/copy task so that index.html is reloaded when in dev mode
 - make jasmine line numbers useful (tests run using the spec bundle file)
