@@ -3,14 +3,12 @@
 - rewrite with tests
 - reorganise the folder structure
 - fix watch/copy task so that index.html is reloaded when in dev mode
-- hook up mongo db backend (dev and heroku)
+- hook up mongo db backend for dev and heroku (http://kroltech.com/2013/12/boilerplate-web-app-using-backbone-js-expressjs-node-js-mongodb)
 - hook up heroku & fork repo for each team
 - make sure snap CI is working
 - add build indicator to README.md
 
-- Make a nice index page
-- fix watch/copy task so that index.html is reloaded when in dev mode
-- make jasmine line numbers useful (tests run using the spec bundle file)
+- make jasmine line numbers useful (http://nick.perfectedz.com/browserify-unit-testing-p2/)
 
 
 # Nice to have / ideas
