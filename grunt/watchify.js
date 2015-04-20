@@ -2,6 +2,7 @@
 
 module.exports = {
   options: {
+    debug: true,
     callback: function(b) {
       b.transform('hbsfy');
       return b;
