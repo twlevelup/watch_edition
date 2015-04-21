@@ -6,7 +6,7 @@ var ContactsPage = require('../../src/js/views/contactsPage'),
 
 global.router = new Router();
 
-describe('The Contacts Page', function() {
+xdescribe('The Contacts Page', function() {
 
   var contactsPage, router;
 
