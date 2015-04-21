@@ -1,5 +1,8 @@
 # Important
 
+- boilerplate app https://github.com/jkat98/benm
+- proxyquire https://github.com/thlorenz/proxyquire
+
 - rewrite with tests
 - reorganise the folder structure
 - fix watch/copy task so that index.html is reloaded when in dev mode
