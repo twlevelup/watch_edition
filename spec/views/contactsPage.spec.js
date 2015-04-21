@@ -34,11 +34,6 @@ describe('The Contacts Page', function() {
     });
 
     describe('button-right', function () {
-      //it('should take you to the homepage', function () {
-      //  var buttonRightAction = contactsPage.buttonEvents['button-right'];
-      //  contactsPage[buttonRightAction]();
-      //  expect(contactsPage.navigate).toHaveBeenCalledWith('');
-      //});
 
       it('should take you to the hoe page', function () {
 
