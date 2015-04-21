@@ -2,7 +2,7 @@
 
 var HomePage = require('../../src/js/views/homePage'),
   Router = require('../../src/js/router.js'),
-  $ = require('jQuery');
+  $ = require('jquery');
 
 global.router = new Router();
 
