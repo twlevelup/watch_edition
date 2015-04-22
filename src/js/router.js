@@ -33,7 +33,6 @@ var Router = Backbone.Router.extend({
 
   renderView: function(view) {
     if (this.currentView) {
-      console.log('remove');
       this.currentView.remove();
     }
     this._loadNewView(view);
