@@ -1,9 +1,9 @@
 'use strict';
 
-var Backbone = require('backbone'),
-  $ = require('jquery');
-
-Backbone.$ = $;
+//var Backbone = require('backbone'),
+//  $ = require('jquery');
+//
+//Backbone.$ = $;
 
 var HomePage = require('./views/homePage'),
   ContactsPage = require('./views/contactsPage'),

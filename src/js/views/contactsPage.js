@@ -1,9 +1,6 @@
 'use strict';
 
-var $ = require('jquery'),
-  _ = require('underscore'),
-  Backbone = require('backbone'),
-  PageView = require('../framework/page');
+var PageView = require('../framework/page');
 
 var ContactsCollection = require('../collections/contacts'),
   ContactView = require('./contact');
