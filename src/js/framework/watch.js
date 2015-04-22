@@ -3,6 +3,7 @@
 var $ = require('jquery'),
   _ = require('underscore'),
   Backbone = require('backbone');
+  
 Backbone.$ = $;
 
 var Watch = Backbone.View.extend({

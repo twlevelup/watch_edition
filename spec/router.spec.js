@@ -16,32 +16,28 @@ describe('Router', function() {
   describe('The Routes', function() {
 
     beforeEach(function() {
-      spyOn(router, 'changeView');
+      spyOn(router, 'renderView');
     });
 
     describe('home', function() {
       it('should load the home screen', function() {
         router.home();
-        var isHomePage = router.changeView.calls.argsFor(0)[0] instanceof HomePage;
+        var isHomePage = router.renderView.calls.argsFor(0)[0] instanceof HomePage;
         expect(isHomePage).toBeTruthy();
       });
-    });
-
-    it('fail', function () {
-      expect(false).toBeTruthy();
     });
 
     describe('contacts', function() {
       it('should load the contacts screen', function() {
         router.contacts();
-        var isContactPage = router.changeView.calls.argsFor(0)[0] instanceof ContactPage;
+        var isContactPage = router.renderView.calls.argsFor(0)[0] instanceof ContactPage;
         expect(isContactPage).toBeTruthy();
       });
     });
 
   });
 
-  describe('changeView', function() {
+  describe('renderView', function() {
 
     var view;
 
@@ -52,19 +48,19 @@ describe('Router', function() {
     describe('Loading a new view', function() {
 
       it('should set the set the current view', function() {
-        router.changeView(view);
+        router.renderView(view);
         expect(router.currentView).toEqual(view);
       });
 
       it('should render the current view', function() {
         spyOn(view, 'render').and.callThrough();
-        router.changeView(view);
+        router.renderView(view);
         expect(view.render).toHaveBeenCalled();
       });
 
       it('should setup the buttons', function() {
         spyOn(view, 'setButtonEvents');
-        router.changeView(view);
+        router.renderView(view);
         expect(view.setButtonEvents).toHaveBeenCalled();
       });
 
@@ -77,10 +73,10 @@ describe('Router', function() {
     describe('When there is an existing view', function() {
 
       it('should remove the old view', function() {
-        spyOn(router, '_removeOldView');
         router.currentView = new PageView();
-        router.changeView(view);
-        expect(router._removeOldView).toHaveBeenCalled();
+        spyOn(router.currentView, 'remove');
+        router.renderView(view);
+        expect(router.currentView.remove).toHaveBeenCalled();
       });
 
     });

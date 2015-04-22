@@ -29,18 +29,14 @@ describe('The Contacts Page', function() {
 
   describe('button events', function () {
 
-    beforeEach(function () {
-      spyOn(global.router, 'navigate');
-    });
-
-    describe('button-right', function () {
-
-      it('should take you to the hoe page', function () {
-
-        var buttonRightAction = contactsPage.buttonEvents['button-right'];
-        contactsPage[buttonRightAction]();
-        expect(global.router.navigate).toHaveBeenCalledWith('', true);
+    describe('right', function () {
+      it('should take the user to the contacts page', function () {
+        spyOn(contactsPage, 'goToHomePage');
+        contactsPage.setButtonEvents();
+        contactsPage.trigger('right');
+        expect(contactsPage.goToHomePage).toHaveBeenCalled();
       });
+
 
     });
   });

@@ -18,16 +18,11 @@ var Router = Backbone.Router.extend({
   },
 
   home: function() {
-    this.changeView(homePage);
+    this.renderView(homePage);
   },
 
   contacts: function() {
-    this.changeView(contactsPage);
-  },
-
-  _removeOldView: function() {
-    this.currentView.removeButtonEvents();
-    this.currentView.remove();
+    this.renderView(contactsPage);
   },
 
   _loadNewView: function(view) {
@@ -36,11 +31,10 @@ var Router = Backbone.Router.extend({
     this.currentView.setButtonEvents();
   },
 
-  changeView: function(view) {
+  renderView: function(view) {
     if (this.currentView) {
-      this._removeOldView();
+      this.currentView.remove();
     }
-
     this._loadNewView(view);
   }
 

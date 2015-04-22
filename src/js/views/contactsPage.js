@@ -15,9 +15,9 @@ var ContactsView = PageView.extend({
   template: require('../../templates/views/contacts.hbs'),
 
   buttonEvents: {
-    'button-right': 'goToHomePage',
-    'watch-face': 'screenClickExample',
-    'button-left': 'back'
+    'right': 'goToHomePage',
+    'face': 'screenClickExample',
+    'left': 'back'
   },
 
   initialize: function() {
@@ -37,6 +37,7 @@ var ContactsView = PageView.extend({
     alert('you should NEVER use alerts!');
   },
 
+  // FIXME use changeview on the app/router
   goToHomePage: function() {
     global.router.navigate('', true);
   },

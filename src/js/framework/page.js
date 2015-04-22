@@ -10,17 +10,8 @@ var pageView = Backbone.View.extend({
 
   setButtonEvents: function() {
     _.each(this.buttonEvents, function(eventHandler, buttonID) {
-      $('body').on('click', '#' + buttonID, this[eventHandler]);
+      this.listenTo(this, buttonID, this[eventHandler]);
     }, this);
-  },
-
-  // TODO simplify this
-  removeButtonEvents: function() {
-    $('body').off('click', '#button-right')
-      .off('click', '#button-left')
-      .off('click', '#button-bottom')
-      .off('click', '#button-top')
-      .off('click', '#watch-face');
   },
 
   back: function() {
