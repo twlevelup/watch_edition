@@ -11,3 +11,4 @@ spec/.spec-bundle.js
 .grunt/
 dist/
 public/
+build/
