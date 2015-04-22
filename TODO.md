@@ -1,15 +1,17 @@
 # Important
 
-- boilerplate app https://github.com/jkat98/benm
-- proxyquire https://github.com/thlorenz/proxyquire
+- fix all grunt tasks (build and test probably broken? aliases.yml and grunt/*.js)
+- fix livereload (problem interaction between connect, watch and concurrent?)
+- clean up navigation method so easier to test
+- Full test coverage tests
+- Notifications
+- Mongo DB
 
-- rewrite with tests
-- reorganise the folder structure
+
+
+- reorganise/simplify the folder structure (again look at benm repo)
 - fix watch/copy task so that index.html is reloaded when in dev mode
-- hook up mongo db backend for dev and heroku (http://kroltech.com/2013/12/boilerplate-web-app-using-backbone-js-expressjs-node-js-mongodb)
-- hook up heroku & fork repo for each team
 - make sure snap CI is working
-- add build indicator to README.md
 
 - make jasmine line numbers useful (http://nick.perfectedz.com/browserify-unit-testing-p2/)
 - example test for loading data
@@ -18,10 +20,15 @@
 - example of receiving a notification
 
 
-
 # Nice to have / ideas
+- add build indicator to README.md
 - click and hold for buttons i.e. scrolling
 - pick a code style and make exec:jscs work properly as part of running tests and the build(?) task
 - keyboard shortcuts for watch inputs
 - Separate stylesheets for layout/scafloding and actual app
 - add automated check for test coverage (set at 80% and fail the build?)
+
+
+# Useful links
+- Similar boilerplate app https://github.com/jkat98/benm
+- hook up mongo db backend for dev and heroku (http://kroltech.com/2013/12/boilerplate-web-app-using-backbone-js-expressjs-node-js-mongodb)
