@@ -14,7 +14,7 @@ It's up to you how you install these and as long – as they work correctly it d
 - Install [Git ](http://git-scm.com/)
 - Install [Node](https://nodejs.org/download/)
 - Install [CCTray](http://www.cruisecontrolnet.org/projects/cctray)
-
+- Install [Livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 
 ### OS X Setup Instructions
 
@@ -22,6 +22,7 @@ This article will help you get Node and NPM installed using Homebrew (our prefer
 
 - [Installing Node.js and npm using Homebrew on OS X](https://thechangelog.com/install-node-js-with-homebrew-on-os-x/)
 - Install [CCMenu](http://ccmenu.org/)
+- Install [Livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 
 ## Setting Up The Sample Project
 
