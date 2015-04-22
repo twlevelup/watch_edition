@@ -1,15 +1,14 @@
 module.exports = {
   styles: {
-    files: 'src/styles/**/*.scss',
-    tasks: 'sass',
-    options: {
-      livereload: true
-    }
+    files: ['src/styles/**/*.scss'],
+    tasks: ['sass']
   },
-  app: {
-    files: 'public/js/main.js',
-    options: {
-      livereload: true
-    }
+  scripts: {
+    files: ['src/js/**/*.js', 'src/templates/**/*.hbs'],
+    tasks: ['browserify:app']
+  },
+  static: {
+      files: [],
+      tasks: ['copy']
   }
 };

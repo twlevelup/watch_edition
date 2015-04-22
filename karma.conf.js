@@ -8,7 +8,7 @@ module.exports = function(config) {
 
 
         // frameworks to use
-        frameworks: ['jasmine'],
+        frameworks: ['browserify', 'jasmine'],
 
 
         // list of files / patterns to load in the browser

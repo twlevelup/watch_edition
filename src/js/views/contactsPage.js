@@ -1,5 +1,10 @@
 'use strict';
 
+var Backbone = require('backbone'),
+ $ = require('jquery');
+
+Backbone.$ = $;
+
 var PageView = require('../framework/page');
 
 var ContactsCollection = require('../collections/contacts'),

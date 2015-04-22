@@ -1,5 +1,11 @@
 'use strict';
 
+var Backbone = require('backbone'),
+ $ = require('jquery'),
+ _ = require('underscore');
+
+Backbone.$ = $;
+
 var ContactView = Backbone.View.extend({
 
   tagName: 'li',

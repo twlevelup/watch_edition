@@ -9,7 +9,7 @@ module.exports = {
           choices: [
             {
               name: 'Start your development environment',
-              value: 'dev'
+              value: 'concurrent:dev'
             },
             {
               name: 'Prepare to commit (Run the tests)',
