@@ -42,4 +42,6 @@ App.prototype.start = function () {
 
 };
 
+global.App = App;
+
 module.exports = App;

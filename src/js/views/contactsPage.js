@@ -39,7 +39,7 @@ var ContactsView = PageView.extend({
 
   // FIXME use changeview on the app/router
   goToHomePage: function() {
-    global.router.navigate('', true);
+    global.App.router.navigate('', true);
   },
 
   render: function() {

@@ -72,11 +72,17 @@ describe('Router', function() {
 
     describe('When there is an existing view', function() {
 
-      it('should remove the old view', function() {
-        router.currentView = new PageView();
-        spyOn(router.currentView, 'remove');
+      var oldView;
+
+      beforeEach(function () {
+        oldView = new PageView();
+        spyOn(oldView, 'remove');
+      });
+
+      it('should remove the existing view', function() {
+        router.currentView = oldView;
         router.renderView(view);
-        expect(router.currentView.remove).toHaveBeenCalled();
+        expect(oldView.remove).toHaveBeenCalled();
       });
 
     });

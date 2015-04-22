@@ -19,7 +19,7 @@ var homeScreen = PageView.extend({
   },
 
   goToContacts: function(e) {
-    global.router.navigate('contacts', true);
+    global.App.router.navigate('contacts', true);
   },
 
   scrollUp: function() {

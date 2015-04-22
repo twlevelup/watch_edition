@@ -1,4 +1,4 @@
 var App = require('./app'),
-  app = new App();
+  myapp = new App();
 
-app.start();
+myapp.start();
