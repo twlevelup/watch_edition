@@ -2,20 +2,22 @@
 
 module.exports = {
   options: {
-    debug: true,
-    callback: function(b) {
-      b.transform('hbsfy');
-      return b;
-    }
+    debug: true
   },
   vendor: {
     src: ['./src/js/vendor.js'],
     dest: 'public/js/vendor.js',
   },
+  // FIXME THIS IS LAME
+  testVendor: {
+    src: ['./src/js/vendor.js'],
+    dest: 'build/vendor.js',
+  },
   test: {
     src: './spec/**/*.spec.js',
-    dest: 'spec/spec-bundle.js',
+    dest: 'build/spec-bundle.js',
     options: {
+      transform: ['hbsfy'],
       external: ['jquery', 'underscore', 'backbone']
     }
   },
@@ -26,6 +28,7 @@ module.exports = {
     ],
     dest: './public/js/main.js',
     options: {
+      transform: ['hbsfy'],
       external: ['jquery', 'underscore', 'backbone']
     }
   }
