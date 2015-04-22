@@ -1,4 +1,9 @@
-global.$ = require('jquery');
-global._ = require('underscore');
-global.Backbone = require('backbone');
-global.Backbone.$ = global.$;
+var _ = require('underscore'),
+  $ = require('jquery'),
+  Backbone = require('backbone');
+console.log($.VERSION);
+Backbone.$ = $;
+
+global.$ = $;
+global._ = _;
+global.Backbone = Backbone;
