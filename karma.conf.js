@@ -13,11 +13,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         // NOTE: do NOT include jasmine here because grunt-karma already does
-        files: [
-            'build/vendor.js',
-            'build/spec-bundle.js',
-        ],
-
+        files: ['spec/**/*spec.js'],
 
         // list of files to exclude
         exclude: [
@@ -27,7 +23,7 @@ module.exports = function(config) {
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['progress'],
+        reporters: ['dots' ],
 
 
         // web server port
@@ -64,6 +60,19 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
-        singleRun: true
+        singleRun: true,
+
+        // Browserify
+
+        preprocessors: {
+          'spec/**/*spec.js': [ 'browserify' ]
+        },
+
+        browserify: {
+          debug: true,
+          transform: ['hbsfy']
+        }
+
+
     });
 };

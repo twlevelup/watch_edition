@@ -27,6 +27,10 @@ describe('Router', function() {
       });
     });
 
+    it('fail', function () {
+      expect(false).toBeTruthy();
+    });
+
     describe('contacts', function() {
       it('should load the contacts screen', function() {
         router.contacts();

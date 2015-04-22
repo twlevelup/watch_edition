@@ -8,6 +8,7 @@ module.exports = {
     ],
     dest: './public/js/main.js',
     options: {
+      debug: true,
       transform: ['hbsfy'],
     }
   }
