@@ -42,10 +42,10 @@ You should now be able to view the demo Proto Watch app in your browser at http:
 
 To view the build status and get notifications about the build status:
 
-1. Visit [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch) and click "CCTray" in the top right of the screen
+1. Visit [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition) and click "CCTray" in the top right of the screen
 2. Add the XML config to CCTray or CCMenu on your dev machine
 
-You can also access the CI server and view the status of the build here [Snap CI](https://snap-ci.com/twlevelup/proto_watch/branch/master?notice=proto_watch)
+You can also access the CI server and view the status of the build here [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition)
 
 
 ## About The Tech Stack
