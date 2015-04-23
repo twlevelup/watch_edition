@@ -9,9 +9,7 @@
 
 - reorganise/simplify the folder structure (again look at benm repo)
 - fix watch/copy task so that index.html is reloaded when in dev mode
-- make sure snap CI is working
 
-- make jasmine line numbers useful (http://nick.perfectedz.com/browserify-unit-testing-p2/)
 - example test for loading data
 
 - example of sending a notifications (extra buttons on index page?)
@@ -19,7 +17,6 @@
 
 
 # Nice to have / ideas
-- add build indicator to README.md
 - click and hold for buttons i.e. scrolling
 - pick a code style and make exec:jscs work properly as part of running tests and the build(?) task
 - keyboard shortcuts for watch inputs
