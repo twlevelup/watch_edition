@@ -16,7 +16,7 @@ module.exports = {
               value: 'pre-commit'
             },
             {
-              name: 'Run a local staging environment',
+              name: 'Run a local demo only environment',
               value: 'staging'
             }
           ]
