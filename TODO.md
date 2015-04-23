@@ -26,6 +26,9 @@
 - Separate stylesheets for layout/scafloding and actual app
 - add automated check for test coverage (set at 80% and fail the build?)
 
+# Notes
+- may need to separate init and start methods. app.start can't be called multiple times due to Backbone.history.start();
+
 
 # Useful links
 - Similar boilerplate app https://github.com/jkat98/benm
