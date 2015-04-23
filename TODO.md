@@ -18,7 +18,7 @@
 
 # Nice to have / ideas
 - click and hold for buttons i.e. scrolling
-- pick a code style and make exec:jscs work properly as part of running tests and the build(?) task
+- see if fix option is working properly with git jscs
 - keyboard shortcuts for watch inputs
 - Separate stylesheets for layout/scafloding and actual app
 - add automated check for test coverage (set at 80% and fail the build?)
