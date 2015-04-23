@@ -1,13 +1,11 @@
 # Important
 
-- fix all grunt tasks (build and test probably broken? aliases.yml and grunt/*.js)
-- fix livereload (problem interaction between connect, watch and concurrent?)
 - clean up navigation method so easier to test
 - Full test coverage tests
 - Notifications
 - Mongo DB
 
-
+- Fix screen size (slightly smaller than 240-by-240-pixels)
 
 - reorganise/simplify the folder structure (again look at benm repo)
 - fix watch/copy task so that index.html is reloaded when in dev mode
