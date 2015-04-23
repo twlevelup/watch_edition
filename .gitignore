@@ -1,14 +1,18 @@
+# OS Specific
+.DS_Store
+
+# Editor related
 *.iml
 .idea/
 *.ipr
 *.iws
 .idea_modules/
-.DS_Store
+
+# Node
 node_modules/
-_SpecRunner.html
-spec/spec-bundle.js
-spec/.spec-bundle.js
 .grunt/
-dist/
+
+# Project specific
+
 public/
 build/
