@@ -30,3 +30,7 @@ dev:
 pre-commit:
   - format
   - test
+
+commit:
+  - pre-commit
+  - exec:commit
