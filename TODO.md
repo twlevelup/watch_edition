@@ -1,7 +1,7 @@
 # Important
 
-- clean up navigation method so easier to test
 - Full test coverage tests
+- see what happens when multiple specs declare app as a global
 - Notifications
 - Mongo DB
 

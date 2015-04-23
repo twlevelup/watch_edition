@@ -6,16 +6,16 @@ var $ = require('jquery'),
 
 Backbone.$ = $;
 
-var Watch = Backbone.View.extend({
+var WatchFace = Backbone.View.extend({
 
   el: '#watch',
+
+  template: require('../../templates/views/watch.hbs'),
 
   initialize: function() {
     _.bindAll(this, 'render');
     this.render();
   },
-
-  template: require('../../templates/views/watch.hbs'),
 
   render: function() {
     this.$el.append(this.template());
@@ -24,4 +24,4 @@ var Watch = Backbone.View.extend({
 
 });
 
-module.exports = Watch;
+module.exports = WatchFace;
