@@ -2,10 +2,13 @@
 
 - Full test coverage tests
 - see what happens when multiple specs declare app as a global
+
+- Fix screen size (slightly smaller than 240-by-240-pixels)
+
 - Notifications
 - Mongo DB
 
-- Fix screen size (slightly smaller than 240-by-240-pixels)
+- jasmine jquery matchers (karma-jasmine-jquery)
 
 - reorganise/simplify the folder structure (again look at benm repo)
 - fix watch/copy task so that index.html is reloaded when in dev mode
