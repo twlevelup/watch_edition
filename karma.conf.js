@@ -70,7 +70,7 @@ module.exports = function(config) {
 
         browserify: {
           debug: true,
-          transform: ['hbsfy'],
+          transform: ['hbsfy']
         }
 
 
