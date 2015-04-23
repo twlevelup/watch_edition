@@ -4,7 +4,7 @@ module.exports = {
   },
   app: {
     files: {
-      'public/styles/app.css': 'src/styles/app.scss'
+      'public/styles/main.css': 'src/styles/main.scss'
     }
   }
 };

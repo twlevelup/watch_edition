@@ -25,7 +25,7 @@ staging:
 
 dev:
   - build
-  - concurrent
+  - concurrent:dev
 
 pre-commit:
   - format
