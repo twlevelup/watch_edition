@@ -1,4 +1,7 @@
 module.exports = {
+  options: {
+    livereload: true
+  },
   styles: {
     files: ['src/styles/**/*.scss'],
     tasks: ['sass']
