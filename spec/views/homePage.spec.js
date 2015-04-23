@@ -30,7 +30,6 @@ describe('The Home Page', function() {
 
         homePage.trigger('right');
 
-        // homePage.goToContacts();
         expect(global.App.navigate).toHaveBeenCalled();
       });
 
