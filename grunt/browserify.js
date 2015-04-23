@@ -8,7 +8,9 @@ module.exports = {
     ],
     dest: './public/js/main.js',
     options: {
-      debug: true,
+      browserifyOptions: {
+        debug: true
+      },
       transform: ['hbsfy']
     }
   }
