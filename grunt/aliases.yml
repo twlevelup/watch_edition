@@ -1,5 +1,5 @@
 default:
-  - prompt:dev
+  - prompt:main
   - inputHandler
 
 lint:

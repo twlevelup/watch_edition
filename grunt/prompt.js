@@ -1,5 +1,5 @@
 module.exports = {
-  dev: {
+  main: {
     options: {
       questions: [
         {
