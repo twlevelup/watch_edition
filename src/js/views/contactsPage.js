@@ -34,10 +34,9 @@ var ContactsView = PageView.extend({
   },
 
   screenClickExample: function() {
-    alert('you should NEVER use alerts!');
+    this.$el.html('<div>Oh noes!</div>');
   },
 
-  // FIXME use changeview on the app/router
   goToHomePage: function() {
     global.App.router.navigate('', true);
   },
