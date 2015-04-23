@@ -1,17 +1,19 @@
 'use strict';
 
-var App = require('../src/js/app');
-
 describe('The App', function() {
 
-  var app;
+  var App;
 
   beforeEach(function() {
-    app = new App();
+    App = require('../src/js/app');
   });
 
-  it('should have a start function', function() {
-    expect(app.start).toBeDefined();
+  describe('starting the app', function() {
+
+    it('should have a start function', function() {
+      expect(App.start).toBeDefined();
+    });
+
   });
 
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-var Watch = require('../../src/js/framework/watch');
+var Watch = require('../../src/js/framework/watchFace');
 
 describe('Watch', function() {
 

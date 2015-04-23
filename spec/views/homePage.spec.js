@@ -1,6 +1,10 @@
 'use strict';
 
-var HomePage = require('../../src/js/views/homePage');
+var HomePage = require('../../src/js/views/homePage'),
+  Router = require('../../src/js/router'),
+  App = require('../../src/js/app');
+
+global.App = App;
 
 describe('The Home Page', function() {
 
@@ -12,12 +16,22 @@ describe('The Home Page', function() {
 
   describe('button event handlers', function () {
 
+    beforeEach(function () {
+      homePage.setButtonEvents();
+    });
+
     describe('right', function () {
+
+      beforeEach(function () {
+        spyOn(global.App, 'navigate');
+      });
+
       it('should take the user to the contacts page', function () {
-        spyOn(homePage, 'goToContacts');
-        homePage.setButtonEvents();
+
         homePage.trigger('right');
-        expect(homePage.goToContacts).toHaveBeenCalled();
+
+        // homePage.goToContacts();
+        expect(global.App.navigate).toHaveBeenCalled();
       });
 
     });

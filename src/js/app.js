@@ -6,39 +6,47 @@ var $ = require('jquery'),
 Backbone.$ = $;
 
 var Router = require('./router'),
-  Watch = require('./framework/watch');
+  WatchFace = require('./framework/watchFace');
 
-var App = function() {};
+var App = {
 
-App.prototype.start = function() {
+  navigate: function (route) {
+    App.router.navigate(route, true);
+  },
 
-  App.router = new Router();
+  start: function() {
 
-  App.watch = new Watch();
+    // App.navigate = navigate;
 
-  Backbone.history.start();
+    this.router = new Router();
 
-  // FIXME Make a view for the watch and make these regular view events
-  // Don't trigger them on the router
-  $('#button-right').on('click', function() {
-    App.router.currentView.trigger('right');
-  });
+    this.watchFace = new WatchFace();
 
-  $('#button-top').click(function() {
-    App.router.currentView.trigger('top');
-  });
+    // FIXME Make a view for the watch and make these regular view events
+    // Don't trigger them on the router
+    $('#button-right').on('click', function() {
+      App.router.currentView.trigger('right');
+    });
 
-  $('#button-bottom').click(function() {
-    App.router.currentView.trigger('bottom');
-  });
+    $('#button-top').click(function() {
+      App.router.currentView.trigger('top');
+    });
 
-  $('#button-left').click(function() {
-    App.router.currentView.trigger('left');
-  });
+    $('#button-bottom').click(function() {
+      App.router.currentView.trigger('bottom');
+    });
 
-  $('#button-face').click(function() {
-    App.router.currentView.trigger('face');
-  });
+    $('#button-left').click(function() {
+      App.router.currentView.trigger('left');
+    });
+
+    $('#button-face').click(function() {
+      App.router.currentView.trigger('face');
+    });
+
+    Backbone.history.start();
+
+  }
 
 };
 
