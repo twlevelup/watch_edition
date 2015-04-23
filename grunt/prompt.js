@@ -12,8 +12,8 @@ module.exports = {
               value: 'concurrent:dev'
             },
             {
-              name: 'Prepare to commit (Run the tests)',
-              value: 'test'
+              name: 'Prepare to commit (Run the tests and fix code style issues)',
+              value: 'pre-commit'
             },
             {
               name: 'Run a local staging environment',

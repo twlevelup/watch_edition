@@ -74,7 +74,7 @@ describe('Router', function() {
 
       var oldView;
 
-      beforeEach(function () {
+      beforeEach(function() {
         oldView = new PageView();
         spyOn(oldView, 'remove');
       });

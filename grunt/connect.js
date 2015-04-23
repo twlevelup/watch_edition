@@ -3,7 +3,8 @@ module.exports = {
     options: {
       port: 9001,
       base: 'public',
-      livereload: true
+      livereload: true,
+      keepalive: true
     }
   },
   staging: {

@@ -8,7 +8,7 @@ module.exports = {
     tasks: ['browserify:app']
   },
   static: {
-      files: [],
-      tasks: ['copy']
+    files: [],
+    tasks: ['copy']
   }
 };

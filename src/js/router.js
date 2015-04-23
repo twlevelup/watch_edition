@@ -35,6 +35,7 @@ var Router = Backbone.Router.extend({
     if (this.currentView) {
       this.currentView.remove();
     }
+
     this._loadNewView(view);
   }
 

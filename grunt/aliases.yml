@@ -5,17 +5,19 @@ default:
 lint:
   - jshint
 
+format:
+  - exec:jscs
+
 test:
   - lint
-  - watchify:test
-  - jasmine
+  - karma
 
 build:
-  - test
   - clean
+  - test
   - copy
   - sass
-  - watchify:app
+  - browserify:app
 
 staging:
   - build
@@ -23,5 +25,8 @@ staging:
 
 dev:
   - build
-  - connect:dev
-  - watch
+  - concurrent
+
+pre-commit:
+  - format
+  - test

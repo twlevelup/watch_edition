@@ -1,8 +1,8 @@
 module.exports = {
   dev: {
-      tasks: ['watch:scripts', 'watch:styles', 'connect'],
-      options: {
-          logConcurrentOutput: true
-      }
+    tasks: ['watch', 'connect:dev'],
+    options: {
+      logConcurrentOutput: true
+    }
   }
 };

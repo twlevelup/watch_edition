@@ -15,9 +15,9 @@ var ContactsView = PageView.extend({
   template: require('../../templates/views/contacts.hbs'),
 
   buttonEvents: {
-    'right': 'goToHomePage',
-    'face': 'screenClickExample',
-    'left': 'back'
+    right: 'goToHomePage',
+    face: 'screenClickExample',
+    left: 'back'
   },
 
   initialize: function() {

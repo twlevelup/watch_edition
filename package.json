@@ -37,7 +37,6 @@
     "grunt-browserify": "^3.7.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-exec": "^0.4.6",
-    "grunt-jscs": "^1.6.0",
     "grunt-karma": "^0.10.1",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",

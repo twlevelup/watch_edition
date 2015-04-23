@@ -8,9 +8,9 @@ Backbone.$ = $;
 var Router = require('./router'),
   Watch = require('./framework/watch');
 
-var App = function () {};
+var App = function() {};
 
-App.prototype.start = function () {
+App.prototype.start = function() {
 
   App.router = new Router();
 
@@ -20,23 +20,23 @@ App.prototype.start = function () {
 
   // FIXME Make a view for the watch and make these regular view events
   // Don't trigger them on the router
-  $('#button-right').on('click', function () {
+  $('#button-right').on('click', function() {
     App.router.currentView.trigger('right');
   });
 
-  $('#button-top').click(function () {
+  $('#button-top').click(function() {
     App.router.currentView.trigger('top');
   });
 
-  $('#button-bottom').click(function () {
+  $('#button-bottom').click(function() {
     App.router.currentView.trigger('bottom');
   });
 
-  $('#button-left').click(function () {
+  $('#button-left').click(function() {
     App.router.currentView.trigger('left');
   });
 
-  $('#button-face').click(function () {
+  $('#button-face').click(function() {
     App.router.currentView.trigger('face');
   });
 
