@@ -3,13 +3,15 @@ module.exports = {
     livereload: true
   },
   styles: {
-    files: ['src/styles/**/*.scss'],
+    files: ['client/src/styles/**/*.scss'],
     tasks: ['sass']
   },
   scripts: {
-    files: ['src/js/**/*.js', 'src/templates/**/*.hbs'],
+    files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs'],
     tasks: ['browserify:app']
   },
+
+  // TODO fix copy task
   static: {
     files: [],
     tasks: ['copy']

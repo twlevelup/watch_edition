@@ -10,7 +10,7 @@ var WatchFace = Backbone.View.extend({
 
   el: '#watch',
 
-  template: require('../../templates/views/watch.hbs'),
+  template: require('../../templates/framework/watch.hbs'),
 
   initialize: function() {
     _.bindAll(this, 'render');

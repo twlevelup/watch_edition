@@ -3,19 +3,19 @@ module.exports = {
     files: [
         {
           expand: true,
-          cwd: 'src/styles/',
+          cwd: 'client/src/styles/',
           src: ['vendor/**', 'fonts/**'],
           dest: 'public/styles/'
         },
         {
           expand: true,
-          cwd: 'src/',
+          cwd: 'client/src/',
           src: 'img/**',
           dest: 'public/'
         },
         {
           expand: true,
-          cwd: 'src/',
+          cwd: 'client/src/',
           src: ['*.html', '*.txt'],
           dest: 'public/'
         }

@@ -1,3 +1,4 @@
+// TODO separate targets
 module.exports = {
   options: {
     jshintrc: true,
@@ -6,7 +7,7 @@ module.exports = {
   all: [
     'Gruntfile.js',
     'grunt/*.js',
-    'src/js/**/*.js',
-    'spec/**/*.spec.js'
+    'client/src/js/**/*.js',
+    'client/spec/**/*.spec.js'
   ]
 };

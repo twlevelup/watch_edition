@@ -3,8 +3,8 @@
 module.exports = {
   app: {
     src: [
-      './src/js/main.js',
-      './src/templates/**/*.hbs'
+      './client/src/js/main.js',
+      './client/src/templates/**/*.hbs'
     ],
     dest: './public/js/main.js',
     options: {

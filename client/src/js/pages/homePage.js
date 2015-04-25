@@ -9,7 +9,7 @@ var PageView = require('../framework/page');
 
 var homeScreen = PageView.extend({
 
-  template: require('../../templates/views/home.hbs'),
+  template: require('../../templates/pages/home.hbs'),
 
   buttonEvents: {
     right: 'goToContacts',

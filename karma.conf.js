@@ -13,7 +13,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         // NOTE: do NOT include jasmine here because grunt-karma already does
-        files: ['spec/**/*spec.js'],
+        files: ['client/spec/**/*spec.js'],
 
         // list of files to exclude
         exclude: [
@@ -65,7 +65,7 @@ module.exports = function(config) {
         // Browserify
 
         preprocessors: {
-          'spec/**/*spec.js': [ 'browserify' ]
+          'client/spec/**/*spec.js': [ 'browserify' ]
         },
 
         browserify: {
