@@ -3,7 +3,8 @@
 var Router = require('../src/js/router.js'),
   PageView = require('../src/js/framework/page'),
   HomePage = require('../src/js/pages/homePage'),
-  ContactPage = require('../src/js/pages/contactsPage');
+  ContactPage = require('../src/js/pages/contactsPage'),
+  $ = require('jquery');
 
 describe('Router', function() {
 
@@ -11,6 +12,7 @@ describe('Router', function() {
 
   beforeEach(function() {
     router = new Router();
+    $('body').append('<div id="watch-face" />');
   });
 
   describe('The Routes', function() {
@@ -64,8 +66,9 @@ describe('Router', function() {
         expect(view.setButtonEvents).toHaveBeenCalled();
       });
 
-      xit('should render the view in the watch face', function() {
-
+      it('should render the view in the watch face', function() {
+        router.renderView(view);
+        expect($('#watch-face')).toContainElement('.page');
       });
 
     });
@@ -87,6 +90,10 @@ describe('Router', function() {
 
     });
 
+  });
+
+  afterEach(function() {
+    $('#watch-face').remove();
   });
 
 });

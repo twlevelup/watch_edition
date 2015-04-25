@@ -32,4 +32,8 @@ describe('WatchFace', function() {
 
   });
 
+  afterEach(function () {
+    $('#watch').remove();
+  });
+
 });

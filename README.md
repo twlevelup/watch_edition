@@ -44,12 +44,22 @@ You should now be able to view the demo Proto Watch app in your browser at http:
 
 ## Continuous Integration
 
+### Checking the build status
+
 To view the build status and get notifications about the build status:
 
 1. Visit [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition) and click "CCTray" in the top right of the screen
 2. Add the XML config to CCTray or CCMenu on your dev machine
 
 You can also access the CI server and view the status of the build here [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition)
+
+### Before you commit
+
+1. Check the CI build, do not commit unless it's passing!
+2. ```git pull --rebase```
+3. ```grunt pre-commit```
+4. Fix any errors
+5. ```git push```
 
 
 ## About The Tech Stack
@@ -60,17 +70,21 @@ During the project you'll mostly be working with JavaScript, Backbone and Jasmin
 
 ### App Components
 
-- [Jasmine](http://jasmine.github.io/) - Javascript testing
 - [Backbone](http://backbonejs.org/) - Javascript app framework
 - [Underscore](http://underscorejs.org/) - JavaScript utility methods
 - [jQuery](https://jquery.com/) - HTML/DOM Manipulation
 - [Handlebars](http://handlebarsjs.com/) - HTML Templating
 - [SCSS](http://sass-lang.com/) - CSS Styling
 
+### Testing
+- [Karma](http://karma-runner.github.io/0.12/index.html) - Test runner
+- [Jasmine](http://jasmine.github.io/) - Javascript testing
+- [Jasmine jQuery Matchers](https://github.com/unindented/jasmine-jquery-matchers/) - jQuery based matchers for testing
+
 ### Infrastructure Tools
 
 - [Grunt](http://gruntjs.com/) - Automation
-- [Snap](https://snap-ci.com/) - CI Builds
+- [Snap](https://snap-ci.com/) - Continuous Integration
 - [Heroku](https://www.heroku.com/) - Staging environment
 
 ## Watch Specs
@@ -82,7 +96,7 @@ During the project you'll mostly be working with JavaScript, Backbone and Jasmin
 - **GPS**: Yes
 - **Expansion**: None
 - **Networking**: GPRS or less
-- **Battery and Power**: Build in rechargeable batter
+- **Battery and Power**: Built in rechargeable batter
 
 ### Notes
 With regards to networking the actual speed depends on your target audience i.e. do some research but will be capped at GPRS speeds. Basically make ajax network requests for JSON data
