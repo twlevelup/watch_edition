@@ -1,6 +1,6 @@
 'use strict';
 
-var ContactsPage = require('../../src/js/views/contactsPage'),
+var ContactsPage = require('../../src/js/pages/contactsPage'),
   Router = require('../../src/js/router.js'),
   $ = require('jquery');
 

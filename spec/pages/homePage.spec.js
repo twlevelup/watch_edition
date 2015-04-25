@@ -1,6 +1,6 @@
 'use strict';
 
-var HomePage = require('../../src/js/views/homePage'),
+var HomePage = require('../../src/js/pages/homePage'),
   Router = require('../../src/js/router'),
   App = require('../../src/js/app');
 

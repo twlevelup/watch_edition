@@ -1,25 +1,33 @@
 # Important
 
-- Full test coverage tests
-- see what happens when multiple specs declare app as a global
+- Test watch face buttons
 
+- fix watch/copy task for:
+- - html
+- - images
+- - fonts
+
+
+- Full test coverage
+- See what happens when multiple specs declare app as a global
 - Fix screen size (slightly smaller than 240-by-240-pixels)
 
-- Notifications
-- Mongo DB
+- auto-run tests in dev mode
+
+- Support for notifications
+- Mongo DB backend (with express?)
 
 - reorganise/simplify the folder structure (again look at benm repo)
-- fix watch/copy task so that index.html is reloaded when in dev mode
+- - folder for pages
+- - folder for client
 
 - example test for loading data
-
 - example of sending a notifications (extra buttons on index page?)
 - example of receiving a notification
 
 
 # Nice to have / ideas
 - click and hold for buttons i.e. scrolling
-- see if fix option is working properly with git jscs
 - keyboard shortcuts for watch inputs
 - Separate stylesheets for layout/scafloding and actual app
 - add automated check for test coverage (set at 80% and fail the build?)

@@ -2,8 +2,8 @@
 
 var Router = require('../src/js/router.js'),
   PageView = require('../src/js/framework/page'),
-  HomePage = require('../src/js/views/homePage'),
-  ContactPage = require('../src/js/views/contactsPage');
+  HomePage = require('../src/js/pages/homePage'),
+  ContactPage = require('../src/js/pages/contactsPage');
 
 describe('Router', function() {
 

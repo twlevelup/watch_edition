@@ -8,7 +8,7 @@ Backbone.$ = $;
 var PageView = require('../framework/page');
 
 var ContactsCollection = require('../collections/contacts'),
-  ContactView = require('./contact');
+  ContactView = require('../views/contact');
 
 var ContactsView = PageView.extend({
 
