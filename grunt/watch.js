@@ -14,6 +14,10 @@ module.exports = {
     files: ['client/src/fonts/**/*'],
     tasks: ['copy:fonts']
   },
+  images: {
+    files: ['client/src/images/**/*'],
+    tasks: ['copy:images']
+  },
   scripts: {
     files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs'],
     tasks: ['browserify:app']

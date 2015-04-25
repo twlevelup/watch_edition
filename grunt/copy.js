@@ -19,14 +19,18 @@ module.exports = {
         }
     ]
   },
-  static: {
+  images: {
     files: [
         {
           expand: true,
           cwd: 'client/src/',
-          src: 'img/**',
+          src: 'images/**',
           dest: 'public/'
-        },
+        }
+    ]
+  },
+  static: {
+    files: [
         {
           expand: true,
           cwd: 'client/src/',
