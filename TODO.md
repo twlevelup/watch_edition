@@ -8,8 +8,6 @@
 - Notifications
 - Mongo DB
 
-- jasmine jquery matchers (karma-jasmine-jquery)
-
 - reorganise/simplify the folder structure (again look at benm repo)
 - fix watch/copy task so that index.html is reloaded when in dev mode
 
