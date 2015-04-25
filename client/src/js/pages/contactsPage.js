@@ -12,6 +12,8 @@ var ContactsCollection = require('../collections/contacts'),
 
 var ContactsView = PageView.extend({
 
+  id: 'contacts',
+
   template: require('../../templates/pages/contacts.hbs'),
 
   buttonEvents: {

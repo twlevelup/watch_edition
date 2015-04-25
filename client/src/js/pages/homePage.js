@@ -9,6 +9,8 @@ var PageView = require('../framework/page');
 
 var homeScreen = PageView.extend({
 
+  id: 'home',
+
   template: require('../../templates/pages/home.hbs'),
 
   buttonEvents: {
