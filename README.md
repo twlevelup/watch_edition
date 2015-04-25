@@ -101,6 +101,12 @@ During the project you'll mostly be working with JavaScript, Backbone and Jasmin
 ### Notes
 With regards to networking the actual speed depends on your target audience i.e. do some research but will be capped at GPRS speeds. Basically make ajax network requests for JSON data
 
+## FAQ
+
+**How do I run a subset of test?**
+
+replace it and describe with fit or fdescribe
+
 ## Further Reading
 
 ### [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
