@@ -1,12 +1,26 @@
 module.exports = {
-  public: {
+  vendor: {
     files: [
         {
           expand: true,
-          cwd: 'client/src/styles/',
-          src: ['vendor/**', 'fonts/**'],
-          dest: 'public/styles/'
-        },
+          cwd: 'client/src/',
+          src: ['vendor/**'],
+          dest: 'public/'
+        }
+    ]
+  },
+  fonts: {
+    files: [
+        {
+          expand: true,
+          cwd: 'client/src/',
+          src: ['fonts/**'],
+          dest: 'public/'
+        }
+    ]
+  },
+  static: {
+    files: [
         {
           expand: true,
           cwd: 'client/src/',
@@ -16,7 +30,7 @@ module.exports = {
         {
           expand: true,
           cwd: 'client/src/',
-          src: ['*.html', '*.txt'],
+          src: ['*.html'],
           dest: 'public/'
         }
     ]
