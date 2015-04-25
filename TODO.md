@@ -1,13 +1,5 @@
 # Important
 
-- Test watch face buttons
-
-- fix watch/copy task for:
-- - html
-- - images
-- - fonts
-
-
 - Full test coverage
 - See what happens when multiple specs declare app as a global
 - Fix screen size (slightly smaller than 240-by-240-pixels)
@@ -28,7 +20,8 @@
 
 # Nice to have / ideas
 - click and hold for buttons i.e. scrolling
-- keyboard shortcuts for watch inputs
+- click, double click, click and hold events
+- keyboard shortcuts for watch buttons
 - Separate stylesheets for layout/scafloding and actual app
 - add automated check for test coverage (set at 80% and fail the build?)
 
