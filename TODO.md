@@ -14,6 +14,7 @@
 
 
 # Nice to have / ideas
+- change watch styling, simpler more like http://codepen.io/jrg/pen/Cjrzx
 - click and hold for buttons i.e. scrolling
 - click, double click, click and hold events
 - keyboard shortcuts for watch buttons
