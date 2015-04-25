@@ -2,16 +2,11 @@
 
 - Full test coverage
 - See what happens when multiple specs declare app as a global
-- Fix screen size (slightly smaller than 240-by-240-pixels)
 
 - auto-run tests in dev mode
 
 - Support for notifications
 - Mongo DB backend (with express?)
-
-- reorganise/simplify the folder structure (again look at benm repo)
-- - folder for pages
-- - folder for client
 
 - example test for loading data
 - example of sending a notifications (extra buttons on index page?)
@@ -23,10 +18,11 @@
 - click, double click, click and hold events
 - keyboard shortcuts for watch buttons
 - Separate stylesheets for layout/scafloding and actual app
+- jquery, underscore, backbone in separate vendor bundle
 - add automated check for test coverage (set at 80% and fail the build?)
 
 # Notes
-- may need to separate init and start methods. app.start can't be called multiple times due to Backbone.history.start();
+- App may need to separate init and start methods. app.start can't be called multiple times due to Backbone.history.start();
 
 
 # Useful links

@@ -7,8 +7,8 @@
 #watch-face{
   height: 240px;
   position: absolute;
-  width: 220px;
-  top: 20px;
+  width: 240px;
+  top: 30px;
   left: 20px;
   display: block;
   overflow: scroll;
@@ -30,7 +30,7 @@
 .power:nth-child(1){
   position:absolute;
   right:-0.4em;
-  top: 6.8em;
+  top: 7.3em;
   height:3.5em;
   width:0.8em;
   background:#e4e4e4;
@@ -41,7 +41,7 @@
 .power:nth-child(2){
   position:absolute;
   left:-0.45em;
-  top: 6.8em;
+  top: 7.3em;
   height:3.5em;
   width:0.8em;
   background:#e4e4e4;
@@ -52,7 +52,7 @@
 
 .power:nth-child(3){
   position:absolute;
-  left: 8.3em;
+  left: 8.8em;
   bottom:-1.6em;
   height:3.5em;
   width:0.8em;
@@ -64,7 +64,7 @@
 
 .power:nth-child(4){
   position:absolute;
-  left: 8.3em;
+  left: 8.8em;
   top: -1.6em;
   height:3.5em;
   width:0.8em;
@@ -96,7 +96,7 @@
 .strap{
   position:absolute;
   z-index:1;
-  left:2.5em;
+  left:3.2em;
   width:12.2em;
   height:7.6em;
 }
