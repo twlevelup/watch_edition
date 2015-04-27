@@ -5,12 +5,13 @@ var Backbone = require('backbone'),
 
 Backbone.$ = $;
 
-var HomePage = require('./pages/homePage'),
+var Router = require('./framework/router.js'),
+  HomePage = require('./pages/homePage'),
   ContactsPage = require('./pages/contactsPage'),
   homePage = new HomePage(),
   contactsPage = new ContactsPage();
 
-var Router = Backbone.Router.extend({
+var AppRouter = Router.extend({
 
   routes: {
     '': 'home',
@@ -23,22 +24,8 @@ var Router = Backbone.Router.extend({
 
   contacts: function() {
     this.renderView(contactsPage);
-  },
-
-  _loadNewView: function(view) {
-    this.currentView = view;
-    $('#watch-face').html(this.currentView.render().el);
-    this.currentView.setButtonEvents();
-  },
-
-  renderView: function(view) {
-    if (this.currentView) {
-      this.currentView.remove();
-    }
-
-    this._loadNewView(view);
   }
 
 });
 
-module.exports = Router;
+module.exports = AppRouter;
