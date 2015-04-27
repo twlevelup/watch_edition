@@ -23,26 +23,30 @@ describe('Router', function() {
 
     describe('Loading a new view', function() {
 
-      it('should set the set the current view', function() {
+      it('should set the current view', function() {
         router.renderView(view);
         expect(router.currentView).toEqual(view);
       });
 
-      it('should render the current view', function() {
-        spyOn(view, 'render').and.callThrough();
-        router.renderView(view);
-        expect(view.render).toHaveBeenCalled();
-      });
-
-      it('should setup the buttons', function() {
+      it('should configure the buttons', function() {
         spyOn(view, 'setButtonEvents');
         router.renderView(view);
         expect(view.setButtonEvents).toHaveBeenCalled();
       });
 
-      it('should render the view in the watch face', function() {
-        router.renderView(view);
-        expect($('#watch-face')).toContainElement('.page');
+      describe('rendering', function () {
+
+        it('should render the current view', function() {
+          spyOn(view, 'render').and.callThrough();
+          router.renderView(view);
+          expect(view.render).toHaveBeenCalled();
+        });
+
+        it('should render the view in the watch face', function() {
+          router.renderView(view);
+          expect($('#watch-face')).toContainElement('.page');
+        });
+
       });
 
     });
