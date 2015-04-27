@@ -16,8 +16,7 @@ var homeScreen = PageView.extend({
   buttonEvents: {
     right: 'goToContacts',
     top: 'scrollUp',
-    bottom: 'scrollDown',
-    left: 'back'
+    bottom: 'scrollDown'
   },
 
   goToContacts: function() {

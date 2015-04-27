@@ -22,7 +22,7 @@ describe('The Contacts Page', function() {
     });
 
     describe('loading data', function () {
-      // it('')
+      it('should load the data from ...');
     });
 
   });
@@ -37,22 +37,26 @@ describe('The Contacts Page', function() {
         expect(contactsPage.goToHomePage).toHaveBeenCalled();
       });
 
-
     });
   });
 
   describe('rendering', function () {
 
-    beforeEach(function () {
-      contactsPage.$el = $('div');
-      contactsPage.contactsCollection.reset([{}, {}, {}]);
+    it('should produce the correct HTML', function () {
+      contactsPage.render();
+      expect(contactsPage.el.innerHTML).toContain('<h1>Contacts</h1>');
     });
 
-    //it('should render each of the contacts', function () {
-    //  spyOn(contactsPage, 'createContactHTML');
-    //  contactsPage.render();
-    //  expect(contactsPage.createContactHTML.calls.count()).toEqual(3);
-    //});
+    it('should render each of the contacts', function () {
+     spyOn(contactsPage, 'createContactHTML');
+     contactsPage.contactsCollection.reset([{}, {}, {}, {}]);
+     contactsPage.render();
+     expect(contactsPage.createContactHTML.calls.count()).toEqual(4);
+    });
+
+    it('returns the view object', function() {
+      expect(contactsPage.render()).toEqual(contactsPage);
+    });
 
   });
 

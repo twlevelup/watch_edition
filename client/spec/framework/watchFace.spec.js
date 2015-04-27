@@ -11,22 +11,12 @@ describe('WatchFace', function() {
 
   describe('rendering', function () {
 
-    // it('should render itself automatically', function () {
-    //   spyOn(WatchFace.prototype, 'initialize');
-    //   // spyOn(WatchFace.prototype, 'render');
-    //   this.watchFace = new WatchFace();
-    //   // spyOn(this.watchFace, 'render');
-    //   // this.watchFace.initialize();
-    //   expect(this.watchFace.initialize).toHaveBeenCalled();
-    //   // expect(this.watchFace.render).toHaveBeenCalled();
-    //
-    // });
+    var watchFace;
 
     it('should render itself automatically in the #watch element', function () {
 
-      this.watchFace = new WatchFace();
-      var html = $('#watch').html();
-      expect(html).toBeTruthy();
+      watchFace = new WatchFace();
+      expect($('#watch')).toContainElement('#watch-face');
 
     });
 

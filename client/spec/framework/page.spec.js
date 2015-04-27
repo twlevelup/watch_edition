@@ -10,10 +10,24 @@ describe('A generic page', function() {
     page = new Page();
   });
 
-  it('should have the class "page"', function () {
+  describe('markup', function () {
 
-    expect(page.className).toEqual('page');
+    it('should have the class "page"', function () {
 
+      expect(page.className).toEqual('page');
+
+    });
+
+  });
+
+  describe('configuring buttons', function () {
+    it('should map button event handlers to the button elements');
+  });
+
+  describe('navigation helpers', function () {
+    describe('back', function () {
+      it('should go back in the browser history');
+    });
   });
 
 });
