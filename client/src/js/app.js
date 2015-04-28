@@ -40,7 +40,7 @@ var App = {
       App.router.currentView.trigger('left');
     });
 
-    $('#button-face').click(function() {
+    $('#watch-face').click(function() {
       App.router.currentView.trigger('face');
     });
 
