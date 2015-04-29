@@ -1,6 +1,5 @@
 var mongoose = require('mongoose'),
-  models = require('./models'),
-  md5 = require('MD5');
+  models = require('./models');
 
 module.exports = {
   check: function() {
@@ -13,8 +12,7 @@ module.exports = {
             first: 'Jason',
             last: 'Krol'
           },
-          phone: '215-123-1234',
-          gravatar: md5('jkat98@gmail.com')
+          phone: '215-123-1234'
         });
         newContact.save(function(err, contact) {
           console.log('successfully inserted contact: ' + contact._id);
@@ -26,8 +24,7 @@ module.exports = {
             first: 'Steve',
             last: 'Testerson'
           },
-          phone: '215-123-1234',
-          gravatar: md5('testerson@example.com')
+          phone: '215-123-1234'
         });
         newContact.save(function(err, contact) {
           console.log('successfully inserted contact: ' + contact._id);
@@ -39,8 +36,7 @@ module.exports = {
             first: 'Nancy',
             last: 'Testerson'
           },
-          phone: '215-123-1234',
-          gravatar: md5('nancy@testerson.com')
+          phone: '215-123-1234'
         });
         newContact.save(function(err, contact) {
           console.log('successfully inserted contact: ' + contact._id);
