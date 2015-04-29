@@ -24,6 +24,7 @@
     "grunt-nodemon": "^0.4.0",
     "grunt-prompt": "^1.3.0",
     "grunt-sass": "^0.18.1",
+    "grunt-shell": "^1.1.2",
     "handlebars": "^3.0.1",
     "hbsfy": "^2.2.1",
     "jquery": "^2.1.3",
