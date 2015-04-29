@@ -1,6 +1,6 @@
 module.exports = {
   dev: {
-    tasks: ['watch', 'connect:dev'],
+    tasks: ['nodemon:dev', 'watch', 'connect:dev', 'shell:mongo'],
     options: {
       logConcurrentOutput: true
     }
