@@ -1,7 +1,7 @@
-module.exports= {
+module.exports = {
   dev: {
+    script: 'server.js',
     options: {
-      file: 'server.js',
       nodeArgs: ['--debug'],
       watchedFolders: ['app'],
       env: {
