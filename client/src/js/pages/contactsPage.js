@@ -28,11 +28,7 @@ var ContactsView = PageView.extend({
   },
 
   loadContacts: function() {
-    this.contactsCollection.push([
-      {name: 'Adam', phoneNumber: '0431 111 111'},
-      {name: 'Sam', phoneNumber: '0431 222 222'},
-      {name: 'Shaheedha', phoneNumber: '0431 333 333'}
-    ]);
+    this.contactsCollection.push(  );
   },
 
   screenClickExample: function() {
