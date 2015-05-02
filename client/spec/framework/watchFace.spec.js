@@ -1,7 +1,6 @@
 'use strict';
 
-var WatchFace = require('../../src/js/framework/watchFace'),
-  $ = require('jquery');
+var WatchFace = require('../../src/js/framework/watchFace');
 
 describe('WatchFace', function() {
 

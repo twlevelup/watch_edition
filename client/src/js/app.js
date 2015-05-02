@@ -1,10 +1,5 @@
 'use strict';
 
-var $ = require('jquery'),
-   Backbone = require('backbone');
-
-Backbone.$ = $;
-
 var Router = require('./router'),
   WatchFace = require('./framework/watchFace');
 

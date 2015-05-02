@@ -19,7 +19,6 @@
 - click, double click, click and hold events
 - keyboard shortcuts for watch buttons
 - Separate stylesheets for layout/scafloding and actual app
-- jquery, underscore, backbone in separate vendor bundle
 - add automated check for test coverage (set at 80% and fail the build?)
 
 # Notes

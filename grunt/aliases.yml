@@ -17,7 +17,7 @@ build:
   - test
   - copy
   - sass
-  - browserify:app
+  - browserify
 
 staging:
   - build

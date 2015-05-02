@@ -1,8 +1,7 @@
 'use strict';
 
 var ContactsPage = require('../../src/js/pages/contactsPage'),
-  Router = require('../../src/js/router.js'),
-  $ = require('jquery');
+  Router = require('../../src/js/router.js');
 
 global.router = new Router();
 

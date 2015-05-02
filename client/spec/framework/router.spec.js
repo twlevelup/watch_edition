@@ -1,8 +1,7 @@
 'use strict';
 
 var Router = require('../../src/js/framework/router.js'),
-  PageView = require('../../src/js/framework/page'),
-  $ = require('jquery');
+  PageView = require('../../src/js/framework/page');
 
 describe('Router', function() {
 

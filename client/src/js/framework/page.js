@@ -1,9 +1,5 @@
 'use strict';
 
-var $ = require('jquery'),
-  _ = require('underscore'),
-  Backbone = require('backbone');
-
 var pageView = Backbone.View.extend({
 
   className: 'page',

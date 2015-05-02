@@ -1,10 +1,5 @@
 'use strict';
 
-var Backbone = require('backbone'),
- $ = require('jquery');
-
-Backbone.$ = $;
-
 var Router = Backbone.Router.extend({
 
   _loadNewView: function(view) {

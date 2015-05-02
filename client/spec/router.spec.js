@@ -3,8 +3,7 @@
 var AppRouter = require('../src/js/router.js'),
   PageView = require('../src/js/framework/page'),
   HomePage = require('../src/js/pages/homePage'),
-  ContactPage = require('../src/js/pages/contactsPage'),
-  $ = require('jquery');
+  ContactPage = require('../src/js/pages/contactsPage');
 
 describe('Application Router', function() {
 

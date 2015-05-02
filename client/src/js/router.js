@@ -1,10 +1,5 @@
 'use strict';
 
-var Backbone = require('backbone'),
- $ = require('jquery');
-
-Backbone.$ = $;
-
 var Router = require('./framework/router.js'),
   HomePage = require('./pages/homePage'),
   ContactsPage = require('./pages/contactsPage'),
