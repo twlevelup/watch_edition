@@ -1,5 +1,3 @@
-var Backbone = require('backbone');
-
 var Contact = Backbone.Model.extend({
   defaults: {
     name: 'Jimmy',

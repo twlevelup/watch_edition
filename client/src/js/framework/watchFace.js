@@ -1,11 +1,5 @@
 'use strict';
 
-var $ = require('jquery'),
-  _ = require('underscore'),
-  Backbone = require('backbone');
-
-Backbone.$ = $;
-
 var WatchFace = Backbone.View.extend({
 
   el: '#watch',

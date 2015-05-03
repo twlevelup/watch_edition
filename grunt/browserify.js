@@ -13,5 +13,11 @@ module.exports = {
       },
       transform: ['hbsfy']
     }
+  },
+  vendor: {
+    src: [
+      './client/src/js/vendor.js'
+    ],
+    dest: './public/js/vendor.js'
   }
 };
