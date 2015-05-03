@@ -19,7 +19,9 @@ var ContactsView = PageView.extend({
 
   initialize: function() {
     this.contactsCollection = new ContactsCollection();
-    this.loadContacts();
+    this.contactsCollection.fetch({reset: true});
+    this.render();
+
   },
 
   loadContacts: function() {
