@@ -7,6 +7,7 @@ var express = require('express'),
   app = express();
 
 app.set('port', process.env.PORT || 3300);
+app.set('view engine', 'handlebars');
 
 //connect to the db server:
 mongoose.connect('mongodb://localhost/MyApp');
