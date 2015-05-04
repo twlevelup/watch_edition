@@ -19,13 +19,17 @@ var ContactsView = PageView.extend({
 
   initialize: function() {
     this.contactsCollection = new ContactsCollection();
-    this.contactsCollection.fetch({reset: true});
-    this.render();
-
+    var self = this;
+    this.contactsCollection.fetch({
+      reset: true,
+      success: function() {
+        self.render();
+      }
+    });
   },
 
   loadContacts: function() {
-    this.contactsCollection.push(  );
+    this.contactsCollection.push();
   },
 
   screenClickExample: function() {
