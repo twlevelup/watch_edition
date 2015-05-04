@@ -1,13 +1,9 @@
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  ObjectId = Schema.ObjectId;
+  Schema = mongoose.Schema;
 
 var Contact = new Schema({
   email:      { type: String },
-  name: {
-    first:  { type: String },
-    last:   { type: String }
-  },
+  name:       { type: String },
   phone:      { type: String },
   gravatar:   { type: String }
 });

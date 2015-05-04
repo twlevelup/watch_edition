@@ -1,5 +1,4 @@
-var mongoose = require('mongoose'),
-  models = require('./models');
+var models = require('./models');
 
 module.exports = {
   check: function() {
@@ -8,10 +7,7 @@ module.exports = {
         console.log('no contacts found, seeding...');
         var newContact = new models.Contact({
           email: 'jkat98@gmail.com',
-          name: {
-            first: 'Jason',
-            last: 'Krol'
-          },
+          name: 'Adam Hope',
           phone: '215-123-1234'
         });
         newContact.save(function(err, contact) {
@@ -20,10 +16,7 @@ module.exports = {
 
         newContact = new models.Contact({
           email: 'testerson@example.com',
-          name: {
-            first: 'Steve',
-            last: 'Testerson'
-          },
+          name: 'Marzena ksdhfksjdfk',
           phone: '215-123-1234'
         });
         newContact.save(function(err, contact) {
@@ -32,10 +25,7 @@ module.exports = {
 
         newContact = new models.Contact({
           email: 'nancy@testerson.com',
-          name: {
-            first: 'Nancy',
-            last: 'Testerson'
-          },
+          name: "James Lewis",
           phone: '215-123-1234'
         });
         newContact.save(function(err, contact) {
