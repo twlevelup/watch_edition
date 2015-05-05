@@ -19,8 +19,8 @@ module.exports = {
     tasks: ['copy:images']
   },
   scripts: {
-    files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs'],
-    tasks: ['browserify:app']
+    files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs', 'app/*.js', 'controllers/*.js'],
+    tasks: ['test', 'browserify:app']
   },
   static: {
     files: ['client/src/*', 'client/src/img/**'],
