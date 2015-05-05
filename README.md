@@ -94,7 +94,7 @@ During the project you'll mostly be working with JavaScript, Backbone and Jasmin
 - **Audio**: speaker
 - **Input**: 5 mechanical buttons
 - **Screen**: 240-by-240-pixel resolution. 1.54” (diagonal) colour TFT display
-- **Capacity**: 256MB enough for a large amount of text, no video or images (beyond UI elements i.e. not photos, video or music)
+- **Capacity**: 256MB Enough for a large amount of text, no video or images (beyond UI elements i.e. no photo, video or music library)
 - **GPS**: Yes
 - **Expansion**: None
 - **Networking**: GPRS or less
