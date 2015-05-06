@@ -2,7 +2,8 @@
 
 var Router = require('./router'),
   WatchFace = require('./framework/watchFace'),
-  NotificationsPanel = require('./framework/notifications');
+  NotificationsPanel = require('./framework/notifications'),
+  availableNotificationTypes = require('./notifications/notificationsArray');
 
 var App = {
 
@@ -18,6 +19,7 @@ var App = {
 
     this.watchFace = new WatchFace();
     this.notifications = new NotificationsPanel();
+    this.notifications.configureNotifications(availableNotificationTypes);
 
     // FIXME Make a view for the watch and make these regular view events
     // Don't trigger them on the router

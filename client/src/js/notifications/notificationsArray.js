@@ -5,7 +5,7 @@ var notificationsConfig = [
       name: 'Some notification name',
       defaultMessage: 'Hello world I am here and it is cool!',
       buttonsEvents: {
-        'left': 'someMethodWillHappen'
+        left: 'someMethodWillHappen'
       },
       someMethodWillHappen: function() {
         //console.log("Some method happened");
@@ -15,7 +15,7 @@ var notificationsConfig = [
       name: 'Second notification name',
       defaultMessage: 'Now we have two messages?',
       buttonsEvents: {
-        'left': 'someMethodWillHappenToo'
+        left: 'someMethodWillHappenToo'
       },
       someMethodWillHappenToo: function() {
         //console.log("Some method happened too");
@@ -24,7 +24,7 @@ var notificationsConfig = [
     {
       name: 'Third notification name',
       buttonsEvents: {
-        'left': 'someMethodWillHappenThree'
+        left: 'someMethodWillHappenThree'
       },
       someMethodWillHappenThree: function() {
         //console.log("Some method happened three");
