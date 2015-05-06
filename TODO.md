@@ -11,7 +11,7 @@ Students shouldn't need to test how the method works, just spy on it and check i
 http://www.storiesinflight.com/html5/audio.html or http://www.schillmania.com/projects/soundmanager2/
 
 - Support for notifications
-
+- move ALL framework code to a single folder to discourage students from modifying it
 
 - rendering test for collections contacts page - where is the html
 
