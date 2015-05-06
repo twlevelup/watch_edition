@@ -1,7 +1,8 @@
 'use strict';
 
 var Router = require('./router'),
-  WatchFace = require('./framework/watchFace');
+  WatchFace = require('./framework/watchFace'),
+  NotificationsPanel = require('./framework/notifications');
 
 var App = {
 
@@ -16,6 +17,7 @@ var App = {
     this.router = new Router();
 
     this.watchFace = new WatchFace();
+    this.notifications = new NotificationsPanel();
 
     // FIXME Make a view for the watch and make these regular view events
     // Don't trigger them on the router
