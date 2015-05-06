@@ -29,15 +29,13 @@ To view the build status and get notifications about the build status:
 You can also access the CI server and view the status of the build here [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition)
 
 
-##Tech Stack
+## Tech Stack
 
 There are a number of pieces in the tech stack but many of them are just to provide automation and don't have to touched or understood in order to build Proto Watch apps.
 
 During the project you'll mostly be working with JavaScript, Backbone and Jasmine.
 
 You should only need to work on files inside the ```client/``` directory if you are building a watch app.
-
-### App Components
 
 - [Backbone](http://backbonejs.org/) - Javascript app framework
 - [Underscore](http://underscorejs.org/) - JavaScript utility methods
@@ -80,7 +78,11 @@ The Proto Watch is designed to be a simple low cost device.
 
 **How do I run a subset of test?**
 
-replace it and describe with fit or fdescribe
+Replace it and describe with fit or fdescribe
+
+**I've got more questions**
+
+Look at the further reading section below ;-)
 
 ## Further Reading
 
