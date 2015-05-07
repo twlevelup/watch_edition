@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "backbone": "^1.1.2",
+    "envify": "^3.4.0",
     "grunt": "^0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-contrib-clean": "^0.6.0",
@@ -35,7 +36,6 @@
   },
   "devDependencies": {
     "browserify": "^10.1.0",
-    "envify": "^3.4.0",
     "grunt-browserify": "^3.7.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-exec": "^0.4.6",
