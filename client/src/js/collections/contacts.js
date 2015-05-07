@@ -1,8 +1,9 @@
 var Contact = require('../models/contact');
+var Config = require('../config/config.js');
 
 var Contacts = Backbone.Firebase.Collection.extend({
   model: Contact,
-  url: 'https://lvlup-watch-edition.firebaseIO.com/Contacts' // if ENV = x, 'dev'
+  url: Config.firebaseUrl + '/Contacts'
 });
 
 module.exports = Contacts;
