@@ -29,17 +29,17 @@
     "jshint-stylish": "^1.0.1",
     "load-grunt-config": "^0.16.0",
     "underscore": "^1.8.3",
-    "browserify-shim": "^3.8.6"
+    "browserify-shim": "^3.8.6",
+    "browserify": "^10.1.0",
+    "grunt-browserify": "^3.7.0",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-exec": "^0.4.6",
+    "grunt-karma": "^0.10.1"
   },
   "engines": {
     "node": "0.10.x"
   },
   "devDependencies": {
-    "browserify": "^10.1.0",
-    "grunt-browserify": "^3.7.0",
-    "grunt-concurrent": "^1.0.0",
-    "grunt-exec": "^0.4.6",
-    "grunt-karma": "^0.10.1",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-bro": "^0.11.1",
