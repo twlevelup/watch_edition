@@ -13,8 +13,6 @@ test:
   - karma
 
 build:
-  - clean
-  - test
   - copy
   - sass
   - browserify
@@ -24,6 +22,8 @@ staging:
   - connect:staging
 
 dev:
+  - clean
+  - test
   - build
   - concurrent:dev
 
