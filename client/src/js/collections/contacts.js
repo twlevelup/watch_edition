@@ -2,7 +2,7 @@ var Contact = require('../models/contact');
 
 var Contacts = Backbone.Firebase.Collection.extend({
   model: Contact,
-  url: 'https://lvlup-watch-edition.firebaseIO.com/Contacts'
+  url: 'https://lvlup-watch-edition.firebaseIO.com/Contacts' // if ENV = x, 'dev'
 });
 
 module.exports = Contacts;

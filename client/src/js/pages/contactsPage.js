@@ -21,15 +21,16 @@ var ContactsView = PageView.extend({
     var self = this;
 
     this.contactsCollection = new ContactsCollection();
-    self.loadContacts();
     this.listenTo(this.contactsCollection, "change", this.render);
+
+    self.seedContacts();
   },
 
-  loadContacts: function() {
+  seedContacts: function() {
     this.contactsCollection.push([
       {name: 'Adam', phoneNumber: '0431 111 111'},
-      {name: 'Sam', phoneNumber: '0431 222 222'},
-      {name: 'Shaheedha', phoneNumber: '0431 333 333'}
+      {name: 'James', phoneNumber: '0431 222 222'},
+      {name: 'Marzena', phoneNumber: '0431 333 333'}
     ]);
   },
 
