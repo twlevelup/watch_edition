@@ -18,18 +18,19 @@ var ContactsView = PageView.extend({
   },
 
   initialize: function() {
-    this.contactsCollection = new ContactsCollection();
     var self = this;
-    this.contactsCollection.fetch({
-      reset: true,
-      success: function() {
-        self.render();
-      }
-    });
+
+    this.contactsCollection = new ContactsCollection();
+    self.loadContacts();
+    this.listenTo(this.contactsCollection, "change", this.render);
   },
 
   loadContacts: function() {
-    this.contactsCollection.push();
+    this.contactsCollection.push([
+      {name: 'Adam', phoneNumber: '0431 111 111'},
+      {name: 'Sam', phoneNumber: '0431 222 222'},
+      {name: 'Shaheedha', phoneNumber: '0431 333 333'}
+    ]);
   },
 
   screenClickExample: function() {

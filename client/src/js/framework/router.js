@@ -1,6 +1,5 @@
 'use strict';
 
-window.console.log(Backbone.Router);
 var Router = Backbone.Router.extend({
 
   _loadNewView: function(view) {
