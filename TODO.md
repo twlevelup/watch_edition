@@ -31,7 +31,7 @@ http://www.storiesinflight.com/html5/audio.html or http://www.schillmania.com/pr
 - keyboard shortcuts for watch buttons
 - Separate stylesheets for layout/scafloding and actual app
 - add automated check for test coverage (set at 80% and fail the build?)
-
+ c
 # Notes
 - App may need to separate init and start methods. app.start can't be called multiple times due to Backbone.history.start();
 
