@@ -53,7 +53,6 @@ var ContactsView = PageView.extend({
     this.$el.append(contactsHTML);
 
     return this;
-
   },
 
   createContactHTML: function(contact) {

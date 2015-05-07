@@ -1,9 +1,7 @@
-var Backbone = require('backbone'),
- $ = require('jquery'),
- _ = require('underscore');
-
-Backbone.$ = $;
+var $ = require('jquery'),
+    _ = require('underscore');
 
 global.$ = $;
 global._ = _;
-global.Backbone = Backbone;
+global.Backbone = require('backbonefire');
+global.Backbone.$ = $;
