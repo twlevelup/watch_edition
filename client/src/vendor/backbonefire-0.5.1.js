@@ -11,10 +11,6 @@
 (function(_, Backbone) {
   'use strict';
 
-  window.console.log("IM HERE!!!");
-
-  window.console.log(Backbone);
-
   Backbone.Firebase = {};
 
   /**
