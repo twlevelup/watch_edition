@@ -2,8 +2,8 @@
 
 var notificationsConfig = [
     {
-      name: 'Some notification name',
-      defaultMessage: 'Hello world I am here and it is cool!',
+      name: 'Go to contacts on left button',
+      defaultMessage: 'Click left button to go to contacts.',
       buttonEvents: {
         left: 'navigateToContacts'
       },
@@ -12,8 +12,8 @@ var notificationsConfig = [
       }
     },
     {
-      name: 'Second notification name',
-      defaultMessage: 'Now we have two messages?',
+      name: 'Left button will be contacts now',
+      defaultMessage: 'Now left button will lead you to contacts.',
       buttonEvents: {
         left: 'navigateToContacts'
       },
@@ -22,7 +22,7 @@ var notificationsConfig = [
       }
     },
     {
-      name: 'Third notification name',
+      name: 'Contacts on the left!',
       buttonEvents: {
         left: 'navigateToContacts'
       },
