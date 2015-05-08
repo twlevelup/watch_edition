@@ -21,7 +21,7 @@ var ContactsView = PageView.extend({
     var self = this;
 
     this.contactsCollection = new ContactsCollection();
-    this.listenTo(this.contactsCollection, "change", this.render);
+    this.listenTo(this.contactsCollection, 'change', this.render);
 
     self.seedContacts();
   },

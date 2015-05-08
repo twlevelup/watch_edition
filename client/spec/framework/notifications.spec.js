@@ -1,30 +1,36 @@
 'use strict';
 
-var NotificationsPanel = require('../../src/js/framework/notifications');
+var NotificationsPanel = require('../../src/js/framework/notifications'),
+  App = require('../../src/js/app'),
+  Page = require('../../src/js/framework/page');
+
+global.App = App;
 
 describe('Notifications Panel', function() {
-  var notificationPanel;
+  var notificationPanel, notificationsArray;
 
   beforeEach(function () {
+    notificationsArray = [
+      {
+        name: 'Action1',
+        defaultMessage: 'The message by default',
+        buttonEvents: {
+          left: 'callLeftButtonFunction'
+        },
+        callLeftButtonFunction: jasmine.createSpy("leftButtonAction1Spy")
+      },
+      {
+        name: 'Action2'
+      }
+    ];
     $('body').append('<div id="notification-panel" />');
+    $('body').append('<div id="notification_popup" style="display: none"><textarea id="notification_message_display"></textarea></div>');
+
     notificationPanel = new NotificationsPanel();
+    notificationPanel.configureNotifications(notificationsArray);
   });
 
   describe('configuring notifications', function(){
-    var notificationsArray;
-
-    beforeEach(function () {
-      notificationsArray = [
-        {
-          name: 'Action1'
-        },
-        {
-          name: 'Action2'
-        }
-      ];
-      notificationPanel.configureNotifications(notificationsArray);
-    });
-
     describe('rendering', function () {
 
       it('should render itself automatically in the #notification-panel element', function () {
@@ -35,18 +41,18 @@ describe('Notifications Panel', function() {
         expect(notificationPanel.el).toContainElement('select[name="notification_action"]');
       });
 
-      it('should contain action select field', function(){
+      it('should contain message textarea field', function(){
         expect(notificationPanel.el).toContainElement('textarea[name="notification_message"]');
       });
     });
 
-    it('should set up an event listener on "Send Notification" button', function(){
-      spyOn(notificationPanel, '_sendNotification');
+    it('should set up an event listener on click of "Send Notification" button', function(){
+      spyOn(notificationPanel, 'showNotification');
       notificationPanel.configureNotifications(notificationsArray);
 
       notificationPanel.$el.find('#button-sendNotification').trigger('click');
 
-      expect(notificationPanel._sendNotification).toHaveBeenCalled();
+      expect(notificationPanel.showNotification).toHaveBeenCalled();
     });
 
     describe('populating notifications select dropdown', function(){
@@ -55,6 +61,124 @@ describe('Notifications Panel', function() {
 
         expect(selectOptions[0].innerHTML).toEqual(notificationsArray[0].name);
         expect(selectOptions[1].innerHTML).toEqual(notificationsArray[1].name);
+      });
+    });
+  });
+
+  describe('when user changes selection on the notification type', function(){
+    describe('when the default message is provided for the option', function(){
+
+      it('should set its value on the textarea field', function(){
+        notificationPanel.$el.find('select[name="notification_action"]').val('Action1').change();
+        expect(notificationPanel.$el.find('textarea[name="notification_message"]').val()).toEqual(notificationsArray[0].defaultMessage);
+      });
+    });
+
+    describe('when there is no default message for the option', function(){
+      it('should clear the value on the textarea field', function(){
+        notificationPanel.$el.find('textarea[name="notification_message"]').val('Some new value of our message');
+        notificationPanel.$el.find('select[name="notification_action"]').val('Action2').change();
+        expect(notificationPanel.$el.find('textarea[name="notification_message"]').val()).toEqual('');
+      });
+    });
+
+    describe('sending notification', function() {
+      describe('when no notification type is selected', function () {
+
+        beforeEach(function () {
+          notificationPanel.$el.find('select[name="notification_action"]').val();
+          notificationPanel.$el.find('#button-sendNotification').trigger('click');
+        });
+
+        it('should not show the notification popup', function () {
+          expect($('#notification_popup').is(":visible")).toBeFalsy();
+        });
+      });
+
+      describe('when a notification type is selected', function () {
+
+        beforeEach(function () {
+          global.App.router = {
+            currentView: new Page()
+          };
+
+          var currentView = global.App.router.currentView;
+          currentView.actionOnLeftButton = jasmine.createSpy('oldActionOnLeftButtonSpy');
+          currentView.listenTo(currentView, 'left', currentView.actionOnLeftButton);
+
+          notificationPanel.$el.find('select[name="notification_action"]').val('Action1');
+          notificationPanel.$el.find('textarea[name="notification_message"]').val('Do you want to open contacts now?');
+
+          notificationPanel.$el.find('#button-sendNotification').trigger('click');
+        });
+
+        it('should show the notification popup div', function () {
+          expect($('#notification_popup').is(":visible")).toBeTruthy();
+        });
+
+        it('should populate message text with the provided message from textarea', function () {
+          expect($('#notification_message_display').text()).toEqual('Do you want to open contacts now?');
+        });
+
+        describe('remapping the buttons of the current view to perform notification-specific actions', function () {
+
+          it('should stop listening to the old button events', function () {
+            global.App.router.currentView.trigger('left');
+            expect(global.App.router.currentView.actionOnLeftButton).not.toHaveBeenCalled();
+          });
+
+          describe('when an action on a button is specified', function () {
+            beforeEach(function () {
+              global.App.router.currentView.trigger('left');
+            });
+
+            it('should execute the function on button clicked', function () {
+               expect(notificationsArray[0].callLeftButtonFunction).toHaveBeenCalled();
+            });
+
+            it('should trigger hiding of the notifications on button clicked', function () {
+              expect(notificationPanel.$el.find('#notification_popup').is(':visible')).toBeFalsy();
+            });
+          });
+
+          describe('when no action on a button is specified', function () {
+
+            beforeEach(function () {
+              global.App.router.currentView.trigger('right');
+            });
+
+            it('should hide the notifications on button clicked', function () {
+              expect(notificationPanel.$el.find('#notification_popup').is(':visible')).toBeFalsy();
+            });
+          });
+        });
+      });
+
+      describe('cancelling notification', function () {
+        beforeEach(function () {
+          global.App.router = {
+            currentView: {
+              setButtonEvents: jasmine.createSpy('setButtonEventsSpy')
+            }
+          };
+
+          $('#notification_popup').show();
+          $('#notification_message_display').text('Some Notification Message');
+
+          notificationPanel.cancelNotification();
+        });
+
+        it('should hide the notification popup', function () {
+          expect($('#notification_popup').is(":visible")).toBeFalsy();
+        });
+
+        it('should clear the notification message', function () {
+          expect($('#notification_message_display').text()).toEqual('');
+        });
+
+        it('should reset the button events for the current view', function () {
+          expect(global.App.router.currentView.setButtonEvents).toHaveBeenCalled();
+        });
       });
     });
   });

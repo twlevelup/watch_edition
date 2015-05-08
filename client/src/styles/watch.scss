@@ -27,6 +27,17 @@
   padding:7.3em 0
 }
 
+#notification_popup {
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -180px;
+  opacity: 0.7;
+}
+
 .power:nth-child(1){
   position:absolute;
   right:-0.4em;

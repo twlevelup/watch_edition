@@ -4,30 +4,30 @@ var notificationsConfig = [
     {
       name: 'Some notification name',
       defaultMessage: 'Hello world I am here and it is cool!',
-      buttonsEvents: {
-        left: 'someMethodWillHappen'
+      buttonEvents: {
+        left: 'navigateToContacts'
       },
-      someMethodWillHappen: function() {
-        //console.log("Some method happened");
+      navigateToContacts: function() {
+        global.App.navigate('contacts', true);
       }
     },
     {
       name: 'Second notification name',
       defaultMessage: 'Now we have two messages?',
-      buttonsEvents: {
-        left: 'someMethodWillHappenToo'
+      buttonEvents: {
+        left: 'navigateToContacts'
       },
-      someMethodWillHappenToo: function() {
-        //console.log("Some method happened too");
+      navigateToContacts: function() {
+        global.App.navigate('contacts', true);
       }
     },
     {
       name: 'Third notification name',
-      buttonsEvents: {
-        left: 'someMethodWillHappenThree'
+      buttonEvents: {
+        left: 'navigateToContacts'
       },
-      someMethodWillHappenThree: function() {
-        //console.log("Some method happened three");
+      navigateToContacts: function() {
+        global.App.navigate('contacts', true);
       }
     }
 ];

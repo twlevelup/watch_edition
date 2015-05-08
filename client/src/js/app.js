@@ -7,6 +7,8 @@ var Router = require('./router'),
 
 var App = {
 
+  buttons: ['left', 'right', 'top', 'bottom', 'face'],
+
   navigate: function (route) {
     App.router.navigate(route, true);
   },

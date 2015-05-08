@@ -1,7 +1,8 @@
 'use strict';
 
 var Router = require('../src/js/router'),
-  WatchFace = require('../src/js/framework/watchFace');
+  WatchFace = require('../src/js/framework/watchFace'),
+  NotificationsPanel = require('../src/js/framework/notifications');
 
 var app = require('../src/js/app');
 app.start();
@@ -18,6 +19,8 @@ describe('The App', function() {
       expect(app.watchFace instanceof WatchFace).toBeTruthy();
     });
 
+    it('should setup the notifications', function() {
+      expect(app.notifications instanceof NotificationsPanel).toBeTruthy();
+    });
   });
-
 });
