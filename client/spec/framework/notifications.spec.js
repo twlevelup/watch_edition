@@ -50,14 +50,14 @@ describe('Notifications Panel', function() {
       spyOn(notificationPanel, 'showNotification');
       notificationPanel.configureNotifications(notificationsArray);
 
-      notificationPanel.$el.find('#button-sendNotification').trigger('click');
+      $('#button-sendNotification').trigger('click');
 
       expect(notificationPanel.showNotification).toHaveBeenCalled();
     });
 
     describe('populating notifications select dropdown', function(){
       it('should create dropdown options with value equal to property "name" of objects in array passed as an argument', function(){
-        var selectOptions = notificationPanel.$el.find('select[name="notification_action"] option');
+        var selectOptions = $('select[name="notification_action"] option');
 
         expect(selectOptions[0].innerHTML).toEqual(notificationsArray[0].name);
         expect(selectOptions[1].innerHTML).toEqual(notificationsArray[1].name);
@@ -69,16 +69,16 @@ describe('Notifications Panel', function() {
     describe('when the default message is provided for the option', function(){
 
       it('should set its value on the textarea field', function(){
-        notificationPanel.$el.find('select[name="notification_action"]').val('Action1').change();
-        expect(notificationPanel.$el.find('textarea[name="notification_message"]').val()).toEqual(notificationsArray[0].defaultMessage);
+        $('select[name="notification_action"]').val('Action1').change();
+        expect($('textarea[name="notification_message"]').val()).toEqual(notificationsArray[0].defaultMessage);
       });
     });
 
     describe('when there is no default message for the option', function(){
       it('should clear the value on the textarea field', function(){
-        notificationPanel.$el.find('textarea[name="notification_message"]').val('Some new value of our message');
-        notificationPanel.$el.find('select[name="notification_action"]').val('Action2').change();
-        expect(notificationPanel.$el.find('textarea[name="notification_message"]').val()).toEqual('');
+        $('textarea[name="notification_message"]').val('Some new value of our message');
+        $('select[name="notification_action"]').val('Action2').change();
+        expect($('textarea[name="notification_message"]').val()).toEqual('');
       });
     });
 
@@ -86,8 +86,8 @@ describe('Notifications Panel', function() {
       describe('when no notification type is selected', function () {
 
         beforeEach(function () {
-          notificationPanel.$el.find('select[name="notification_action"]').val();
-          notificationPanel.$el.find('#button-sendNotification').trigger('click');
+          $('select[name="notification_action"]').val();
+          $('#button-sendNotification').trigger('click');
         });
 
         it('should not show the notification popup', function () {
@@ -106,10 +106,10 @@ describe('Notifications Panel', function() {
           currentView.actionOnLeftButton = jasmine.createSpy('oldActionOnLeftButtonSpy');
           currentView.listenTo(currentView, 'left', currentView.actionOnLeftButton);
 
-          notificationPanel.$el.find('select[name="notification_action"]').val('Action1');
-          notificationPanel.$el.find('textarea[name="notification_message"]').val('Do you want to open contacts now?');
+          $('select[name="notification_action"]').val('Action1');
+          $('textarea[name="notification_message"]').val('Do you want to open contacts now?');
 
-          notificationPanel.$el.find('#button-sendNotification').trigger('click');
+          $('#button-sendNotification').trigger('click');
         });
 
         it('should show the notification popup div', function () {
@@ -137,7 +137,7 @@ describe('Notifications Panel', function() {
             });
 
             it('should trigger hiding of the notifications on button clicked', function () {
-              expect(notificationPanel.$el.find('#notification_popup').is(':visible')).toBeFalsy();
+              expect($('#notification_popup').is(':visible')).toBeFalsy();
             });
           });
 
@@ -148,7 +148,7 @@ describe('Notifications Panel', function() {
             });
 
             it('should hide the notifications on button clicked', function () {
-              expect(notificationPanel.$el.find('#notification_popup').is(':visible')).toBeFalsy();
+              expect($('#notification_popup').is(':visible')).toBeFalsy();
             });
           });
         });
