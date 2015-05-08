@@ -72,13 +72,6 @@ module.exports = function(config) {
         browserify: {
           debug: true,
           transform: ['hbsfy']
-        },
-
-        plugins: [
-          'karma-phantomjs-launcher',
-          'karma-jasmine-jquery',
-          'karma-jasmine'
-        ]
-
+        }
     });
 };
