@@ -3,7 +3,7 @@
 var Router = require('./router'),
   WatchFace = require('./framework/watchFace'),
   NotificationsPanel = require('./framework/notifications'),
-  availableNotificationTypes = require('./notifications/notificationsArray');
+  availableNotificationTypes = require('./notifications/notificationsConfig');
 
 var App = {
 

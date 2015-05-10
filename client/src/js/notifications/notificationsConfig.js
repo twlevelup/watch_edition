@@ -2,10 +2,10 @@
 
 var notificationsConfig = [
     {
-      name: 'Go to contacts on left button',
-      defaultMessage: 'Click left button to go to contacts.',
+      name: 'Go to contacts on right button',
+      defaultMessage: 'Click right button to go to contacts.',
       buttonEvents: {
-        left: 'navigateToContacts'
+        right: 'navigateToContacts'
       },
       navigateToContacts: function() {
         global.App.navigate('contacts', true);
@@ -13,18 +13,18 @@ var notificationsConfig = [
     },
     {
       name: 'Left button will be contacts now',
-      defaultMessage: 'Now left button will lead you to contacts.',
+      defaultMessage: 'Now right button will lead you to contacts.',
       buttonEvents: {
-        left: 'navigateToContacts'
+        right: 'navigateToContacts'
       },
       navigateToContacts: function() {
         global.App.navigate('contacts', true);
       }
     },
     {
-      name: 'Contacts on the left!',
+      name: 'Contacts on the right!',
       buttonEvents: {
-        left: 'navigateToContacts'
+        right: 'navigateToContacts'
       },
       navigateToContacts: function() {
         global.App.navigate('contacts', true);
