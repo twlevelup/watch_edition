@@ -21,6 +21,7 @@ http://www.storiesinflight.com/html5/audio.html or http://www.schillmania.com/pr
 
 
 # Nice to have / ideas
+- default event handlers for buttons
 - Add basic security check https://www.npmjs.com/package/grunt-retire
 - change watch styling, simpler more like http://codepen.io/jrg/pen/Cjrzx
 - click and hold for buttons i.e. scrolling
