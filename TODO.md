@@ -1,5 +1,6 @@
 # Important
 
+- make pre-commit work on windows: Actual issue is using exec to run jscs, it runs in the wrong directory or something
 - More test coverage for framework and sample pages
 - See what happens when multiple specs declare app as a global
 
