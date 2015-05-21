@@ -23,4 +23,18 @@ describe('The App', function() {
       expect(app.notifications instanceof NotificationsPanel).toBeTruthy();
     });
   });
+
+  describe('navigate', function() {
+
+    beforeEach(function() {
+      spyOn(app.router, 'navigate');
+    });
+
+    it('should call navigate on the router with the route', function() {
+      app.navigate('foo');
+      expect(app.router.navigate).toHaveBeenCalledWith('foo', true);
+    });
+
+  });
+
 });
