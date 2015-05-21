@@ -15,8 +15,6 @@ http://www.storiesinflight.com/html5/audio.html or http://www.schillmania.com/pr
 
 - rendering test for collections contacts page - where is the html
 
-- code coverage check... (browserify)
-
 - example of playing an audio clip
 
 

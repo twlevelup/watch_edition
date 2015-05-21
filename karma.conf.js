@@ -1,5 +1,7 @@
 'use strict';
 
+var istanbul = require('browserify-istanbul');
+
 module.exports = function(config) {
     config.set({
 
@@ -71,7 +73,9 @@ module.exports = function(config) {
 
         browserify: {
           debug: true,
-          transform: ['hbsfy']
+          transform: ['hbsfy', istanbul({
+            ignore: ['node_modules/**', '**/client/spec/**', '**/src/vendor/**']
+          })]
         }
     });
 };

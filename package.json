@@ -1,6 +1,6 @@
 {
   "name": "proto-watch",
-  "version": "0.0.2",
+  "version": "1.1.0",
   "description": "Scaffoling for a proto watch app",
   "author": "LevelUp",
   "repository": {
@@ -40,11 +40,14 @@
     "node": "0.10.x"
   },
   "devDependencies": {
+    "browserify-istanbul": "^0.2.1",
+    "grunt-sass": "^0.18.1",
     "grunt-todos": "^0.3.0",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-bro": "^0.11.1",
     "karma-browserify": "^4.1.2",
+    "karma-coverage": "^0.3.1",
     "karma-jasmine": "^0.3.5",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
