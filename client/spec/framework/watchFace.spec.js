@@ -4,15 +4,15 @@ var WatchFace = require('../../src/js/framework/watchFace');
 
 describe('WatchFace', function() {
 
-  beforeEach(function () {
+  beforeEach(function() {
     $('body').append('<div id="watch" />');
   });
 
-  describe('rendering', function () {
+  describe('rendering', function() {
 
     var watchFace;
 
-    it('should render itself automatically in the #watch element', function () {
+    it('should render itself automatically in the #watch element', function() {
 
       watchFace = new WatchFace();
       expect($('#watch')).toContainElement('#watch-face');
@@ -21,7 +21,7 @@ describe('WatchFace', function() {
 
   });
 
-  afterEach(function () {
+  afterEach(function() {
     $('#watch').remove();
   });
 

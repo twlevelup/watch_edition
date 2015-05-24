@@ -6,13 +6,13 @@ describe('A generic page', function() {
 
   var page;
 
-  beforeEach(function () {
+  beforeEach(function() {
     page = new Page();
   });
 
-  describe('markup', function () {
+  describe('markup', function() {
 
-    it('should have the class "page"', function () {
+    it('should have the class "page"', function() {
 
       expect(page.className).toEqual('page');
 
@@ -20,12 +20,12 @@ describe('A generic page', function() {
 
   });
 
-  describe('configuring buttons', function () {
+  describe('configuring buttons', function() {
     it('should map button event handlers to the button elements');
   });
 
-  describe('navigation helpers', function () {
-    describe('back', function () {
+  describe('navigation helpers', function() {
+    describe('back', function() {
       it('should go back in the browser history');
     });
   });

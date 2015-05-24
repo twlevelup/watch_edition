@@ -10,23 +10,23 @@ describe('The Home Page', function() {
 
   var homePage;
 
-  beforeEach(function () {
+  beforeEach(function() {
     homePage = new HomePage();
   });
 
-  describe('button event handlers', function () {
+  describe('button event handlers', function() {
 
-    beforeEach(function () {
+    beforeEach(function() {
       homePage.setButtonEvents();
     });
 
-    describe('right', function () {
+    describe('right', function() {
 
-      beforeEach(function () {
+      beforeEach(function() {
         spyOn(global.App, 'navigate');
       });
 
-      it('should take the user to the contacts page', function () {
+      it('should take the user to the contacts page', function() {
 
         homePage.trigger('right');
 
@@ -37,9 +37,9 @@ describe('The Home Page', function() {
 
   });
 
-  describe('rendering', function () {
+  describe('rendering', function() {
 
-    it('should produce the correct HTML', function () {
+    it('should produce the correct HTML', function() {
       homePage.render();
       expect(homePage.el.innerHTML).toContain('<div>Hello, World!</div>');
     });

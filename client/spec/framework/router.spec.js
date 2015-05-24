@@ -33,7 +33,7 @@ describe('Router', function() {
         expect(view.setButtonEvents).toHaveBeenCalled();
       });
 
-      describe('rendering', function () {
+      describe('rendering', function() {
 
         it('should render the current view', function() {
           spyOn(view, 'render').and.callThrough();
