@@ -25,8 +25,12 @@ module.exports = function(config) {
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['spec'],
+        reporters: ['spec', 'coverage'],
 
+      coverageReporter: {
+        'type' : 'text',
+        'dir' : 'coverage/'
+      },
 
         // web server port
         port: 9876,
@@ -74,7 +78,11 @@ module.exports = function(config) {
         browserify: {
           debug: true,
           transform: ['hbsfy', istanbul({
-            ignore: ['node_modules/**', '**/client/spec/**', '**/src/vendor/**']
+            ignore: [
+              'node_modules/**',
+              '**/client/spec/**',
+              '**/src/vendor/**',
+              '**/src/js/notifications/notificationsConfig.js']
           })]
         }
     });
