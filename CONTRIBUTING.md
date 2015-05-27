@@ -7,6 +7,6 @@ If you would like to contribute enhancements or fixes, please do the following:
 - Commit and push the topic branch.
 - Make a pull request.
 
-Your changes should include adequate test coverage and run the pre-commit task first.
+Your changes should include adequate test coverage and pass the pre-commit task.
 
 Thank you for helping out!

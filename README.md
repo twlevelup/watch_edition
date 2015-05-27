@@ -76,7 +76,7 @@ The Proto Watch is designed to be a simple low cost device.
 
 ## FAQ
 
-**How do I run a subset of test?**
+**How do I run a subset of tests?**
 
 Replace it and describe with fit or fdescribe
 
