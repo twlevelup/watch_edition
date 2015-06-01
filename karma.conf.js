@@ -26,14 +26,23 @@ module.exports = function(config) {
 
         coverageReporter: {
           'type' : 'text',
-          'dir' : 'coverage/'
+          'dir' : 'coverage/',
+          //comment this out if you want to see the output in the console
+          'file': 'coverageResult.txt',
+          watermarks: {
+            statements: [ 60, 90 ],
+            functions: [ 60, 90 ],
+            branches: [ 60, 80 ],
+            lines: [ 60, 90 ]
+          }
         },
 
-        // the configure thresholds
+
+      // the configure thresholds
         thresholdReporter: {
           statements: 90,
-          branches: 60,
-          functions: 85,
+          branches: 80,
+          functions: 90,
           lines: 90
         },
 
@@ -87,8 +96,10 @@ module.exports = function(config) {
               'node_modules/**',
               '**/client/spec/**',
               '**/src/vendor/**',
-              '**/src/js/notifications/notificationsConfig.js']
-          })]
+              '**/*Config.js',
+              '**/config.js']
+          }
+          )]
         }
     });
 };
