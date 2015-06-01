@@ -37,7 +37,7 @@ describe('The App', function() {
 
   });
 
-  describe('clock', function () {
+  describe('clock', function() {
     it('should start the clock');
   });
 

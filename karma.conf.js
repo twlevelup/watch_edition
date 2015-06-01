@@ -18,19 +18,24 @@ module.exports = function(config) {
         files: ['client/src/js/vendor.js', 'client/spec/**/*spec.js'],
 
         // list of files to exclude
-        exclude: [
-
-        ],
-
+        exclude: [],
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['spec', 'coverage'],
+        reporters: ['spec', 'coverage', 'threshold'],
 
-      coverageReporter: {
-        'type' : 'text',
-        'dir' : 'coverage/'
-      },
+        coverageReporter: {
+          'type' : 'text',
+          'dir' : 'coverage/'
+        },
+
+        // the configure thresholds
+        thresholdReporter: {
+          statements: 90,
+          branches: 60,
+          functions: 85,
+          lines: 90
+        },
 
         // web server port
         port: 9876,
