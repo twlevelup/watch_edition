@@ -34,6 +34,8 @@ describe('The App', function() {
 
   describe('navigate', function() {
 
+    // TODO should this be renamed and also trigger render or init ?
+
     beforeEach(function() {
       spyOn(app.router, 'navigate');
     });
@@ -46,6 +48,9 @@ describe('The App', function() {
   });
 
   describe('responding to the button clicks', function() {
+
+    // TODO camelcase
+    // TODO rename up down left right
 
     beforeEach(function() {
       var CurrentView = Backbone.View.extend({
@@ -84,7 +89,7 @@ describe('The App', function() {
     });
   });
 
-  describe('clock', function() {
+  xdescribe('clock', function() {
     it('should start the clock');
   });
 

@@ -28,10 +28,13 @@ describe('The Contacts Page', function() {
 
   describe('button events', function() {
 
+    beforeEach(function() {
+      contactsPage.setButtonEvents();
+    });
+
     describe('right', function() {
       it('should take the user to the home page', function() {
         spyOn(global.App, 'navigate');
-        contactsPage.setButtonEvents();
         contactsPage.trigger('right');
         expect(global.App.navigate).toHaveBeenCalledWith('');
       });
@@ -39,8 +42,9 @@ describe('The Contacts Page', function() {
 
     describe('face', function() {
       it('should display "Oh noes!" to the user', function() {
-        contactsPage.setButtonEvents();
         contactsPage.trigger('face');
+
+        // TODO use jquery matchers / view .$el
         expect(contactsPage.el.innerHTML).toEqual('<div>Oh noes!</div>');
       });
     });

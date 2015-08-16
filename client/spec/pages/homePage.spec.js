@@ -15,32 +15,29 @@ describe('The Home Page', function() {
 
   describe('button event handlers', function() {
 
-    beforeEach(function() {
-      homePage.setButtonEvents();
-    });
-
     describe('right', function() {
 
-      beforeEach(function() {
-        spyOn(global.App, 'navigate');
-      });
-
       it('should take the user to the contacts page', function() {
-
+        spyOn(global.App, 'navigate');
+        homePage.setButtonEvents();
         homePage.trigger('right');
-        expect(global.App.navigate).toHaveBeenCalledWith('contacts', true);
+        expect(global.App.navigate).toHaveBeenCalledWith('contacts');
       });
     });
 
     describe('top', function() {
-      it('should scroll the watch face by 70px up', function() {
+      it('should scroll the watch face up', function() {
+        spyOn(homePage, 'scrollUp');
+        homePage.setButtonEvents();
         homePage.trigger('top');
         expect(homePage.scrollUp).toHaveBeenCalled();
       });
     });
 
     describe('bottom', function() {
-      it('should scroll the watch face by 70px down', function() {
+      it('should scroll the watch face down', function() {
+        spyOn(homePage, 'scrollDown');
+        homePage.setButtonEvents();
         homePage.trigger('bottom');
         expect(homePage.scrollDown).toHaveBeenCalled();
       });
