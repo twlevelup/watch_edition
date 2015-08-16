@@ -11,7 +11,6 @@ describe('The Contacts Page', function() {
   var contactsPage;
 
   beforeEach(function() {
-    router = new Router();
     contactsPage = new ContactsPage();
   });
 
@@ -30,16 +29,17 @@ describe('The Contacts Page', function() {
   describe('button events', function() {
 
     describe('right', function() {
-      it('should take the user to the contacts page', function() {
-        spyOn(contactsPage, 'goToHomePage');
+      it('should take the user to the home page', function() {
+        spyOn(global.App, 'navigate');
         contactsPage.setButtonEvents();
         contactsPage.trigger('right');
-        expect(global.App.navigate).toHaveBeenCalledWith('', true);
+        expect(global.App.navigate).toHaveBeenCalledWith('');
       });
     });
 
-    describe('face', function () {
-      it('should display "Oh noes!" to the user', function () {
+    describe('face', function() {
+      it('should display "Oh noes!" to the user', function() {
+        contactsPage.setButtonEvents();
         contactsPage.trigger('face');
         expect(contactsPage.el.innerHTML).toEqual('<div>Oh noes!</div>');
       });

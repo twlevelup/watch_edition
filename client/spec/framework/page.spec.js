@@ -19,7 +19,7 @@ describe('A generic page', function() {
   });
 
   describe('configuring buttons', function() {
-    beforeEach(function(){
+    beforeEach(function() {
       page.buttonEvents = {
         buttonId1: 'functionButtonEvent1',
         buttonId2: 'functionButtonEvent2',
@@ -32,8 +32,8 @@ describe('A generic page', function() {
       page.setButtonEvents();
     });
 
-    it('should map button event handlers to the button elements', function(){
-      _.each(page.buttonEvents, function(eventHandler, buttonEvent){
+    it('should map button event handlers to the button elements', function() {
+      _.each(page.buttonEvents, function(eventHandler, buttonEvent) {
         page.trigger(buttonEvent);
         expect(page[eventHandler]).toHaveBeenCalled();
       });

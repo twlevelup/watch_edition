@@ -39,7 +39,7 @@ var ContactsView = PageView.extend({
   },
 
   goToHomePage: function() {
-    global.App.router.navigate('', true);
+    global.App.navigate('');
   },
 
   render: function() {

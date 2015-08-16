@@ -28,19 +28,19 @@ describe('The Home Page', function() {
       it('should take the user to the contacts page', function() {
 
         homePage.trigger('right');
-        expect(global.App.router.navigate).toHaveBeenCalledWith('contacts', true);
+        expect(global.App.navigate).toHaveBeenCalledWith('contacts', true);
       });
     });
 
-    describe('top', function () {
-     it('should scroll the watch face by 70px up', function () {
+    describe('top', function() {
+      it('should scroll the watch face by 70px up', function() {
         homePage.trigger('top');
         expect(homePage.scrollUp).toHaveBeenCalled();
       });
     });
 
-    describe('bottom', function () {
-      it('should scroll the watch face by 70px down', function () {
+    describe('bottom', function() {
+      it('should scroll the watch face by 70px down', function() {
         homePage.trigger('bottom');
         expect(homePage.scrollDown).toHaveBeenCalled();
       });
