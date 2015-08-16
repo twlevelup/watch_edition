@@ -1,13 +1,14 @@
 'use strict';
 
 var ContactsPage = require('../../src/js/pages/contactsPage'),
-  Router = require('../../src/js/router.js');
+  Router = require('../../src/js/router.js'),
+  App = require('../../src/js/app');
 
-global.router = new Router();
+global.App = App;
 
 describe('The Contacts Page', function() {
 
-  var contactsPage, router;
+  var contactsPage;
 
   beforeEach(function() {
     router = new Router();
@@ -33,9 +34,15 @@ describe('The Contacts Page', function() {
         spyOn(contactsPage, 'goToHomePage');
         contactsPage.setButtonEvents();
         contactsPage.trigger('right');
-        expect(contactsPage.goToHomePage).toHaveBeenCalled();
+        expect(global.App.navigate).toHaveBeenCalledWith('', true);
       });
+    });
 
+    describe('face', function () {
+      it('should display "Oh noes!" to the user', function () {
+        contactsPage.trigger('face');
+        expect(contactsPage.el.innerHTML).toEqual('<div>Oh noes!</div>');
+      });
     });
   });
 

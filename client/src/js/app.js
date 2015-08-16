@@ -30,25 +30,27 @@ var App = {
       App.router.currentView.trigger('right');
     });
 
-    $('#button-top').click(function() {
+    $('#button-top').on('click', function() {
       App.router.currentView.trigger('top');
     });
 
-    $('#button-bottom').click(function() {
+    $('#button-bottom').on('click', function() {
       App.router.currentView.trigger('bottom');
     });
 
-    $('#button-left').click(function() {
+    $('#button-left').on('click', function() {
       App.router.currentView.trigger('left');
     });
 
-    $('#watch-face').click(function() {
+    $('#watch-face').on('click', function() {
       App.router.currentView.trigger('face');
     });
 
     clock.start();
 
-    Backbone.history.start();
+    if(Backbone.history && !Backbone.History.started) {
+      Backbone.history.start();
+    }
 
   }
 

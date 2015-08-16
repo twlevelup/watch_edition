@@ -18,19 +18,33 @@ module.exports = function(config) {
         files: ['client/src/js/vendor.js', 'client/spec/**/*spec.js'],
 
         // list of files to exclude
-        exclude: [
-
-        ],
-
+        exclude: [],
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['spec', 'coverage'],
+        reporters: ['spec', 'coverage', 'threshold'],
 
-      coverageReporter: {
-        'type' : 'text',
-        'dir' : 'coverage/'
-      },
+        coverageReporter: {
+          'type' : 'text',
+          'dir' : 'coverage/',
+          //comment this out if you want to see the output in the console
+          'file': 'coverageResult.txt',
+          watermarks: {
+            statements: [ 60, 90 ],
+            functions: [ 60, 90 ],
+            branches: [ 60, 80 ],
+            lines: [ 60, 90 ]
+          }
+        },
+
+
+      // the configure thresholds
+        thresholdReporter: {
+          statements: 90,
+          branches: 80,
+          functions: 90,
+          lines: 90
+        },
 
         // web server port
         port: 9876,
@@ -82,8 +96,10 @@ module.exports = function(config) {
               'node_modules/**',
               '**/client/spec/**',
               '**/src/vendor/**',
-              '**/src/js/notifications/notificationsConfig.js']
-          })]
+              '**/*Config.js',
+              '**/config.js']
+          }
+          )]
         }
     });
 };

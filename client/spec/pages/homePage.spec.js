@@ -7,7 +7,6 @@ var HomePage = require('../../src/js/pages/homePage'),
 global.App = App;
 
 describe('The Home Page', function() {
-
   var homePage;
 
   beforeEach(function() {
@@ -29,10 +28,22 @@ describe('The Home Page', function() {
       it('should take the user to the contacts page', function() {
 
         homePage.trigger('right');
-
-        expect(global.App.navigate).toHaveBeenCalled();
+        expect(global.App.router.navigate).toHaveBeenCalledWith('contacts', true);
       });
+    });
 
+    describe('top', function () {
+     it('should scroll the watch face by 70px up', function () {
+        homePage.trigger('top');
+        expect(homePage.scrollUp).toHaveBeenCalled();
+      });
+    });
+
+    describe('bottom', function () {
+      it('should scroll the watch face by 70px down', function () {
+        homePage.trigger('bottom');
+        expect(homePage.scrollDown).toHaveBeenCalled();
+      });
     });
 
   });
