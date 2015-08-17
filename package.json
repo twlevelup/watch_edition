@@ -52,7 +52,8 @@
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "0.0.19",
-    "karma-threshold-reporter": "^0.1.15"
+    "karma-threshold-reporter": "^0.1.15",
+    "generator-watch-page": "https://github.com/twlevelup/generator-watch-edition#v0.1"
   },
   "browserify": {
     "transform": [
