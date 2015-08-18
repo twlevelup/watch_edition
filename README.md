@@ -92,3 +92,7 @@ You don't need to read the whole book but it's worth going over the first couple
 ### [tryGit](https://try.github.io)
 
 An excellent online tutorial for getting started with Git.
+
+### Jasmine jQuery Matchers
+
+[Jasmine jQuery Matchers](https://github.com/velesin/jasmine-jquery)
