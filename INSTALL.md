@@ -17,6 +17,7 @@ This article will help you get Node and NPM installed using Homebrew (our prefer
 1. [Installing Node.js and npm using Homebrew on OS X](https://thechangelog.com/install-node-js-with-homebrew-on-os-x/)
 2. Install [CCMenu](http://ccmenu.org/)
 3. Install [Livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
+
 ## Setting Up The Sample Project
 
 Now that you have Git and NodeJS installed you are ready to download this Git repo and setup your local development environment.
