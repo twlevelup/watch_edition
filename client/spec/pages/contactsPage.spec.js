@@ -42,10 +42,9 @@ describe('The Contacts Page', function() {
 
     describe('face', function() {
       it('should display "Oh noes!" to the user', function() {
+        contactsPage.render();
         contactsPage.trigger('face');
-
-        // TODO use jquery matchers / view .$el
-        expect(contactsPage.el.innerHTML).toEqual('<div>Oh noes!</div>');
+        expect(contactsPage.$el).toContainText('Oh noes!');
       });
     });
   });
@@ -54,7 +53,7 @@ describe('The Contacts Page', function() {
 
     it('should produce the correct HTML', function() {
       contactsPage.render();
-      expect(contactsPage.el.innerHTML).toContain('<h1>Contacts</h1>');
+      expect(contactsPage.$el).toContainHtml('<h1>Contacts</h1>');
     });
 
     it('should render each of the contacts', function() {

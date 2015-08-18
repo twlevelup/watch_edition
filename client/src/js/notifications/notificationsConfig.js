@@ -8,7 +8,7 @@ var notificationsConfig = [
         right: 'navigateToContacts'
       },
       navigateToContacts: function() {
-        global.App.navigate('contacts', true);
+        global.App.navigate('contacts');
       }
     },
     {
@@ -18,7 +18,7 @@ var notificationsConfig = [
         right: 'navigateToContacts'
       },
       navigateToContacts: function() {
-        global.App.navigate('contacts', true);
+        global.App.navigate('contacts');
       }
     },
     {
@@ -27,7 +27,7 @@ var notificationsConfig = [
         right: 'navigateToContacts'
       },
       navigateToContacts: function() {
-        global.App.navigate('contacts', true);
+        global.App.navigate('contacts');
       }
     }
 ];
