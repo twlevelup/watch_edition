@@ -22,9 +22,10 @@ This article will help you get Node and NPM installed using Homebrew (our prefer
 
 Now that you have Git and NodeJS installed you are ready to download this Git repo and setup your local development environment.
 
-**Now git clone this repo!**
+**Now git clone your teams repo!**
 
 ```shell
+cd path_to_team_repo
 npm install -g browserify node-sass grunt-cli jscs yo
 npm install
 grunt
