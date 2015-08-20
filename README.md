@@ -70,7 +70,7 @@ The Proto Watch is designed to be a simple low cost device.
 - **GPS**: Yes
 - **Expansion**: None
 - **Networking**: GPRS or less*
-- **Battery and Power**: Built in rechargeable batter
+- **Battery and Power**: Built in rechargeable battery
 
 * With regards to networking the actual speed depends on your target audience i.e. do some research but will be capped at GPRS speeds. Basically make ajax network requests for JSON data
 
