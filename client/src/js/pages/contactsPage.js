@@ -26,6 +26,7 @@ var ContactsView = PageView.extend({
     self.seedContacts();
   },
 
+  // TODO use jquery to load a JSON file async test?
   seedContacts: function() {
     this.contactsCollection.push([
       {name: 'Adam', phoneNumber: '0431 111 111'},
