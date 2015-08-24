@@ -53,7 +53,7 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "0.0.19",
     "karma-threshold-reporter": "^0.1.15",
-    "generator-watch-page": "https://github.com/twlevelup/generator-watch-edition#v0.1"
+    "generator-watch-page": "git+https://643af40aaeabd70576e5491b6724e7c8a1088dd7:x-oauth-basic@github.com/twlevelup/generator-watch-edition#v0.1"
   },
   "browserify": {
     "transform": [
