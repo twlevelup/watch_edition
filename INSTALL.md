@@ -7,7 +7,7 @@ It's up to you how you install these and as long – as they work correctly it d
 ### Windows Setup Instructions
 1. Install [Git ](http://git-scm.com/)
 2. Install [Node](https://nodejs.org/download/)
-3. Install [CCTray](http://www.cruisecontrolnet.org/projects/cctray)
+3. Install [CCTray](http://sourceforge.net/projects/ccnet/files/latest/download)
 4. Install [Livereload extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 
 ### OS X Setup Instructions
