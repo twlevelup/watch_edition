@@ -84,6 +84,10 @@ Replace it and describe with fit or fdescribe
 
 Look at the further reading section below ;-)
 
+**Error: `libsass` bindings not found. Try reinstalling `node-sass`?**
+
+You've probably switched node version. Try running `rebuild node-sass`
+
 ## Further Reading
 
 ### [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
