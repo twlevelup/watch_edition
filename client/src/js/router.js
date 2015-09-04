@@ -3,14 +3,18 @@
 var Router = require('./framework/router.js'),
   HomePage = require('./pages/homePage'),
   ContactsPage = require('./pages/contactsPage'),
+  CocktailsPage = require('./pages/cocktailsPage'),
+
   homePage = new HomePage(),
+  cocktailsPage = new CocktailsPage(),
   contactsPage = new ContactsPage();
 
 var AppRouter = Router.extend({
 
   routes: {
     '': 'home',
-    contacts: 'contacts'
+    contacts: 'contacts',
+    cocktails: 'cocktails'
   },
 
   home: function() {
@@ -19,7 +23,12 @@ var AppRouter = Router.extend({
 
   contacts: function() {
     this.renderView(contactsPage);
+  },
+
+  cocktails: function() {
+    this.renderView(cocktailsPage);
   }
+
 
 });
 

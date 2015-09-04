@@ -3,6 +3,7 @@
 var AppRouter = require('../src/js/router.js'),
   PageView = require('../src/js/framework/page'),
   HomePage = require('../src/js/pages/homePage'),
+  CocktailsPage = require('../src/js/pages/cocktailsPage'),
   ContactPage = require('../src/js/pages/contactsPage');
 
 describe('Application Router', function() {
@@ -29,6 +30,14 @@ describe('Application Router', function() {
         router.contacts();
         var isContactPage = router.renderView.calls.argsFor(0)[0] instanceof ContactPage;
         expect(isContactPage).toBeTruthy();
+      });
+    });
+
+    describe('#cocktails', function() {
+      it('should load the cocktails screen', function() {
+        router.cocktails();
+        var isCocktailsPage = router.renderView.calls.argsFor(0)[0] instanceof CocktailsPage;
+        expect(isCocktailsPage).toBeTruthy();
       });
     });
 
