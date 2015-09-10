@@ -1,0 +1,24 @@
+.notification {
+  background-color: black;
+  color: white;
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  top: 20px;
+  left: 30px;
+  opacity: 0.9;
+  z-index: 100;
+  padding: 20px;
+}
+
+.notification-message-display {
+  height: 70%;
+}
+
+.navigation-button-right {
+  float:right;
+}
+
+.navigation-button-left {
+  float:left;
+}

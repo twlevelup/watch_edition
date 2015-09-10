@@ -35,7 +35,7 @@ describe('The Contacts Page', function() {
     describe('right', function() {
       it('should take the user to the home page', function() {
         spyOn(global.App, 'navigate');
-        contactsPage.trigger('right');
+        global.App.vent.trigger('right');
         expect(global.App.navigate).toHaveBeenCalledWith('');
       });
     });
@@ -43,7 +43,7 @@ describe('The Contacts Page', function() {
     describe('face', function() {
       it('should display "Oh noes!" to the user', function() {
         contactsPage.render();
-        contactsPage.trigger('face');
+        global.App.vent.trigger('face');
         expect(contactsPage.$el).toContainText('Oh noes!');
       });
     });

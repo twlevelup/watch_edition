@@ -27,30 +27,7 @@
   padding:7.3em 0
 }
 
-#notification_popup {
-  background-color: black;
-  color: white;
-  position: absolute;
-  height: 160px;
-  width: 160px;
-  margin-top: -260px;
-  margin-left: 40px;
-  opacity: 0.9;
-  z-index: 100;
-  padding: 20px;
-}
 
-#notification_message_display {
-  height: 70%;
-}
-
-#navigation-button-right {
-  float:right;
-}
-
-#navigation-button-left {
-  float:left;
-}
 .power:nth-child(1){
   position:absolute;
   right:-0.4em;

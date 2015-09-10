@@ -1,14 +1,10 @@
 'use strict';
 
-var pageView = Backbone.View.extend({
+var ViewWithButtons = require('./viewWithButtons');
+
+var pageView = ViewWithButtons.extend({
 
   className: 'page',
-
-  setButtonEvents: function() {
-    _.each(this.buttonEvents, function(eventHandler, buttonID) {
-      this.listenTo(this, buttonID, this[eventHandler]);
-    }, this);
-  },
 
   back: function() {
     history.back();

@@ -20,7 +20,7 @@ describe('The Home Page', function() {
       it('should take the user to the contacts page', function() {
         spyOn(global.App, 'navigate');
         homePage.setButtonEvents();
-        homePage.trigger('right');
+        global.App.vent.trigger('right');
         expect(global.App.navigate).toHaveBeenCalledWith('contacts');
       });
     });
@@ -29,7 +29,7 @@ describe('The Home Page', function() {
       it('should scroll the watch face up', function() {
         spyOn(homePage, 'scrollUp');
         homePage.setButtonEvents();
-        homePage.trigger('top');
+        global.App.vent.trigger('top');
         expect(homePage.scrollUp).toHaveBeenCalled();
       });
     });
@@ -38,7 +38,7 @@ describe('The Home Page', function() {
       it('should scroll the watch face down', function() {
         spyOn(homePage, 'scrollDown');
         homePage.setButtonEvents();
-        homePage.trigger('bottom');
+        global.App.vent.trigger('bottom');
         expect(homePage.scrollDown).toHaveBeenCalled();
       });
     });

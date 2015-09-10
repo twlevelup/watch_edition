@@ -80,13 +80,18 @@ The Proto Watch is designed to be a simple low cost device.
 
 Replace it and describe with fit or fdescribe
 
-**I've got more questions**
-
-Look at the further reading section below ;-)
-
 **Error: `libsass` bindings not found. Try reinstalling `node-sass`?**
 
 You've probably switched node version. Try running `rebuild node-sass`
+
+**How do I view the coverage report?**
+
+The exact path to the coverage report may vary but will look something like this.va
+`less coverage/PhantomJS\ 1.9.8\ \(Mac\ OS\ X\ 0.0.0\)/coverageResult.txt`
+
+**I've got more questions**
+
+Look at the further reading section below ;-)
 
 ## Further Reading
 

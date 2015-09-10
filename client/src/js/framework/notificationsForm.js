@@ -1,105 +1,70 @@
 'use strict';
 
-var NotificationsPanel = Backbone.View.extend({
+var NotificationsForm = Backbone.View.extend({
 
-  el: '#notification-panel',
+  el: '#notification-form',
 
-  template: require('../../templates/framework/notificationPanel.hbs'),
-  notificationsArray: [],
+  template: require('../../templates/framework/notificationForm.hbs'),
+  notificationsCfg: [],
 
-  ACTION_SELECT_SELECTOR: 'select[name="notification_action"]',
-  MESSAGE_TEXTAREA_SELECTOR: 'textarea[name="notification_message"]',
-  SEND_BUTTON_SELECTOR: '#button-sendNotification',
+  notificationTypeEl: '.notification-type',
+  notificationMessageEl: '.notification-message',
 
-  NOTIFICATION_POPUP_SELECTOR: '#notification_popup',
-  NOTIFICATION_MESSAGE_SELECTOR: '#notification_message_display',
+  // TODO what would happen if this was changed to initalize? would it just meant making the new view in each tests before each?
+  configureNotifications: function(notifications) {
+    this.notificationsCfg = notifications;
 
-  configureNotifications: function(availableNotificationTypes) {
-    this.notificationsArray = availableNotificationTypes;
-
-    _.bindAll(this, 'render');
+    _.bindAll(this, 'render', '_setDefaultMessage', 'triggerNotification');
     this.render();
 
-    this._configureListeners();
+    this._setupListeners();
     this._populateNotificationSelectOptions();
+    this._setDefaultMessage();
   },
 
-  _configureListeners: function() {
-    this.$(this.SEND_BUTTON_SELECTOR).on('click', _.bind(this._sendNotification, this));
-    this.$(this.ACTION_SELECT_SELECTOR).on('change', _.bind(this._populateDefaultMessageText, this));
+  _setupListeners: function() {
+    this.$(this.notificationTypeEl).on('change', this._setDefaultMessage);
+    this.$('#sendNotification').on('click', this.triggerNotification);
   },
 
   _populateNotificationSelectOptions: function() {
-    var option = '';
+    var options = '';
 
-    _.each(this.notificationsArray, function(elem) {
-      option += '<option>' + elem.name + '</option>';
+    _.each(this.notificationsCfg, function(elem, index) {
+      options += '<option value="' + index + '">' + elem.label + '</option>';
     });
 
-    this.$(this.ACTION_SELECT_SELECTOR).append(option);
-    this.$(this.ACTION_SELECT_SELECTOR).prop('selectedIndex', -1);
+    this.$(this.notificationTypeEl).html(options);
   },
 
-  _populateDefaultMessageText: function() {
-    var selectedValue = this.$(this.ACTION_SELECT_SELECTOR).val(),
-      selectedNotificationType = _.findWhere(this.notificationsArray, {name: selectedValue});
+  _setDefaultMessage: function() {
+    var index = this.$(this.notificationTypeEl).val(),
+      selectedNotification = this.notificationsCfg[index];
 
-    this.$(this.MESSAGE_TEXTAREA_SELECTOR).val('');
-    if (selectedNotificationType && selectedNotificationType.defaultMessage) {
-      this.$(this.MESSAGE_TEXTAREA_SELECTOR).val(selectedNotificationType.defaultMessage);
-    }
+    var message = (selectedNotification && selectedNotification.defaultValue) ? selectedNotification.defaultValue : '';
+
+    this.$(this.notificationMessageEl).val(message);
+
   },
 
-  _sendNotification: function(event) {
-    var notificationAction = this.$(this.ACTION_SELECT_SELECTOR).val(),
-      notificationMessage = this.$(this.MESSAGE_TEXTAREA_SELECTOR).val(),
-      selectedNotificationType = _.findWhere(this.notificationsArray, {name: notificationAction});
+  triggerNotification: function() {
 
-    this.showNotification(selectedNotificationType, notificationMessage);
-  },
+    var notificationType = this.$(this.notificationTypeEl).val(),
+      notificationMessage = this.$(this.notificationMessageEl).val();
 
-  showNotification: function(selectedNotificationType, notificationMessage) {
-    if (!selectedNotificationType) {
+    if (!notificationType) {
       return;
     }
 
-    // TODO this is weird, seems to be getting called with the wrong arguments
-    global.App.trigger(selectedNotificationType.name, {message: selectedNotificationType.defaultMessage});
+    global.App.vent.trigger(notificationType, {message: notificationMessage});
 
-    // TODO this is the event handler that should go in the app
-    global.App.router.currentView.stopListening();
-    this._remapButtons(selectedNotificationType);
-  },
-
-  _remapButtons: function(selectedNotificationType) {
-    var currentView = global.App.router.currentView;
-
-    _.each(global.App.buttons, function(buttonId) {
-      this._setButtonActionOnNotification(buttonId, currentView, selectedNotificationType);
-    }, this);
-  },
-
-  _setButtonActionOnNotification: function(buttonId, currentView, selectedNotificationType) {
-    if (selectedNotificationType.buttonEvents && selectedNotificationType.buttonEvents[buttonId]) {
-      var configuredButtonEvent = selectedNotificationType.buttonEvents[buttonId];
-      currentView.listenTo(currentView, buttonId, selectedNotificationType[configuredButtonEvent]);
-    }
-
-    currentView.listenTo(currentView, buttonId, _.bind(this.cancelNotification, this));
-  },
-
-  cancelNotification: function() {
-    $(this.NOTIFICATION_POPUP_SELECTOR).hide();
-    $(this.NOTIFICATION_MESSAGE_SELECTOR).text('');
-
-    global.App.router.currentView.setButtonEvents();
   },
 
   render: function() {
-    this.$el.append(this.template());
+    this.$el.html(this.template());
     return this;
   }
 
 });
 
-module.exports = NotificationsPanel;
+module.exports = NotificationsForm;

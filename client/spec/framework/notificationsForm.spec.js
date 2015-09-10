@@ -1,118 +1,161 @@
 'use strict';
 
-var NotificationsPanel = require('../../src/js/framework/notificationsForm'),
-  App = require('../../src/js/app'),
-  Page = require('../../src/js/framework/page');
+var NotificationForm = require('../../src/js/framework/notificationsForm'),
+  App = require('../../src/js/app');
 
 global.App = App;
 
 describe('Notifications form', function() {
-  var notificationPanel, notificationsArray;
+  var notificationsForm, notificationsCfg;
 
   beforeEach(function() {
-    notificationsArray = [
+    notificationsCfg = [
       {
-        name: 'Action1',
-        defaultMessage: 'The message by default',
-        buttonEvents: {
-          left: 'callLeftButtonFunction'
-        },
-        callLeftButtonFunction: jasmine.createSpy('leftButtonAction1Spy')
+        label: 'Action1',
+        notificationType: 'foo',
+        defaultValue: 'The default message'
       },
       {
-        name: 'Action2'
+        label: 'Action2',
+        notificationType: 'bar',
+        defaultValue: 'A different default message'
+      },
+      {
+        label: 'Action3',
+        notificationType: 'bar'
       }
     ];
 
-    setFixtures('<div id="notification-panel" />');
+    setFixtures('<div id="notification-form" />');
 
-    notificationPanel = new NotificationsPanel();
-    notificationPanel.configureNotifications(notificationsArray);
+    notificationsForm = new NotificationForm();
+
+    notificationsForm.configureNotifications(notificationsCfg);
   });
 
-  describe('configuring notifications', function() {
+  describe('Rendering the notification form', function() {
 
-    describe('rendering', function() {
+    describe('display', function() {
 
-      it('should render itself automatically in the #notification-panel element', function() {
-        expect(notificationPanel.$el).toContainElement('p.notification_title');
+      it('should have a title', function() {
+        expect(notificationsForm.$el).toContainElement('p.notification-title');
       });
 
-      it('should contain action select field', function() {
-        expect(notificationPanel.$el).toContainElement('select[name="notification_action"]');
+      it('should contain the action select field', function() {
+        expect(notificationsForm.$el).toContainElement('.notification-type');
       });
 
-      it('should contain message textarea field', function() {
-        expect(notificationPanel.$el).toContainElement('textarea[name="notification_message"]');
+      it('should contain the message textarea field', function() {
+        expect(notificationsForm.$el).toContainElement('.notification-message');
       });
     });
 
-    it('should set up an event listener on click of "Send Notification" button', function() {
-      spyOn(notificationPanel, 'showNotification');
-      notificationPanel.configureNotifications(notificationsArray);
+  });
 
-      notificationPanel.$el.find('#button-sendNotification').trigger('click');
-
-      expect(notificationPanel.showNotification).toHaveBeenCalled();
-    });
-
-    describe('populating notifications select dropdown', function() {
-      it('should create dropdown options with value equal to property "name" of objects in array passed as an argument', function() {
-        var selectOptions = $('select[name="notification_action"] option');
-
-        expect(selectOptions[0].innerHTML).toEqual(notificationsArray[0].name);
-        expect(selectOptions[1].innerHTML).toEqual(notificationsArray[1].name);
-      });
+  describe('when the user changes the notification type', function () {
+    it('should update the textarea with the default message', function () {
+      var thirdMenuOption = notificationsForm.$el.find('.notification-message option:nth-child(3)');
+      thirdMenuOption.prop('selected', true);
+      expect(notificationsForm.$el.find('.notification-message').val()).toEqual('A different default message');
     });
   });
 
-  describe('when user changes selection on the notification type', function() {
-    describe('when the default message is provided for the notification', function() {
+  describe('notifications configuration', function() {
 
-      it('should set show the message in the textarea', function() {
-        notificationPanel.$el.find('select[name="notification_action"]').val('Action1').change();
-
-        // console.log('HTML', notificationPanel.$el.find('select[name="notification_action"]').html());
-        // console.log('XXX', notificationPanel.$el('select[name="notification_action"]'));
-        expect(notificationPanel.$el.find('textarea[name="notification_message"]').val()).toEqual(notificationsArray[0].defaultMessage);
+    describe('labels', function() {
+        it('should display the label in the dropdown', function() {
+          var selectOptions = notificationsForm.$el.find('.notification-type option');
+          expect($(selectOptions[0]).text()).toEqual('Action1');
+          expect($(selectOptions[1]).text()).toEqual('Action2');
+        });
       });
+
+    describe('values', function() {
+        it('should use the index as the value in the dropdown', function() {
+          var selectOptions = notificationsForm.$el.find('.notification-type option');
+          expect($(selectOptions[0]).val()).toEqual('0');
+          expect($(selectOptions[1]).val()).toEqual('1');
+
+        });
+      });
+
+    describe('default notification values', function() {
+
+      var notificationCfg;
+
+      describe('when there is a default value', function() {
+
+        beforeEach(function() {
+            notificationCfg = [
+              {
+                label: 'a',
+                notificationType: 'b',
+                defaultValue: 'CCC'
+              }
+            ];
+
+            notificationsForm.configureNotifications(notificationCfg);
+
+          });
+
+        it('should display the default notification value in the textarea', function() {
+            var message = notificationsForm.$el.find('.notification-message').val();
+            expect(message).toEqual('CCC');
+          });
+      });
+
+      describe('when there is no default value', function() {
+
+        beforeEach(function() {
+            notificationCfg = [
+              {
+                label: 'a',
+                notificationType: 'b'
+              }
+            ];
+
+            notificationsForm.configureNotifications(notificationCfg);
+
+          });
+
+        it('should not populate the message field', function() {
+            var message = notificationsForm.$el.find('.notification-message').val();
+            expect(message).toEqual('');
+          });
+      });
+
     });
 
-    describe('when there is no default message for the notification', function() {
-      it('should clear the textarea', function() {
-        notificationPanel.$el.find('textarea[name="notification_message"]').val('Some new value of our message');
-        notificationPanel.$el.find('select[name="notification_action"]').val('Action2').change();
-        expect(notificationPanel.$el.find('textarea[name="notification_message"]').val()).toEqual('');
-      });
-    });
+  });
 
-    // TODO just test that the event is triggered on the watch with the right params
-    describe('sending notification', function() {
+  describe('sending notifications to the watch', function() {
 
-      var eventHandler;
+    var eventHandler, notificationCfg;
 
-      beforeEach(function() {
-        global.App.router = {
-          currentView: new Page()
-        };
+    beforeEach(function() {
 
-        eventHandler = jasmine.createSpy();
+      eventHandler = jasmine.createSpy();
 
-        global.App.on('Action1', eventHandler);
+      global.App.vent.on('b', eventHandler);
 
-        notificationPanel.$el.find('select[name="notification_action"]').val('Action1');
-        notificationPanel.$el.find('#button-sendNotification').trigger('click');
-      });
+      notificationCfg = [
+        {
+          label: 'a',
+          notificationType: 'b',
+          defaultValue: 'CCC'
+        }
+      ];
 
-      it('should show trigger the event type on the App', function() {
-        expect(eventHandler).toHaveBeenCalled();
-      });
-
-      it('should pass the message text from the provided message from textarea', function() {
-        expect(eventHandler).toHaveBeenCalledWith({message: 'The message by default'});
-      });
+      notificationsForm.configureNotifications(notificationCfg);
 
     });
+
+    it('should send the notification message from the textarea', function() {
+
+      notificationsForm.$el.find('#sendNotification').trigger('click');
+      expect(eventHandler).toHaveBeenCalledWith({message: 'CCC'});
+    });
+
   });
 
 });

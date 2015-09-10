@@ -2,7 +2,8 @@
 
 var Router = require('../src/js/router'),
   WatchFace = require('../src/js/framework/watchFace'),
-  NotificationsPanel = require('../src/js/framework/notifications');
+  Notifications = require('../src/js/framework/notification'),
+  NotificationsForm = require('../src/js/framework/notificationsForm');
 
 var app = require('../src/js/app');
 
@@ -17,19 +18,16 @@ describe('The App', function() {
     app.start();
   });
 
-  describe('starting the app', function() {
+  it('should have a router', function() {
+    expect(app.router instanceof Router).toBeTruthy();
+  });
 
-    it('should setup the router', function() {
-      expect(app.router instanceof Router).toBeTruthy();
-    });
+  it('should have a watch face', function() {
+    expect(app.watchFace instanceof WatchFace).toBeTruthy();
+  });
 
-    it('should setup the watch face', function() {
-      expect(app.watchFace instanceof WatchFace).toBeTruthy();
-    });
-
-    it('should setup the notifications', function() {
-      expect(app.notifications instanceof NotificationsPanel).toBeTruthy();
-    });
+  it('should have an event hub', function () {
+    expect(app.vent.on).toBeTruthy();
   });
 
   describe('navigate', function() {
@@ -47,50 +45,83 @@ describe('The App', function() {
 
   });
 
-  describe('responding to the button clicks', function() {
+  describe('watch buttons', function() {
 
-    // TODO camelcase
-    // TODO rename up down left right
+    var eventHandlers;
 
     beforeEach(function() {
-      var CurrentView = Backbone.View.extend({
-        initialize: function() {
-          this.on('right', this.callright);
-          this.on('left', this.callleft);
-          this.on('top', this.calltop);
-          this.on('bottom', this.callbottom);
-          this.on('face', this.callface);
-        },
 
-        callright: jasmine.createSpy('rightButtonClickedFunction'),
-        callleft: jasmine.createSpy('leftButtonClickedFunction'),
-        calltop: jasmine.createSpy('topButtonClickedFunction'),
-        callbottom: jasmine.createSpy('bottomButtonClickedFunction'),
-        callface: jasmine.createSpy('faceButtonClickedFunction')
-      });
+      eventHandlers = {
+        right: jasmine.createSpy('right'),
+        left: jasmine.createSpy('left'),
+        top: jasmine.createSpy('top'),
+        bottom: jasmine.createSpy('bottom'),
+        face: jasmine.createSpy('face')
+      };
 
-      app.router.currentView = new CurrentView();
+      app.vent.on('right', eventHandlers.right);
+      app.vent.on('left', eventHandlers.left);
+      app.vent.on('top', eventHandlers.top);
+      app.vent.on('bottom', eventHandlers.bottom);
     });
 
-    _.each(['right', 'top', 'bottom', 'left'], function(buttonName) {
-      describe('when the user clicks the ' + buttonName, function() {
-        it('should trigger the event in the current view', function() {
+    _.each(['right', 'left', 'top', 'bottom'], function(buttonName) {
+      describe('when the user clicks the ' + buttonName + ' button', function() {
+        it('should trigger the event in ' + buttonName + ' event hub', function() {
           $('#button-' + buttonName).trigger('click');
-          expect(app.router.currentView['call' + buttonName]).toHaveBeenCalled();
+          expect(eventHandlers[buttonName]).toHaveBeenCalled();
         });
       });
     });
 
-    describe('when the user clicks the face button', function() {
-      it('should trigger the event in the current view', function() {
+    describe('when the user clicks the watch face', function () {
+      it('should trigger the face event in the event hub', function () {
+        var faceEventHandler = jasmine.createSpy();
+        app.vent.on('face', faceEventHandler);
         $('#watch-face').trigger('click');
-        expect(app.router.currentView.callface).toHaveBeenCalled();
+        expect(faceEventHandler).toHaveBeenCalled();
       });
     });
+
   });
 
   xdescribe('clock', function() {
     it('should start the clock');
+  });
+
+  describe('Notifications', function() {
+
+    describe('Loading', function () {
+      it('should register the notification', function () {
+        app.loadNotification('foo', {});
+        expect(app.notifications.foo).toEqual({});
+      });
+      it('should setup an event handler for the notification', function () {
+        var DummyNotification = Notifications.extend({});
+        app.loadNotification('dummyNotification', function () {});
+        spyOn(app, 'displayNotification');
+        app.vent.trigger('dummyNotification', {message: 'foo'});
+        expect(app.displayNotification).toHaveBeenCalledWith('dummyNotification', {message: 'foo'});
+      });
+    });
+
+    describe('Displaying', function () {
+
+      describe('when a valid notification event is triggered', function () {
+        beforeEach(function() {
+          var DummyNotification = Notifications.extend({});
+          app.loadNotification('dummyNotification', new DummyNotification());
+          spyOn(app.notifications.dummyNotification, 'render');
+        });
+
+        it('should render the notification', function () {
+          app.vent.trigger('dummyNotification', {message: 'foo'});
+          expect(app.notifications.dummyNotification.render).toHaveBeenCalled();
+        });
+
+      });
+    });
+
   });
 
 });

@@ -35,6 +35,7 @@ clock.displayDateTime = function(date) {
     sTime =  [h, m, s].join(':'),
     sDateTime = sDate + ' ' + sTime;
 
+  // TODO scope to current view
   global.$('.clock-date-time').html(sDateTime);
   global.$('.clock-date').html(sDate);
   global.$('.clock-time').html(sTime);
