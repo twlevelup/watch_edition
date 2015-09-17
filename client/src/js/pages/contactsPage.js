@@ -18,17 +18,14 @@ var ContactsView = PageView.extend({
   },
 
   initialize: function() {
-    var self = this;
-
     this.contactsCollection = new ContactsCollection();
-    this.listenTo(this.contactsCollection, 'change', this.render);
-
-    self.seedContacts();
+    this.seedContacts();
+    this.render();
   },
 
   // TODO use jquery to load a JSON file async test?
   seedContacts: function() {
-    this.contactsCollection.push([
+    this.contactsCollection.reset([
       {name: 'Adam', phoneNumber: '0431 111 111'},
       {name: 'James', phoneNumber: '0431 222 222'},
       {name: 'Marzena', phoneNumber: '0431 333 333'}
@@ -53,7 +50,7 @@ var ContactsView = PageView.extend({
       $(contactsHTML).append(this.createContactHTML(contact));
     }, this);
 
-    this.$el.append(contactsHTML);
+    this.$el.find('ul').html(contactsHTML);
 
     return this;
   },
@@ -65,7 +62,6 @@ var ContactsView = PageView.extend({
       return view.render().el;
     }
 
-}
-);
+});
 
 module.exports = ContactsView;
