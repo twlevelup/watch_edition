@@ -8,8 +8,6 @@ var Router = require('./router'),
 
 var App = {
 
-  buttons: ['left', 'right', 'top', 'bottom', 'face'],
-
   vent: _.extend({}, Backbone.Events),
 
   notifications: {},
@@ -40,20 +38,12 @@ var App = {
   setupWatchButtons: function () {
     // FIXME Make a view for the watch and make these regular view events
 
-    $('#button-right').on('click', function() {
-      App.vent.trigger('right');
-    });
+    var buttons = ['left', 'right', 'top', 'bottom'];
 
-    $('#button-top').on('click', function() {
-      App.vent.trigger('top');
-    });
-
-    $('#button-bottom').on('click', function() {
-      App.vent.trigger('bottom');
-    });
-
-    $('#button-left').on('click', function() {
-      App.vent.trigger('left');
+    _.each(buttons, function (buttonName) {
+      $('#button-' + buttonName).on('click', function() {
+        App.vent.trigger(buttonName);
+      });
     });
 
     $('#watch-face').on('click', function() {
