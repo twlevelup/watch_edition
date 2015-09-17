@@ -7,9 +7,42 @@ describe('Router', function() {
 
   var router;
 
-  beforeEach(function() {
-    router = new Router();
-    $('body').append('<div id="watch-face" />');
+  xdescribe('Routes and pages', function () {
+
+    describe('when a home page is provided', function () {
+
+      var pages, homePage;
+
+      beforeEach(function() {
+        pages = {
+          home: 'foo'
+        };
+        router = new Router(pages);
+        spyOn(router, 'renderView');
+      });
+
+      it('should create the "" route for the home page', function () {
+        router.navigate('');
+        expect(router.renderView).toHaveBeenCalledWith('foo');
+      });
+
+      describe('when additional pages are provided', function () {
+
+        beforeEach(function() {
+          pages = {
+            home: 'foo',
+            contacts: 'contacts',
+          };
+          router = new Router(pages);
+          spyOn(router, 'renderView');
+        });
+
+        it('should create a route with the same name as the page', function () {
+          router.navigate('contacts');
+          expect(router.renderView).toHaveBeenCalledWith('contacts');
+        });
+      });
+    });
   });
 
   describe('renderView', function() {
@@ -17,6 +50,8 @@ describe('Router', function() {
     var view;
 
     beforeEach(function() {
+      setFixtures('<div id="watch-face" />');
+      router = new Router();
       view = new PageView();
     });
 
@@ -67,10 +102,6 @@ describe('Router', function() {
 
     });
 
-  });
-
-  afterEach(function() {
-    $('#watch-face').remove();
   });
 
 });

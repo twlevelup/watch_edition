@@ -1,18 +1,12 @@
 'use strict';
 
-var ContactsPage = require('../../src/js/pages/contactsPage'),
-  Router = require('../../src/js/router.js'),
+var contactsPage = require('../../src/js/pages/contactsPage'),
+  Router = require('../../src/js/framework/router.js'),
   App = require('../../src/js/app');
 
 global.App = App;
 
 describe('The Contacts Page', function() {
-
-  var contactsPage;
-
-  beforeEach(function() {
-    contactsPage = new ContactsPage();
-  });
 
   describe('contacts data', function() {
 

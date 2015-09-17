@@ -64,4 +64,4 @@ var ContactsView = PageView.extend({
 
 });
 
-module.exports = ContactsView;
+module.exports = new ContactsView();

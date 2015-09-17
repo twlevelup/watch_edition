@@ -33,4 +33,4 @@ var homeScreen = PageView.extend({
 
 });
 
-module.exports = homeScreen;
+module.exports = new homeScreen();

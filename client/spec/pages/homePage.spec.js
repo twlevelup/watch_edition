@@ -1,17 +1,12 @@
 'use strict';
 
-var HomePage = require('../../src/js/pages/homePage'),
-  Router = require('../../src/js/router'),
+var homePage = require('../../src/js/pages/homePage'),
+  Router = require('../../src/js/framework/router'),
   App = require('../../src/js/app');
 
 global.App = App;
 
 describe('The Home Page', function() {
-  var homePage;
-
-  beforeEach(function() {
-    homePage = new HomePage();
-  });
 
   describe('button event handlers', function() {
 

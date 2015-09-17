@@ -1,9 +1,7 @@
 'use strict';
 
-var Router = require('../src/js/router'),
-  WatchFace = require('../src/js/framework/watchFace'),
-  Notifications = require('../src/js/framework/notification'),
-  NotificationsForm = require('../src/js/framework/notificationsForm');
+var Router = require('../src/js/framework/router'),
+  WatchFace = require('../src/js/framework/watchFace');
 
 var app = require('../src/js/app');
 
@@ -87,41 +85,6 @@ describe('The App', function() {
 
   xdescribe('clock', function() {
     it('should start the clock');
-  });
-
-  describe('Notifications', function() {
-
-    describe('Loading', function () {
-      it('should register the notification', function () {
-        app.loadNotification('foo', {});
-        expect(app.notifications.foo).toEqual({});
-      });
-      it('should setup an event handler for the notification', function () {
-        var DummyNotification = Notifications.extend({});
-        app.loadNotification('dummyNotification', function () {});
-        spyOn(app, 'displayNotification');
-        app.vent.trigger('dummyNotification', {message: 'foo'});
-        expect(app.displayNotification).toHaveBeenCalledWith('dummyNotification', {message: 'foo'});
-      });
-    });
-
-    describe('Displaying', function () {
-
-      describe('when a valid notification event is triggered', function () {
-        beforeEach(function() {
-          var DummyNotification = Notifications.extend({});
-          app.loadNotification('dummyNotification', new DummyNotification());
-          spyOn(app.notifications.dummyNotification, 'render');
-        });
-
-        it('should render the notification', function () {
-          app.vent.trigger('dummyNotification', {message: 'foo'});
-          expect(app.notifications.dummyNotification.render).toHaveBeenCalled();
-        });
-
-      });
-    });
-
   });
 
 });

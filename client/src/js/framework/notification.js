@@ -9,11 +9,11 @@ var notification = ViewWithButtons.extend({
   template: require('../../templates/framework/notification.hbs'),
 
   buttonEvents: {
-    right: 'cancel',
-    top: 'cancel',
-    bottom: 'cancel',
-    left: 'cancel',
-    face: 'cancel'
+    right: 'dismiss',
+    left: 'dismiss',
+    top: 'dismiss',
+    bottom: 'dismiss',
+    face: 'dismiss'
   },
 
   render: function() {
@@ -31,7 +31,7 @@ var notification = ViewWithButtons.extend({
     return this;
   },
 
-  cancel: function() {
+  dismiss: function() {
     global.App.router.currentView.setButtonEvents();
     this.remove();
   }

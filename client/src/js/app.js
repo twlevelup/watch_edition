@@ -1,39 +1,24 @@
 'use strict';
 
-var Router = require('./router'),
+var Router = require('./framework/router'),
   WatchFace = require('./framework/watchFace'),
+  eventHub = require('./framework/eventHub'),
+  pages = require('./pages'),
+  NotificationView = require('./framework/notification'),
+  notificationHandler = require('./framework/notificationHandler'),
   clock = require('./framework/clock');
-
-  var notification = require('./framework/notification');
 
 var App = {
 
-  vent: _.extend({}, Backbone.Events),
+  vent: eventHub,
 
-  notifications: {},
-
-  router: new Router(),
+  router: new Router(pages),
 
   watchFace: new WatchFace(),
 
   // TODO replace this with an event
   navigate: function (route) {
     App.router.navigate(route, true);
-  },
-
-  // TODO probably want to use new instead and pass options through initialize
-  // TODO figure out something to do with notification queing or blocking when one is active
-  displayNotification: function (notificationType, opts) {
-    App.notifications[notificationType].message = opts.message;
-    App.notifications[notificationType].render();
-  },
-
-  // TODO load the notifications from a directory
-  loadNotification: function (notificationType, notificationConstructor) {
-    App.notifications[notificationType] = notificationConstructor;
-    App.vent.on(notificationType, function (opts) {
-      App.displayNotification(notificationType, opts);
-    }, this);
   },
 
   // TODO Make a view for the watch and make these regular view events
@@ -54,9 +39,9 @@ var App = {
 
   start: function() {
 
-    // TODO replace this with something more generic
-    var DummyNotification = notification.extend({});
-    this.loadNotification('dummyNotification', new DummyNotification());
+    // TODO remove this, just for testing
+    var DummyNotification = NotificationView.extend({});
+    notificationHandler.loadNotification('dummyNotification', new DummyNotification());
 
     this.setupWatchButtons();
 
@@ -69,8 +54,6 @@ var App = {
   }
 
 };
-
-// TODO look at what happens if this returns new App();
 
 global.App = App;
 

@@ -1,7 +1,7 @@
 'use strict';
 
 var NotificationView = require('../../src/js/framework/notification'),
-  Router = require('../../src/js/router'),
+  Router = require('../../src/js/framework/router'),
   App = require('../../src/js/app');
 
 var notification;
@@ -56,20 +56,20 @@ describe('rendering', function() {
 
 });
 
-describe('cancel', function() {
+describe('dismiss', function() {
 
   beforeEach(function() {
     global.App.router.currentView = {setButtonEvents: jasmine.createSpy()};
   });
 
   it('should restore the buton events for the current page', function() {
-    notification.cancel();
+    notification.dismiss();
     expect(global.App.router.currentView.setButtonEvents).toHaveBeenCalled();
   });
 
   it('should remove itself', function() {
     spyOn(notification, 'remove');
-    notification.cancel();
+    notification.dismiss();
     expect(notification.remove).toHaveBeenCalled();
   });
 
