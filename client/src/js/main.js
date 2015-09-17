@@ -3,6 +3,6 @@ var App = require('./app'),
   notificationsFormConfig = require('./notifications/notificationsFormConfig');
 
 var notificationsForm = new NotificationsForm();
-notificationsForm.configureNotifications(notificationsConfig);
+notificationsForm.configureNotifications(notificationsFormConfig);
 
 App.start();

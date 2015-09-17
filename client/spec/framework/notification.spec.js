@@ -31,11 +31,19 @@ describe('rendering', function() {
     expect(watchFace.text()).toContain('foo');
   });
 
+  it('should stop the current view from listening to events', function () {
+    global.App.router.currentView = {
+      stopListening: function () {}
+    };
+    spyOn(global.App.router.currentView, 'stopListening');
+    notification.render();
+    expect(global.App.router.currentView.stopListening).toHaveBeenCalled();
+  });
+
   it('should set the reconfigure the watch buttons', function() {
     spyOn(notification, 'setButtonEvents');
     notification.render();
     expect(notification.setButtonEvents).toHaveBeenCalled();
-
   });
 
   it('should have the class notification', function() {

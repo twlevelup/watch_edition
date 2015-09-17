@@ -16,6 +16,7 @@ var App = {
 
   watchFace: new WatchFace(),
 
+  // TODO replace this with an event
   navigate: function (route) {
     App.router.navigate(route, true);
   },
@@ -35,8 +36,8 @@ var App = {
     }, this);
   },
 
+  // TODO Make a view for the watch and make these regular view events
   setupWatchButtons: function () {
-    // FIXME Make a view for the watch and make these regular view events
 
     var buttons = ['left', 'right', 'top', 'bottom'];
 

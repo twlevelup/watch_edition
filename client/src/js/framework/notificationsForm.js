@@ -5,20 +5,20 @@ var NotificationsForm = Backbone.View.extend({
   el: '#notification-form',
 
   template: require('../../templates/framework/notificationForm.hbs'),
-  notificationsCfg: [],
+  config: [],
 
   notificationTypeEl: '.notification-type',
   notificationMessageEl: '.notification-message',
 
   // TODO what would happen if this was changed to initalize? would it just meant making the new view in each tests before each?
   configureNotifications: function(notifications) {
-    this.notificationsCfg = notifications;
+    this.config = notifications;
 
     _.bindAll(this, 'render', '_setDefaultMessage', 'triggerNotification');
     this.render();
 
     this._setupListeners();
-    this._populateNotificationSelectOptions();
+    this._populateNotificationMenu();
     this._setDefaultMessage();
   },
 
@@ -27,10 +27,10 @@ var NotificationsForm = Backbone.View.extend({
     this.$('#sendNotification').on('click', this.triggerNotification);
   },
 
-  _populateNotificationSelectOptions: function() {
+  _populateNotificationMenu: function() {
     var options = '';
 
-    _.each(this.notificationsCfg, function(elem, index) {
+    _.each(this.config, function(elem, index) {
       options += '<option value="' + index + '">' + elem.label + '</option>';
     });
 
@@ -39,7 +39,7 @@ var NotificationsForm = Backbone.View.extend({
 
   _setDefaultMessage: function() {
     var index = this.$(this.notificationTypeEl).val(),
-      selectedNotification = this.notificationsCfg[index];
+      selectedNotification = this.config[index];
 
     var message = (selectedNotification && selectedNotification.defaultValue) ? selectedNotification.defaultValue : '';
 
@@ -49,7 +49,8 @@ var NotificationsForm = Backbone.View.extend({
 
   triggerNotification: function() {
 
-    var notificationType = this.$(this.notificationTypeEl).val(),
+    var notificationIndex = this.$(this.notificationTypeEl).val(),
+      notificationType = this.config[notificationIndex].notificationType,
       notificationMessage = this.$(this.notificationMessageEl).val();
 
     if (!notificationType) {
