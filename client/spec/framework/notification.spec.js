@@ -31,9 +31,9 @@ describe('rendering', function() {
     expect(watchFace.text()).toContain('foo');
   });
 
-  it('should stop the current view from listening to events', function () {
+  it('should stop the current view from listening to events', function() {
     global.App.router.currentView = {
-      stopListening: function () {}
+      stopListening: function() {}
     };
     spyOn(global.App.router.currentView, 'stopListening');
     notification.render();

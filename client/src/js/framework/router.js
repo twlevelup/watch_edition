@@ -8,8 +8,8 @@ var Router = Backbone.Router.extend({
     this.currentView.setButtonEvents();
   },
 
-  _createRouteForPage: function (page, name) {
-    this.route(name, name, function () {this.renderView(page);});
+  _createRouteForPage: function(page, name) {
+    this.route(name, name, function() {this.renderView(page);});
   },
 
   renderView: function(view) {
@@ -23,7 +23,7 @@ var Router = Backbone.Router.extend({
   initialize: function(pages) {
     var otherPages = _.omit(pages, 'home');
 
-    this.route('', 'home', function () {this.renderView(pages.home);});
+    this.route('', 'home', function() {this.renderView(pages.home);});
 
     _.each(otherPages, this._createRouteForPage, this);
 

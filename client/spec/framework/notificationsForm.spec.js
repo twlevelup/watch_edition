@@ -53,8 +53,8 @@ describe('Notifications form', function() {
 
   });
 
-  xdescribe('when the user changes the notification type', function () {
-    it('should update the textarea with the default message', function () {
+  xdescribe('when the user changes the notification type', function() {
+    it('should update the textarea with the default message', function() {
       global.console.log('before', notificationsForm.$el.find('select :selected').val());
       var secondMenuOption = notificationsForm.$el.find('.notification-type option:nth-child(2)');
       secondMenuOption.prop('selected', true);

@@ -6,30 +6,31 @@ var notificationHandler = require('../../src/js/framework/notificationHandler'),
 
 describe('Notifications', function() {
 
-  describe('Loading', function () {
-    it('should register the notification', function () {
+  describe('Loading', function() {
+    it('should register the notification', function() {
       notificationHandler.loadNotification('foo', {});
       expect(notificationHandler.notifications.foo).toEqual({});
     });
-    xit('should setup an event handler for the notification', function () {
+
+    xit('should setup an event handler for the notification', function() {
       var DummyNotification = Notifications.extend({});
-      notificationHandler.loadNotification('dummyNotification', function () {});
+      notificationHandler.loadNotification('dummyNotification', jasmine.createSpy());
       spyOn(notificationHandler, 'displayNotification');
       eventHub.trigger('dummyNotification', {message: 'foo'});
       expect(notificationHandler.displayNotification).toHaveBeenCalledWith('dummyNotification', {message: 'foo'});
     });
   });
 
-  xdescribe('Display', function () {
+  xdescribe('Display', function() {
 
-    describe('when a valid notification event is triggered', function () {
+    describe('when a valid notification event is triggered', function() {
       beforeEach(function() {
         var DummyNotification = Notifications.extend({});
         notificationHandler.loadNotification('dummyNotification', new DummyNotification());
         spyOn(notificationHandler.notifications.dummyNotification, 'render');
       });
 
-      it('should render the notification', function () {
+      it('should render the notification', function() {
         eventHub.trigger('dummyNotification', {message: 'foo'});
         expect(notificationHandler.notifications.dummyNotification.render).toHaveBeenCalled();
       });

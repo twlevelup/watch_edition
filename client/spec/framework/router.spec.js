@@ -7,9 +7,9 @@ describe('Router', function() {
 
   var router;
 
-  xdescribe('Routes and pages', function () {
+  xdescribe('Routes and pages', function() {
 
-    describe('when a home page is provided', function () {
+    describe('when a home page is provided', function() {
 
       var pages, homePage;
 
@@ -21,23 +21,23 @@ describe('Router', function() {
         spyOn(router, 'renderView');
       });
 
-      it('should create the "" route for the home page', function () {
+      it('should create the "" route for the home page', function() {
         router.navigate('');
         expect(router.renderView).toHaveBeenCalledWith('foo');
       });
 
-      describe('when additional pages are provided', function () {
+      describe('when additional pages are provided', function() {
 
         beforeEach(function() {
           pages = {
             home: 'foo',
-            contacts: 'contacts',
+            contacts: 'contacts'
           };
           router = new Router(pages);
           spyOn(router, 'renderView');
         });
 
-        it('should create a route with the same name as the page', function () {
+        it('should create a route with the same name as the page', function() {
           router.navigate('contacts');
           expect(router.renderView).toHaveBeenCalledWith('contacts');
         });
