@@ -7,7 +7,7 @@
 *.ipr
 *.iws
 .idea_modules/
-.tags
+.tags*
 
 # Node
 node_modules/
