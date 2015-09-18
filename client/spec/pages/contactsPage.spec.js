@@ -2,7 +2,8 @@
 
 var contactsPage = require('../../src/js/pages/contactsPage'),
   Router = require('../../src/js/framework/router.js'),
-  App = require('../../src/js/app');
+  App = require('../../src/js/app'),
+  eventHub = require('../../src/js/framework/eventHub');
 
 global.App = App;
 
@@ -29,7 +30,7 @@ describe('The Contacts Page', function() {
     describe('right', function() {
       it('should take the user to the home page', function() {
         spyOn(global.App, 'navigate');
-        global.App.vent.trigger('right');
+        eventHub.trigger('right');
         expect(global.App.navigate).toHaveBeenCalledWith('');
       });
     });
@@ -37,7 +38,7 @@ describe('The Contacts Page', function() {
     describe('face', function() {
       it('should display "Oh noes!" to the user', function() {
         contactsPage.render();
-        global.App.vent.trigger('face');
+        eventHub.trigger('face');
         expect(contactsPage.$el).toContainText('Oh noes!');
       });
     });
