@@ -4,9 +4,12 @@ var Router = require('./framework/router'),
   WatchFace = require('./framework/watchFace'),
   eventHub = require('./framework/eventHub'),
   pages = require('./pages'),
-  NotificationView = require('./framework/notification'),
-  notificationHandler = require('./framework/notificationHandler'),
+  NotificationView = require('./framework/watchNotification'),
+  NotificationHandler = require('./framework/watchNotificationHandler'),
   clock = require('./framework/clock');
+
+// TODO remove this, just for testing
+var DummyNotification = NotificationView.extend({});
 
 var App = {
 
@@ -15,6 +18,8 @@ var App = {
   router: new Router(pages),
 
   watchFace: new WatchFace(),
+
+  notificationHandler: new NotificationHandler({dummyNotification: new DummyNotification()}),
 
   // TODO replace this with an event
   navigate: function (route) {
@@ -38,10 +43,6 @@ var App = {
   },
 
   start: function() {
-
-    // TODO remove this, just for testing
-    var DummyNotification = NotificationView.extend({});
-    notificationHandler.loadNotification('dummyNotification', new DummyNotification());
 
     this.setupWatchButtons();
 

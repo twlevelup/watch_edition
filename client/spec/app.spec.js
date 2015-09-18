@@ -1,9 +1,12 @@
 'use strict';
 
 var Router = require('../src/js/framework/router'),
-  WatchFace = require('../src/js/framework/watchFace');
+  WatchFace = require('../src/js/framework/watchFace'),
+  NotificationHandler = require('../src/js/framework/watchNotificationHandler');
 
 var app = require('../src/js/app');
+
+// TODO replace .on with listenTo
 
 describe('The App', function() {
 
@@ -22,6 +25,10 @@ describe('The App', function() {
 
   it('should have a watch face', function() {
     expect(app.watchFace instanceof WatchFace).toBeTruthy();
+  });
+
+  it('should have a notification handler', function() {
+    expect(app.notificationHandler instanceof NotificationHandler).toBeTruthy();
   });
 
   it('should have an event hub', function () {

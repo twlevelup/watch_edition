@@ -2,11 +2,11 @@
 
 var ViewWithButtons = require('./viewWithButtons');
 
-var notification = ViewWithButtons.extend({
+var WatchNotification = ViewWithButtons.extend({
 
   className: 'notification',
 
-  template: require('../../templates/framework/notification.hbs'),
+  template: require('../../templates/framework/watchNotification.hbs'),
 
   buttonEvents: {
     right: 'dismiss',
@@ -21,7 +21,7 @@ var notification = ViewWithButtons.extend({
     // $('#watch-face').html(this.currentView.render().el);
 
     // TODO put this somewhere else, probably in app.js
-    global.App.router.currentView.stopListening();
+    // global.App.router.currentView.stopListening();
 
     this.$el.html(this.template({message: this.message}));
 
@@ -38,4 +38,4 @@ var notification = ViewWithButtons.extend({
 
 });
 
-module.exports = notification;
+module.exports = WatchNotification;

@@ -1,6 +1,6 @@
 var App = require('./app'),
-  NotificationsForm = require('./framework/notificationsForm'),
-  notificationsFormConfig = require('./notifications/notificationsFormConfig');
+  NotificationsForm = require('./framework/watchNotificationsForm'),
+  notificationsFormConfig = require('./watch-notifications/watchNotificationsFormConfig');
 
 var notificationsForm = new NotificationsForm();
 notificationsForm.configureNotifications(notificationsFormConfig);

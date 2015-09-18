@@ -1,9 +1,11 @@
 'use strict';
 
-var NotificationForm = require('../../src/js/framework/notificationsForm'),
+var NotificationForm = require('../../src/js/framework/watchNotificationsForm'),
   App = require('../../src/js/app');
 
 global.App = App;
+
+// TODO replace .on with .listenTo
 
 describe('Notifications form', function() {
   var notificationsForm, notificationsCfg;

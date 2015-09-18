@@ -4,7 +4,7 @@ var NotificationsForm = Backbone.View.extend({
 
   el: '#notification-form',
 
-  template: require('../../templates/framework/notificationForm.hbs'),
+  template: require('../../templates/framework/watchNotificationForm.hbs'),
   config: [],
 
   notificationTypeEl: '.notification-type',

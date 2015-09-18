@@ -1,8 +1,7 @@
 # Important
 
 - make pre-commit work on windows: Actual issue is using exec to run jscs, it runs in the wrong directory or something
-- Rendering test for collections contacts page - where is the html
-- See what happens when multiple specs declare app as a global
+- Rendering test for collections contacts page - where is the html?
 - Auto-run tests in dev mode
 - move ALL framework code to a single folder to discourage students from modifying it
 - use build targets e.g. dev and prod, cleanup dependencies
