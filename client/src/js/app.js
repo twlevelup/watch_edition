@@ -19,6 +19,7 @@ var App = {
 
   watchFace: new WatchFace(),
 
+  // TODO load these from the watch-notifications directory
   notificationHandler: new NotificationHandler({dummyNotification: new DummyNotification()}),
 
   // TODO replace this with an event

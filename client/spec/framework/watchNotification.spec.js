@@ -1,15 +1,14 @@
 'use strict';
 
-var NotificationView = require('../../src/js/framework/watchNotification'),
-  Router = require('../../src/js/framework/router'),
+var WatchNotification = require('../../src/js/framework/watchNotification'),
   App = require('../../src/js/app');
 
-var notification;
+var watchNotification;
 
 global.App = App;
 
 beforeEach(function() {
-  notification = new NotificationView();
+  watchNotification = new WatchNotification();
 });
 
 describe('rendering', function() {
@@ -19,14 +18,14 @@ describe('rendering', function() {
   });
 
   it('should append itself to the view for the current page', function() {
-    notification.render();
+    watchNotification.render();
     var watchFace = $('#watch-face');
     expect(watchFace).toContainElement('div');
   });
 
   xit('should display the message', function() {
-    notification.message = 'foo';
-    notification.render();
+    watchNotification.message = 'foo';
+    watchNotification.render();
     var watchFace = $('#watch-face');
     expect(watchFace.text()).toContain('foo');
   });
@@ -36,22 +35,22 @@ describe('rendering', function() {
       stopListening: function() {}
     };
     spyOn(global.App.router.currentView, 'stopListening');
-    notification.render();
+    watchNotification.render();
     expect(global.App.router.currentView.stopListening).toHaveBeenCalled();
   });
 
   it('should set the reconfigure the watch buttons', function() {
-    spyOn(notification, 'setButtonEvents');
-    notification.render();
-    expect(notification.setButtonEvents).toHaveBeenCalled();
+    spyOn(watchNotification, 'setButtonEvents');
+    watchNotification.render();
+    expect(watchNotification.setButtonEvents).toHaveBeenCalled();
   });
 
-  it('should have the class notification', function() {
-    expect(notification.className).toEqual('notification');
+  it('should have the class watchNotification', function() {
+    expect(watchNotification.className).toEqual('watchNotification');
   });
 
   it('should return the view object', function() {
-    expect(notification.render()).toEqual(notification);
+    expect(watchNotification.render()).toEqual(watchNotification);
   });
 
 });
@@ -63,14 +62,14 @@ describe('dismiss', function() {
   });
 
   it('should restore the buton events for the current page', function() {
-    notification.dismiss();
+    watchNotification.dismiss();
     expect(global.App.router.currentView.setButtonEvents).toHaveBeenCalled();
   });
 
   it('should remove itself', function() {
-    spyOn(notification, 'remove');
-    notification.dismiss();
-    expect(notification.remove).toHaveBeenCalled();
+    spyOn(watchNotification, 'remove');
+    watchNotification.dismiss();
+    expect(watchNotification.remove).toHaveBeenCalled();
   });
 
 });
