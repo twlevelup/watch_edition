@@ -4,12 +4,12 @@ var Router = require('./framework/router'),
   WatchFace = require('./framework/watchFace'),
   eventHub = require('./framework/eventHub'),
   pages = require('./pages'),
-  NotificationView = require('./framework/watchNotification'),
-  NotificationHandler = require('./framework/watchNotificationHandler'),
+  WatchNotification = require('./framework/watchNotification'),
+  WatchNotificationHandler = require('./framework/watchNotificationHandler'),
   clock = require('./framework/clock');
 
 // TODO remove this, just for testing
-var DummyNotification = NotificationView.extend({});
+var DummyNotification = WatchNotification.extend({});
 
 var App = {
 
@@ -21,42 +21,54 @@ var App = {
 
   // TODO load these from the watch-notifications directory
   // TODO pass in a reference to the element where notifications should be displayed
-  notificationHandler: new NotificationHandler({dummyNotification: new DummyNotification()}),
+  notificationHandler: new WatchNotificationHandler({dummyNotification: new DummyNotification()}),
 
   navigate: function (route) {
     App.router.navigate(route, true);
   },
 
-  displayPage: function(page) {
+  showPage: function(page) {
     if (this.activePage) {
       this.activePage.remove();
     }
 
-    this.notificationHandler.hideActiveNotification();
+    this.notificationHandler.hideNotification();
 
     this.activePage = page;
 
-    // TODO make this work with the constructor
-    // e.g. this.activePage = new New();
+    // TODO make this work with the constructor e.g. this.activePage = new New();
     $('#watch-face').html(this.activePage.render().el);
-    this.configureButtons();
+    eventHub.trigger('showPage');
   },
 
-  // TODO view / notification display should set the statuses
-  // TODO view navigation should call configure Buttons?
-  // TODO any action trigured relating to a notiifcation should call configureButtons?
-
   configureButtons: function () {
-    // if (this.notificationHandler.activeNotification) {
-    //   this.notification.activeNotification.configureButtons();
-    // } else if (this.activePage) {
+    this.activePage.stopListening(); // NOTE do this here to prevent duplicate listeners
+    if (this.notificationHandler.activeNotification) {
+      this.notificationHandler.activeNotification.configureButtons();
+    } else if (this.activePage) {
       this.activePage.configureButtons();
-    // }
+    }
+  },
+
+  setupEventHandlers: function () {
+    this.listenTo(eventHub, 'showPage', this.configureButtons);
+    this.listenTo(eventHub, 'showNotification', function (opts) {
+      // TODO delegate/proxy the event instead?
+      this.notificationHandler.showNotification(opts);
+      this.configureButtons();
+    });
+    this.listenTo(eventHub, 'hideNotification', function (opts) {
+      // TODO delegate/proxy the event instead?
+      this.notificationHandler.hideNotification();
+      this.configureButtons();
+    });
   },
 
   start: function() {
 
     clock.start();
+
+    this.setupEventHandlers();
 
     if (Backbone.history && !Backbone.History.started) {
       Backbone.history.start();
@@ -65,6 +77,8 @@ var App = {
   }
 
 };
+
+_.extend(App, Backbone.Events);
 
 global.App = App;
 

@@ -59,7 +59,10 @@ var NotificationsForm = Backbone.View.extend({
       return;
     }
 
-    eventHub.trigger(notificationType, {message: notificationMessage});
+    eventHub.trigger('showNotification', {
+      type: notificationType,
+      message: notificationMessage
+    });
 
   },
 

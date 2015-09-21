@@ -4,7 +4,7 @@ var WatchNotification = require('../../src/js/framework/watchNotification');
 
 global.App = require('../../src/js/app');
 
-describe('Watch Notifications', function () {
+describe('Watch Notifications', function() {
 
   var watchNotification;
 

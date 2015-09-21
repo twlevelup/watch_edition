@@ -48,9 +48,12 @@ describe('NotificationHandler', function() {
       });
 
       it('should display the notification', function() {
-        notificationHandler.displayNotification('testNotification', {message: 'foo'});
+        notificationHandler.showNotification({
+          type:'testNotification',
+          message: 'foo'
+        });
         expect(notificationHandler.notifications.testNotification.render).toHaveBeenCalled();
-  });
+      });
 
     });
   });

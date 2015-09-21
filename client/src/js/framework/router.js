@@ -10,7 +10,7 @@ var Router = Backbone.Router.extend({
   createRouteForPage: function(page, name) {
     var route = (name === 'home') ? '' : name;
     this.route(route, name, function() {
-      global.App.displayPage(page);
+      global.App.showPage(page);
     });
   }
 

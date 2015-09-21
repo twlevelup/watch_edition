@@ -1,6 +1,7 @@
 'use strict';
 
-var ViewWithButtons = require('./viewWithButtons');
+var ViewWithButtons = require('./viewWithButtons'),
+  eventHub = require('./eventHub');
 
 var WatchNotification = ViewWithButtons.extend({
 
@@ -9,11 +10,11 @@ var WatchNotification = ViewWithButtons.extend({
   template: require('../../templates/framework/watchNotification.hbs'),
 
   buttonEvents: {
-    right: '',
-    left: '',
-    top: '',
-    bottom: '',
-    face: ''
+    right: 'hide',
+    left: 'hide',
+    top: 'hide',
+    bottom: 'hide',
+    face: 'hide'
   },
 
   render: function() {
@@ -24,6 +25,10 @@ var WatchNotification = ViewWithButtons.extend({
 
     this.setButtonEvents();
     return this;
+  },
+
+  hide: function() {
+    eventHub.trigger('hideNotification');
   }
 
 });

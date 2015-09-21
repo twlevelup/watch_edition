@@ -51,8 +51,8 @@ describe('WatchFace', function() {
       });
     });
 
-    describe('when the user clicks the watch face', function () {
-      it('should trigger the face event in the event hub', function () {
+    describe('when the user clicks the watch face', function() {
+      it('should trigger the face event in the event hub', function() {
         var faceEventHandler = jasmine.createSpy();
         eventHub.on('face', faceEventHandler);
         $('#watch-face').trigger('click');

@@ -14,7 +14,7 @@ var WatchFace = Backbone.View.extend({
     'click .screen': 'clickWatchButton'
   },
 
-  clickWatchButton: function (e) {
+  clickWatchButton: function(e) {
     var id = $(e.currentTarget).attr('id');
     id = _.last(id.split('-'));
     eventHub.trigger(id);

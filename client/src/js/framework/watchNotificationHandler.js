@@ -15,22 +15,19 @@ NotificationHandler.prototype.loadNotifications = function(notifications) {
   }, this);
 };
 
-NotificationHandler.prototype.displayNotification = function(name, opts) {
-  this.activeNotification = this.notifications[name];
+NotificationHandler.prototype.showNotification = function(opts) {
+  this.activeNotification = this.notifications[opts.type];
+
   // TODO this is where we should probably make a new notification from the constructor instead
   this.activeNotification.messages = opts.message;
   this.activeNotification.render();
 };
 
-NotificationHandler.prototype.hideActiveNotification = function () {
+NotificationHandler.prototype.hideNotification = function() {
   if (this.activeNotification) {
-    this.activeNotification.remove();    
+    this.activeNotification.remove();
+    this.activeNotification = undefined;
   }
 };
-
-
-
-
-
 
 module.exports = exports = NotificationHandler;
