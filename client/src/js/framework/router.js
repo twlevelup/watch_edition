@@ -2,36 +2,35 @@
 
 var Router = Backbone.Router.extend({
 
-// TODO move to app
-// TODO rename displayPage
-  renderView: function(view) {
-    if (this.activeView) {
-      this.activeView.remove();
+  // TODO move to app
+  // TODO rename displayPage
+  renderPage: function(page) {
+    if (this.activePage) {
+      this.activePage.remove();
     }
 
-    this._changeactiveView(view);
+    this._changeactivePage(page);
   },
 
-// TODO move to app
-  _changeactiveView: function(view) {
-    this.activeView = view;
+  // TODO move to app
+  _changeactivePage: function(page) {
+    this.activePage = page;
+    // TODO make sure this takes in to account any active notifications, either re-render them or dismiss them
     // TODO make this work with the constructor
-    // e.g. this.activeView = new New();
-    $('#watch-face').html(this.activeView.render().el);
-    this.activeView.configureButtons();
-  },
-
-  _createRouteForPage: function(page, name) {
-    this.route(name, name, function() {this.renderView(page);});
+    // e.g. this.activePage = new New();
+    $('#watch-face').html(this.activePage.render().el);
+    this.activePage.configureButtons();
   },
 
   initialize: function(pages) {
-    var otherPages = _.omit(pages, 'home');
+    _.each(pages, this.createRouteForPage, this);
+  },
 
-    this.route('', 'home', function() {this.renderView(pages.home);});
-
-    _.each(otherPages, this._createRouteForPage, this);
-
+  createRouteForPage: function(page, name) {
+    var route = (name === 'home') ? '' : name;
+    this.route(route, name, function() {
+      this.renderPage(page);
+    });
   }
 
 });
