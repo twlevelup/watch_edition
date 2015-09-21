@@ -59,7 +59,7 @@ describe('Router', function() {
 
       it('should set the current view', function() {
         router.renderView(view);
-        expect(router.currentView).toEqual(view);
+        expect(router.activeView).toEqual(view);
       });
 
       it('should configure the buttons', function() {
@@ -95,7 +95,7 @@ describe('Router', function() {
       });
 
       it('should remove the existing view', function() {
-        router.currentView = oldView;
+        router.activeView = oldView;
         router.renderView(view);
         expect(oldView.remove).toHaveBeenCalled();
       });

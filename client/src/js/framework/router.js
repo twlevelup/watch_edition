@@ -2,22 +2,27 @@
 
 var Router = Backbone.Router.extend({
 
-  _changeCurrentView: function(view) {
-    this.currentView = view;
-    $('#watch-face').html(this.currentView.render().el);
-    this.currentView.setButtonEvents();
+// TODO move to app
+// TODO rename displayPage
+  renderView: function(view) {
+    if (this.activeView) {
+      this.activeView.remove();
+    }
+
+    this._changeactiveView(view);
+  },
+
+// TODO move to app
+  _changeactiveView: function(view) {
+    this.activeView = view;
+    // TODO make this work with the constructor
+    // e.g. this.activeView = new New();
+    $('#watch-face').html(this.activeView.render().el);
+    this.activeView.configureButtons();
   },
 
   _createRouteForPage: function(page, name) {
     this.route(name, name, function() {this.renderView(page);});
-  },
-
-  renderView: function(view) {
-    if (this.currentView) {
-      this.currentView.remove();
-    }
-
-    this._changeCurrentView(view);
   },
 
   initialize: function(pages) {
