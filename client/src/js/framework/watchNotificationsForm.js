@@ -1,5 +1,7 @@
 'use strict';
 
+var eventHub = require('./eventHub');
+
 var NotificationsForm = Backbone.View.extend({
 
   el: '#notification-form',
@@ -57,7 +59,7 @@ var NotificationsForm = Backbone.View.extend({
       return;
     }
 
-    global.App.vent.trigger(notificationType, {message: notificationMessage});
+    eventHub.trigger(notificationType, {message: notificationMessage});
 
   },
 
