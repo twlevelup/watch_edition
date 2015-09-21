@@ -1,8 +1,7 @@
 'use strict';
 
 var NotificationHandler = require('../../src/js/framework/watchNotificationHandler'),
-  Notifications = require('../../src/js/framework/watchNotification'),
-  eventHub = require('../../src/js/framework/eventHub');
+  Notifications = require('../../src/js/framework/watchNotification');
 
 describe('NotificationHandler', function() {
 
@@ -37,29 +36,21 @@ describe('NotificationHandler', function() {
     });
   });
 
-  it('should setup an event handler for the notification', function() {
-    var DummyNotification = Notifications.extend({});
-    notificationHandler.loadNotifications({dummyNotification: new DummyNotification()});
-    spyOn(notificationHandler, 'displayNotification');
-    eventHub.trigger('dummyNotification', {message: 'foo'});
-    expect(notificationHandler.displayNotification).toHaveBeenCalledWith('dummyNotification', {message: 'foo'});
-  });
-
   describe('Displaying notifications', function() {
 
     describe('when a valid notification is triggered', function() {
-      var DummyNotification;
+      var TestNotification;
       beforeEach(function() {
-        DummyNotification = Notifications.extend({});
+        TestNotification = Notifications.extend({});
         notificationHandler.notifications = {};
-        notificationHandler.loadNotifications({dummyNotification: new DummyNotification()});
-        spyOn(notificationHandler.notifications.dummyNotification, 'render');
+        notificationHandler.loadNotifications({testNotification: new TestNotification()});
+        spyOn(notificationHandler.notifications.testNotification, 'render');
       });
 
       it('should display the notification', function() {
-        eventHub.trigger('dummyNotification', {message: 'foo'});
-        expect(notificationHandler.notifications.dummyNotification.render).toHaveBeenCalled();
-      });
+        notificationHandler.displayNotification('testNotification', {message: 'foo'});
+        expect(notificationHandler.notifications.testNotification.render).toHaveBeenCalled();
+  });
 
     });
   });

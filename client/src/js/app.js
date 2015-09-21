@@ -20,32 +20,41 @@ var App = {
   watchFace: new WatchFace(),
 
   // TODO load these from the watch-notifications directory
+  // TODO pass in a reference to the element where notifications should be displayed
   notificationHandler: new NotificationHandler({dummyNotification: new DummyNotification()}),
 
-  // TODO replace this with an event
   navigate: function (route) {
     App.router.navigate(route, true);
   },
 
-  // TODO Make a view for the watch and make these regular view events
-  setupWatchButtons: function () {
+  displayPage: function(page) {
+    if (this.activePage) {
+      this.activePage.remove();
+    }
 
-    var buttons = ['left', 'right', 'top', 'bottom'];
+    this.notificationHandler.hideActiveNotification();
 
-    _.each(buttons, function (buttonName) {
-      $('#button-' + buttonName).on('click', function() {
-        App.vent.trigger(buttonName);
-      });
-    });
+    this.activePage = page;
 
-    $('#watch-face').on('click', function() {
-      App.vent.trigger('face');
-    });
+    // TODO make this work with the constructor
+    // e.g. this.activePage = new New();
+    $('#watch-face').html(this.activePage.render().el);
+    this.configureButtons();
+  },
+
+  // TODO view / notification display should set the statuses
+  // TODO view navigation should call configure Buttons?
+  // TODO any action trigured relating to a notiifcation should call configureButtons?
+
+  configureButtons: function () {
+    // if (this.notificationHandler.activeNotification) {
+    //   this.notification.activeNotification.configureButtons();
+    // } else if (this.activePage) {
+      this.activePage.configureButtons();
+    // }
   },
 
   start: function() {
-
-    this.setupWatchButtons();
 
     clock.start();
 

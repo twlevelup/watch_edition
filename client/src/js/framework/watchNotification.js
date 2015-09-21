@@ -9,19 +9,14 @@ var WatchNotification = ViewWithButtons.extend({
   template: require('../../templates/framework/watchNotification.hbs'),
 
   buttonEvents: {
-    right: 'dismiss',
-    left: 'dismiss',
-    top: 'dismiss',
-    bottom: 'dismiss',
-    face: 'dismiss'
+    right: '',
+    left: '',
+    top: '',
+    bottom: '',
+    face: ''
   },
 
   render: function() {
-    // TODO use setElement instead?
-    // $('#watch-face').html(this.currentView.render().el);
-
-    // TODO put this somewhere else, probably in app.js
-    // global.App.router.currentView.stopListening();
 
     this.$el.html(this.template({message: this.message}));
 
@@ -29,11 +24,6 @@ var WatchNotification = ViewWithButtons.extend({
 
     this.setButtonEvents();
     return this;
-  },
-
-  dismiss: function() {
-    global.App.router.currentView.setButtonEvents();
-    this.remove();
   }
 
 });
