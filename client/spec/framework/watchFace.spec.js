@@ -8,7 +8,7 @@ describe('WatchFace', function() {
   var watchFace;
 
   beforeEach(function() {
-    setFixtures('<div id="watch">');
+    setFixtures('<div class="watch-placeholder">');
     watchFace = new WatchFace();
   });
 
