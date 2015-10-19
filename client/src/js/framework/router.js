@@ -1,5 +1,7 @@
 'use strict';
 
+var App = require('../app');
+
 var Router = Backbone.Router.extend({
 
   initialize: function(pages) {
@@ -10,7 +12,7 @@ var Router = Backbone.Router.extend({
   createRouteForPage: function(page, name) {
     var route = (name === 'home') ? '' : name;
     this.route(route, name, function() {
-      global.App.showPage(page);
+      App.showPage(page);
     });
   }
 

@@ -80,6 +80,4 @@ var App = {
 
 _.extend(App, Backbone.Events);
 
-global.App = App;
-
 module.exports = App;
