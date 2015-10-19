@@ -18,7 +18,7 @@ module.exports = {
     files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs', 'app/*.js'],
     tasks: ['test', 'webpack:build-dev'],
     options: {
-      spawn: false,
+      spawn: false
     }
   },
   static: {

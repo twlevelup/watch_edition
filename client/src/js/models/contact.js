@@ -1,3 +1,5 @@
+'use strict';
+
 var Contact = Backbone.Model.extend({
   defaults: {
     name: 'Jimmy',

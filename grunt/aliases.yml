@@ -2,14 +2,10 @@ default:
   - prompt:main
   - inputHandler
 
-lint:
-  - jshint
-
 format:
   - exec:jscs
 
 test:
-  - lint
   - karma
 
 build:

@@ -1,5 +1,8 @@
 var path = require('path'),
-  webpack = require('webpack');
+  webpack = require('webpack'),
+  stylishReporter = require('jshint-loader-stylish')({
+     style : 'true-stylish'
+  });
 
 module.exports = {
   cache: true,
@@ -7,23 +10,27 @@ module.exports = {
     main: './client/src/js/main.js'
   },
   output: {
-    path: path.join(__dirname, 'dist/js/'),
-    publicPath: 'public/js/',
+    path: path.join(__dirname, 'public/js/'),
+    publicPath: 'js/',
     filename: '[name].js',
     chunkFilename: '[chunkhash].js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass', 'sass?sourceMap']
-      },
-      {
-        test: /\.hbs/,
-        loader: 'handlebars-loader'
-      }
-
-    ]
+    preLoaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/, // do not lint third-party code
+      loader: 'jshint-loader'
+    }],
+    loaders: [{
+      test: /\.scss$/,
+      loaders: ['style', 'css', 'sass', 'sass?sourceMap']
+    }, {
+      test: /\.hbs/,
+      loader: 'handlebars-loader'
+    }]
+  },
+  jshint : {
+    reporter : stylishReporter
   },
   plugins: [
     new webpack.ProvidePlugin({

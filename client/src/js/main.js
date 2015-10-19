@@ -1,3 +1,5 @@
+'use strict';
+
 require('./../styles/main.scss');
 
 var App = require('./app'),
