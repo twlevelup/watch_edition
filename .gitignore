@@ -15,6 +15,7 @@ node_modules/
 
 # Project specific
 
+dist/
 public/
 build/
 coverage/

@@ -1,5 +1,4 @@
-// TODO require vendor stuff here
-// TODO require SASS stuff here
+require('./../styles/main.scss');
 
 var App = require('./app'),
   NotificationsForm = require('./framework/watchNotificationsForm'),

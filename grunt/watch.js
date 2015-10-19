@@ -2,10 +2,6 @@ module.exports = {
   options: {
     livereload: true
   },
-  styles: {
-    files: ['client/src/styles/**/*.scss'],
-    tasks: ['sass']
-  },
   vendor: {
     files: ['client/src/vendor/**/*'],
     tasks: ['copy:vendor']
@@ -19,7 +15,7 @@ module.exports = {
     tasks: ['copy:images']
   },
   scripts: {
-    files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs', 'app/*.js', 'controllers/*.js'],
+    files: ['client/src/js/**/*.js', 'client/src/templates/**/*.hbs', 'app/*.js'],
     tasks: ['test', 'webpack:build-dev'],
     options: {
       spawn: false,

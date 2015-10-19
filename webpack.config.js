@@ -7,8 +7,8 @@ module.exports = {
     main: './client/src/js/main.js'
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: 'public/',
+    path: path.join(__dirname, 'dist/js/'),
+    publicPath: 'public/js/',
     filename: '[name].js',
     chunkFilename: '[chunkhash].js'
   },
@@ -16,7 +16,7 @@ module.exports = {
     loaders: [
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style', 'css', 'sass', 'sass?sourceMap']
       },
       {
         test: /\.hbs/,
@@ -25,12 +25,6 @@ module.exports = {
 
     ]
   },
-  // resolve: {
-  //   alias: {
-  //     // Bind version of jquery
-  //     jquery: 'jquery-2.0.3'
-  //   }
-  // },
   plugins: [
     new webpack.ProvidePlugin({
       // Automtically detect jQuery and $ as free var in modules

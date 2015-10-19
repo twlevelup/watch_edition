@@ -36,6 +36,7 @@
     "node": "0.10.x"
   },
   "devDependencies": {
+    "css-loader": "^0.20.1",
     "generator-watch-page": "git+https://643af40aaeabd70576e5491b6724e7c8a1088dd7:x-oauth-basic@github.com/twlevelup/generator-watch-edition#v0.1",
     "grunt-sass": "^0.18.1",
     "grunt-todos": "^0.3.0",
@@ -51,6 +52,7 @@
     "karma-threshold-reporter": "^0.1.15",
     "node-sass": "^3.3.3",
     "sass-loader": "^3.0.0",
+    "style-loader": "^0.12.4",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1"
   }
