@@ -24,14 +24,10 @@
     "grunt-prompt": "^1.3.0",
     "grunt-sass": "^1.1.0",
     "handlebars": "^3.0.1",
-    "hbsfy": "^2.2.1",
     "jquery": "^2.1.3",
     "jshint-stylish": "^1.0.1",
     "load-grunt-config": "^0.16.0",
     "underscore": "^1.8.3",
-    "browserify-shim": "^3.8.6",
-    "browserify": "^10.1.0",
-    "grunt-browserify": "^3.7.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-exec": "^0.4.6",
     "grunt-karma": "^0.10.1"
@@ -40,40 +36,22 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-    "browserify-istanbul": "^0.2.1",
     "generator-watch-page": "git+https://643af40aaeabd70576e5491b6724e7c8a1088dd7:x-oauth-basic@github.com/twlevelup/generator-watch-edition#v0.1",
-    "grunt-sass": "^1.1.0",
+    "grunt-sass": "^0.18.1",
     "grunt-todos": "^0.3.0",
+    "grunt-webpack": "^1.0.11",
+    "handlebars-loader": "^1.1.4",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
-    "karma-bro": "^0.11.1",
-    "karma-browserify": "^4.1.2",
     "karma-coverage": "^0.3.1",
     "karma-jasmine": "^0.3.5",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "0.0.19",
     "karma-threshold-reporter": "^0.1.15",
-    "phantomjs": "^1.9.19"
-  },
-  "browserify": {
-    "transform": [
-      "envify",
-      "browserify-shim"
-    ]
-  },
-  "browser": {
-    "backbonefire": "./client/src/vendor/backbonefire-0.5.1.js",
-    "Firebase": "./client/src/vendor/firebase-2.2.4.js"
-  },
-  "browserify-shim": {
-    "backbonefire": {
-      "exports": "Backbone",
-      "depends": [
-        "Firebase",
-        "backbone:Backbone",
-        "jquery:$"
-      ]
-    }
+    "node-sass": "^3.3.3",
+    "sass-loader": "^3.0.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
   }
 }

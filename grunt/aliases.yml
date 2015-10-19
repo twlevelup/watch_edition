@@ -15,7 +15,7 @@ test:
 build:
   - copy
   - sass
-  - browserify
+  - webpack:build
 
 staging:
   - build

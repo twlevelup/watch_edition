@@ -8,7 +8,6 @@
 - remove firebase
 
 # Nice to have / ideas
-- switch from browserify to webpack
 - Move sample pages to special URL so they can be retained but don't interfere with students apps
 - Audio playback with example
 The framework should provide a simple method e.g. app.play('path/to/file') for playing audio.
