@@ -30,4 +30,4 @@ NotificationHandler.prototype.hideNotification = function() {
   }
 };
 
-module.exports = exports = NotificationHandler;
+module.exports = NotificationHandler;

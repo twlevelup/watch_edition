@@ -5,7 +5,7 @@ var contactsPage = require('../../src/js/pages/contactsPage'),
   App = require('../../src/js/app'),
   eventHub = require('../../src/js/framework/eventHub');
 
-global.App = App;
+window.App = App;
 
 describe('The Contacts Page', function() {
 
@@ -29,9 +29,9 @@ describe('The Contacts Page', function() {
 
     describe('right', function() {
       it('should take the user to the home page', function() {
-        spyOn(global.App, 'navigate');
+        spyOn(window.App, 'navigate');
         eventHub.trigger('right');
-        expect(global.App.navigate).toHaveBeenCalledWith('');
+        expect(window.App.navigate).toHaveBeenCalledWith('');
       });
     });
 

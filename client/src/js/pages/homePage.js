@@ -15,7 +15,7 @@ var HomeScreen = PageView.extend({
   },
 
   goToContacts: function() {
-    App.navigate('contacts');
+    window.App.navigate('contacts');
   },
 
   scrollUp: function() {
