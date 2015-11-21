@@ -1,3 +1,5 @@
+'use strict';
+
 var path = require('path'),
   webpack = require('webpack'),
   stylishReporter = require('jshint-loader-stylish')({
