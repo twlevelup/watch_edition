@@ -123,7 +123,9 @@
     "globals": {
         "$": true,
         "_": true,
-        "Backbone": true
+        "Backbone": true,
+        "require": true,
+        "module": true
     }
 
 }
