@@ -1,0 +1,1 @@
+docker run -it --rm --name twlevelup_watch -v "$PWD":/usr/src/app twlevelup/watch_edition npm install
