@@ -1,6 +1,6 @@
 'use strict';
 
-var istanbul = require('browserify-istanbul');
+var webpack = require('webpack');
 
 module.exports = function(config) {
     config.set({
@@ -8,14 +8,13 @@ module.exports = function(config) {
         // base path, that will be used to resolve files and exclude
         basePath: '',
 
-
         // frameworks to use
-        frameworks: ['jasmine-jquery', 'browserify', 'jasmine'],
+        // frameworks: ['jasmine-jquery', 'jasmine'],
 
 
         // list of files / patterns to load in the browser
         // NOTE: do NOT include jasmine here because grunt-karma already does
-        files: ['client/src/js/vendor.js', 'client/spec/**/*spec.js'],
+        files: ['client/spec/**/*spec.js'],
 
         // list of files to exclude
         exclude: [],
@@ -37,8 +36,7 @@ module.exports = function(config) {
           }
         },
 
-
-      // the configure thresholds
+        // the configure thresholds
         thresholdReporter: {
           statements: 80,
           branches: 70,
@@ -49,10 +47,8 @@ module.exports = function(config) {
         // web server port
         port: 9876,
 
-
         // enable / disable colors in the output (reporters and logs)
         colors: true,
-
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
@@ -82,24 +78,11 @@ module.exports = function(config) {
         // if true, it capture browsers, run tests and exit
         singleRun: true,
 
-        // Browserify
 
         preprocessors: {
-          'client/spec/**/*spec.js': ['browserify'],
-          'client/src/js/vendor.js': ['browserify']
-        },
-
-        browserify: {
-          debug: true,
-          transform: ['hbsfy', istanbul({
-            ignore: [
-              'node_modules/**',
-              '**/client/spec/**',
-              '**/src/vendor/**',
-              '**/*Config.js',
-              '**/config.js']
-          }
-          )]
+          'client/spec/**/*spec.js': ['webpack', 'sourcemap'],
+          'client/src/js/main.js': ['webpack', 'sourcemap']
         }
+
     });
 };

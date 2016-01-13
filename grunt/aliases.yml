@@ -10,8 +10,7 @@ test:
 
 build:
   - copy
-  - sass
-  - webpack:build
+  - webpack:build-dev
 
 staging:
   - build
@@ -19,7 +18,7 @@ staging:
 
 dev:
   - clean
-  - test
+  # - test
   - build
   - concurrent:dev
 
