@@ -30,7 +30,7 @@
     "underscore": "^1.8.3",
     "grunt-concurrent": "^1.0.0",
     "grunt-exec": "^0.4.6",
-    "grunt-karma": "^0.10.1"
+    "grunt-karma": "^0.12.1"
   },
   "engines": {
     "node": "0.10.x"
@@ -46,7 +46,7 @@
     "jshint": "^2.8.0",
     "jshint-loader": "^0.8.3",
     "jshint-loader-stylish": "^1.0.1",
-    "karma": "^0.12.31",
+    "karma": "^0.13.21",
     "karma-coverage": "^0.3.1",
     "karma-jasmine": "^0.3.5",
     "karma-jasmine-jquery": "^0.1.1",
@@ -54,11 +54,12 @@
     "karma-sourcemap-loader": "^0.3.6",
     "karma-spec-reporter": "0.0.19",
     "karma-threshold-reporter": "^0.1.15",
+    "karma-requirejs": "^0.2.5",
     "karma-webpack": "^1.7.0",
     "node-sass": "^3.3.3",
     "sass-loader": "^3.0.0",
     "style-loader": "^0.12.4",
-    "webpack": "^1.12.2",
+    "webpack": "^1.12.12",
     "webpack-dev-server": "^1.12.1"
   }
 }
