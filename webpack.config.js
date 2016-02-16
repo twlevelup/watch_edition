@@ -3,7 +3,7 @@
 var path = require('path'),
   webpack = require('webpack'),
   stylishReporter = require('jshint-loader-stylish')({
-     style : 'true-stylish'
+    style: 'true-stylish'
   });
 
 module.exports = {
@@ -22,6 +22,10 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/, // do not lint third-party code
       loader: 'jshint-loader'
+    }, {
+      test: /\.js$/,
+      include: path.resolve('client/src/js/'),
+      loader: 'istanbul-instrumenter'
     }],
     loaders: [{
       test: /\.scss$/,
@@ -31,8 +35,8 @@ module.exports = {
       loader: 'handlebars-loader'
     }]
   },
-  jshint : {
-    reporter : stylishReporter
+  jshint: {
+    reporter: stylishReporter
   },
   plugins: [
     new webpack.ProvidePlugin({

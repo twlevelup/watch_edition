@@ -1,7 +1,6 @@
 'use strict';
 
 var webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = {};
 
 module.exports = function (config) {
   config.set({
@@ -12,9 +11,7 @@ module.exports = function (config) {
     // frameworks to use
     frameworks: ['jasmine-jquery', 'jasmine'],
 
-
     // list of files / patterns to load in the browser
-    // NOTE: do NOT include jasmine here because grunt-karma already does
     files: ['client/spec/**/*spec.js'],
 
     // list of files to exclude
@@ -23,7 +20,6 @@ module.exports = function (config) {
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
     reporters: ['spec', 'coverage', 'threshold'],
-
     coverageReporter: {
       'type': 'text',
       'dir': 'coverage/',
@@ -82,7 +78,8 @@ module.exports = function (config) {
 
     preprocessors: {
       'client/spec/**/*spec.js': ['webpack', 'sourcemap'],
-      'client/src/js/main.js': ['webpack', 'sourcemap']
+      'client/src/js/main.js': ['webpack', 'sourcemap'],
+      'client/src/js/**/*.js': ['coverage']
     }
 
   });
