@@ -30,6 +30,23 @@ describe('The App', function() {
     expect(app.vent.on).toBeTruthy();
   });
 
+  it('should configure buttons for the active page', function () {
+
+    app.activePage = {
+      stopListening: function(){},
+      configureButtons: function(){}
+    };
+
+    spyOn(app.activePage, 'stopListening');
+    spyOn(app.activePage, 'configureButtons');
+
+    app.configureButtons();
+    expect(app.configureButtons).toBeTruthy();
+    expect(app.activePage.stopListening).toHaveBeenCalled();
+    expect(app.activePage.configureButtons).toHaveBeenCalled();
+
+  });
+
   describe('navigate', function() {
 
     // TODO should this be renamed and also trigger render or init ?
