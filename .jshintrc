@@ -125,7 +125,8 @@
         "_": true,
         "Backbone": true,
         "require": true,
-        "module": true
+        "module": true,
+        "process": true
     }
 
 }
