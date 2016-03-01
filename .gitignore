@@ -12,6 +12,7 @@
 # Node
 node_modules/
 .grunt/
+npm-debug.log
 
 # Project specific
 
