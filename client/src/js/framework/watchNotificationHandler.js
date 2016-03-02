@@ -19,7 +19,7 @@ NotificationHandler.prototype.showNotification = function(opts) {
   this.activeNotification = this.notifications[opts.type];
 
   // TODO this is where we should probably make a new notification from the constructor instead
-  this.activeNotification.messages = opts.message;
+  this.activeNotification.message = opts.message;
   this.activeNotification.render();
 };
 
