@@ -15,13 +15,16 @@ module.exports = {
     chunkFilename: '[chunkhash].js'
   },
   module: {
-    loaders: [{
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass', 'sass?sourceMap']
-    }, {
-      test: /\.hbs/,
-      loader: 'handlebars-loader'
-    }]
+    loaders: [
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass', 'sass?sourceMap']
+      }, 
+      {
+        test: /\.hbs/,
+        loader: 'handlebars-loader'
+      }
+    ]
   },
   plugins: [
     new webpack.ProvidePlugin({
