@@ -28,7 +28,6 @@ module.exports = {
       loader: 'handlebars-loader'
     }]
   },
-  },
   plugins: [
     new webpack.ProvidePlugin({
       // FIXME this is lazy, do something better with backbone and underscore
