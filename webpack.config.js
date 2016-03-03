@@ -15,11 +15,6 @@ module.exports = {
     chunkFilename: '[chunkhash].js'
   },
   module: {
-    preLoaders: [{
-      test: /\.js$/,
-      include: path.resolve('client/src/js/'),
-      loader: 'istanbul-instrumenter'
-    }],
     loaders: [{
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass', 'sass?sourceMap']
