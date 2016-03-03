@@ -24,4 +24,5 @@ dev:
 
 pre-commit:
   - format
+  - jshint
   - test

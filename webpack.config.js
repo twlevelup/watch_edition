@@ -1,10 +1,7 @@
 'use strict';
 
 var path = require('path'),
-  webpack = require('webpack'),
-  stylishReporter = require('jshint-loader-stylish')({
-    style: 'true-stylish'
-  });
+  webpack = require('webpack');
 
 module.exports = {
   cache: true,
@@ -20,10 +17,6 @@ module.exports = {
   module: {
     preLoaders: [{
       test: /\.js$/,
-      exclude: /node_modules/, // do not lint third-party code
-      loader: 'jshint-loader'
-    }, {
-      test: /\.js$/,
       include: path.resolve('client/src/js/'),
       loader: 'istanbul-instrumenter'
     }],
@@ -35,8 +28,6 @@ module.exports = {
       loader: 'handlebars-loader'
     }]
   },
-  jshint: {
-    reporter: stylishReporter
   },
   plugins: [
     new webpack.ProvidePlugin({
