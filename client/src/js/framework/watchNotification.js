@@ -6,7 +6,7 @@ var ViewWithButtons = require('./viewWithButtons'),
 var WatchNotification = ViewWithButtons.extend({
 
   initialize: function(opts) {
-    this.message = opts.message;
+    this.message = opts && opts.message;
   },
 
   className: 'notification',

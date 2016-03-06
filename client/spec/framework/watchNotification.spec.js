@@ -21,7 +21,7 @@ describe('Watch Notifications', function() {
       expect(watchFace).toContainElement('div');
     });
 
-    xit('should display the message', function() {
+    it('should display the message', function() {
       watchNotification.message = 'foo';
       watchNotification.render();
       var watchFace = $('#watch-face');

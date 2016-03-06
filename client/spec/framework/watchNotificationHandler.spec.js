@@ -9,6 +9,7 @@ describe('NotificationHandler', function() {
 
   beforeEach(function() {
     notificationHandler = new NotificationHandler();
+    setFixtures('<div id="watch-face" />');
   });
 
   describe('The Constuctor', function() {
@@ -39,20 +40,19 @@ describe('NotificationHandler', function() {
   describe('Displaying notifications', function() {
 
     describe('when a valid notification is triggered', function() {
-      var TestNotification;
+      var testNotification;
       beforeEach(function() {
-        TestNotification = Notifications.extend({});
+        testNotification = Notifications.extend({});
         notificationHandler.notifications = {};
-        notificationHandler.loadNotifications({testNotification: new TestNotification()});
-        spyOn(notificationHandler.notifications.testNotification, 'render');
+        notificationHandler.loadNotifications({testNotification: testNotification});
       });
 
       it('should display the notification', function() {
         notificationHandler.showNotification({
           type:'testNotification',
-          message: 'foo'
+          message: 'test notification message'
         });
-        expect(notificationHandler.notifications.testNotification.render).toHaveBeenCalled();
+        expect($('#watch-face .notification').html()).toContainText('test notification message');
       });
 
     });
