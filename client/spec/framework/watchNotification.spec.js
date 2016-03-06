@@ -9,7 +9,7 @@ describe('Watch Notifications', function() {
   var watchNotification;
 
   beforeEach(function() {
-    watchNotification = new WatchNotification();
+    watchNotification = new WatchNotification({message: 'foo'});
     setFixtures('<div id="watch-face" />');
   });
 
@@ -22,7 +22,6 @@ describe('Watch Notifications', function() {
     });
 
     it('should display the message', function() {
-      watchNotification.message = 'foo';
       watchNotification.render();
       var watchFace = $('#watch-face');
       expect(watchFace.text()).toContain('foo');

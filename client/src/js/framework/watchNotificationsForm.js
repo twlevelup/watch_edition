@@ -12,7 +12,7 @@ var NotificationsForm = Backbone.View.extend({
   notificationTypeEl: '.notification-type',
   notificationMessageEl: '.notification-message',
 
-  // TODO what would happen if this was changed to initalize? would it just meant making the new view in each tests before each?
+  // TODO what would happen if this was changed to initalize? would it just mean making the new view in each tests before each?
   configureNotifications: function(notifications) {
     this.config = notifications;
 
