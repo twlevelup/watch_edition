@@ -15,7 +15,7 @@
     "backbone": "^1.1.2",
     "css-loader": "^0.23.1",
     "envify": "^3.4.0",
-    "generator-watch-page": "git+https://643af40aaeabd70576e5491b6724e7c8a1088dd7:x-oauth-basic@github.com/twlevelup/generator-watch-edition#0.2",
+    "generator-watch-page": "git+https://643af40aaeabd70576e5491b6724e7c8a1088dd7:x-oauth-basic@github.com/twlevelup/generator-watch-edition#0.3",
     "grunt": "^0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-contrib-clean": "^1.0.0",
