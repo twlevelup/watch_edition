@@ -34,3 +34,8 @@ grunt
 **When the prompt appears select "Start your development environment"**
 
 You should now be able to view the demo Proto Watch app in your browser at http://localhost:9001.
+
+##FAQ##
+
+**I already have node install, but it's a different version**
+Use N to easily install and switch between different vesions of Node https://github.com/tj/n
