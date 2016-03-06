@@ -4,7 +4,7 @@ require('./../styles/main.scss');
 
 var App = require('./app'),
   NotificationsForm = require('./framework/watchNotificationsForm'),
-  notificationsFormConfig = require('./watch-notifications/watchNotificationsFormConfig');
+  notificationsFormConfig = require('./config/watchNotificationsFormConfig');
 
 var notificationsForm = new NotificationsForm();
 notificationsForm.configureNotifications(notificationsFormConfig);
