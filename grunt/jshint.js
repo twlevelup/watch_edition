@@ -1,4 +1,5 @@
 'use strict';
+
 // TODO separate targets
 module.exports = {
   options: {

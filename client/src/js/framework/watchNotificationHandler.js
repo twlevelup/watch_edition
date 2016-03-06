@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO rename notification centre
+
 function NotificationHandler(notifications) {
   this.notifications = {};
   this.loadNotifications(notifications);
@@ -16,10 +18,8 @@ NotificationHandler.prototype.loadNotifications = function(notifications) {
 };
 
 NotificationHandler.prototype.showNotification = function(opts) {
-  this.activeNotification = this.notifications[opts.type];
-
-  // TODO this is where we should probably make a new notification from the constructor instead
-  this.activeNotification.message = opts.message;
+  var Notification = this.notifications[opts.type];
+  this.activeNotification = new Notification(opts);
   this.activeNotification.render();
 };
 

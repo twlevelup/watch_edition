@@ -4,22 +4,16 @@ var Router = require('./framework/router'),
   WatchFace = require('./framework/watchFace'),
   eventHub = require('./framework/eventHub'),
   pages = require('./pages'),
-  WatchNotification = require('./framework/watchNotification'),
+  notifications = require('./watch-notifications'),
   WatchNotificationHandler = require('./framework/watchNotificationHandler'),
   clock = require('./framework/clock');
-
-// TODO remove this, just for testing
-var DummyNotification = WatchNotification.extend({});
 
 function App() {
   this.vent = eventHub;
   this.router = new Router(pages);
   this.watchFace = new WatchFace();
-  // TODO load these from the watch-notifications directory
-  // TODO pass in a reference to the element where notifications should be displayed
-  this.notificationHandler = new WatchNotificationHandler({dummyNotification: new DummyNotification()});
+  this.notificationHandler = new WatchNotificationHandler(notifications);
 }
-
 
 App.prototype.navigate = function (route) {
   this.router.navigate(route, true);

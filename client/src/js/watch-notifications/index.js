@@ -1,6 +1,6 @@
 'use strict';
+
 // TODO autogenerate this file
 module.exports = {
-  newContact: require('./homePage'),
-  somethingOnTheHomepage: require('./contactsPage')
+  dummyNotification: require('../framework/watchNotification')
 };

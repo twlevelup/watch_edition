@@ -5,6 +5,10 @@ var ViewWithButtons = require('./viewWithButtons'),
 
 var WatchNotification = ViewWithButtons.extend({
 
+  initialize: function(opts) {
+    this.message = opts.message;
+  },
+
   className: 'notification',
 
   template: require('../../templates/framework/watchNotification.hbs'),
@@ -21,6 +25,7 @@ var WatchNotification = ViewWithButtons.extend({
 
     this.$el.html(this.template({message: this.message}));
 
+    // TODO make this configurable
     $('#watch-face').append(this.$el);
 
     this.setButtonEvents();
