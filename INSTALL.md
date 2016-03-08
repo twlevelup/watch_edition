@@ -26,7 +26,6 @@ Now that you have Git and NodeJS installed you are ready to download this Git re
 
 ```shell
 cd path_to_team_repo
-npm install -g node-sass grunt-cli jscs yo requirejs phantom-js
 npm install
 grunt
 ```
@@ -38,5 +37,5 @@ You should now be able to view the demo Proto Watch app in your browser at http:
 ##FAQ##
 
 **I already have node install, but it's a different version**
-  
+
 Use N to easily install and switch between different vesions of Node https://github.com/tj/n
