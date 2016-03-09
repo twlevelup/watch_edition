@@ -8,7 +8,8 @@ module.exports = {
   build: {
     plugins: webpackConfig.plugins.concat(
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin()
+      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.HotModuleReplacementPlugin()
     )
   },
   'build-dev': {
