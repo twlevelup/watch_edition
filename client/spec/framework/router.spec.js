@@ -64,9 +64,9 @@ xdescribe('Router', function() {
       });
 
       it('should configure the buttons', function() {
-        spyOn(view, 'setButtonEvents');
+        spyOn(view, 'configureButtons');
         router.renderPage(view);
-        expect(view.setButtonEvents).toHaveBeenCalled();
+        expect(view.configureButtons).toHaveBeenCalled();
       });
 
       describe('rendering', function() {

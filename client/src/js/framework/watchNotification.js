@@ -28,7 +28,7 @@ var WatchNotification = ViewWithButtons.extend({
     // TODO make this configurable
     $('#watch-face').append(this.$el);
 
-    this.setButtonEvents();
+    this.configureButtons();
     return this;
   },
 

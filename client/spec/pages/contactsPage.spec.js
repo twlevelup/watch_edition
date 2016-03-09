@@ -24,7 +24,7 @@ describe('The Contacts Page', function() {
   describe('button events', function() {
 
     beforeEach(function() {
-      contactsPage.setButtonEvents();
+      contactsPage.configureButtons();
     });
 
     describe('right', function() {

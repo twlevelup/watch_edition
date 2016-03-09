@@ -25,7 +25,7 @@ describe('A view with buttons', function() {
       view.functionButtonEvent2 = jasmine.createSpy('buttonEvent2');
       view.functionButtonEvent3 = jasmine.createSpy('buttonEvent3');
 
-      view.setButtonEvents();
+      view.configureButtons();
     });
 
     // TODO use same style as other looping tests to get more accurate test reporting
