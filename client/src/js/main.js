@@ -2,6 +2,8 @@
 
 require('./../styles/main.scss');
 
+require('./framework/backbone-collection-iterator');
+
 var App = require('./app'),
   NotificationsForm = require('./framework/watchNotificationsForm'),
   notificationsFormConfig = require('./config/watchNotificationsFormConfig');
