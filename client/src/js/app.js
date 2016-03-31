@@ -19,12 +19,15 @@ App.prototype.navigate = function (route) {
   this.router.navigate(route, true);
 };
 
-App.prototype.showPage = function(page) {
+App.prototype.showPage = function(page, options) {
   if (this.activePage) {
     this.activePage.remove();
   }
 
   this.notificationHandler.hideNotification();
+
+  // FIXME nasty hack because we're not creating a new instance of the view
+  page.options = options;
 
   this.activePage = page;
 
