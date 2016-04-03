@@ -1,6 +1,6 @@
 'use strict';
 
-var Router = require('../src/js/framework/router'),
+var Router = require('../src/js/router'),
   WatchFace = require('../src/js/framework/watchFace'),
   NotificationHandler = require('../src/js/framework/watchNotificationHandler');
 

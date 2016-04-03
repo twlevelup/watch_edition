@@ -1,6 +1,7 @@
 'use strict';
 
 // TODO rename notification centre
+// TODO register event handlers for hiding and showing notifications
 
 function NotificationHandler(notifications) {
   this.notifications = {};
