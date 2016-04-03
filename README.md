@@ -82,7 +82,7 @@ Replace it and describe with fit or fdescribe
 
 **Error: `libsass` bindings not found. Try reinstalling `node-sass`?**
 
-You've probably switched node version. Try running `rebuild node-sass`
+You've probably switched node version. Try running `npm rebuild node-sass`
 
 **How do I view the coverage report?**
 
