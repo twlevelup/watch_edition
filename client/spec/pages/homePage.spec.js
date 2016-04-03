@@ -2,7 +2,8 @@
 
 var homePage = require('../../src/js/pages/homePage'),
   Router = require('../../src/js/framework/router'),
-  App = require('../../src/js/app');
+  App = require('../../src/js/app'),
+  eventHub = require('../../src/js/framework/eventHub');
 
 window.App = App;
 
@@ -15,7 +16,7 @@ describe('The Home Page', function() {
       it('should take the user to the contacts page', function() {
         spyOn(window.App, 'navigate');
         homePage.configureButtons();
-        window.App.vent.trigger('right');
+        eventHub.trigger('right');
         expect(window.App.navigate).toHaveBeenCalledWith('contacts');
       });
     });
@@ -24,7 +25,7 @@ describe('The Home Page', function() {
       it('should scroll the watch face up', function() {
         spyOn(homePage, 'scrollUp');
         homePage.configureButtons();
-        window.App.vent.trigger('top');
+        eventHub.trigger('top');
         expect(homePage.scrollUp).toHaveBeenCalled();
       });
     });
@@ -33,7 +34,7 @@ describe('The Home Page', function() {
       it('should scroll the watch face down', function() {
         spyOn(homePage, 'scrollDown');
         homePage.configureButtons();
-        window.App.vent.trigger('bottom');
+        eventHub.trigger('bottom');
         expect(homePage.scrollDown).toHaveBeenCalled();
       });
     });

@@ -5,8 +5,6 @@ var contactsPage = require('../../src/js/pages/contactsPage'),
   App = require('../../src/js/app'),
   eventHub = require('../../src/js/framework/eventHub');
 
-window.App = App;
-
 describe('The Contacts Page', function() {
 
   describe('contacts data', function() {
