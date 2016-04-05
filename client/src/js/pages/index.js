@@ -5,6 +5,6 @@ module.exports = {
   404: require('./404Page'),
   home: require('./homePage'),
   contacts: require('./contactsPage'),
-  testMenu: require('./testMenu'),
+  eventsList: require('./eventsList'),
   eventDetails: require('./eventDetails')
 };

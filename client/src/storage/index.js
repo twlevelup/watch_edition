@@ -1,6 +1,6 @@
 'use strict';
 
-var eventsData = require("json!./testData.json");
+var eventsData = require("json!./events.json");
 
 function Storage() {
   this.eventsData = new Backbone.Collection();
