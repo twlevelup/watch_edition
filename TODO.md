@@ -13,7 +13,6 @@ The framework should provide a simple method e.g. app.play('path/to/file') for p
 Students shouldn't need to test how the method works, just spy on it and check it was given the correct file by the correct method.
 http://www.storiesinflight.com/html5/audio.html or http://www.schillmania.com/projects/soundmanager2/
 - Add basic security check https://www.npmjs.com/package/grunt-retire
-- change watch styling, simpler more like http://codepen.io/jrg/pen/Cjrzx
 - click and hold for buttons i.e. scrolling
 - click, double click, click and hold events
 - keyboard shortcuts for watch buttons
