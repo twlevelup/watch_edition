@@ -1,13 +1,18 @@
 'use strict';
 
-var homePage = require('../../src/js/pages/homePage'),
+var HomePage = require('../../src/js/pages/homePage'),
   Router = require('../../src/js/framework/router'),
   App = require('../../src/js/app'),
-  eventHub = require('../../src/js/framework/eventHub');
+  eventHub = require('../../src/js/framework/eventHub'),
+  page;
 
 window.App = App;
 
 describe('The Home Page', function() {
+
+  beforeEach(function() {
+    page = new HomePage();
+  });
 
   describe('button event handlers', function() {
 
@@ -15,7 +20,7 @@ describe('The Home Page', function() {
 
       it('should take the user to the contacts page', function() {
         spyOn(window.App, 'navigate');
-        homePage.configureButtons();
+        page.configureButtons();
         eventHub.trigger('right');
         expect(window.App.navigate).toHaveBeenCalledWith('contacts');
       });
@@ -23,19 +28,19 @@ describe('The Home Page', function() {
 
     describe('top', function() {
       it('should scroll the watch face up', function() {
-        spyOn(homePage, 'scrollUp');
-        homePage.configureButtons();
+        spyOn(page, 'scrollUp');
+        page.configureButtons();
         eventHub.trigger('top');
-        expect(homePage.scrollUp).toHaveBeenCalled();
+        expect(page.scrollUp).toHaveBeenCalled();
       });
     });
 
     describe('bottom', function() {
       it('should scroll the watch face down', function() {
-        spyOn(homePage, 'scrollDown');
-        homePage.configureButtons();
+        spyOn(page, 'scrollDown');
+        page.configureButtons();
         eventHub.trigger('bottom');
-        expect(homePage.scrollDown).toHaveBeenCalled();
+        expect(page.scrollDown).toHaveBeenCalled();
       });
     });
 
@@ -44,12 +49,12 @@ describe('The Home Page', function() {
   describe('rendering', function() {
 
     it('should produce the correct HTML', function() {
-      homePage.render();
-      expect(homePage.$el).toContainText('Hello, World!');
+      page.render();
+      expect(page.$el).toContainText('Hello, World!');
     });
 
     it('returns the view object', function() {
-      expect(homePage.render()).toEqual(homePage);
+      expect(page.render()).toEqual(page);
     });
 
   });

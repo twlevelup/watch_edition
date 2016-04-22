@@ -2,7 +2,7 @@
 
 var Page = require('../framework/page');
 
-var FourOhFour = Page.extend({
+var fourOhFour = Page.extend({
 
   id: 'contacts',
 
@@ -19,4 +19,4 @@ var FourOhFour = Page.extend({
 
 });
 
-module.exports = new FourOhFour();
+module.exports = fourOhFour;

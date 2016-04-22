@@ -1,10 +1,15 @@
 'use strict';
 
-var page = require('../../src/js/pages/eventDetails'),
+var EventDetails = require('../../src/js/pages/eventDetails'),
   storage = require('../../src/storage'),
-  eventHub = require('../../src/js/framework/eventHub');
+  eventHub = require('../../src/js/framework/eventHub'),
+  page;
 
 describe('The Event details page', function() {
+
+  beforeEach(function() {
+    page = new EventDetails();
+  });
 
   describe('a new event details page', function() {
     it('should load the events data', function() {

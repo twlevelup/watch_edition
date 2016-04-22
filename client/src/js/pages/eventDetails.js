@@ -2,7 +2,7 @@
 
 var Page = require('../framework/page');
 
-var EventDetails = Page.extend({
+var eventDetails = Page.extend({
 
   id: 'event-details',
 
@@ -37,4 +37,4 @@ var EventDetails = Page.extend({
 
 });
 
-module.exports = new EventDetails();
+module.exports = eventDetails;

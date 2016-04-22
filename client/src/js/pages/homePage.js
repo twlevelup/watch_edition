@@ -2,7 +2,7 @@
 
 var PageView = require('../framework/page');
 
-var HomeScreen = PageView.extend({
+var homePage = PageView.extend({
 
   id: 'home',
 
@@ -33,4 +33,4 @@ var HomeScreen = PageView.extend({
 
 });
 
-module.exports = new HomeScreen();
+module.exports = homePage;

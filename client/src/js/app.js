@@ -21,19 +21,15 @@ App.prototype.navigate = function (route) {
 };
 
 // TODO move to router?
-App.prototype.showPage = function(page, options) {
+App.prototype.showPage = function(Page, options) {
   if (this.activePage) {
     this.activePage.remove();
   }
 
   this.notificationHandler.hideNotification();
 
-  // FIXME nasty hack because we're not creating a new instance of the view
-  page.options = options;
+  this.activePage =  new Page(options);
 
-  this.activePage = page;
-
-  // TODO make this work with the constructor e.g. this.activePage = new New();
   $('#watch-face').html(this.activePage.render().el);
   this.vent.trigger('showPage');
 };

@@ -5,7 +5,7 @@ var PageView = require('../framework/page');
 var ContactsCollection = require('../collections/contacts'),
   ContactView = require('../views/contact');
 
-var ContactsView = PageView.extend({
+var contactsPage = PageView.extend({
 
   id: 'contacts',
 
@@ -64,4 +64,4 @@ var ContactsView = PageView.extend({
 
 });
 
-module.exports = new ContactsView();
+module.exports = contactsPage;

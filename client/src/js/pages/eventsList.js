@@ -6,7 +6,7 @@ var Menu = require('../framework/menu'),
 // NOTE you can use a custom template like any other backbone page
 // NOTE you can load JSON files by modifying src/storage/index.js
 
-var EventsList = Menu.extend({
+var eventsList = Menu.extend({
 
   id: 'test-menu',
 
@@ -32,4 +32,4 @@ var EventsList = Menu.extend({
 
 });
 
-module.exports = new EventsList();
+module.exports = eventsList;
