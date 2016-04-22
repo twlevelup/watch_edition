@@ -15,7 +15,7 @@
 }
 
 #watch{
-  background-color: #00F;
+  background-color: #3F484A;
   display: inline-block;
   vertical-align: top;
 }
@@ -38,7 +38,6 @@
   height:3.5em;
   width:0.8em;
   background:#e4e4e4;
-  box-shadow: inset 0.1em 0.05em 0 #AFAFAF,inset -0.2em 0.5em 0.2em -0.2em #FFF,inset -0.25em 0.8em 0.2em -0.2em #000,inset 0.1em -0.6em 0.2em -0.2em #000;
 }
 
 .power:nth-child(2){
@@ -48,7 +47,6 @@
   height:3.5em;
   width:0.8em;
   background:#e4e4e4;
-  box-shadow: inset 0.1em 0.05em 0 #AFAFAF,inset -0.2em 0.5em 0.2em -0.2em #FFF,inset -0.25em 0.8em 0.2em -0.2em #000,inset 0.1em -0.6em 0.2em -0.2em #000;
   transform: rotateY(180deg);
 }
 
@@ -59,7 +57,6 @@
   height:3.5em;
   width:0.8em;
   background:#e4e4e4;
-  box-shadow: inset 0.1em 0.05em 0 #AFAFAF,inset -0.2em 0.5em 0.2em -0.2em #FFF,inset -0.25em 0.8em 0.2em -0.2em #000,inset 0.1em -0.6em 0.2em -0.2em #000;
   transform: rotateZ(90deg);
 }
 
@@ -70,7 +67,6 @@
   height:3.5em;
   width:0.8em;
   background:#e4e4e4;
-  box-shadow: inset 0.1em 0.05em 0 #AFAFAF,inset -0.2em 0.5em 0.2em -0.2em #FFF,inset -0.25em 0.8em 0.2em -0.2em #000,inset 0.1em -0.6em 0.2em -0.2em #000;
   transform: rotateZ(90deg) rotateY(180deg);
 }
 
