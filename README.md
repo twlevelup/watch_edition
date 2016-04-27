@@ -99,9 +99,3 @@ Look at the further reading section below ;-)
 You don't need to read the whole book but it's worth going over the first couple of chapters to understand how this is different from a regular MVC framework.
 
 ### [tryGit](https://try.github.io)
-
-An excellent online tutorial for getting started with Git.
-
-### Jasmine jQuery Matchers
-
-[Jasmine jQuery Matchers](https://github.com/velesin/jasmine-jquery)
