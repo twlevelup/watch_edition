@@ -43,14 +43,6 @@ You should only need to work on files inside the ```client/``` directory if you 
 - [Handlebars](http://handlebarsjs.com/) - HTML Templating
 - [SCSS](http://sass-lang.com/) - CSS Styling
 
-### Testing
-
-Tests are written using Jasmine and run using Karma. jQuery matchers are available to make view testing easier.
-
-- [Karma](http://karma-runner.github.io/0.12/index.html) - Test runner
-- [Jasmine](http://jasmine.github.io/) - Javascript testing
-- [Jasmine jQuery Matchers](https://github.com/unindented/jasmine-jquery-matchers/) - jQuery based matchers for testing
-
 ### Infrastructure Tools
 
 These are used to automate various tasks in your development environment and deploy automatically to the Heroku staging environment.
