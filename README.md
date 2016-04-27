@@ -51,25 +51,6 @@ These are used to automate various tasks in your development environment and dep
 - [Snap](https://snap-ci.com/) - Continuous Integration
 - [Heroku](https://www.heroku.com/) - Staging environment
 
-## FAQ
-
-**How do I run a subset of tests?**
-
-Replace it and describe with fit or fdescribe
-
-**Error: `libsass` bindings not found. Try reinstalling `node-sass`?**
-
-You've probably switched node version. Try running `npm rebuild node-sass`
-
-**How do I view the coverage report?**
-
-The exact path to the coverage report may vary but will look something like this.va
-`less coverage/PhantomJS\ 1.9.8\ \(Mac\ OS\ X\ 0.0.0\)/coverageResult.txt`
-
-**I've got more questions**
-
-Look at the further reading section below ;-)
-
 ## Further Reading
 
 ### [Backbone Fundamentals](http://addyosmani.github.io/backbone-fundamentals/)
