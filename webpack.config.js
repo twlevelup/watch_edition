@@ -1,4 +1,5 @@
 'use strict';
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var path = require('path'),
   webpack = require('webpack');
@@ -9,8 +10,7 @@ module.exports = {
     main: './client/src/js/main.js'
   },
   output: {
-    path: path.join(__dirname, 'public/js/'),
-    publicPath: 'js/',
+    path: path.join(__dirname, 'public/'),
     filename: '[name].js',
     chunkFilename: '[chunkhash].js'
   },
@@ -19,12 +19,15 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass', 'sass?sourceMap']
-      }, 
+      },
       {
         test: /\.hbs/,
         loader: 'handlebars-loader'
       }
     ]
+  },
+  watchOptions: {
+    poll: true
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -36,6 +39,9 @@ module.exports = {
       $: 'jquery',
       Backbone: 'backbone',
       _: 'underscore'
+    }),
+    new HtmlWebpackPlugin({
+      template: './client/src/index.ejs'
     })
   ]
 };

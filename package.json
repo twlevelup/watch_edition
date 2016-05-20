@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "grunt build && grunt connect:staging",
+    "start-wp": "webpack-dev-server --host 0.0.0.0 --inline --hot",
     "test": "karma start"
   },
   "dependencies": {
@@ -51,6 +52,7 @@
     "node": "0.12.x"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^2.17.0",
     "jasmine-core": "^2.2.0",
     "json-loader": "^0.5.4",
     "karma": "^0.13.21",
