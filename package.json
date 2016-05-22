@@ -45,6 +45,7 @@
     "requirejs": "^2.1.22",
     "sass-loader": "^3.0.0",
     "style-loader": "^0.13.0",
+    "html-webpack-plugin": "^2.17.0",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.12.1"
   },
@@ -52,7 +53,6 @@
     "node": "0.12.x"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^2.17.0",
     "jasmine-core": "^2.2.0",
     "json-loader": "^0.5.4",
     "karma": "^0.13.21",
