@@ -1,5 +1,6 @@
 'use strict';
 
+require('../../images/logo.png');
 var PageView = require('../framework/page');
 
 var homePage = PageView.extend({

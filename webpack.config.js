@@ -24,9 +24,13 @@ module.exports = {
         test: /\.hbs/,
         loader: 'handlebars-loader'
       },
-      { 
+      {
         test: /\.ttf/,
         loader: 'file?name=[name].[ext]'
+      },
+      {
+        test: /\.png$/,
+        loader: "file?name=/images/[name].png"
       }
     ]
   },
