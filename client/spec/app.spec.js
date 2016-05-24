@@ -26,15 +26,16 @@ describe('The App', function() {
     expect(app.notificationHandler instanceof NotificationHandler).toBeTruthy();
   });
 
-  it('should have an event hub', function () {
+  it('should have an event hub', function() {
     expect(app.vent.on).toBeTruthy();
   });
 
-  it('should configure buttons for the active page', function () {
+  it('should configure buttons for the active page', function() {
 
     app.activePage = {
-      stopListening: function(){},
-      configureButtons: function(){}
+      stopListening: function() {},
+
+      configureButtons: function() {}
     };
 
     spyOn(app.activePage, 'stopListening');

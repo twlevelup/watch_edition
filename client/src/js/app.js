@@ -16,7 +16,7 @@ function App() {
 }
 
 // TODO move to router?
-App.prototype.navigate = function (route) {
+App.prototype.navigate = function(route) {
   this.router.navigate(route, true);
 };
 
@@ -34,7 +34,7 @@ App.prototype.showPage = function(Page, options) {
   this.vent.trigger('showPage');
 };
 
-App.prototype.configureButtons = function () {
+App.prototype.configureButtons = function() {
   this.activePage.stopListening(); // NOTE do this here to prevent duplicate listeners
   if (this.notificationHandler.activeNotification) {
     this.notificationHandler.activeNotification.configureButtons();
@@ -43,14 +43,15 @@ App.prototype.configureButtons = function () {
   }
 };
 
-App.prototype.setupEventHandlers = function () {
+App.prototype.setupEventHandlers = function() {
   this.listenTo(eventHub, 'showPage', this.configureButtons);
-  this.listenTo(eventHub, 'showNotification', function (opts) {
+  this.listenTo(eventHub, 'showNotification', function(opts) {
     // TODO delegate/proxy the event instead?
     this.notificationHandler.showNotification(opts);
     this.configureButtons();
   });
-  this.listenTo(eventHub, 'hideNotification', function (opts) {
+
+  this.listenTo(eventHub, 'hideNotification', function(opts) {
     // TODO delegate/proxy the event instead?
     this.notificationHandler.hideNotification();
     this.configureButtons();
