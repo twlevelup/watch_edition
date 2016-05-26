@@ -50,6 +50,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './client/src/index.ejs'
-    })
+    }),
+    new webpack.optimize.DedupePlugin()
   ]
 };

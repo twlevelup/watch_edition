@@ -8,8 +8,8 @@
     "url": "https://github.com/twlevelup/watch_edition"
   },
   "scripts": {
-    "start": "grunt build && grunt connect:staging",
-    "start-wp": "webpack-dev-server --host 0.0.0.0 --inline --hot",
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --hot",
+    "build": "webpack",
     "test": "karma start",
     "preci": "grunt lint",
     "ci": "npm run test"
