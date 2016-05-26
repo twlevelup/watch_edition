@@ -10,7 +10,9 @@
   "scripts": {
     "start": "grunt build && grunt connect:staging",
     "start-wp": "webpack-dev-server --host 0.0.0.0 --inline --hot",
-    "test": "karma start"
+    "test": "karma start",
+    "preci": "grunt lint",
+    "ci": "npm run test"
   },
   "dependencies": {
     "backbone": "^1.1.2",
