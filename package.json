@@ -33,7 +33,6 @@
     "grunt-concurrent": "^2.2.1",
     "grunt-jscs": "^2.8.0",
     "grunt-karma": "^0.12.1",
-    "handlebars-loader": "^1.1.4",
     "istanbul-instrumenter-loader": "^0.2.0",
     "handlebars": "^4.0.5",
     "jquery": "^2.1.3",

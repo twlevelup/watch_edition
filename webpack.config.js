@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         test: /\.hbs/,
-        loader: 'handlebars-loader'
+        loader: 'handlebars-template-loader'
       },
       {
         test: /\.ttf/,
@@ -30,7 +30,7 @@ module.exports = {
       },
       {
         test: /\.png$/,
-        loader: "file?name=/images/[name].png"
+        loader: "file"
       }
     ]
   },
