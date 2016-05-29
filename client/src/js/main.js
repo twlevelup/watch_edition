@@ -1,6 +1,7 @@
 'use strict';
 
-require('./../styles/main.scss');
+require('../styles/main.scss');
+require('../fonts/fonts.scss');
 
 require('./framework/backbone-collection-iterator');
 

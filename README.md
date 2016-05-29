@@ -14,7 +14,7 @@ See the [Installation Instructions](INSTALL.md)
 
 1. Check the CI build, do not commit unless it's passing!
 2. ```git pull --rebase```
-3. ```grunt pre-commit```
+3. ```npm run ci```
 4. Fix any errors
 5. ```git push```
 
@@ -48,6 +48,7 @@ You should only need to work on files inside the ```client/``` directory if you 
 These are used to automate various tasks in your development environment and deploy automatically to the Heroku staging environment.
 
 - [Grunt](http://gruntjs.com/) - Automation
+- [Webpack](http://webpack.github.io/) - Module bundling
 - [Snap](https://snap-ci.com/) - Continuous Integration
 - [Heroku](https://www.heroku.com/) - Staging environment
 

@@ -2,27 +2,6 @@ default:
   - prompt:main
   - inputHandler
 
-format:
+lint:
   - jscs
-
-test:
-  - karma
-
-build:
-  - copy
-  - webpack:build-dev
-
-staging:
-  - build
-  - connect:staging
-
-dev:
-  - clean
-  # - test
-  - build
-  - concurrent:dev
-
-pre-commit:
-  - format
   - jshint
-  - test

@@ -1,41 +1,14 @@
 'use strict';
 
 var path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    webpackConfig = require('./webpack.config.js');
 
 module.exports = function (config) {
   config.set({
 
-    // base path, that will be used to resolve files and exclude
     basePath: '',
-    webpack: {
-      cache: true,
-      module: {
-        preLoaders: [{
-          test: /\.js$/,
-          include: path.resolve('client/src/js/'),
-          loader: 'istanbul-instrumenter'
-        }],
-        loaders: [
-          {
-            test: /\.hbs/,
-            loader: 'handlebars-loader'
-          }
-        ]
-      },
-      plugins: [
-        new webpack.ProvidePlugin({
-          // FIXME this is lazy, do something better with backbone and underscore
-          // Automtically detect jQuery and $ as free var in modules
-          // and inject the jquery library
-          // This is required by many jquery plugins
-          jQuery: 'jquery',
-          $: 'jquery',
-          Backbone: 'backbone',
-          _: 'underscore'
-        })
-      ]
-    },
+    webpack: webpackConfig,
     // frameworks to use
     frameworks: ['jasmine-jquery', 'jasmine'],
 
@@ -108,6 +81,10 @@ module.exports = function (config) {
       'client/spec/**/*spec.js': ['webpack', 'sourcemap'],
       'client/src/js/main.js': ['webpack', 'sourcemap'],
       'client/src/js/**/*.js': ['coverage']
+    },
+
+    webpackMiddleware: {
+      noInfo: true
     }
 
   });
