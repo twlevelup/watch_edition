@@ -1,7 +1,3 @@
 default:
   - prompt:main
   - inputHandler
-
-lint:
-  - jscs
-  - jshint
