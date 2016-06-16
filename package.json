@@ -12,7 +12,8 @@
     "build": "webpack",
     "test": "karma start",
     "preci": "grunt lint",
-    "ci": "npm run test"
+    "ci": "npm run test",
+    "todos": "fixme -p client/src/js && fixme -p client/spec/"
   },
   "dependencies": {
     "backbone": "^1.1.2",
@@ -25,7 +26,6 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jscs": "^2.8.0",
-    "grunt-todos": "^0.3.0",
     "handlebars": "^4.0.5",
     "handlebars-template-loader": "^0.6.0",
     "html-webpack-plugin": "^2.17.0",
@@ -49,6 +49,7 @@
     "node": "0.12.x"
   },
   "devDependencies": {
+    "fixme": "^0.4.0",
     "jasmine-core": "^2.2.0",
     "json-loader": "^0.5.4",
     "karma": "^0.13.21",
