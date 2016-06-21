@@ -1,7 +1,7 @@
 'use strict';
 
-var NotificationHandler = require('../../src/js/framework/watchNotificationHandler'),
-  Notifications = require('../../src/js/framework/watchNotification');
+var NotificationHandler = require('watch_framework/src/watchNotificationHandler'),
+  Notifications = require('watch_framework/src/watchNotification');
 
 describe('NotificationHandler', function() {
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var PageWithMenu = require('../../src/js/framework/menu');
+var PageWithMenu = require('watch_framework/src/menu');
 
 describe('Page with menu', function() {
 

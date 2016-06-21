@@ -18,6 +18,7 @@
     "jshint": "jshint --reporter=node_modules/jshint-stylish client/src/js client/spec/"
   },
   "dependencies": {
+    "watch_framework": "git://github.com/twlevelup/watch_framework.git#master",
     "backbone": "^1.1.2",
     "css-loader": "^0.23.1",
     "envify": "^3.4.0",

@@ -1,6 +1,6 @@
 'use strict';
 
-var WatchNotification = require('../../src/js/framework/watchNotification');
+var WatchNotification = require('watch_framework/src/watchNotification');
 
 window.App = require('../../src/js/app');
 
