@@ -1,8 +1,9 @@
 'use strict';
 
-var Router = require('../src/js/router'),
-  WatchFace = require('watch_framework/src/watchFace'),
-  NotificationHandler = require('watch_framework/src/watchNotificationHandler');
+var watchFramework = require('watch_framework');
+var WatchFace = watchFramework.WatchFace;
+var WatchNotificationHandler = watchFramework.WatchNotificationHandler;
+var Router = require('../src/js/router');
 
 
 var app = require('../src/js/app');
@@ -24,7 +25,7 @@ describe('The App', function() {
   });
 
   it('should have a notification handler', function() {
-    expect(app.notificationHandler instanceof NotificationHandler).toBeTruthy();
+    expect(app.notificationHandler instanceof WatchNotificationHandler).toBeTruthy();
   });
 
   xit('should have an event hub', function() {

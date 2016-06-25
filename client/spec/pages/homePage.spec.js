@@ -2,7 +2,7 @@
 
 var HomePage = require('../../src/js/pages/homePage'),
   App = require('../../src/js/app'),
-  eventHub = require('watch_framework/src/eventHub'),
+  eventHub = require('watch_framework').EventHub,
   page;
 
 window.App = App;

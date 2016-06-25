@@ -1,6 +1,6 @@
 'use strict';
 
-var Menu = require('watch_framework/src/menu'),
+var Menu = require('watch_framework').Menu,
   storage = require('../../storage');
 
 // NOTE you can use a custom template like any other backbone page

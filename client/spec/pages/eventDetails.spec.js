@@ -2,7 +2,7 @@
 
 var EventDetails = require('../../src/js/pages/eventDetails'),
   storage = require('../../src/storage'),
-  eventHub = require('watch_framework/src/eventHub'),
+  eventHub = require('watch_framework').EventHub,
   page;
 
 describe('The Event details page', function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var Page = require('watch_framework/src/page');
+var Page = require('watch_framework').Page;
 
 var fourOhFour = Page.extend({
 

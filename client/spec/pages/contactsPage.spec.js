@@ -1,9 +1,8 @@
 'use strict';
 
 var ContactsPage = require('../../src/js/pages/contactsPage'),
-  Router = require('watch_framework/src/router.js'),
   App = require('../../src/js/app'),
-  eventHub = require('watch_framework/src/eventHub'),
+  eventHub = require('watch_framework').EventHub,
   page;
 
 describe('The Contacts Page', function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-var PageView = require('watch_framework/src/page');
+var PageView = require('watch_framework').Page;
 
 var homePage = PageView.extend({
 

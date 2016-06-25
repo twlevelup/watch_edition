@@ -2,5 +2,5 @@
 
 // TODO autogenerate this file
 module.exports = {
-  dummyNotification: require('watch_framework/src/watchNotification')
+  dummyNotification: require('watch_framework').WatchNotification
 };
