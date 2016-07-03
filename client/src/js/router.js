@@ -1,7 +1,5 @@
 'use strict';
 
-// var BaseRouter = require('./framework/router');
-
 var Router = Backbone.Router.extend({
 
   routes: {

@@ -1,12 +1,14 @@
 'use strict';
 
-var Router = require('./router'),
-  WatchFace = require('./framework/watchFace'),
-  eventHub = require('./framework/eventHub'),
-  pages = require('./pages'),
-  notifications = require('./watch-notifications'),
-  WatchNotificationHandler = require('./framework/watchNotificationHandler'),
-  clock = require('./framework/clock');
+
+var watchFramework = require('watch_framework');
+var Router = require('./router');
+var WatchFace = watchFramework.WatchFace;
+var eventHub = watchFramework.EventHub;
+var pages = require('./pages');
+var notifications = require('./watch-notifications');
+var WatchNotificationHandler = watchFramework.WatchNotificationHandler;
+var clock = watchFramework.Clock;
 
 function App() {
   this.vent = eventHub;

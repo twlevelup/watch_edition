@@ -1,9 +1,8 @@
 'use strict';
 
 var HomePage = require('../../src/js/pages/homePage'),
-  Router = require('../../src/js/framework/router'),
   App = require('../../src/js/app'),
-  eventHub = require('../../src/js/framework/eventHub'),
+  eventHub = require('watch_framework').EventHub,
   page;
 
 window.App = App;

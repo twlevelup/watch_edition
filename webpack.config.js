@@ -14,6 +14,7 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[chunkhash].js'
   },
+  devtool: 'inline-source-map',
   module: {
     loaders: [
       {
