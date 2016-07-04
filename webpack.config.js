@@ -33,6 +33,9 @@ module.exports = {
         test: /\.png$/,
         loader: "file"
       }
+    ],
+    postLoaders: [
+      { test: /\.js$/, loader: 'istanbul-instrumenter', include: path.join(__dirname, 'client/src/js') }
     ]
   },
   watchOptions: {

@@ -5,7 +5,6 @@ var WatchFace = watchFramework.WatchFace;
 var WatchNotificationHandler = watchFramework.WatchNotificationHandler;
 var Router = require('../src/js/router');
 
-
 var app = require('../src/js/app');
 
 // TODO replace .on with listenTo

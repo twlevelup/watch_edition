@@ -1,6 +1,5 @@
 'use strict';
 
-
 var watchFramework = require('watch_framework');
 var Router = require('./router');
 var WatchFace = watchFramework.WatchFace;
