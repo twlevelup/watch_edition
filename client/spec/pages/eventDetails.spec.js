@@ -58,6 +58,15 @@ describe('The Event details page', function() {
       });
     });
 
+    describe('left', function() {
+      it('should go back', function() {
+        spyOn(page, 'back');
+        page.configureButtons();
+        eventHub.trigger('left');
+        expect(page.back).toHaveBeenCalled();
+      });
+    });
+
   });
 
   describe('rendering', function() {

@@ -27,25 +27,50 @@ describe('The App', function() {
     expect(app.notificationHandler instanceof WatchNotificationHandler).toBeTruthy();
   });
 
-  xit('should have an event hub', function() {
+  it('should have an event hub', function() {
+    // TODO it would be good to check type of app.vent
     expect(app.vent.on).toBeTruthy();
   });
 
-  it('should configure buttons for the active page', function() {
+  describe('configureButtons', function() {
 
-    app.activePage = {
-      stopListening: function() {},
+    beforeEach(function() {
+      app.activePage = {
+        stopListening: function() {},
 
-      configureButtons: function() {}
-    };
+        configureButtons: function() {}
+      };
 
-    spyOn(app.activePage, 'stopListening');
-    spyOn(app.activePage, 'configureButtons');
+      spyOn(app.activePage, 'stopListening');
+    });
 
-    app.configureButtons();
-    expect(app.configureButtons).toBeTruthy();
-    expect(app.activePage.stopListening).toHaveBeenCalled();
-    expect(app.activePage.configureButtons).toHaveBeenCalled();
+    it('should be a function', function() {
+      expect(typeof app.configureButtons === 'function').toEqual(true);
+    });
+
+    it('should configure buttons for the active notification', function() {
+
+      app.notificationHandler.activeNotification = {
+        configureButtons: function() {}
+      };
+
+      spyOn(app.notificationHandler.activeNotification, 'configureButtons');
+      app.configureButtons();
+
+      expect(app.activePage.stopListening).toHaveBeenCalled();
+      expect(app.notificationHandler.activeNotification.configureButtons).toHaveBeenCalled();
+
+    });
+
+    it('when there is no notification, should configure buttons for the active page', function() {
+      app.notificationHandler.activeNotification = undefined;
+      spyOn(app.activePage, 'configureButtons');
+
+      app.configureButtons();
+      expect(app.activePage.stopListening).toHaveBeenCalled();
+      expect(app.activePage.configureButtons).toHaveBeenCalled();
+
+    });
 
   });
 

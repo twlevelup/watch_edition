@@ -39,7 +39,7 @@ App.prototype.configureButtons = function() {
   this.activePage.stopListening(); // NOTE do this here to prevent duplicate listeners
   if (this.notificationHandler.activeNotification) {
     this.notificationHandler.activeNotification.configureButtons();
-  } else if (this.activePage) {
+  } else {
     this.activePage.configureButtons();
   }
 };
