@@ -2,7 +2,7 @@
 
 var watchFramework = require('watch_framework');
 var WatchFace = watchFramework.WatchFace;
-var WatchNotificationHandler = watchFramework.WatchNotificationHandler;
+var NotificationHandler = watchFramework.NotificationHandler;
 var Router = require('../src/js/router');
 
 var app = require('../src/js/app');
@@ -24,7 +24,7 @@ describe('The App', function() {
   });
 
   it('should have a notification handler', function() {
-    expect(app.notificationHandler instanceof WatchNotificationHandler).toBeTruthy();
+    expect(app.notificationHandler instanceof NotificationHandler).toBeTruthy();
   });
 
   it('should have an event hub', function() {

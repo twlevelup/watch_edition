@@ -6,14 +6,14 @@ var WatchFace = watchFramework.WatchFace;
 var eventHub = watchFramework.EventHub;
 var pages = require('./pages');
 var notifications = require('./watch-notifications');
-var WatchNotificationHandler = watchFramework.WatchNotificationHandler;
+var NotificationHandler = watchFramework.NotificationHandler;
 var clock = watchFramework.Clock;
 
 function App() {
   this.vent = eventHub;
   this.router = new Router(pages);
   this.watchFace = new WatchFace();
-  this.notificationHandler = new WatchNotificationHandler(notifications);
+  this.notificationHandler = new NotificationHandler(notifications);
 }
 
 // TODO move to router?
