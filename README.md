@@ -6,7 +6,7 @@ This git repo contains all the code you need to prototype apps for the Proto Wat
 
 # Installation
 
-See the [Installation Instructions](INSTALL.md)
+See the [Installation Instructions](https://github.com/twlevelup/watch_edition/wiki/Installation)
 
 ## Continuous Integration
 
