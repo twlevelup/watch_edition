@@ -1,11 +1,11 @@
 'use strict';
 
-var PageView = require('watch_framework').Page;
+var Page = require('watch_framework').Page;
 
 var ContactsCollection = require('../collections/contacts'),
   ContactView = require('../views/contact');
 
-var contactsPage = PageView.extend({
+var contactsPage = Page.extend({
 
   id: 'contacts',
 
