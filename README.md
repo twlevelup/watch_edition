@@ -4,7 +4,7 @@
 
 This git repo contains all the code you need to prototype apps for the Proto Watch.
 
-The (wiki)[https://github.com/twlevelup/watch_edition/wiki] contains lots of useful documentation
+The [wiki](https://github.com/twlevelup/watch_edition/wiki) contains lots of useful documentation
 
 # Installation
 
