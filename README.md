@@ -21,6 +21,23 @@ See the [Installation Instructions](https://github.com/twlevelup/watch_edition/w
 4. Fix any errors
 5. ```git push```
 
+### Docker OSX Before you commit
+
+1. Check the CI build, do not commit unless it's passing!
+2. ```git pull --rebase```
+3. Fix any merge conflicts
+4. ```docker run --rm -ti -v "$PWD":/usr/src/levelup/app watchedition_api ./go pre-commit```
+5. Fix any errors
+6. ```git push```
+
+### Docker Windows Before you commit
+
+1. Check the CI build, do not commit unless it's passing!
+2. ```git pull --rebase```
+3. Fix any merge conflicts
+4. ```docker run --rm -ti -v "%cd%":/usr/src/levelup/app watchedition_api npm -s run test```
+5. Fix any errors
+6. ```git push```
 
 ### Checking the build status
 
