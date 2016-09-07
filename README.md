@@ -21,7 +21,7 @@ See the [Installation Instructions](https://github.com/twlevelup/watch_edition/w
 4. Fix any errors
 5. ```git push```
 
-### Docker Before you commit
+### Docker before you commit
 
 1. Check the CI build, do not commit unless it's passing!
 2. ```git pull --rebase```
