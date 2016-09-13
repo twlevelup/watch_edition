@@ -37,7 +37,7 @@
     "webpack": "^1.12.12"
   },
   "engines": {
-    "node": "0.12.x"
+    "node": "6.5.0"
   },
   "devDependencies": {
     "fixme": "^0.4.0",
