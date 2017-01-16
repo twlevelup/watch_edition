@@ -32,14 +32,14 @@
     "node-sass": "^3.13.1",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
-    "istanbul-instrumenter-loader": "^0.2.0"
+    "istanbul-instrumenter-loader": "^0.2.0",
+    "html-webpack-plugin": "^2.26.0"
   },
   "engines": {
     "node": "7.4.0"
   },
   "devDependencies": {
     "fixme": "^0.4.0",
-    "html-webpack-plugin": "^2.26.0",
     "jasmine-core": "^2.2.0",
     "jscs": "^3.0.4",
     "jshint": "^2.9.2",
