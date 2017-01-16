@@ -7,16 +7,21 @@ var path = require('path'),
 module.exports = {
   cache: true,
   entry: {
-    main: './client/src/js/main.js'
+    main: ['babel-polyfill', './client/src/js/main.js']
   },
   output: {
     path: path.join(__dirname, 'public/'),
     filename: '[name].js',
     chunkFilename: '[chunkhash].js'
   },
-  devtool: 'inline-source-map',
+  devtool: '#inline-source-map',
   module: {
     loaders: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader'
+      },
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass', 'sass?sourceMap']
@@ -55,6 +60,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './client/src/index.ejs'
     }),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ]
 };
