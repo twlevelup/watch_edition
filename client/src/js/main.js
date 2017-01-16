@@ -1,13 +1,11 @@
-'use strict';
-
 require('../styles/main.scss');
 require('../fonts/fonts.scss');
 
-var App = require('./app'),
-  NotificationsForm = require('watch_framework').NotificationsForm,
-  notificationsFormConfig = require('./config/watchNotificationsFormConfig');
+const App = require('./app');
+const NotificationsForm = require('watch_framework').NotificationsForm;
+const notificationsFormConfig = require('./config/watchNotificationsFormConfig');
 
-var notificationsForm = new NotificationsForm();
+const notificationsForm = new NotificationsForm();
 notificationsForm.configureNotifications(notificationsFormConfig);
 
 App.start();

@@ -1,23 +1,19 @@
-'use strict';
+const HomePage = require('../../src/js/pages/homePage');
+const App = require('../../src/js/app');
+const eventHub = require('watch_framework').EventHub;
 
-var HomePage = require('../../src/js/pages/homePage'),
-  App = require('../../src/js/app'),
-  eventHub = require('watch_framework').EventHub,
-  page;
+let page;
 
 window.App = App;
 
-describe('The Home Page', function() {
-
-  beforeEach(function() {
+describe('The Home Page', () => {
+  beforeEach(() => {
     page = new HomePage();
   });
 
-  describe('button event handlers', function() {
-
-    describe('right', function() {
-
-      it('should take the user to the contacts page', function() {
+  describe('button event handlers', () => {
+    describe('right', () => {
+      it('should take the user to the contacts page', () => {
         spyOn(window.App, 'navigate');
         page.configureButtons();
         eventHub.trigger('right');
@@ -25,8 +21,8 @@ describe('The Home Page', function() {
       });
     });
 
-    describe('top', function() {
-      it('should scroll the watch face up', function() {
+    describe('top', () => {
+      it('should scroll the watch face up', () => {
         spyOn(page, 'scrollUp');
         page.configureButtons();
         eventHub.trigger('top');
@@ -34,28 +30,24 @@ describe('The Home Page', function() {
       });
     });
 
-    describe('bottom', function() {
-      it('should scroll the watch face down', function() {
+    describe('bottom', () => {
+      it('should scroll the watch face down', () => {
         spyOn(page, 'scrollDown');
         page.configureButtons();
         eventHub.trigger('bottom');
         expect(page.scrollDown).toHaveBeenCalled();
       });
     });
-
   });
 
-  describe('rendering', function() {
-
-    it('should produce the correct HTML', function() {
+  describe('rendering', () => {
+    it('should produce the correct HTML', () => {
       page.render();
       expect(page.$el).toContainText('Hello, World!');
     });
 
-    it('returns the view object', function() {
+    it('returns the view object', () => {
       expect(page.render()).toEqual(page);
     });
-
   });
-
 });

@@ -1,21 +1,20 @@
-'use strict';
+const Page = require('watch_framework').Page;
+const template = require('../../templates/pages/404.hbs');
 
-var Page = require('watch_framework').Page;
-
-var fourOhFour = Page.extend({
+const fourOhFour = Page.extend({
 
   id: 'contacts',
 
-  template: require('../../templates/pages/404.hbs'),
+  template,
 
-  initialize: function() {
+  initialize() {
     this.render();
   },
 
-  render: function() {
+  render() {
     this.$el.html(this.template());
     return this;
-  }
+  },
 
 });
 

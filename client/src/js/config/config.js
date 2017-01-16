@@ -1,5 +1,5 @@
-'use strict';
 
-var Config = {};
+
+const Config = {};
 
 module.exports = Config;

@@ -1,6 +1,5 @@
-'use strict';
-
-var eventsData = require("json!./events.json");
+const Backbone = require('backbone');
+const eventsData = require('./events.json');
 
 function Storage() {
   this.eventsData = new Backbone.Collection();

@@ -1,39 +1,41 @@
-'use strict';
+const Page = require('watch_framework').Page;
 
-var Page = require('watch_framework').Page;
+const template = require('../../templates/pages/eventDetails.hbs');
+const $ = require('jquery');
+const storage = require('../../storage');
 
-var eventDetails = Page.extend({
+const eventDetails = Page.extend({
 
   id: 'event-details',
 
-  data: require('../../storage').eventsData,
+  data: storage.eventsData,
 
-  template: require('../../templates/pages/eventDetails.hbs'),
+  template,
 
   buttonEvents: {
     top: 'scrollUp',
     bottom: 'scrollDown',
-    left: 'back'
+    left: 'back',
   },
 
-  scrollUp: function() {
-    $('#watch-face').animate({scrollTop: '-=70px'});
+  scrollUp() {
+    $('#watch-face').animate({ scrollTop: '-=70px' });
   },
 
-  scrollDown: function() {
-    $('#watch-face').animate({scrollTop: '+=70px'});
+  scrollDown() {
+    $('#watch-face').animate({ scrollTop: '+=70px' });
   },
 
-  getEventData: function() {
+  getEventData() {
     return this.data.get(this.options.cid);
   },
 
-  render: function() {
+  render() {
     // TODO if showPage was creataing a new instance of this view the model could be passed in
-    var details = this.getEventData().toJSON();
+    const details = this.getEventData().toJSON();
     this.$el.html(this.template(details));
     return this;
-  }
+  },
 
 });
 

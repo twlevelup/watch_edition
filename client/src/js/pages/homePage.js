@@ -1,35 +1,36 @@
-'use strict';
+const Page = require('watch_framework').Page;
 
-var Page = require('watch_framework').Page;
+const template = require('../../templates/pages/home.hbs');
+const $ = require('jquery');
 
-var homePage = Page.extend({
+const homePage = Page.extend({
 
   id: 'home',
 
-  template: require('../../templates/pages/home.hbs'),
+  template,
 
   buttonEvents: {
     right: 'goToContacts',
     top: 'scrollUp',
-    bottom: 'scrollDown'
+    bottom: 'scrollDown',
   },
 
-  goToContacts: function() {
+  goToContacts() {
     window.App.navigate('contacts');
   },
 
-  scrollUp: function() {
-    $('#watch-face').animate({scrollTop: '-=70px'});
+  scrollUp() {
+    $('#watch-face').animate({ scrollTop: '-=70px' });
   },
 
-  scrollDown: function() {
-    $('#watch-face').animate({scrollTop: '+=70px'});
+  scrollDown() {
+    $('#watch-face').animate({ scrollTop: '+=70px' });
   },
 
-  render: function() {
+  render() {
     this.$el.html(this.template());
     return this;
-  }
+  },
 
 });
 

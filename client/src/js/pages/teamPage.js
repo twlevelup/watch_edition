@@ -1,19 +1,20 @@
-'use strict';
+const Backbone = require('backbone');
+const template = require('../../templates/pages/team.hbs');
 
-var teamPage = Backbone.View.extend({
+const teamPage = Backbone.View.extend({
 
   id: 'team',
 
-  template: require('../../templates/pages/team.hbs'),
+  template,
 
-  initialize: function() {
+  initialize() {
     this.render();
   },
 
-  render: function() {
+  render() {
     this.$el.html(this.template());
     return this;
-  }
+  },
 
 });
 

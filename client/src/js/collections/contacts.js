@@ -1,9 +1,9 @@
-'use strict';
+const Backbone = require('backbone');
 
-var Contact = require('../models/contact');
+const Contact = require('../models/contact');
 
-var Contacts = Backbone.Collection.extend({
-  model: Contact
+const Contacts = Backbone.Collection.extend({
+  model: Contact,
 });
 
 module.exports = Contacts;

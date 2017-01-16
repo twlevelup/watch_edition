@@ -1,47 +1,43 @@
-'use strict';
+const Backbone = require('backbone');
+const EventDetails = require('../../src/js/pages/eventDetails');
+const storage = require('../../src/storage');
+const eventHub = require('watch_framework').EventHub;
 
-var EventDetails = require('../../src/js/pages/eventDetails'),
-  storage = require('../../src/storage'),
-  eventHub = require('watch_framework').EventHub,
-  page;
+let page;
 
-describe('The Event details page', function() {
-
-  beforeEach(function() {
+describe('The Event details page', () => {
+  beforeEach(() => {
     page = new EventDetails();
   });
 
-  describe('a new event details page', function() {
-    it('should load the events data', function() {
+  describe('a new event details page', () => {
+    it('should load the events data', () => {
       // FIXME this is crap, data should be passed in to the constructor for the page
       expect(page.data).toEqual(storage.eventsData);
     });
   });
 
-  describe('getEventData', function() {
+  describe('getEventData', () => {
+    let cid;
 
-    var cid;
-
-    beforeEach(function() {
-      page.data = new Backbone.Collection({foo: 'getEventData'});
+    beforeEach(() => {
+      page.data = new Backbone.Collection({ foo: 'getEventData' });
       cid = page.data.last().cid;
     });
 
-    it('should return the correct model from the eventsData collection', function() {
-      page.options = {cid: cid};
-      expect(page.getEventData().toJSON()).toEqual({foo: 'getEventData'});
+    it('should return the correct model from the eventsData collection', () => {
+      page.options = { cid };
+      expect(page.getEventData().toJSON()).toEqual({ foo: 'getEventData' });
     });
-
   });
 
-  describe('button events', function() {
-
-    beforeEach(function() {
+  describe('button events', () => {
+    beforeEach(() => {
       page.configureButtons();
     });
 
-    describe('top', function() {
-      it('should scroll the watch face up', function() {
+    describe('top', () => {
+      it('should scroll the watch face up', () => {
         spyOn(page, 'scrollUp');
         page.configureButtons();
         eventHub.trigger('top');
@@ -49,8 +45,8 @@ describe('The Event details page', function() {
       });
     });
 
-    describe('bottom', function() {
-      it('should scroll the watch face down', function() {
+    describe('bottom', () => {
+      it('should scroll the watch face down', () => {
         spyOn(page, 'scrollDown');
         page.configureButtons();
         eventHub.trigger('bottom');
@@ -58,42 +54,38 @@ describe('The Event details page', function() {
       });
     });
 
-    describe('left', function() {
-      it('should go back', function() {
+    describe('left', () => {
+      it('should go back', () => {
         spyOn(page, 'back');
         page.configureButtons();
         eventHub.trigger('left');
         expect(page.back).toHaveBeenCalled();
       });
     });
-
   });
 
-  describe('rendering', function() {
-
-    var eventData = new Backbone.Model({
+  describe('rendering', () => {
+    const eventData = new Backbone.Model({
       name: 'event name',
-      description: 'description'
+      description: 'description',
     });
 
-    beforeEach(function() {
+    beforeEach(() => {
       spyOn(page, 'getEventData').and.returnValue(eventData);
     });
 
-    it('should have the correct title', function() {
+    it('should have the correct title', () => {
       page.render();
       expect(page.$el).toContainHtml('<h1>event name</h1>');
     });
 
-    it('should have the correct event description', function() {
+    it('should have the correct event description', () => {
       page.render();
       expect(page.$el).toContainHtml('<p>description</p>');
     });
 
-    it('returns the view object', function() {
+    it('returns the view object', () => {
       expect(page.render()).toEqual(page);
     });
-
   });
-
 });

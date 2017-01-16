@@ -1,10 +1,6 @@
-'use strict';
+const webpackConfig = require('./webpack.config.js');
 
-var path = require('path'),
-    webpack = require('webpack'),
-    webpackConfig = require('./webpack.config.js');
-
-module.exports = function (config) {
+module.exports = (config) => {
   config.set({
 
     basePath: '',
@@ -22,16 +18,22 @@ module.exports = function (config) {
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
     reporters: ['spec', 'coverage', 'threshold'],
     coverageReporter: {
-      'type': 'text',
-      'dir': 'coverage/',
-      //comment this out if you want to see the output in the console
-      'file': 'coverageResult.txt',
-      watermarks: {
-        statements: [60, 90],
-        functions: [60, 90],
-        branches: [60, 80],
-        lines: [60, 90]
-      }
+      dir: 'coverage/',
+      reporters: [
+        {
+          type: 'text',
+          subdir: '.',
+          file: 'coverageResult.txt',
+          watermarks: {
+            statements: [60, 90],
+            functions: [60, 90],
+            branches: [60, 80],
+            lines: [60, 90],
+          },
+        },
+        { type: 'html', subdir: 'report-html' },
+      ],
+      // comment this out if you want to see the output in the console
     },
 
     // the configure thresholds
@@ -39,7 +41,7 @@ module.exports = function (config) {
       statements: 80,
       branches: 70,
       functions: 80,
-      lines: 80
+      lines: 80,
     },
 
     // web server port
@@ -49,7 +51,12 @@ module.exports = function (config) {
     colors: true,
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values:
+    // - config.LOG_DISABLE
+    // - config.LOG_ERROR
+    // - config.LOG_WARN
+    // - config.LOG_INFO
+    // - config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
 
@@ -80,12 +87,12 @@ module.exports = function (config) {
     preprocessors: {
       'client/spec/**/*spec.js': ['webpack', 'sourcemap'],
       'client/src/js/main.js': ['webpack', 'sourcemap'],
-      'client/src/js/**/*.js': ['coverage']
+      'client/src/js/**/*.js': ['coverage'],
     },
 
     webpackMiddleware: {
-      noInfo: true
-    }
+      noInfo: true,
+    },
 
   });
 };

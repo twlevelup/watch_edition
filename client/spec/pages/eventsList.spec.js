@@ -1,20 +1,16 @@
-'use strict';
+const EventsList = require('../../src/js/pages/eventsList');
+const eventHub = require('watch_framework').EventHub;
 
-var EventsList = require('../../src/js/pages/eventsList'),
-  App = require('../../src/js/app'),
-  eventHub = require('watch_framework').EventHub,
-  page;
+let page;
 
-describe('The Events List', function() {
-
-  beforeEach(function() {
+describe('The Events List', () => {
+  beforeEach(() => {
     page = new EventsList();
   });
 
-  describe('button events', function() {
-
-    describe('top', function() {
-      it('should move the selection to the previous event', function() {
+  describe('button events', () => {
+    describe('top', () => {
+      it('should move the selection to the previous event', () => {
         spyOn(page, 'previous');
         page.configureButtons();
         eventHub.trigger('top');
@@ -22,8 +18,8 @@ describe('The Events List', function() {
       });
     });
 
-    describe('right', function() {
-      it('should select the current event', function() {
+    describe('right', () => {
+      it('should select the current event', () => {
         spyOn(page, 'select');
         page.configureButtons();
         eventHub.trigger('right');
@@ -31,8 +27,8 @@ describe('The Events List', function() {
       });
     });
 
-    describe('bottom', function() {
-      it('should move the selection to the next event', function() {
+    describe('bottom', () => {
+      it('should move the selection to the next event', () => {
         spyOn(page, 'next');
         page.configureButtons();
         eventHub.trigger('bottom');
@@ -40,25 +36,23 @@ describe('The Events List', function() {
       });
     });
 
-    describe('left', function() {
-      it('should go back', function() {
+    describe('left', () => {
+      it('should go back', () => {
         spyOn(page, 'back');
         page.configureButtons();
         eventHub.trigger('left');
         expect(page.back).toHaveBeenCalled();
       });
     });
-
   });
 
-  describe('select', function() {
-    it('navigates to the event details page for the selected event', function() {
-      var cid = 'c42';
+  describe('select', () => {
+    it('navigates to the event details page for the selected event', () => {
+      const cid = 'c42';
       spyOn(window.App, 'navigate');
-      page.selected = { cid: cid };
+      page.selected = { cid };
       page.select();
-      expect(window.App.navigate).toHaveBeenCalledWith('eventDetails/' + cid);
+      expect(window.App.navigate).toHaveBeenCalledWith(`eventDetails/${cid}`);
     });
   });
-
 });
