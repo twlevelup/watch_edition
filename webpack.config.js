@@ -37,6 +37,10 @@ module.exports = {
         test: /\.png$/,
         loader: 'file',
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
     ],
     postLoaders: [
       { test: /\.js$/, loader: 'istanbul-instrumenter', include: path.join(__dirname, 'client/src/js') },
