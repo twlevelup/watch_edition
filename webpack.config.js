@@ -15,6 +15,11 @@ module.exports = {
   },
   devtool: '#inline-source-map',
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/,
+      },
+    ],
     loaders: [
       {
         test: /\.js$/,
