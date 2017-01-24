@@ -6,5 +6,11 @@
   },
   "presets": [
     "es2015"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "syntax-class-properties",
+    "dynamic-import-webpack",
+    "undeclared-variables-check"
   ]
 }
