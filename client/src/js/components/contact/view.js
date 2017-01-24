@@ -1,7 +1,7 @@
 const Backbone = require('backbone');
 const _ = require('underscore');
 
-const contactTemplate = require('../../templates/views/contact.hbs');
+const contactTemplate = require('./contact.hbs');
 
 const ContactView = Backbone.View.extend({
 

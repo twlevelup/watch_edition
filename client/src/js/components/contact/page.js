@@ -1,9 +1,9 @@
 const Page = require('watch_framework').Page;
 
-const ContactsCollection = require('../collections/contacts');
-const ContactView = require('../views/contact');
+const ContactsCollection = require('./collection');
+const ContactView = require('./view');
 
-const template = require('../../templates/pages/contacts.hbs');
+const template = require('./contactsPage.hbs');
 const $ = require('jquery');
 
 const contactsPage = Page.extend({
