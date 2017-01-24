@@ -1,13 +1,13 @@
-'use strict';
+const Backbone = require('backbone');
 
-var Router = Backbone.Router.extend({
+const Router = Backbone.Router.extend({
 
   routes: {
     'eventDetails/:id': 'showEventDetails',
-    '*other': 'defaultRoute'
+    '*other': 'defaultRoute',
   },
 
-  initialize: function(pages) {
+  initialize(pages) {
     this.pages = pages;
 
     // TODO call initialize on the parent router
@@ -16,15 +16,15 @@ var Router = Backbone.Router.extend({
     // this.routes = _.merge(this.prototype.defaultRoutes);
   },
 
-  defaultRoute: function(urlFragment) {
-    var pageName = (!urlFragment) ? 'home' : urlFragment;
-    var page = this.pages[pageName] || this.pages['404'];
+  defaultRoute(urlFragment) {
+    const pageName = (!urlFragment) ? 'home' : urlFragment;
+    const page = this.pages[pageName] || this.pages['404'];
     window.App.showPage(page);
   },
 
-  showEventDetails: function(id) {
-    window.App.showPage(this.pages.eventDetails, {cid: id});
-  }
+  showEventDetails(id) {
+    window.App.showPage(this.pages.eventDetails, { cid: id });
+  },
 
 });
 

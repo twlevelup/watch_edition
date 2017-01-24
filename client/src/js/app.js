@@ -1,77 +1,85 @@
-'use strict';
+const watchFramework = require('watch_framework');
+const Router = require('./router');
+const pages = require('./pages');
+const notifications = require('./watch-notifications');
+const Backbone = require('backbone');
+const _ = require('underscore');
+const $ = require('jquery');
 
-var watchFramework = require('watch_framework');
-var Router = require('./router');
-var WatchFace = watchFramework.WatchFace;
-var eventHub = watchFramework.EventHub;
-var pages = require('./pages');
-var notifications = require('./watch-notifications');
-var NotificationHandler = watchFramework.NotificationHandler;
-var clock = watchFramework.Clock;
+const WatchFace = watchFramework.WatchFace;
+const NotificationHandler = watchFramework.NotificationHandler;
+const clock = watchFramework.Clock;
 
-function App() {
-  this.vent = eventHub;
-  this.router = new Router(pages);
-  this.watchFace = new WatchFace();
-  this.notificationHandler = new NotificationHandler(notifications);
+class App {
+  constructor(eventHub, router, watchFace, notificationHandler) {
+    this.vent = eventHub;
+    this.router = router;
+    this.watchFace = watchFace;
+    this.notificationHandler = notificationHandler;
+  }
+
+  static init() {
+    return new App(
+      watchFramework.EventHub,
+      new Router(pages),
+      new WatchFace(),
+      new NotificationHandler(notifications),
+    );
+  }
+
+  navigate(route) {
+    this.router.navigate(route, true);
+  }
+
+  showPage(Page, options) {
+    if (this.activePage) {
+      this.activePage.remove();
+    }
+
+    this.notificationHandler.hideNotification();
+
+    this.activePage = new Page(options);
+
+    $('#watch-face').html(this.activePage.render().el);
+    this.vent.trigger('showPage');
+  }
+
+  configureButtons() {
+    this.activePage.stopListening(); // NOTE do this here to prevent duplicate listeners
+    if (this.notificationHandler.activeNotification) {
+      this.notificationHandler.activeNotification.configureButtons();
+    } else {
+      this.activePage.configureButtons();
+    }
+  }
+
+  setupEventHandlers() {
+    this.listenTo(this.vent, 'showPage', this.configureButtons);
+    this.listenTo(this.vent, 'showNotification', function showNotification(opts) {
+      // TODO delegate/proxy the event instead?
+      this.notificationHandler.showNotification(opts);
+      this.configureButtons();
+    });
+
+    this.listenTo(this.vent, 'hideNotification', function hideNotification() {
+      // TODO delegate/proxy the event instead?
+      this.notificationHandler.hideNotification();
+      this.configureButtons();
+    });
+  }
+
+  start() {
+    clock.start();
+
+    this.setupEventHandlers();
+
+    if (Backbone.history && !Backbone.History.started) {
+      Backbone.history.start();
+    }
+  }
 }
 
-// TODO move to router?
-App.prototype.navigate = function(route) {
-  this.router.navigate(route, true);
-};
-
-// TODO move to router?
-App.prototype.showPage = function(Page, options) {
-  if (this.activePage) {
-    this.activePage.remove();
-  }
-
-  this.notificationHandler.hideNotification();
-
-  this.activePage =  new Page(options);
-
-  $('#watch-face').html(this.activePage.render().el);
-  this.vent.trigger('showPage');
-};
-
-App.prototype.configureButtons = function() {
-  this.activePage.stopListening(); // NOTE do this here to prevent duplicate listeners
-  if (this.notificationHandler.activeNotification) {
-    this.notificationHandler.activeNotification.configureButtons();
-  } else {
-    this.activePage.configureButtons();
-  }
-};
-
-App.prototype.setupEventHandlers = function() {
-  this.listenTo(eventHub, 'showPage', this.configureButtons);
-  this.listenTo(eventHub, 'showNotification', function(opts) {
-    // TODO delegate/proxy the event instead?
-    this.notificationHandler.showNotification(opts);
-    this.configureButtons();
-  });
-
-  this.listenTo(eventHub, 'hideNotification', function(opts) {
-    // TODO delegate/proxy the event instead?
-    this.notificationHandler.hideNotification();
-    this.configureButtons();
-  });
-};
-
-App.prototype.start = function() {
-
-  clock.start();
-
-  this.setupEventHandlers();
-
-  if (Backbone.history && !Backbone.History.started) {
-    Backbone.history.start();
-  }
-
-};
-
-var app = new App();
+const app = App.init();
 
 _.extend(app, Backbone.Events);
 

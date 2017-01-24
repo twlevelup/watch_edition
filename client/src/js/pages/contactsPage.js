@@ -1,52 +1,52 @@
-'use strict';
+const Page = require('watch_framework').Page;
 
-var Page = require('watch_framework').Page;
+const ContactsCollection = require('../collections/contacts');
+const ContactView = require('../views/contact');
 
-var ContactsCollection = require('../collections/contacts'),
-  ContactView = require('../views/contact');
+const template = require('../../templates/pages/contacts.hbs');
+const $ = require('jquery');
 
-var contactsPage = Page.extend({
+const contactsPage = Page.extend({
 
   id: 'contacts',
 
-  template: require('../../templates/pages/contacts.hbs'),
+  template,
 
   buttonEvents: {
     right: 'goToHomePage',
     face: 'screenClickExample',
-    left: 'back'
+    left: 'back',
   },
 
-  initialize: function() {
+  initialize() {
     this.contactsCollection = new ContactsCollection();
     this.seedContacts();
     this.render();
   },
 
   // TODO use jquery to load a JSON file async test?
-  seedContacts: function() {
+  seedContacts() {
     this.contactsCollection.reset([
-      {name: 'Adam', phoneNumber: '0431 111 111'},
-      {name: 'James', phoneNumber: '0431 222 222'},
-      {name: 'Marzena', phoneNumber: '0431 333 333'}
+      { name: 'Adam', phoneNumber: '0431 111 111' },
+      { name: 'James', phoneNumber: '0431 222 222' },
+      { name: 'Marzena', phoneNumber: '0431 333 333' },
     ]);
   },
 
-  screenClickExample: function() {
+  screenClickExample() {
     this.$el.html('<div>Oh noes!</div>');
   },
 
-  goToHomePage: function() {
+  goToHomePage() {
     window.App.navigate('');
   },
 
-  render: function() {
-
+  render() {
     this.$el.html(this.template());
 
-    var contactsHTML = document.createDocumentFragment();
+    const contactsHTML = document.createDocumentFragment();
 
-    this.contactsCollection.each(function(contact) {
+    this.contactsCollection.each(function collectionFunction(contact) {
       $(contactsHTML).append(this.createContactHTML(contact));
     }, this);
 
@@ -55,12 +55,12 @@ var contactsPage = Page.extend({
     return this;
   },
 
-  createContactHTML: function(contact) {
-      var view = new ContactView({
-        model: contact
-      });
-      return view.render().el;
-    }
+  createContactHTML(contact) {
+    const view = new ContactView({
+      model: contact,
+    });
+    return view.render().el;
+  },
 
 });
 

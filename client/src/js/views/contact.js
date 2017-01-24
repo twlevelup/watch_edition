@@ -1,19 +1,22 @@
-'use strict';
+const Backbone = require('backbone');
+const _ = require('underscore');
 
-var ContactView = Backbone.View.extend({
+const contactTemplate = require('../../templates/views/contact.hbs');
+
+const ContactView = Backbone.View.extend({
 
   tagName: 'li',
 
-  template: require('../../templates/views/contact.hbs'),
+  template: contactTemplate,
 
-  initialize: function() {
+  initialize() {
     _.bindAll(this, 'render');
   },
 
-  render: function() {
+  render() {
     this.$el.html(this.template(this.model.attributes));
     return this;
-  }
+  },
 
 });
 

@@ -1,18 +1,17 @@
-'use strict';
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var path = require('path'),
-  webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   cache: true,
   entry: {
-    main: './client/src/js/main.js'
+    main: './client/src/js/main.js',
   },
   output: {
     path: path.join(__dirname, 'public/'),
     filename: '[name].js',
-    chunkFilename: '[chunkhash].js'
+    chunkFilename: '[chunkhash].js',
   },
   devtool: '#inline-source-map',
   module: {
@@ -20,31 +19,35 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass', 'sass?sourceMap']
+        loaders: ['style', 'css', 'sass', 'sass?sourceMap'],
       },
       {
         test: /\.hbs/,
-        loader: 'handlebars-template-loader'
+        loader: 'handlebars-template-loader',
       },
       {
         test: /\.ttf/,
-        loader: 'file?name=[name].[ext]'
+        loader: 'file?name=[name].[ext]',
       },
       {
         test: /\.png$/,
-        loader: "file"
-      }
+        loader: 'file',
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
     ],
     postLoaders: [
-      { test: /\.js$/, loader: 'istanbul-instrumenter', include: path.join(__dirname, 'client/src/js') }
-    ]
+      { test: /\.js$/, loader: 'istanbul-instrumenter', include: path.join(__dirname, 'client/src/js') },
+    ],
   },
   watchOptions: {
-    poll: true
+    poll: true,
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -55,16 +58,16 @@ module.exports = {
       jQuery: 'jquery',
       $: 'jquery',
       Backbone: 'backbone',
-      _: 'underscore'
+      _: 'underscore',
     }),
     new HtmlWebpackPlugin({
-      template: './client/src/index.ejs'
+      template: './client/src/index.ejs',
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
-    })
-  ]
+        warnings: false,
+      },
+    }),
+  ],
 };
