@@ -7,7 +7,7 @@ var path = require('path'),
 module.exports = {
   cache: true,
   entry: {
-    main: ['babel-polyfill', './client/src/js/main.js']
+    main: './client/src/js/main.js'
   },
   output: {
     path: path.join(__dirname, 'public/'),
