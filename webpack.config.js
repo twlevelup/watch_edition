@@ -19,8 +19,8 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loaders: [
-			'istanbul-instrumenter-loader',
 			'babel-loader',
+			'istanbul-instrumenter-loader',
 			'eslint-loader'
 		],
       },
