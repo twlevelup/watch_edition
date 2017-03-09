@@ -17,3 +17,16 @@
 
 # Useful links
 - Similar boilerplate app https://github.com/jkat98/benm
+
+# Enhancement
+
+- [ ] Webpack2
+- [ ] Yarn - for deterministic build
+- [ ] Better ES6 style support
+- [ ] Better webpack config management
+- [ ] jsdom to replace karma
+- [ ] mocha + sinon + chai to replace jasmine
+- [ ] postcss + autoprefixer to replace scss
+- [ ] stylelint (css)
+- [ ] Component based structure
+- [ ] \(Need wider discussion\) (React or Backbone) + Redux? Should we even use redux? What do we want to achieve?
