@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const path = require('path');
 const webpack = require('webpack');
 
@@ -15,20 +14,23 @@ module.exports = {
   },
   devtool: '#inline-source-map',
   module: {
-    preLoaders: [
+    rules: [
       {
-        test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/,
-      },
-    ],
-    loaders: [
-      {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
+        loaders: [
+			'istanbul-instrumenter-loader',
+			'babel-loader',
+			'eslint-loader'
+		],
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass', 'sass?sourceMap'],
+        loaders: [
+			'style-loader',
+			'css-loader',
+			'sass-loader?sourceMap',
+		],
       },
       {
         test: /\.hbs/,
@@ -36,23 +38,20 @@ module.exports = {
       },
       {
         test: /\.ttf/,
-        loader: 'file?name=[name].[ext]',
+        loader: 'file-loader?name=[name].[ext]',
       },
       {
         test: /\.png$/,
-        loader: 'file',
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-    ],
-    postLoaders: [
-      { test: /\.js$/, loader: 'istanbul-instrumenter', include: path.join(__dirname, 'client/src/js') },
+        loader: 'file-loader',
+      }
     ],
   },
   watchOptions: {
     poll: true,
+  },
+  target: 'web',
+  devServer: {
+	stats: 'minimal',
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -68,8 +67,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './client/src/index.ejs',
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
+	  sourceMap: true,
       compress: {
         warnings: false,
       },

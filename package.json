@@ -63,7 +63,7 @@
     "karma-threshold-reporter": "^0.1.15",
     "karma-webpack": "^1.7.0",
     "phantomjs-prebuilt": "^2.1.4",
-    "webpack": "^1.14.0",
+    "webpack": "^2.2.1",
     "webpack-dev-server": "^1.12.1"
   }
 }
