@@ -14,7 +14,8 @@
     "preci": "npm -s run stylecheck",
     "ci": "npm -s run test",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
-    "stylecheck": "eslint client/src/js/ client/spec/ --fix"
+    "stylecheck": "eslint client/src/js/ client/spec/ --fix",
+    "heroku-postbuild": "webpack --progress"
   },
   "dependencies": {
     "babel": "^6.5.2",
