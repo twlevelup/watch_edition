@@ -13,4 +13,4 @@ deployment:
   production:
     branch: master
     heroku:
-      appname: twlevelup-master
+      appname: twlevelup-watch-edition
