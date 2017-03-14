@@ -1,6 +1,6 @@
 # LevelUp Watch Edition App Development Environment
 
-[![Build Status](https://snap-ci.com/twlevelup/watch_edition/branch/master/build_image)](https://snap-ci.com/twlevelup/watch_edition/branch/master)
+[![Build Status](https://circleci.com/gh/twlevelup/watch_edition.png)](https://circleci.com/gh/twlevelup/watch_edition)
 
 This git repo contains all the code you need to prototype apps for the Proto Watch.
 
@@ -12,8 +12,8 @@ See the [Installation Instructions](https://github.com/twlevelup/watch_edition/w
 
 ## Continuous Integration
 
-This project is continuously deployed to heroku by [SnapCi](https://snap-ci.com/).
-You can view this app at [https://twlevelup-master.herokuapp.com/](https://twlevelup-master.herokuapp.com/)
+This project is continuously deployed to heroku by [Circle CI](https://circleci.com).
+You can view this app at [https://twlevelup-watch-edition.herokuapp.com/](https://twlevelup-watch-edition.herokuapp.com/)
 
 ### Before you commit
 
@@ -31,7 +31,8 @@ You can view this app at [https://twlevelup-master.herokuapp.com/](https://twlev
 
 To view the build status and get notifications about the build status:
 
-1. Visit [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition) and click "CCTray" in the top right of the screen
-2. Add the XML config to CCTray or CCMenu on your dev machine
+Add the following XML config to CCTray or CCMenu on your dev machine
 
-You can also access the CI server and view the status of the build here [Snap CI](https://snap-ci.com/twlevelup/watch_edition/branch/master?notice=watch_edition)
+	https://circleci.com/gh/twlevelup/watch_edition.cc.xml
+
+You can also access the CI server and view the status of the build here [Circle CI](https://circleci.com/gh/twlevelup/watch_edition)
