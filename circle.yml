@@ -1,0 +1,16 @@
+machine:
+  timezone: Australia/Melbourne
+  node:
+    version: 7.7.2
+dependencies:
+  override:
+    - npm install
+    - npm update
+test:
+  override:
+    - npm test
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: twlevelup-master
