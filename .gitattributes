@@ -1,5 +1,2 @@
 # Set the default behavior, in case people don't have core.autocrlf set.
-* text eol=lf
-
-# Set git to be case sensitive as docker in RHEL renders a case sensitive FS.
-* ignorecase false
+* text=auto
