@@ -4,13 +4,13 @@ machine:
     version: 7.7.2
 dependencies:
   override:
-    - npm install
     - npm update
+    - npm install
 test:
   override:
     - npm test
 deployment:
-  production:
+  staging:
     branch: master
     heroku:
       appname: twlevelup-watch-edition
