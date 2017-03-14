@@ -6,6 +6,10 @@ html {
     line-height: 1.4;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
