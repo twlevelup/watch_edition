@@ -10,6 +10,7 @@ show_instructions () {
   echo "where <command> is one of:"
   echo "    install       installs any required dependencies"
   echo "    test          runs all your unit tests"
+  echo "    test:dev      runs all your unit tests in development mode"
   echo "    pre-commit    prepares your changes to be committed"
   echo "    start         runs your local development server at http://localhost:8080"
 }
@@ -41,6 +42,11 @@ if [[ $1 ]]; then
 
   if [[ $1 == "test" ]]; then
     npm -s test
+    exit $?
+  fi
+
+  if [[ $1 == "test:dev" ]]; then
+    npm -s run test:dev
     exit $?
   fi
 

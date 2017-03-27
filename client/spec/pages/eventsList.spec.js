@@ -6,6 +6,7 @@ let page;
 describe('The Events List', () => {
   beforeEach(() => {
     page = new EventsList();
+    page.back = () => {};
   });
 
   describe('button events', () => {
@@ -30,6 +31,7 @@ describe('The Events List', () => {
     describe('bottom', () => {
       it('should move the selection to the next event', () => {
         spyOn(page, 'next');
+        spyOn(page, 'select');
         page.configureButtons();
         eventHub.trigger('bottom');
         expect(page.next).toHaveBeenCalled();
