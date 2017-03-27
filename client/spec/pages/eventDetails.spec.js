@@ -8,6 +8,7 @@ let page;
 describe('The Event details page', () => {
   beforeEach(() => {
     page = new EventDetails();
+    page.back = () => {};
   });
 
   describe('a new event details page', () => {

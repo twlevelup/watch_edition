@@ -43,16 +43,10 @@ module.exports = {
       {
         test: /\.png$/,
         loader: 'file-loader',
-      }
+      },
     ],
   },
-  watchOptions: {
-    poll: true,
-  },
   target: 'web',
-  devServer: {
-    stats: 'minimal',
-  },
   plugins: [
     new webpack.ProvidePlugin({
       // FIXME this is lazy, do something better with backbone and underscore
@@ -66,12 +60,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './client/src/index.ejs',
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
-      },
-    }),
+    })
   ],
 };
