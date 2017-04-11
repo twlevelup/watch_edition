@@ -58,6 +58,7 @@
     "karma": "^1.5.0",
     "karma-coverage": "^1.1.1",
     "karma-coverage-istanbul-reporter": "^1.0.0",
+    "karma-eslint": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^1.0.4",

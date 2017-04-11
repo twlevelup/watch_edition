@@ -21,7 +21,6 @@ module.exports = {
         loaders: [
           'babel-loader',
           'istanbul-instrumenter-loader',
-          'eslint-loader',
         ],
       },
       {

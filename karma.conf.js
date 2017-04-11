@@ -85,10 +85,17 @@ module.exports = (config) => {
 
 
     preprocessors: {
+      'client/**/*.js': ['eslint'],
       'client/spec/**/*spec.js': ['webpack', 'sourcemap'],
       'client/src/js/main.js': ['webpack', 'sourcemap'],
-      'client/src/js/**/*.js': ['coverage'],
+      'client/src/js/**/*.js': ['coverage']
     },
+
+    eslint: {
+		engine: {
+		  configFile: '.eslintrc.json'
+		},
+	},
 
     webpackMiddleware: {
       noInfo: true,
