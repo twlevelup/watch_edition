@@ -1,2 +1,2 @@
-# Set the default behavior, in case people don't have core.autocrlf set.
-* text=auto
+# Set the default behavior and set line endings to LF for text files
+* text=auto eol=lf
