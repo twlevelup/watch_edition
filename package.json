@@ -49,7 +49,7 @@
     "watch_framework": "git://github.com/twlevelup/watch_framework.git#v1.0"
   },
   "engines": {
-    "node": "8.1.4"
+    "node": "7.4.0"
   },
   "devDependencies": {
     "fixme": "^0.4.0",
