@@ -49,24 +49,24 @@
     "watch_framework": "git://github.com/twlevelup/watch_framework.git#v1.0"
   },
   "engines": {
-    "node": "8.1.4"
+    "node": "7.4.0"
   },
   "devDependencies": {
     "fixme": "^0.4.0",
     "istanbul-instrumenter-loader": "^2.0.0",
-    "jasmine-core": "^2.6.4",
-    "karma": "^1.7.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.5.0",
     "karma-coverage": "^1.1.1",
-    "karma-coverage-istanbul-reporter": "^1.3.0",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
     "karma-eslint": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-spec-reporter": "0.0.31",
+    "karma-spec-reporter": "0.0.24",
     "karma-threshold-reporter": "^0.1.15",
     "karma-webpack": "^2.0.3",
-    "phantomjs-prebuilt": "^2.1.14",
+    "phantomjs-prebuilt": "^2.1.4",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^1.12.1"
   }
