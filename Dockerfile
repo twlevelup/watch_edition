@@ -1,4 +1,4 @@
-FROM node:4
+FROM node:8.1.4
 
 WORKDIR /usr/src/levelup/app
 COPY package.json /usr/src/levelup

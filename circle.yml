@@ -1,7 +1,7 @@
 machine:
   timezone: Australia/Melbourne
   node:
-    version: 7.7.2
+    version: 8.1.4
 dependencies:
   override:
     - npm update
