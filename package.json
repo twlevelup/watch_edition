@@ -41,7 +41,7 @@
     "istanbul-instrumenter-loader": "^2.0.0",
     "jquery": "^2.2.4",
     "json-loader": "^0.5.4",
-    "node-sass": "^3.13.1",
+    "node-sass": "^4.7.2",
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "underscore": "^1.8.3",
