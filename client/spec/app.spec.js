@@ -4,6 +4,46 @@ const $ = require('jquery');
 fdescribe('App', () => {
   document.body.innerHTML = `<div id='watch-face'></div>`;
 
+  describe('#navigateToLocation', () => {
+    it('strips location path and navigates to page', () => {
+      class DummyPage {
+        createElement() {
+          const element = document.createElement('div');
+          element.innerHTML = 'Some page';
+          return element;
+        }
+      }
+      const app = new App({ 'teamRocket': DummyPage }, $('#watch-face'));
+      // dummy window.location object. https://developer.mozilla.org/en-US/docs/Web/API/Location
+      app.navigateToLocation({
+        href: 'http://localhost:8080/#teamRocket',
+        hash: '#teamRocket',
+      });
+      let element = document.getElementById('watch-face');
+      expect(element.innerHTML).toBe('<div>Some page</div>');
+    });
+
+    describe('url has no trailing paths', () => {
+      it('goes to home page', () => {
+        class DummyPage {
+          createElement() {
+            const element = document.createElement('div');
+            element.innerHTML = 'Some page';
+            return element;
+          }
+        }
+        const app = new App({ '/': DummyPage }, $('#watch-face'));
+        // dummy window.location object. https://developer.mozilla.org/en-US/docs/Web/API/Location
+        app.navigateToLocation({
+          href: 'http://localhost:8080/',
+          hash: '',
+        });
+        let element = document.getElementById('watch-face');
+        expect(element.innerHTML).toBe('<div>Some page</div>');
+      });
+    });
+  });
+
   describe('#navigate', () => {
     it('should changes watch face to the specific page', () => {
       class DummyPage {
@@ -32,7 +72,6 @@ fdescribe('App', () => {
 
       const app = new App(routes, $('#watch-face'));
       let element = document.getElementById('watch-face');
-      expect(element.innerHTML).toBe('');
 
       app.navigate('/', {});
       expect(element.innerHTML).toBe(`<div>hello world</div>`);

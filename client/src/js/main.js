@@ -12,4 +12,4 @@ const notificationsForm = new NotificationsForm();
 notificationsForm.configureNotifications(notificationsFormConfig);
 
 new App(routes, $('#watch-face'))
-  .navigate('/');
+  .navigateToLocation(window.location);
