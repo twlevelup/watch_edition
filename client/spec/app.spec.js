@@ -1,85 +1,64 @@
-const watchFramework = require('watch_framework');
-const Router = require('../src/js/router');
-const app = require('../src/js/app');
+const App = require('../src/js/app');
+const $ = require('jquery');
 
-const WatchFace = watchFramework.WatchFace;
-const NotificationHandler = watchFramework.NotificationHandler;
+fdescribe('App', () => {
+  document.body.innerHTML = `<div id='watch-face'></div>`;
 
-// TODO replace .on with listenTo
+  describe('#navigate', () => {
+    it('should changes watch face to the specific page', () => {
+      class DummyPage {
+        createElement() {
+          const element = document.createElement('div');
+          element.innerHTML = 'hello world';
+          return element;
+        }
+      }
 
-describe('The App', () => {
-  beforeEach(() => {
-    app.start();
-  });
+      class DummyPage2 {
+        constructor(props) {
+          this.props = props;
+        }
+        createElement() {
+          const element = document.createElement('div');
+          element.innerHTML = this.props.message;
+          return element;
+        }
+      }
 
-  it('should have a router', () => {
-    expect(app.router instanceof Router).toBeTruthy();
-  });
-
-  it('should have a watch face', () => {
-    expect(app.watchFace instanceof WatchFace).toBeTruthy();
-  });
-
-  it('should have a notification handler', () => {
-    expect(app.notificationHandler instanceof NotificationHandler).toBeTruthy();
-  });
-
-  it('should have an event hub', () => {
-    // TODO it would be good to check type of app.vent
-    expect(app.vent.on).toBeTruthy();
-  });
-
-  describe('configureButtons', () => {
-    beforeEach(() => {
-      app.activePage = {
-        stopListening() {},
-
-        configureButtons() {},
+      const routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
       };
 
-      spyOn(app.activePage, 'stopListening');
+      const app = new App(routes, $('#watch-face'));
+      let element = document.getElementById('watch-face');
+      expect(element.innerHTML).toBe('');
+
+      app.navigate('/', {});
+      expect(element.innerHTML).toBe(`<div>hello world</div>`);
+
+      app.navigate('someOtherPage', { message: 'I like to move it move it'});
+      expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
     });
 
-    it('should be a function', () => {
-      expect(typeof app.configureButtons === 'function').toEqual(true);
-    });
+    it('shows 404 when path does not match any predefined routes', () => {
+      class FourOhFour {
+        createElement() {
+          const element = document.createElement('div');
+          element.innerHTML = `Oops, page not found`;
+          return element;
+        }
+      }
 
-    it('should configure buttons for the active notification', () => {
-      app.notificationHandler.activeNotification = {
-        configureButtons() {},
+      const routes = {
+        '404': FourOhFour,
       };
 
-      spyOn(app.notificationHandler.activeNotification, 'configureButtons');
-      app.configureButtons();
+      const app = new App(routes, $('#watch-face'));
+      let element = document.getElementById('watch-face');
 
-      expect(app.activePage.stopListening).toHaveBeenCalled();
-      expect(app.notificationHandler.activeNotification.configureButtons).toHaveBeenCalled();
+      app.navigate('someRandomPage', {});
+      expect(element.innerHTML).toBe(`<div>Oops, page not found</div>`);
     });
-
-    it('when there is no notification, should configure buttons for the active page', () => {
-      app.notificationHandler.activeNotification = undefined;
-      spyOn(app.activePage, 'configureButtons');
-
-      app.configureButtons();
-      expect(app.activePage.stopListening).toHaveBeenCalled();
-      expect(app.activePage.configureButtons).toHaveBeenCalled();
-    });
-  });
-
-  describe('navigate', () => {
-    // TODO should this be renamed and also trigger render or init ?
-
-    beforeEach(() => {
-      spyOn(app.router, 'navigate');
-    });
-
-    it('should call navigate on the router with the route', () => {
-      app.navigate('foo');
-      expect(app.router.navigate).toHaveBeenCalledWith('foo', true);
-    });
-  });
-
-  xdescribe('clock', () => {
-    it('should start the clock');
   });
 });

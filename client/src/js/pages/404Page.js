@@ -1,21 +1,18 @@
-const Page = require('watch_framework').Page;
-const template = require('../../templates/pages/404.hbs');
+class FourOhFourPage {
+  template() {
+    return `
+      <h1>Oops!</h1>
+      <p>
+        The page you're looking for could not be found.
+      </p>
+    `;
+  }
 
-const fourOhFour = Page.extend({
+  createElement() {
+    const element = document.createElement('div');
+    element.innerHTML = this.template();
+    return element;
+  }
+}
 
-  id: 'contacts',
-
-  template,
-
-  initialize() {
-    this.render();
-  },
-
-  render() {
-    this.$el.html(this.template());
-    return this;
-  },
-
-});
-
-module.exports = fourOhFour;
+module.exports = FourOhFourPage;

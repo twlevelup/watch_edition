@@ -5,7 +5,7 @@ class App {
   }
 
   navigate(path, props) {
-    const Page = this.routes[path];
+    const Page = this.routes[path] || this.routes['404'];
     const page = new Page(props);
     this.$watchFace.html(page.createElement());
   }

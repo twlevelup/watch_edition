@@ -20,7 +20,6 @@
   },
   "dependencies": {
     "babel": "^6.5.2",
-    "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-syntax-class-properties": "6.13.0",
     "babel-plugin-dynamic-import-webpack": "^1.0.1",
@@ -39,7 +38,7 @@
     "html-webpack-plugin": "^2.26.0",
     "http-server": "^0.9.0",
     "istanbul-instrumenter-loader": "^2.0.0",
-    "jquery": "^2.2.4",
+    "jquery": "^3.2.1",
     "json-loader": "^0.5.4",
     "node-sass": "^4.7.2",
     "sass-loader": "^3.2.3",
@@ -52,10 +51,16 @@
     "node": "9.2.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "fixme": "^0.4.0",
+    "identity-obj-proxy": "^3.0.0",
     "istanbul-instrumenter-loader": "^2.0.0",
     "jasmine-core": "^2.6.4",
+    "jest": "^21.2.1",
+    "jsdom": "^11.5.1",
     "karma": "^1.7.0",
     "karma-coverage": "^1.1.1",
     "karma-coverage-istanbul-reporter": "^1.3.0",
@@ -68,7 +73,26 @@
     "karma-threshold-reporter": "^0.1.15",
     "karma-webpack": "^2.0.3",
     "phantomjs-prebuilt": "^2.1.14",
+    "regenerator-runtime": "^0.11.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^1.12.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   }
 }
