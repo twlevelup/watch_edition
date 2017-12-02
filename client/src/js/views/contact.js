@@ -1,23 +1,22 @@
-const Backbone = require('backbone');
-const _ = require('underscore');
+class Contact {
+  constructor(props) {
+    this.name = props.name;
+    this.phoneNumber = props.phoneNumber;
+  }
 
-const contactTemplate = require('../../templates/views/contact.hbs');
+  template() {
+    return `
+      <span>Name: ${this.name}</span>
+      <br />
+      <span>Phone: ${this.phoneNumber}</span>
+  `;
+  }
 
-const ContactView = Backbone.View.extend({
+  createElement() {
+    const element = document.createElement('div');
+    element.innerHTML = this.template();
+    return element;
+  }
+}
 
-  tagName: 'li',
-
-  template: contactTemplate,
-
-  initialize() {
-    _.bindAll(this, 'render');
-  },
-
-  render() {
-    this.$el.html(this.template(this.model.attributes));
-    return this;
-  },
-
-});
-
-module.exports = ContactView;
+module.exports = Contact;

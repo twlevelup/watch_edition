@@ -5,7 +5,6 @@ const contacts = require('./contactsPage');
 const eventsList = require('./eventsList');
 const eventDetails = require('./eventDetails');
 
-// TODO autogenerate this file
 module.exports = {
   404: page404,
   team,

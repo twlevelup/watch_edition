@@ -40,7 +40,7 @@ class App {
 
     this.activePage = new Page(options);
 
-    $('#watch-face').html(this.activePage.render().el);
+    $('#watch-face').html(this.activePage.createElement());
     this.vent.trigger('showPage');
   }
 
