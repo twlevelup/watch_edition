@@ -1,5 +1,8 @@
-class Contact {
-  constructor(props) {
+const BaseComponent = require('../../../BaseComponent');
+
+class Contact extends BaseComponent {
+  constructor(props = {}) {
+    super(props);
     this.props = props;
   }
 

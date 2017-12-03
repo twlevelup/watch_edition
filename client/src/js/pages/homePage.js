@@ -17,11 +17,11 @@ class HomePage extends BasePage {
   }
 
   topButtonEvent() {
-    this.watchFace.scrollTop -= 70;
+    this.watchFace.scrollTop -= 40;
   }
 
   bottomButtonEvent() {
-    this.watchFace.scrollTop += 70;
+    this.watchFace.scrollTop += 40;
   }
 }
 

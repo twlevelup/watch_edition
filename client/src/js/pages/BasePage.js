@@ -1,12 +1,10 @@
-class BasePage {
-  constructor(props) {
-    this.props = props;
+const BaseComponent = require('../BaseComponent');
+
+class BasePage extends BaseComponent {
+  constructor(props = {}) {
+    super(props);
     this.navigate = props.navigate;
     this.watchFace = props.watchFace;
-  }
-
-  template() {
-    throw new Error('Template is not implemented!');
   }
 
   pageWillLoad() {
