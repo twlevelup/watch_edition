@@ -33,7 +33,7 @@ describe('HomePage', () => {
       page.bottomButtonEvent();
 
       expect($watchFace.animate).toHaveBeenCalledWith({
-        scrollTop: '+=70px'
+        scrollTop: '-=70px'
       });
 
     });

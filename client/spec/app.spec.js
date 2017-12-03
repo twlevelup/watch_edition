@@ -1,5 +1,4 @@
 const App = require('../src/js/app');
-const $ = require('jquery');
 const BasePage = require('../src/js/pages/BasePage');
 
 fdescribe('App', () => {
@@ -15,50 +14,21 @@ fdescribe('App', () => {
   let routes = {};
   let app;
 
-  class DummyPage {
-    createElement() {
-      const element = document.createElement('div');
-      element.innerHTML = 'Some page';
-      return element;
-    }
-    leftButtonEvent() {
-    }
-
-    rightButtonEvent() {
-    }
-    bottomButtonEvent() {
-    }
-    topButtonEvent() {
-    }
-    faceButtonEvent() {
+  class DummyPage extends BasePage {
+    template() {
+      return '<div>Some page</div>';
     }
   }
 
-  class DummyPage2 {
-    constructor(props) {
-      this.props = props;
-    }
-    createElement() {
-      const element = document.createElement('div');
-      element.innerHTML = this.props.message;
-      return element;
-    }
-    leftButtonEvent() {
-    }
-
-    rightButtonEvent() {
-    }
-    bottomButtonEvent() {
-    }
-    topButtonEvent() {
-    }
-    faceButtonEvent() {
+  class DummyPage2 extends BasePage {
+    template() {
+      return `<div>${this.props.message}</div>`;
     }
   }
 
   beforeEach(() => {
     watch = {
-      $watchFace: $('#watch-face'),
+      watchFace: document.getElementById('watch-face'),
       leftButton: document.getElementById('button-left'),
       rightButton: document.getElementById('button-right'),
       topButton: document.getElementById('button-top'),
@@ -195,7 +165,7 @@ fdescribe('App', () => {
 
       app.navigate('/');
 
-      watch.$watchFace.click();
+      watch.watchFace.click();
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
@@ -220,10 +190,8 @@ fdescribe('App', () => {
 
     it('shows 404 when path does not match any predefined routes', () => {
       class FourOhFour extends BasePage {
-        createElement() {
-          const element = document.createElement('div');
-          element.innerHTML = `Oops, page not found`;
-          return element;
+        template() {
+          return '<div>Oops, page not found</div>';
         }
       }
 

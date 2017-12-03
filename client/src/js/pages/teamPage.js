@@ -10,12 +10,6 @@ class TeamPage extends BasePage {
       </ul>
     `;
   }
-
-  createElement() {
-    const element = document.createElement('div');
-    element.innerHTML = this.template();
-    return element;
-  }
 }
 
 module.exports = TeamPage;

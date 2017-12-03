@@ -1,28 +1,33 @@
-const UnimplementedError = require('../errors/UnimplementedError');
-
 class BasePage {
   constructor(props) {
+    this.props = props;
     this.navigate = props.navigate;
+    this.watchFace = props.watchFace;
+  }
+
+  template() {
+    throw new Error('Template is not implemented!');
+  }
+
+  pageWillLoad() {
+  }
+
+  pageDidLoad() {
   }
 
   rightButtonEvent() {
-    throw new UnimplementedError('rightButtonEvent');
   }
 
   leftButtonEvent() {
-    throw new UnimplementedError('leftButtonEvent');
   }
 
   topButtonEvent() {
-    throw new UnimplementedError('topButtonEvent');
   }
 
   bottomButtonEvent() {
-    throw new UnimplementedError('bottomButtonEvent');
   }
 
   faceButtonEvent() {
-    throw new UnimplementedError('faceButtonEvent');
   }
 }
 

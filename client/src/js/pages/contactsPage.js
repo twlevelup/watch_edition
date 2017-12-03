@@ -22,12 +22,6 @@ class ContactsPage extends BasePage {
     `;
   }
 
-  createElement() {
-    const el = document.createElement('div');
-    el.innerHTML = this.template();
-    return el;
-  }
-
   leftButtonEvent() {
     this.navigate('/');
   }

@@ -1,21 +1,14 @@
 class Contact {
   constructor(props) {
-    this.name = props.name;
-    this.phoneNumber = props.phoneNumber;
+    this.props = props;
   }
 
   template() {
     return `
-      <span>Name: ${this.name}</span>
+      <span>Name: ${this.props.name}</span>
       <br />
-      <span>Phone: ${this.phoneNumber}</span>
+      <span>Phone: ${this.props.phoneNumber}</span>
   `;
-  }
-
-  createElement() {
-    const element = document.createElement('div');
-    element.innerHTML = this.template();
-    return element;
   }
 }
 

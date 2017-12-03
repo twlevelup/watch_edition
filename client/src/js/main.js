@@ -12,7 +12,7 @@ const notificationsForm = new NotificationsForm();
 notificationsForm.configureNotifications(notificationsFormConfig);
 
 const watch = {
-  $watchFace: $('#watch-face'),
+  watchFace: document.getElementById('watch-face'),
   leftButton: document.getElementById('button-left'),
   rightButton: document.getElementById('button-right'),
   topButton: document.getElementById('button-top'),

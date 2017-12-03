@@ -1,7 +1,7 @@
 class App {
   constructor(routes, watch) {
     this.routes = routes;
-    this.$watchFace = watch.$watchFace;
+    this.watchFace = watch.watchFace;
     this.leftButton = watch.leftButton;
     this.rightButton = watch.rightButton;
     this.topButton = watch.topButton;
@@ -30,16 +30,18 @@ class App {
     const page = new Page({
       ...props,
       navigate: this.navigate,
-      $watchFace: this.$watchFace,
+      watchFace: this.watchFace,
     });
 
     this.leftButton.addEventListener('click', page.leftButtonEvent.bind(page));
     this.rightButton.addEventListener('click', page.rightButtonEvent.bind(page));
     this.topButton.addEventListener('click', page.topButtonEvent.bind(page));
     this.bottomButton.addEventListener('click', page.bottomButtonEvent.bind(page));
-    this.$watchFace.on('click', page.faceButtonEvent.bind(page));
+    this.watchFace.addEventListener('click', page.faceButtonEvent.bind(page));
 
-    this.$watchFace.html(page.createElement());
+    page.pageWillLoad();
+    this.watchFace.innerHTML = page.template();
+    page.pageDidLoad();
   }
 }
 

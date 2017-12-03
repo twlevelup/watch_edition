@@ -1,12 +1,6 @@
 const BasePage = require('./BasePage');
 
 class HomePage extends BasePage {
-  constructor(props) {
-    super(props);
-    this.navigate = props.navigate;
-    this.$watchFace = props.$watchFace;
-  }
-
   template() {
     return `
       <p>Date: <span class="clock-date"></span></p>
@@ -18,25 +12,16 @@ class HomePage extends BasePage {
     `;
   }
 
-  createElement() {
-    const element = document.createElement('div');
-    element.innerHTML = this.template();
-    return element;
-  }
-
-  leftButtonEvent() {
-  }
-
   rightButtonEvent() {
     this.navigate('contacts');
   }
 
   topButtonEvent() {
-    this.$watchFace.animate({ scrollTop: '-=70px' });
+    this.watchFace.scrollTop -= 70;
   }
 
   bottomButtonEvent() {
-    this.$watchFace.animate({ scrollTop: '+=70px'});
+    this.watchFace.scrollTop += 70;
   }
 }
 
