@@ -1,22 +1,28 @@
+const UnimplementedError = require('../errors/UnimplementedError');
+
 class BasePage {
+  constructor(props) {
+    this.navigate = props.navigate;
+  }
+
   rightButtonEvent() {
-    throw new Error('Unimplemented!');
+    throw new UnimplementedError('rightButtonEvent');
   }
 
   leftButtonEvent() {
-    throw new Error('Unimplemented!');
+    throw new UnimplementedError('leftButtonEvent');
   }
 
   topButtonEvent() {
-    throw new Error('Unimplemented!');
+    throw new UnimplementedError('topButtonEvent');
   }
 
   bottomButtonEvent() {
-    throw new Error('Unimplemented!');
+    throw new UnimplementedError('bottomButtonEvent');
   }
 
   faceButtonEvent() {
-    throw new Error('Unimplemented!');
+    throw new UnimplementedError('faceButtonEvent');
   }
 }
 

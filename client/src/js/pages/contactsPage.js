@@ -1,9 +1,10 @@
 const ContactView = require('../views/contact');
 const BasePage = require('./BasePage');
 
-class ContactsPage {
-  constructor() {
-    this.contacts = [
+class ContactsPage extends BasePage {
+  constructor(props) {
+    super(props);
+    this.contacts = props.contacts || [
       { name: 'Adam', phoneNumber: '0431 111 111' },
       { name: 'James', phoneNumber: '0431 222 222' },
       { name: 'Marzena', phoneNumber: '0431 333 333' },
@@ -25,6 +26,10 @@ class ContactsPage {
     const el = document.createElement('div');
     el.innerHTML = this.template();
     return el;
+  }
+
+  leftButtonEvent() {
+    this.navigate('/');
   }
 
   faceButton() {
