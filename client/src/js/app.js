@@ -1,4 +1,4 @@
-class App {
+module.exports = class App {
   constructor(routes, watch) {
     this.routes = routes;
     this.watchFace = watch.watchFace;
@@ -42,7 +42,6 @@ class App {
     page.pageWillLoad();
     this.watchFace.innerHTML = page.template();
     page.pageDidLoad();
+    window.location.href = `/#${path}`;
   }
 }
-
-module.exports = App;
