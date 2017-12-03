@@ -1,4 +1,5 @@
 const ContactView = require('../views/contact');
+const BasePage = require('./BasePage');
 
 class ContactsPage {
   constructor() {

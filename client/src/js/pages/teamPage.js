@@ -1,4 +1,6 @@
-class TeamPage {
+const BasePage = require('./BasePage');
+
+class TeamPage extends BasePage {
   template() {
     return `
       <h1>Made by:</h1>

@@ -1,6 +1,12 @@
-// const $ = require('jquery');
+const BasePage = require('./BasePage');
 
-class HomePage {
+class HomePage extends BasePage {
+  constructor(props) {
+    super(props);
+    this.navigate = props.navigate;
+    this.$watchFace = props.$watchFace;
+  }
+
   template() {
     return `
       <p>Date: <span class="clock-date"></span></p>
@@ -18,17 +24,20 @@ class HomePage {
     return element;
   }
 
-  // right() {
-  //   window.App.navigate('contacts');
-  // }
-  //
-  // top() {
-  //   $('#watch-face').animate({ scrollTop: '-=70px' });
-  // }
-  //
-  // button() {
-  //   $('#watch-face').animate({ scrollTop: '+=70px' });
-  // }
+  leftButtonEvent() {
+  }
+
+  rightButtonEvent() {
+    this.navigate('contacts');
+  }
+
+  topButtonEvent() {
+    this.$watchFace.animate({ scrollTop: '-=70px' });
+  }
+
+  bottomButtonEvent() {
+    this.$watchFace.animate({ scrollTop: '+=70px'});
+  }
 }
 
 module.exports = HomePage;

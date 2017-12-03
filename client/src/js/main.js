@@ -11,5 +11,13 @@ const $ = require('jquery');
 const notificationsForm = new NotificationsForm();
 notificationsForm.configureNotifications(notificationsFormConfig);
 
-new App(routes, $('#watch-face'))
+const watch = {
+  $watchFace: $('#watch-face'),
+  leftButton: document.getElementById('button-left'),
+  rightButton: document.getElementById('button-right'),
+  topButton: document.getElementById('button-top'),
+  bottomButton: document.getElementById('button-bottom'),
+};
+
+new App(routes, watch)
   .navigateToLocation(window.location);

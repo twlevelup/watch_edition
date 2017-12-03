@@ -1,4 +1,6 @@
-class FourOhFourPage {
+const BasePage = require('./BasePage');
+
+class FourOhFourPage extends BasePage {
   template() {
     return `
       <h1>Oops!</h1>

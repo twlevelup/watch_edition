@@ -1,19 +1,77 @@
 const App = require('../src/js/app');
 const $ = require('jquery');
+const BasePage = require('../src/js/pages/BasePage');
 
 fdescribe('App', () => {
-  document.body.innerHTML = `<div id='watch-face'></div>`;
+  document.body.innerHTML = `
+    <div id='watch-face'></div>
+    <div id='button-left'></div>
+    <div id='button-right'></div>
+    <div id='button-top'></div>
+    <div id='button-bottom'></div>
+  `;
+
+  let watch = {};
+  let routes = {};
+  let app;
+
+  class DummyPage {
+    createElement() {
+      const element = document.createElement('div');
+      element.innerHTML = 'Some page';
+      return element;
+    }
+    leftButtonEvent() {
+    }
+
+    rightButtonEvent() {
+    }
+    bottomButtonEvent() {
+    }
+    topButtonEvent() {
+    }
+    faceButtonEvent() {
+    }
+  }
+
+  class DummyPage2 {
+    constructor(props) {
+      this.props = props;
+    }
+    createElement() {
+      const element = document.createElement('div');
+      element.innerHTML = this.props.message;
+      return element;
+    }
+    leftButtonEvent() {
+    }
+
+    rightButtonEvent() {
+    }
+    bottomButtonEvent() {
+    }
+    topButtonEvent() {
+    }
+    faceButtonEvent() {
+    }
+  }
+
+  beforeEach(() => {
+    watch = {
+      $watchFace: $('#watch-face'),
+      leftButton: document.getElementById('button-left'),
+      rightButton: document.getElementById('button-right'),
+      topButton: document.getElementById('button-top'),
+      bottomButton: document.getElementById('button-bottom'),
+    };
+    routes = {
+      'teamRocket': DummyPage,
+    };
+    app = new App(routes, watch);
+  });
 
   describe('#navigateToLocation', () => {
     it('strips location path and navigates to page', () => {
-      class DummyPage {
-        createElement() {
-          const element = document.createElement('div');
-          element.innerHTML = 'Some page';
-          return element;
-        }
-      }
-      const app = new App({ 'teamRocket': DummyPage }, $('#watch-face'));
       // dummy window.location object. https://developer.mozilla.org/en-US/docs/Web/API/Location
       app.navigateToLocation({
         href: 'http://localhost:8080/#teamRocket',
@@ -25,14 +83,9 @@ fdescribe('App', () => {
 
     describe('url has no trailing paths', () => {
       it('goes to home page', () => {
-        class DummyPage {
-          createElement() {
-            const element = document.createElement('div');
-            element.innerHTML = 'Some page';
-            return element;
-          }
-        }
-        const app = new App({ '/': DummyPage }, $('#watch-face'));
+        app.routes = {
+          '/': DummyPage,
+        };
         // dummy window.location object. https://developer.mozilla.org/en-US/docs/Web/API/Location
         app.navigateToLocation({
           href: 'http://localhost:8080/',
@@ -45,43 +98,128 @@ fdescribe('App', () => {
   });
 
   describe('#navigate', () => {
+    it('registers page left button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.leftButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page right button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.rightButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page top button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.topButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page bottom button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.bottomButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page face button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.$watchFace.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).toHaveBeenCalled();
+    });
+
     it('should changes watch face to the specific page', () => {
-      class DummyPage {
-        createElement() {
-          const element = document.createElement('div');
-          element.innerHTML = 'hello world';
-          return element;
-        }
-      }
-
-      class DummyPage2 {
-        constructor(props) {
-          this.props = props;
-        }
-        createElement() {
-          const element = document.createElement('div');
-          element.innerHTML = this.props.message;
-          return element;
-        }
-      }
-
-      const routes = {
+      app.routes = {
         '/': DummyPage,
         'someOtherPage': DummyPage2,
       };
 
-      const app = new App(routes, $('#watch-face'));
       let element = document.getElementById('watch-face');
 
       app.navigate('/', {});
-      expect(element.innerHTML).toBe(`<div>hello world</div>`);
+      expect(element.innerHTML).toBe(`<div>Some page</div>`);
 
       app.navigate('someOtherPage', { message: 'I like to move it move it'});
       expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
     });
 
     it('shows 404 when path does not match any predefined routes', () => {
-      class FourOhFour {
+      class FourOhFour extends BasePage {
         createElement() {
           const element = document.createElement('div');
           element.innerHTML = `Oops, page not found`;
@@ -89,11 +227,10 @@ fdescribe('App', () => {
         }
       }
 
-      const routes = {
+      app.routes = {
         '404': FourOhFour,
       };
 
-      const app = new App(routes, $('#watch-face'));
       let element = document.getElementById('watch-face');
 
       app.navigate('someRandomPage', {});
