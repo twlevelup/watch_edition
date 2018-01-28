@@ -2,10 +2,18 @@ const HomePage = require('../../src/js/pages/homePage');
 const $ = require('jquery');
 
 describe('HomePage', () => {
+  let watchFace;
+  beforeEach(() => {
+    document.body.innerHTML = `
+        <div id='watch-face' style='height: 100px; width: 100px;'></div>
+      `;
+    watchFace = document.getElementById('watch-face');
+  });
+
   describe('#rightButtonEvent', () => {
     it('goes to contacts page', () => {
       const props = {
-        navigate: () => {},
+        navigate: () => { },
       };
       const page = new HomePage(props);
       spyOn(page, 'navigate');
@@ -17,48 +25,23 @@ describe('HomePage', () => {
 
   describe('#bottomButtonEvent', () => {
     it('scrolls page down', () => {
-      const $watchFace = $('#watch-face');
-      spyOn($watchFace, 'animate');
 
-      const props = {
-        $watchFace,
-      };
-
-      const page = new HomePage(props);
-
-      document.body.innerHTML = `
-        <div id='watch-face' style='height: 100px'></div>
-      `;
+      const page = new HomePage({ watchFace });
 
       page.bottomButtonEvent();
 
-      expect($watchFace.animate).toHaveBeenCalledWith({
-        scrollTop: '-=70px'
-      });
+      expect(watchFace.scrollTop).toEqual(40);
 
     });
   });
 
   describe('#topButtonEvent', () => {
     it('scrolls page up', () => {
-      const $watchFace = $('#watch-face');
-      spyOn($watchFace, 'animate');
-
-      const props = {
-        $watchFace,
-      };
-
-      const page = new HomePage(props);
-
-      document.body.innerHTML = `
-        <div id='watch-face' style='height: 100px'></div>
-      `;
+      const page = new HomePage({ watchFace });
 
       page.topButtonEvent();
 
-      expect($watchFace.animate).toHaveBeenCalledWith({
-        scrollTop: '-=70px'
-      });
+      expect(watchFace.scrollTop).toEqual(-40);
     });
   });
 });

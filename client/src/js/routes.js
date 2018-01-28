@@ -1,6 +1,6 @@
-const HomePage = require('./pages/HomePage');
+const HomePage = require('./pages/homePage');
 const ContactsPage = require('./pages/ContactsPage/');
-const TeamPage = require('./pages/TeamPage');
+const TeamPage = require('./pages/teamPage');
 const FourOhFour = require('./pages/404Page');
 
 module.exports = {
