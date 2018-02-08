@@ -1,7 +1,7 @@
 const App = require('../src/js/app');
 const BasePage = require('../src/js/pages/BasePage');
 
-fdescribe('App', () => {
+describe('App', () => {
   document.body.innerHTML = `
     <div id='watch-face'></div>
     <div id='button-left'></div>
@@ -12,6 +12,10 @@ fdescribe('App', () => {
 
   let watch = {};
   let routes = {};
+  let notificationHandler =  {
+    show: () => {},
+    hide: () => {},
+  }
   let app;
 
   class DummyPage extends BasePage {
@@ -37,7 +41,7 @@ fdescribe('App', () => {
     routes = {
       'teamRocket': DummyPage,
     };
-    app = new App(routes, watch);
+    app = new App(routes, watch, notificationHandler);
   });
 
   describe('#navigateToLocation', () => {
