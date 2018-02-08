@@ -10,8 +10,8 @@
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --inline --hot",
     "build": "webpack",
-    "test": "karma start",
-    "test:dev": "karma start --auto-watch --no-single-run",
+    "test": "jest",
+    "test:dev": "jest --watch",
     "preci": "npm -s run stylecheck",
     "ci": "npm -s run test",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",

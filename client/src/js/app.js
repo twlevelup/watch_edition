@@ -42,6 +42,6 @@ module.exports = class App {
     page.pageWillLoad();
     this.watchFace.innerHTML = page.template();
     page.pageDidLoad();
-    window.location.href = `/#${path}`;
+    window.location.hash = `/#${path}`;
   }
 }
