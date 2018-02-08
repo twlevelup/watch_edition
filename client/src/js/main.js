@@ -6,7 +6,13 @@ const App = require('./app');
 const NotificationsForm = require('watch_framework').NotificationsForm;
 
 const notificationsForm = new NotificationsForm();
-notificationsForm.configureNotifications({});
+notificationsForm.configureNotifications([
+  {
+    notificationType: "alert",
+    label: "alert",
+    defaultValue: "This is a test alert"
+  }
+]);
 
 const watch = {
   watchFace: document.getElementById('watch-face'),
