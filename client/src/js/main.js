@@ -31,16 +31,16 @@ const watch = {
   notificationFormMessage: document.getElementsByName("notification-message")[0],
 };
 
-const showNotification = () => {
+const showNotification = (message) => {
   watch.notification.hidden = false;
-  watch.notificationMessage.innerHTML = escapeHTML(watch.notificationFormMessage.value);
+  watch.notificationMessage.innerHTML = escapeHTML(message);
 }
 
 const hideNotification = () => {
   watch.notification.hidden = true;
 }
 
-watch.notificationFormSend.addEventListener("click", showNotification);
+watch.notificationFormSend.addEventListener("click", () => showNotification(watch.notificationFormMessage.value));
 watch.notificationButtonOkay.addEventListener("click", hideNotification);
 watch.notificationButtonCancel.addEventListener("click", hideNotification);
 
