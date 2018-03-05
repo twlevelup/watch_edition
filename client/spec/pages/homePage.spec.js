@@ -1,53 +1,47 @@
 const HomePage = require('../../src/js/pages/homePage');
-const App = require('../../src/js/app');
-const eventHub = require('watch_framework').EventHub;
+const $ = require('jquery');
 
-let page;
-
-window.App = App;
-
-describe('The Home Page', () => {
+describe('HomePage', () => {
+  let watchFace;
   beforeEach(() => {
-    page = new HomePage();
+    document.body.innerHTML = `
+        <div id='watch-face' style='height: 100px; width: 100px;'></div>
+      `;
+    watchFace = document.getElementById('watch-face');
   });
 
-  describe('button event handlers', () => {
-    describe('right', () => {
-      it('should take the user to the contacts page', () => {
-        spyOn(window.App, 'navigate');
-        page.configureButtons();
-        eventHub.trigger('right');
-        expect(window.App.navigate).toHaveBeenCalledWith('contacts');
-      });
-    });
+  describe('#rightButtonEvent', () => {
+    it('goes to contacts page', () => {
+      const props = {
+        navigate: () => { },
+      };
+      const page = new HomePage(props);
+      spyOn(page, 'navigate');
 
-    describe('top', () => {
-      it('should scroll the watch face up', () => {
-        spyOn(page, 'scrollUp');
-        page.configureButtons();
-        eventHub.trigger('top');
-        expect(page.scrollUp).toHaveBeenCalled();
-      });
-    });
-
-    describe('bottom', () => {
-      it('should scroll the watch face down', () => {
-        spyOn(page, 'scrollDown');
-        page.configureButtons();
-        eventHub.trigger('bottom');
-        expect(page.scrollDown).toHaveBeenCalled();
-      });
+      page.rightButtonEvent();
+      expect(page.navigate).toHaveBeenCalledWith('contacts');
     });
   });
 
-  describe('rendering', () => {
-    it('should produce the correct HTML', () => {
-      page.render();
-      expect(page.$el).toContainText('Hello, World!');
-    });
+  describe('#bottomButtonEvent', () => {
+    it('scrolls page down', () => {
 
-    it('returns the view object', () => {
-      expect(page.render()).toEqual(page);
+      const page = new HomePage({ watchFace });
+
+      page.bottomButtonEvent();
+
+      expect(watchFace.scrollTop).toEqual(40);
+
+    });
+  });
+
+  describe('#topButtonEvent', () => {
+    it('scrolls page up', () => {
+      const page = new HomePage({ watchFace });
+
+      page.topButtonEvent();
+
+      expect(watchFace.scrollTop).toEqual(-40);
     });
   });
 });

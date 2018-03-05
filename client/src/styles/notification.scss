@@ -1,26 +1,32 @@
-.notification {
+#notification {
   background-color: black;
   color: white;
   position: absolute;
   height: 160px;
   width: 160px;
-  top: 20px;
-  left: 30px;
+  top: 50px;
+  left: 50px;
   opacity: 0.9;
   z-index: 100;
   padding: 20px;
 }
 
-.notification-message-display {
+#notification-message-display {
   height: 70%;
 }
 
-.navigation-button-right {
+#navigation-buttons {
+  display: flex;
+}
+.navigation-button {
+  flex: 1;
   cursor: pointer;
-  float:right;
 }
 
-.navigation-button-left {
-  cursor: pointer;
-  float:left;
+#navigation-button-right {
+ text-align: right
+}
+
+#navigation-button-left {
+ text-align: left
 }

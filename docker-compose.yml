@@ -1,9 +1,0 @@
-version: '2'
-services:
-  api:
-    build: .
-    ports:
-      - 8080:8080
-      - 9001:9001
-    volumes:
-      - .:/usr/src/levelup/app

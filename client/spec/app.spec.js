@@ -1,85 +1,212 @@
-const watchFramework = require('watch_framework');
-const Router = require('../src/js/router');
-const app = require('../src/js/app');
+const App = require('../src/js/app');
+const BasePage = require('../src/js/pages/BasePage');
 
-const WatchFace = watchFramework.WatchFace;
-const NotificationHandler = watchFramework.NotificationHandler;
+describe('App', () => {
+  document.body.innerHTML = `
+    <div id='watch-face'></div>
+    <div id='button-left'></div>
+    <div id='button-right'></div>
+    <div id='button-top'></div>
+    <div id='button-bottom'></div>
+  `;
 
-// TODO replace .on with listenTo
+  let watch = {};
+  let routes = {};
+  let notificationHandler =  {
+    show: () => {},
+    hide: () => {},
+  }
+  let app;
 
-describe('The App', () => {
+  class DummyPage extends BasePage {
+    template() {
+      return '<div>Some page</div>';
+    }
+  }
+
+  class DummyPage2 extends BasePage {
+    template() {
+      return `<div>${this.props.message}</div>`;
+    }
+  }
+
   beforeEach(() => {
-    app.start();
+    watch = {
+      watchFace: document.getElementById('watch-face'),
+      leftButton: document.getElementById('button-left'),
+      rightButton: document.getElementById('button-right'),
+      topButton: document.getElementById('button-top'),
+      bottomButton: document.getElementById('button-bottom'),
+    };
+    routes = {
+      'teamRocket': DummyPage,
+    };
+    app = new App(routes, watch, notificationHandler);
   });
 
-  it('should have a router', () => {
-    expect(app.router instanceof Router).toBeTruthy();
+  describe('#navigateToLocation', () => {
+    it('strips location path and navigates to page', () => {
+      // dummy window.location object. https://developer.mozilla.org/en-US/docs/Web/API/Location
+      app.navigateToLocation({
+        href: 'http://localhost:8080/#teamRocket',
+        hash: '#teamRocket',
+      });
+      let element = document.getElementById('watch-face');
+      expect(element.innerHTML).toBe('<div>Some page</div>');
+    });
+
+    describe('url has no trailing paths', () => {
+      it('goes to home page', () => {
+        app.routes = {
+          '/': DummyPage,
+        };
+        // dummy window.location object. https://developer.mozilla.org/en-US/docs/Web/API/Location
+        app.navigateToLocation({
+          href: 'http://localhost:8080/',
+          hash: '',
+        });
+        let element = document.getElementById('watch-face');
+        expect(element.innerHTML).toBe('<div>Some page</div>');
+      });
+    });
   });
 
-  it('should have a watch face', () => {
-    expect(app.watchFace instanceof WatchFace).toBeTruthy();
-  });
+  describe('#navigate', () => {
+    it('registers page left button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
 
-  it('should have a notification handler', () => {
-    expect(app.notificationHandler instanceof NotificationHandler).toBeTruthy();
-  });
+      app.navigate('/');
 
-  it('should have an event hub', () => {
-    // TODO it would be good to check type of app.vent
-    expect(app.vent.on).toBeTruthy();
-  });
+      watch.leftButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
 
-  describe('configureButtons', () => {
-    beforeEach(() => {
-      app.activePage = {
-        stopListening() {},
+    it('registers page right button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
 
-        configureButtons() {},
+      app.navigate('/');
+
+      watch.rightButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page top button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.topButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page bottom button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.bottomButton.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page face button event', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      watch.watchFace.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).toHaveBeenCalled();
+    });
+
+    it('should changes watch face to the specific page', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
       };
 
-      spyOn(app.activePage, 'stopListening');
+      let element = document.getElementById('watch-face');
+
+      app.navigate('/', {});
+      expect(element.innerHTML).toBe(`<div>Some page</div>`);
+
+      app.navigate('someOtherPage', { message: 'I like to move it move it'});
+      expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
     });
 
-    it('should be a function', () => {
-      expect(typeof app.configureButtons === 'function').toEqual(true);
-    });
+    it('shows 404 when path does not match any predefined routes', () => {
+      class FourOhFour extends BasePage {
+        template() {
+          return '<div>Oops, page not found</div>';
+        }
+      }
 
-    it('should configure buttons for the active notification', () => {
-      app.notificationHandler.activeNotification = {
-        configureButtons() {},
+      app.routes = {
+        '404': FourOhFour,
       };
 
-      spyOn(app.notificationHandler.activeNotification, 'configureButtons');
-      app.configureButtons();
+      let element = document.getElementById('watch-face');
 
-      expect(app.activePage.stopListening).toHaveBeenCalled();
-      expect(app.notificationHandler.activeNotification.configureButtons).toHaveBeenCalled();
+      app.navigate('someRandomPage', {});
+      expect(element.innerHTML).toBe(`<div>Oops, page not found</div>`);
     });
-
-    it('when there is no notification, should configure buttons for the active page', () => {
-      app.notificationHandler.activeNotification = undefined;
-      spyOn(app.activePage, 'configureButtons');
-
-      app.configureButtons();
-      expect(app.activePage.stopListening).toHaveBeenCalled();
-      expect(app.activePage.configureButtons).toHaveBeenCalled();
-    });
-  });
-
-  describe('navigate', () => {
-    // TODO should this be renamed and also trigger render or init ?
-
-    beforeEach(() => {
-      spyOn(app.router, 'navigate');
-    });
-
-    it('should call navigate on the router with the route', () => {
-      app.navigate('foo');
-      expect(app.router.navigate).toHaveBeenCalledWith('foo', true);
-    });
-  });
-
-  xdescribe('clock', () => {
-    it('should start the clock');
   });
 });

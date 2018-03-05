@@ -1,89 +1,48 @@
-const watchFramework = require('watch_framework');
-const Router = require('./router');
-const pages = require('./pages');
-const notifications = require('./watch-notifications');
-const Backbone = require('backbone');
-const _ = require('underscore');
-const $ = require('jquery');
-
-const WatchFace = watchFramework.WatchFace;
-const NotificationHandler = watchFramework.NotificationHandler;
-const clock = watchFramework.Clock;
-
-class App {
-  constructor(eventHub, router, watchFace, notificationHandler) {
-    this.vent = eventHub;
-    this.router = router;
-    this.watchFace = watchFace;
+module.exports = class App {
+  constructor(routes, watch, notificationHandler) {
+    this.routes = routes;
+    this.watchFace = watch.watchFace;
+    this.leftButton = watch.leftButton;
+    this.rightButton = watch.rightButton;
+    this.topButton = watch.topButton;
+    this.bottomButton = watch.bottomButton;
+    this.navigate = this.navigate.bind(this);
     this.notificationHandler = notificationHandler;
   }
-
-  static init() {
-    return new App(
-      watchFramework.EventHub,
-      new Router(pages),
-      new WatchFace(),
-      new NotificationHandler(notifications),
-    );
-  }
-
-  navigate(route) {
-    this.router.navigate(route, true);
-  }
-
-  showPage(Page, options) {
-    if (this.activePage) {
-      this.activePage.remove();
+  // https://developer.mozilla.org/en-US/docs/Web/API/Location
+  // Example:
+  // {
+  //    href: 'http://localhost:8080/#teamRocket',
+  //    hash: '#teamRocket',
+  // }
+  //
+  navigateToLocation(location) {
+    // i.e. navigateToLocation({ hash: '#teamRocket' }) => 'teamRocket'
+    let path = location.hash.slice(1);
+    if (path === "") {
+      path = "/";
     }
-
-    this.notificationHandler.hideNotification();
-
-    this.activePage = new Page(options);
-
-    $('#watch-face').html(this.activePage.render().el);
-    this.vent.trigger('showPage');
+    this.navigate(path, {});
   }
 
-  configureButtons() {
-    this.activePage.stopListening(); // NOTE do this here to prevent duplicate listeners
-    if (this.notificationHandler.activeNotification) {
-      this.notificationHandler.activeNotification.configureButtons();
-    } else {
-      this.activePage.configureButtons();
-    }
-  }
-
-  setupEventHandlers() {
-    this.listenTo(this.vent, 'showPage', this.configureButtons);
-    this.listenTo(this.vent, 'showNotification', function showNotification(opts) {
-      // TODO delegate/proxy the event instead?
-      this.notificationHandler.showNotification(opts);
-      this.configureButtons();
+  navigate(path, props = {}) {
+    const Page = this.routes[path] || this.routes["404"];
+    const page = new Page({
+      ...props,
+      navigate: this.navigate,
+      watchFace: this.watchFace,
     });
 
-    this.listenTo(this.vent, 'hideNotification', function hideNotification() {
-      // TODO delegate/proxy the event instead?
-      this.notificationHandler.hideNotification();
-      this.configureButtons();
-    });
+    this.leftButton.addEventListener("click", page.leftButtonEvent.bind(page));
+    this.rightButton.addEventListener("click", page.rightButtonEvent.bind(page));
+    this.topButton.addEventListener("click", page.topButtonEvent.bind(page));
+    this.bottomButton.addEventListener("click", page.bottomButtonEvent.bind(page));
+    this.watchFace.addEventListener("click", page.faceButtonEvent.bind(page));
+
+    this.notificationHandler.hide();
+    page.pageWillLoad();
+    this.watchFace.innerHTML = page.template();
+    page.pageDidLoad();
+    window.location.hash = path;
   }
-
-  start() {
-    clock.start();
-
-    this.setupEventHandlers();
-
-    if (Backbone.history && !Backbone.History.started) {
-      Backbone.history.start();
-    }
-  }
-}
-
-const app = App.init();
-
-_.extend(app, Backbone.Events);
-
-// FIXME this is a hack to resolve issue with the router design
-window.App = app;
-
-module.exports = app;
+};

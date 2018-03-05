@@ -1,21 +1,15 @@
-const Backbone = require('backbone');
-const template = require('../../templates/pages/team.hbs');
+const BasePage = require('./BasePage');
 
-const teamPage = Backbone.View.extend({
+class TeamPage extends BasePage {
+  template() {
+    return `
+      <h1>Made by:</h1>
+      <ul>
+          <!-- TODO: Add your name as a list element -->
+          <li>Ray</li>
+      </ul>
+    `;
+  }
+}
 
-  id: 'team',
-
-  template,
-
-  initialize() {
-    this.render();
-  },
-
-  render() {
-    this.$el.html(this.template());
-    return this;
-  },
-
-});
-
-module.exports = teamPage;
+module.exports = TeamPage;
