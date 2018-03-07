@@ -25,8 +25,7 @@ const watch = {
   bottomButton: document.getElementById("button-bottom"),
   notification: document.getElementById("notification"),
   notificationMessage: document.getElementById("notification-message-display"),
-  notificationButtonOkay: document.getElementById("navigation-button-okay"),
-  notificationButtonCancel: document.getElementById("navigation-button-cancel"),
+  notificationButtonOkay: document.getElementsByClassName("case")[0],
   notificationFormSend: document.getElementById("sendNotification"),
   notificationFormMessage: document.getElementsByName("notification-message")[0],
 };
@@ -42,7 +41,6 @@ const hideNotification = () => {
 
 watch.notificationFormSend.addEventListener("click", () => showNotification(watch.notificationFormMessage.value));
 watch.notificationButtonOkay.addEventListener("click", hideNotification);
-watch.notificationButtonCancel.addEventListener("click", hideNotification);
 
 const notificationHandler = {
   show: showNotification,
