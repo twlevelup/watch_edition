@@ -2,10 +2,10 @@
     float:left;
     width: 100%;
     margin-left: 5%;
-    font-family: OpenSans, Helvetica, Arial, sans-serif;
+    font-family: "Trebuchet MS", OpenSans, Helvetica, Arial, sans-serif;
 
     h1 {
-        font-family: OpenSans-Light, Helvetica, Arial, sans-serif;
+        font-family: "Trebuchet MS", OpenSans-Light, Helvetica, Arial, sans-serif;
         font-weight: normal;
         font-size: 42pt;
         color: #5e5e5e;
@@ -17,9 +17,22 @@
     }
 
     .notification-form {
+      background: lightgrey;
+      padding: 20px;
+      width: 550px;
+
       label {
         display: block;
+        font-weight: bold;
+        color: black;
       }
+
+      p {
+        color: black;
+        font-size: 30px;
+        margin: 0;
+      }
+
     }
 
 }

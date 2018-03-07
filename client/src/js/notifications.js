@@ -1,7 +1,7 @@
 module.exports = [
   {
     notificationType: "alert",
-    label: "alert",
+    label: "Alert",
     defaultValue: "This is a test alert",
   },
 ];
