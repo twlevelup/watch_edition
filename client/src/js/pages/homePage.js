@@ -1,11 +1,13 @@
 const BasePage = require('./BasePage');
 const logo = require('../../images/logo.png')
+const date = new Date(Date.now()).toLocaleString().split(",")[0];
+const time = new Date(Date.now()).toLocaleString().split(",")[1];
 
 class HomePage extends BasePage {
   template() {
     return `
-      <p>Date: <span class="clock-date"></span></p>
-      <p>Time: <span class="clock-time"></span></p>
+      <p>Date: <span class="clock-date">${date}</span></p>
+      <p>Time: <span class="clock-time">${time}</span></p>
       <img src="${logo}" alt="" />
       <div>Hello, World!</div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at feugiat massa. Nullam et pellentesque mauris. Aenean vel molestie velit. Aenean dui metus, pellentesque nec molestie sit amet, tempus vel velit. Donec nec dui sapien. Nunc fermentum, erat et condimentum facilisis, nunc nisl placerat enim, non tincidunt massa felis ut libero. Proin tincidunt lectus sit amet sollicitudin fermentum.</p>
