@@ -1,7 +1,10 @@
 .screen{
   padding-left: 1.5em;
-  font-family: monospace;
-  color: #FFF;
+  font-family: OpenSans-Light;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: normal;
 }
 
 #watch-face{
@@ -89,7 +92,7 @@
   left:4.4em;
   width:11.2em;
   height:7.6em;
-  background: #785734;
+  background: dimgrey;
   border-radius: 10px 10px 0 0;
 }
 
