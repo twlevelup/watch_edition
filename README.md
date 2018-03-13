@@ -10,7 +10,7 @@ The [wiki](https://github.com/twlevelup/watch_edition/wiki) contains lots of use
 
 See the [Installation Instructions](https://github.com/twlevelup/watch_edition/wiki/Installation)
 
-## Continuous Integration
+# Continuous Integration
 
 This project is continuously deployed to heroku by [Circle CI](https://circleci.com).
 You can view this app at [https://twlevelup-watch-edition.herokuapp.com/](https://twlevelup-watch-edition.herokuapp.com/)
