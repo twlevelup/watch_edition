@@ -14,7 +14,7 @@ cd gh-pages-branch
 git config --global user.email levelup@thoughtworks.com > /dev/null 2>&1
 git config --global user.name levelup > /dev/null 2>&1
 git init
-git remote add --fetch origin https://github.com/twlevelup/watch_edition.git
+git remote add --fetch origin https://github.com/twlevelup/mel-2018-sem1-dragons.git
 
 
 # switch into the the gh-pages branch
