@@ -1,5 +1,5 @@
 const HomePage = require('./pages/homePage');
-const ContactsPage = require('./pages/ContactsPage/');
+const ContactsPage = require('./pages/contactsPage');
 const TeamPage = require('./pages/teamPage');
 const FourOhFour = require('./pages/404Page');
 

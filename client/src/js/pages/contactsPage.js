@@ -1,7 +1,8 @@
-const ContactView = require('./components/contact');
-const BasePage = require('../BasePage');
+const BasePage = require('./BasePage');
+const compiledTemplate = require('../../templates/contactsPage.hbs')
 
 class ContactsPage extends BasePage {
+
   constructor(props) {
     super(props);
     this.contacts = props.contacts || [
@@ -12,15 +13,10 @@ class ContactsPage extends BasePage {
   }
 
   template() {
-    return `
-      <h1>Contacts</h1>
-      <ul>
-        ${this.contacts.map(contact =>
-          `<li>${new ContactView(contact).template()}</li>`
-          )
-          .join('')}
-      </ul>
-    `;
+    const context = {
+      contacts: this.contacts,
+    };
+    return compiledTemplate(context);
   }
 
   leftButtonEvent() {

@@ -14,6 +14,7 @@
 node_modules/
 .grunt/
 npm-debug.log
+yarn-error.log
 
 # Project specific
 

@@ -1,11 +1,9 @@
 const BasePage = require('./BasePage');
+const compiledTemplate = require('../../templates/404Page.hbs');
 
 class FourOhFourPage extends BasePage {
   template() {
-    return `
-      <h1>Oops!</h1>
-      <p>The page you're looking for could not be found.</p>
-    `;
+    return compiledTemplate();
   }
 }
 
