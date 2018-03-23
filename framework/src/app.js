@@ -1,16 +1,18 @@
 
 require('../styles/main.scss');
 require('../fonts/fonts.scss');
+const createNotificationHandler = require('./notifications');
+
 module.exports = class App {
-  constructor(routes, watch, notificationHandler) {
+  constructor(routes, notifications) {
     this.routes = routes;
-    this.watchFace = watch.watchFace;
-    this.leftButton = watch.leftButton;
-    this.rightButton = watch.rightButton;
-    this.topButton = watch.topButton;
-    this.bottomButton = watch.bottomButton;
+    this.watchFace = document.getElementById("watch-face");
+    this.leftButton = document.getElementById("button-left");
+    this.rightButton = document.getElementById("button-right");
+    this.topButton = document.getElementById("button-top");
+    this.bottomButton = document.getElementById("button-bottom");
     this.navigate = this.navigate.bind(this);
-    this.notificationHandler = notificationHandler;
+    this.notificationHandler = createNotificationHandler(notifications);
   }
 
   navigateToLocation(location) {
