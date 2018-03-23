@@ -52,7 +52,7 @@ module.exports = {
       _: 'underscore',
     }),
     new HtmlWebpackPlugin({
-      template: './framework/index.ejs',
+      template: './framework/index.hbs',
     })
   ],
 };
