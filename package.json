@@ -21,8 +21,8 @@
   "dependencies": {
     "babel": "^6.5.2",
     "babel-loader": "^6.2.10",
-    "babel-plugin-syntax-class-properties": "6.13.0",
     "babel-plugin-dynamic-import-webpack": "^1.0.1",
+    "babel-plugin-syntax-class-properties": "6.13.0",
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
@@ -33,7 +33,6 @@
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "file-loader": "^0.8.5",
-    "handlebars": "^4.0.6",
     "handlebars-template-loader": "^0.6.0",
     "html-webpack-plugin": "^2.26.0",
     "http-server": "^0.9.0",
@@ -61,6 +60,7 @@
     "jasmine-core": "^2.6.4",
     "jest": "^21.2.1",
     "jest-cli": "^22.4.2",
+    "jest-handlebars": "^1.0.1",
     "jsdom": "^11.5.1",
     "phantomjs-prebuilt": "^2.1.14",
     "regenerator-runtime": "^0.11.0",
@@ -73,7 +73,8 @@
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.js$": "babel-jest",
+      "\\.hbs$": "jest-handlebars"
     },
     "moduleFileExtensions": [
       "js"

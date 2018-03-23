@@ -1,17 +1,9 @@
 const BasePage = require('./BasePage');
-
+const compiledTemplate = require('../../templates/teamPage.hbs')
 class TeamPage extends BasePage {
   template() {
-    return `
-      <h1>Made by:</h1>
-      <ul>
-          <!-- TODO: Add your name as a list element -->
-          <li>Ray</li>
-      </ul>
-    `;
+    return compiledTemplate();
   }
 }
 
 module.exports = TeamPage;
-
-//Hello change

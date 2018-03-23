@@ -18,12 +18,13 @@ You can view this app at [https://twlevelup-watch-edition.herokuapp.com/](https:
 ### Before you push
 
 1. Check the CI build, do not pull unless it's passing!
-2. Run ```git pull --rebase```
+2. Run `git pull --rebase`
 3. Fix any merge conflicts
 4. Run
-```./go pre-commit``` (OS X)
-```npm -s run test``` (Windows)
-```docker-compose -f docker-compose.test.yml up``` (Docker)
+    * `./go pre-commit` (OS X)
+    * `npm -s run test` (Windows)
+    * `docker-compose -f docker-compose.test.yml up` (Docker)
+
 5. Fix any errors
 6. Repeat steps 2-5 until all tests have passed and all conflicts have been resolved
 7. Run ```git push```
