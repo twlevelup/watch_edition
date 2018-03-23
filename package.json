@@ -17,6 +17,11 @@
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
     "heroku-postbuild": "webpack --progress"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./go pre-commit"
+    }
+  },
   "dependencies": {
     "babel": "^6.5.2",
     "babel-loader": "^6.2.10",
@@ -51,6 +56,7 @@
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "fixme": "^0.4.0",
+    "husky": "^0.15.0-rc.13",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^21.2.1",
     "jest-cli": "^22.4.2",
