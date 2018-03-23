@@ -48,17 +48,11 @@ module.exports = {
   target: 'web',
   plugins: [
     new webpack.ProvidePlugin({
-      // FIXME this is lazy, do something better with backbone and underscore
-      // Automtically detect jQuery and $ as free var in modules
-      // and inject the jquery library
-      // This is required by many jquery plugins
-      jQuery: 'jquery',
       $: 'jquery',
-      Backbone: 'backbone',
       _: 'underscore',
     }),
     new HtmlWebpackPlugin({
-      template: './client/src/index.ejs',
+      template: './framework/index.ejs',
     })
   ],
 };

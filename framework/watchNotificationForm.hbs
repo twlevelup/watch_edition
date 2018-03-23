@@ -1,0 +1,14 @@
+<p class="notification-form-title">Notifications</p>
+<div class="form-group">
+    <label>Type</label>
+    <select name="notification-form-type" id="notification-form-type-select" class="notification-form-type">
+      {{#each notifications}}
+        <option value="{{this.notificationType}}">{{this.label}}</option>
+      {{/each}}
+    </select>
+</div>
+<div class="form-group">
+    <label>Message</label>
+    <textarea id="notification-form-message" class="notification-form-message" maxlength="200"></textarea>
+</div>
+<button type="button" id="notification-form-send">Send</button>

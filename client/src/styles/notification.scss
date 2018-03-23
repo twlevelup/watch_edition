@@ -1,4 +1,4 @@
-#notification {
+#notification-container {
   background-color: black;
   color: white;
   position: absolute;
@@ -15,19 +15,20 @@
   height: 70%;
 }
 
-#navigation-buttons {
+#notification-buttons {
   display: flex;
 }
-.navigation-button {
+
+.notification-button {
   flex: 1;
   cursor: default;
   text-align: center;
 }
 
-#navigation-button-right {
+#notification-button-right {
  text-align: right
 }
 
-#navigation-button-left {
+#notification-button-left {
  text-align: left
 }

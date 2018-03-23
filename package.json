@@ -43,8 +43,7 @@
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "underscore": "^1.8.3",
-    "url-loader": "^0.5.7",
-    "watch_framework": "git://github.com/twlevelup/watch_framework.git#v1.0"
+    "url-loader": "^0.5.7"
   },
   "engines": {
     "node": "9.2.0"
@@ -62,7 +61,6 @@
     "jest-cli": "^22.4.2",
     "jest-handlebars": "^1.0.1",
     "jsdom": "^11.5.1",
-    "phantomjs-prebuilt": "^2.1.14",
     "regenerator-runtime": "^0.11.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^1.12.1"
