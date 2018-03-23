@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Watch framework",
   "author": "LevelUp",
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watchAll"
+  },
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
@@ -26,5 +30,8 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ]
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
   }
 }

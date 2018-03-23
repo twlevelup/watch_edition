@@ -11,7 +11,7 @@
     "start": "webpack-dev-server --host 0.0.0.0 --inline --hot",
     "build": "webpack",
     "test": "jest",
-    "test:dev": "jest --watch",
+    "test:dev": "jest --watchAll",
     "ci": "npm -s run stylecheck && npm -s run test",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
