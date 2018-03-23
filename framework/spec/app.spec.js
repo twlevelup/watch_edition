@@ -1,4 +1,4 @@
-const App = require('../src/app');
+const App = require('../src/App');
 const BasePage = require('../src/BasePage');
 
 describe('App', () => {
@@ -8,14 +8,15 @@ describe('App', () => {
     <div id='button-right'></div>
     <div id='button-top'></div>
     <div id='button-bottom'></div>
+    <div id='notification-container'></div>
+    <form id='notification-form'></form>
   `;
 
   let watch = {};
   let routes = {};
-  let notificationHandler =  {
-    show: () => {},
-    hide: () => {},
-  }
+  let notifications = [
+    {type: 'blah', label: 'test', defaultValue: ''}
+  ];
   let app;
 
   class DummyPage extends BasePage {
@@ -41,7 +42,7 @@ describe('App', () => {
     routes = {
       'teamRocket': DummyPage,
     };
-    app = new App(routes, watch, notificationHandler);
+    app = new App(routes, notifications);
   });
 
   describe('#navigateToLocation', () => {

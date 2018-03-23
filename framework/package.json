@@ -33,5 +33,8 @@
   },
   "devDependencies": {
     "jest": "^22.4.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
   }
 }

@@ -53,9 +53,6 @@ module.exports = {
     stats: 'minimal',
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      _: 'underscore',
-    }),
     new HtmlWebpackPlugin({
       template: './framework/templates/watch.hbs',
     }),

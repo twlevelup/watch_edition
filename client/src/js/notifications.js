@@ -1,11 +1,11 @@
 const notifications = [
   {
-    notificationType: "alert",
+    type: "alert",
     label: "Alert",
     defaultValue: "This is a test alert",
   },
   {
-    notificationType: "push",
+    type: "push",
     label: "Push",
     defaultValue: "This is a test push notification",
   }
