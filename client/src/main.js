@@ -1,6 +1,3 @@
-require('./styles/main.scss');
-require('./fonts/fonts.scss');
-
 const { createNotificationHandler, App } = require('watch-framework');
 
 const routes = require("./js/routes");

@@ -1,3 +1,5 @@
+require('../../styles/pages/home.scss');
+
 const BasePage = require('watch-framework').BasePage;
 const logo = require('../../images/logo.png')
 const date = new Date(Date.now()).toLocaleString().split(",")[0];

@@ -1,3 +1,6 @@
+
+require('../styles/main.scss');
+require('../fonts/fonts.scss');
 module.exports = class App {
   constructor(routes, watch, notificationHandler) {
     this.routes = routes;
