@@ -65,7 +65,7 @@ module.exports = {
       _: 'underscore',
     }),
     new HtmlWebpackPlugin({
-      template: './client/src/index.ejs',
+      template: './framework/index.hbs',
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
