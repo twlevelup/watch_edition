@@ -11,8 +11,10 @@ module.exports = class App {
     this.rightButton = document.getElementById("button-right");
     this.topButton = document.getElementById("button-top");
     this.bottomButton = document.getElementById("button-bottom");
-    this.navigate = this.navigate.bind(this);
     this.notificationHandler = createNotificationHandlers(notifications);
+    this.navigate = this.navigate.bind(this);
+    this.clearEventListeners = this.clearEventListeners.bind(this);
+    this.setupEventListeners = this.setupEventListeners.bind(this);
   }
 
   navigateToLocation(location) {
@@ -24,19 +26,25 @@ module.exports = class App {
   }
 
   clearEventListeners() {
-    this.leftButton.removeEventListener("click", this.leftListener)
-    this.rightButton.removeEventListener("click", this.rightListener)
-    this.topButton.removeEventListener("click", this.topListener)
-    this.bottomButton.removeEventListener("click", this.bottomListener)
-    this.watchFace.removeEventListener("click", this.faceListener)
+    this.leftButton.removeEventListener("click", this.leftListener);
+    this.rightButton.removeEventListener("click", this.rightListener);
+    this.topButton.removeEventListener("click", this.topListener);
+    this.bottomButton.removeEventListener("click", this.bottomListener);
+    this.watchFace.removeEventListener("click", this.faceListener);
   }
 
   setupEventListeners(page) {
-    this.leftListener = this.leftButton.addEventListener("click", page.leftButtonEvent.bind(page));
-    this.rightListener = this.rightButton.addEventListener("click", page.rightButtonEvent.bind(page));
-    this.topListener = this.topButton.addEventListener("click", page.topButtonEvent.bind(page));
-    this.bottomListener = this.bottomButton.addEventListener("click", page.bottomButtonEvent.bind(page));
-    this.faceListener = this.watchFace.addEventListener("click", page.faceButtonEvent.bind(page));
+    this.leftListener = page.leftButtonEvent.bind(page);
+    this.rightListener = page.rightButtonEvent.bind(page);
+    this.topListener = page.topButtonEvent.bind(page);
+    this.bottomListener = page.bottomButtonEvent.bind(page);
+    this.faceListener = page.faceButtonEvent.bind(page);
+
+    this.leftButton.addEventListener("click", this.leftListener);
+    this.rightButton.addEventListener("click", this.rightListener);
+    this.topButton.addEventListener("click", this.topListener);
+    this.bottomButton.addEventListener("click", this.bottomListener);
+    this.watchFace.addEventListener("click", this.faceListener);
   }
 
   navigate(path, props = {}) {
