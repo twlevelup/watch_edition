@@ -12,8 +12,7 @@
     "build": "webpack",
     "test": "jest",
     "test:dev": "jest --watch",
-    "preci": "npm -s run stylecheck",
-    "ci": "npm -s run test",
+    "ci": "npm -s run stylecheck && npm -s run test",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
     "heroku-postbuild": "webpack --progress"
@@ -26,7 +25,6 @@
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
-    "backbone": "^1.3.3",
     "css-loader": "^0.23.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb-base": "^11.0.1",
@@ -36,14 +34,13 @@
     "handlebars-template-loader": "^0.6.0",
     "html-webpack-plugin": "^2.26.0",
     "http-server": "^0.9.0",
-    "istanbul-instrumenter-loader": "^2.0.0",
-    "jquery": "^3.2.1",
     "json-loader": "^0.5.4",
     "node-sass": "^4.7.2",
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "underscore": "^1.8.3",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "watch-framework": "file:./framework/"
   },
   "engines": {
     "node": "9.2.0"
@@ -55,8 +52,6 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "fixme": "^0.4.0",
     "identity-obj-proxy": "^3.0.0",
-    "istanbul-instrumenter-loader": "^2.0.0",
-    "jasmine-core": "^2.6.4",
     "jest": "^21.2.1",
     "jest-cli": "^22.4.2",
     "jest-handlebars": "^1.0.1",
@@ -77,6 +72,7 @@
     "moduleFileExtensions": [
       "js"
     ],
+    "testRegex": "/client/spec/.*\\.spec\\.js$",
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
@@ -85,7 +81,7 @@
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "client/src/js/**/*.js"
     ]
   }
 }

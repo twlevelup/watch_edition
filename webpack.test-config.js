@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   cache: true,
   entry: {
-    main: './client/src/js/main.js',
+    main: './client/src/main.js',
   },
   output: {
     path: path.join(__dirname, 'public/'),
@@ -20,7 +20,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loaders: [
           'babel-loader',
-          'istanbul-instrumenter-loader',
         ],
       },
       {
@@ -48,11 +47,10 @@ module.exports = {
   target: 'web',
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
       _: 'underscore',
     }),
     new HtmlWebpackPlugin({
-      template: './framework/index.hbs',
+      template: './framework/templates/watch.hbs',
     })
   ],
 };

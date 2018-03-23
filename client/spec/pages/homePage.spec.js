@@ -1,5 +1,4 @@
 const HomePage = require('../../src/js/pages/homePage');
-const $ = require('jquery');
 
 describe('HomePage', () => {
   let watchFace;
@@ -8,6 +7,13 @@ describe('HomePage', () => {
         <div id='watch-face' style='height: 100px; width: 100px;'></div>
       `;
     watchFace = document.getElementById('watch-face');
+  });
+
+  describe('#template', () => {
+    it('should have a template', () => {
+      const page = new HomePage();
+      expect(page.template()).toContain("<div>Hello, World!</div>");
+    });
   });
 
   describe('#rightButtonEvent', () => {

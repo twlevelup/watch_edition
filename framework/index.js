@@ -1,4 +1,7 @@
-const compileWatchNotificationForm = require("./watchNotificationForm.hbs");
+const BasePage = require('./src/BasePage');
+const App = require('./src/app');
+
+const compileWatchNotificationForm = require("./templates/watchNotificationForm.hbs");
 
 const escape = document.createElement("textarea");
 const escapeHTML = html => {
@@ -46,4 +49,6 @@ const createNotificationHandler = (notificationFormId, notifications) => {
 
 module.exports = {
   createNotificationHandler,
+  BasePage,
+  App,
 };

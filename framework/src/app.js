@@ -9,15 +9,8 @@ module.exports = class App {
     this.navigate = this.navigate.bind(this);
     this.notificationHandler = notificationHandler;
   }
-  // https://developer.mozilla.org/en-US/docs/Web/API/Location
-  // Example:
-  // {
-  //    href: 'http://localhost:8080/#teamRocket',
-  //    hash: '#teamRocket',
-  // }
-  //
+
   navigateToLocation(location) {
-    // i.e. navigateToLocation({ hash: '#teamRocket' }) => 'teamRocket'
     let path = location.hash.slice(1);
     if (path === "") {
       path = "/";

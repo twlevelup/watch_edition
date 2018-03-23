@@ -51,7 +51,7 @@ if [[ $1 ]]; then
   fi
 
   if [[ $1 == "pre-commit" ]]; then
-    npm -s run-script ci
+    npm -s run ci
     exit $?
   fi
 

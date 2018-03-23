@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   cache: true,
   entry: {
-    main: './client/src/js/main.js',
+    main: './client/src/main.js',
   },
   output: {
     path: path.join(__dirname, 'public/'),
@@ -20,7 +20,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loaders: [
           'babel-loader',
-          'istanbul-instrumenter-loader',
           'eslint-loader',
         ],
       },
@@ -55,17 +54,10 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      // FIXME this is lazy, do something better with backbone and underscore
-      // Automtically detect jQuery and $ as free var in modules
-      // and inject the jquery library
-      // This is required by many jquery plugins
-      jQuery: 'jquery',
-      $: 'jquery',
-      Backbone: 'backbone',
       _: 'underscore',
     }),
     new HtmlWebpackPlugin({
-      template: './framework/index.hbs',
+      template: './framework/templates/watch.hbs',
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,

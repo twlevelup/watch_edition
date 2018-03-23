@@ -1,9 +1,9 @@
-const BasePage = require('./BasePage');
+const BasePage = require('watch-framework').BasePage;
 const compiledTemplate = require('../../templates/contactsPage.hbs')
 
 class ContactsPage extends BasePage {
 
-  constructor(props) {
+  constructor(props = {}) {
     super(props);
     this.contacts = props.contacts || [
       { name: 'Ray', phoneNumber: '0431 111 111' },

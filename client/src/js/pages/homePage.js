@@ -1,4 +1,4 @@
-const BasePage = require('./BasePage');
+const BasePage = require('watch-framework').BasePage;
 const logo = require('../../images/logo.png')
 const date = new Date(Date.now()).toLocaleString().split(",")[0];
 const time = new Date(Date.now()).toLocaleString().split(",")[1];

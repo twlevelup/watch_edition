@@ -1,4 +1,4 @@
-module.exports = [
+const notifications = [
   {
     notificationType: "alert",
     label: "Alert",
@@ -10,3 +10,5 @@ module.exports = [
     defaultValue: "This is a test push notification",
   }
 ];
+
+module.exports = notifications;

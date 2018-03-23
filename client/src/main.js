@@ -1,10 +1,10 @@
-require('../styles/main.scss');
-require('../fonts/fonts.scss');
-const createNotificationHandler = require('../../../framework/watchSetup').createNotificationHandler;
+require('./styles/main.scss');
+require('./fonts/fonts.scss');
 
-const routes = require("./routes");
-const notifications = require("./notifications");
-const App = require('./app');
+const { createNotificationHandler, App } = require('watch-framework');
+
+const routes = require("./js/routes");
+const notifications = require("./js/notifications");
 
 const watch = {
   watchFace: document.getElementById("watch-face"),
@@ -16,5 +16,4 @@ const watch = {
 
 const notificationHandler = createNotificationHandler("notification-form", notifications);
 
-new App(routes, watch, notificationHandler)
-  .navigateToLocation(window.location);
+new App(routes, watch, notificationHandler).navigateToLocation(window.location);

@@ -1,5 +1,5 @@
-const App = require('../src/js/app');
-const BasePage = require('../src/js/pages/BasePage');
+const App = require('../src/app');
+const BasePage = require('../src/BasePage');
 
 describe('App', () => {
   document.body.innerHTML = `
