@@ -1,7 +1,6 @@
 
 require('../styles/main.scss');
 require('../fonts/fonts.scss');
-const createNotificationHandlers = require('./notificationHandler').createNotificationHandlers;
 
 module.exports = class App {
   constructor(routes, notifications) {
@@ -11,7 +10,6 @@ module.exports = class App {
     this.rightButton = document.getElementById("button-right");
     this.topButton = document.getElementById("button-top");
     this.bottomButton = document.getElementById("button-bottom");
-    this.notificationHandler = createNotificationHandlers(notifications);
     this.navigate = this.navigate.bind(this);
     this.clearEventListeners = this.clearEventListeners.bind(this);
     this.setupEventListeners = this.setupEventListeners.bind(this);
@@ -53,13 +51,11 @@ module.exports = class App {
       ...props,
       navigate: this.navigate,
       watchFace: this.watchFace,
-      notificationHandler: this.notificationHandler,
     });
 
     this.clearEventListeners();
     this.setupEventListeners(page);
 
-    this.notificationHandler.hide();
     page.pageWillLoad();
     this.watchFace.innerHTML = page.template();
     page.pageDidLoad();

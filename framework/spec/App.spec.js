@@ -1,16 +1,9 @@
 const App = require('../src/App');
 const BasePage = require('../src/BasePage');
+const watchTemplate = require('../templates/watch.hbs')
 
 describe('App', () => {
-  document.body.innerHTML = `
-    <div id='watch-face'></div>
-    <div id='button-left'></div>
-    <div id='button-right'></div>
-    <div id='button-top'></div>
-    <div id='button-bottom'></div>
-    <div id='notification-container'></div>
-    <form id='notification-form'></form>
-  `;
+  document.body.innerHTML = watchTemplate();
 
   let watch = {};
   let routes = {};
