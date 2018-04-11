@@ -1,4 +1,4 @@
-const App = require('../src/App2');
+const App = require('../src/App');
 const BasePage = require('../src/BasePage');
 
 describe('App', () => {
