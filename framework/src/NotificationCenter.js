@@ -17,8 +17,8 @@ module.exports = class NotificationCenter {
   }
 
   show(type, props) {
-    const foundNotification = find(this.notifications, { type });
-    const Notification = foundNotification ? foundNotification.view : BaseNotification;
+    const foundNotification = find(this.notifications, { type }) || {};
+    const Notification = foundNotification.view ? foundNotification.view : BaseNotification;
     this.render(this.container, Notification, props);
     this.container.hidden = false;
   }
