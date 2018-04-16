@@ -3,7 +3,6 @@ class BasePage {
     this.props = props;
     this.navigate = props.navigate;
     this.watchFace = props.watchFace;
-    this.notificationHandler = props.notificationHandler;
   }
 
   template() {

@@ -1,16 +1,10 @@
 const App = require('../src/App');
 const BasePage = require('../src/BasePage');
+const watchTemplate = require('../templates/watch.hbs')
+const NotificationHub = require('../src/NotificationHub');
 
 describe('App', () => {
-  document.body.innerHTML = `
-    <div id='watch-face'></div>
-    <div id='button-left'></div>
-    <div id='button-right'></div>
-    <div id='button-top'></div>
-    <div id='button-bottom'></div>
-    <div id='notification-container'></div>
-    <form id='notification-form'></form>
-  `;
+  document.body.innerHTML = watchTemplate();
 
   let watch = {};
   let routes = {};
@@ -42,7 +36,32 @@ describe('App', () => {
     routes = {
       'teamRocket': DummyPage,
     };
+    NotificationHub.reset();
     app = new App(routes, notifications);
+  });
+
+  describe('#hideNotification', () => {
+    it('rerenders the page when hiding notification', () => {
+      app.routes = {
+        'dummy2': DummyPage2,
+      }
+
+      const location = {
+        href: 'http://localhost:8080/#1',
+        hash: '#dummy2',
+      };
+
+      const props = { message: 'hello' };
+      const renderSpy = spyOn(app, 'render');
+
+      app.navigateToLocation(location, props);
+      let element = document.getElementById('watch-face');
+      expect(renderSpy).toHaveBeenCalledWith(watch.watchFace, DummyPage2, props);
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+      NotificationHub.hide();
+      expect(renderSpy).toHaveBeenLastCalledWith(watch.watchFace, DummyPage2, props);
+      expect(renderSpy).toHaveBeenCalledTimes(2);
+    });
   });
 
   describe('#navigateToLocation', () => {

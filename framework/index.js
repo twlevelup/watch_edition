@@ -1,7 +1,11 @@
 const BasePage = require('./src/BasePage');
-const App = require('./src/app');
+const BaseNotification = require('./src/BaseNotification');
+const App = require('./src/App');
+const PublicNotificationHub = require('./PublicNotificationHub');
 
 module.exports = {
   BasePage,
+  BaseNotification,
   App,
+  NotificationHub: PublicNotificationHub,
 };

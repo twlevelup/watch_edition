@@ -28,7 +28,8 @@
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.js",
+      "*.js"
     ]
   },
   "devDependencies": {
