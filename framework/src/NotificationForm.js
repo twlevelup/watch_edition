@@ -3,7 +3,9 @@ const find = require("lodash/find");
 const setupNotificationForm = require("./setupNotificationForm");
 const BaseNotification = require("./BaseNotification");
 
-module.exports = class NotificationCenter {
+const NotificationHub = require('./NotificationHub');
+
+module.exports = class NotificationForm {
   constructor(notifications, render) {
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
@@ -13,7 +15,10 @@ module.exports = class NotificationCenter {
 
     this.container = document.getElementById("notification-container");
 
-    setupNotificationForm(notifications, this.show);
+    setupNotificationForm(notifications);
+
+    NotificationHub.onHide(this.hide);
+    NotificationHub.onShow(this.show);
   }
 
   show(type, props) {

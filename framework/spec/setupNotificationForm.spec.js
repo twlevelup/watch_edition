@@ -1,18 +1,22 @@
 const watchTemplate = require("../templates/watch.hbs");
 const setupNotificationForm = require("../src/setupNotificationForm");
+const NotificationHub = require("../src/NotificationHub");
+
+jest.mock("../src/NotificationHub", () => ({
+  show: jest.fn(),
+}));
 
 describe("setupNotificationForm", () => {
   document.body.innerHTML = watchTemplate();
 
-  let notifications, showMock, selectors;
+  let notifications, selectors;
 
   beforeAll(() => {
     notifications = [
       { type: "new", defaultValue: "blah" },
       { type: "new2", defaultValue: "blah2" }
     ];
-    showMock = jest.fn();
-    selectors = setupNotificationForm(notifications, showMock);
+    selectors = setupNotificationForm(notifications);
   });
 
   it("should initialise form inputs", () => {
@@ -30,6 +34,6 @@ describe("setupNotificationForm", () => {
 
   it("should trigger show when hitting send", () => {
     selectors.formSend.click();
-    expect(showMock).toHaveBeenCalledWith("new2", { message: "blah2" });
+    expect(NotificationHub.show).toHaveBeenCalledWith("new2", { message: "blah2" });
   });
 });

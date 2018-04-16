@@ -1,4 +1,4 @@
-const NotificationCenter = require("../src/NotificationCenter");
+const NotificationForm = require("../src/NotificationForm");
 const BaseNotification = require("../src/BaseNotification");
 const watchTemplate = require("../templates/watch.hbs");
 const setupNotificationForm = require("../src/setupNotificationForm");
@@ -7,58 +7,55 @@ jest.mock("../src/setupNotificationForm", () => jest.fn());
 
 class NewNotification {}
 
-describe("NotificationCenter", () => {
+describe("NotificationForm", () => {
   document.body.innerHTML = watchTemplate();
 
-  let notificationCenter, notifications, renderMock;
+  let notificationForm, notifications, renderMock;
 
   beforeEach(() => {
     notifications = [{ type: "new", view: NewNotification }];
     renderMock = jest.fn();
-    notificationCenter = new NotificationCenter(notifications, renderMock);
+    notificationForm = new NotificationForm(notifications, renderMock);
   });
 
   describe("constructor", () => {
     it("should call setupNotificationForm", () => {
-      expect(setupNotificationForm).toHaveBeenCalledWith(
-        notifications,
-        notificationCenter.show,
-      );
+      expect(setupNotificationForm).toHaveBeenCalledWith(notifications);
     });
   });
 
   describe("show default notification", () => {
     it("should call render with BaseNotification", () => {
       const props = { foo: "bar" };
-      notificationCenter.show("", props);
+      notificationForm.show("", props);
       expect(renderMock).toHaveBeenCalledWith(
-        notificationCenter.container,
+        notificationForm.container,
         BaseNotification,
         props,
       );
-      expect(notificationCenter.container.hidden).toBe(false);
+      expect(notificationForm.container.hidden).toBe(false);
     });
   });
 
   describe("show with found notification", () => {
     it("should call render with BaseNotification", () => {
       const props = { foo: "bar" };
-      notificationCenter.show("new", props);
+      notificationForm.show("new", props);
       expect(renderMock).toHaveBeenCalledWith(
-        notificationCenter.container,
+        notificationForm.container,
         NewNotification,
         props,
       );
-      expect(notificationCenter.container.hidden).toBe(false);
+      expect(notificationForm.container.hidden).toBe(false);
     });
   });
 
   describe("hide", () => {
     it("should set container to be hidden", () => {
-      notificationCenter.show("", {});
-      expect(notificationCenter.container.hidden).toBe(false);
-      notificationCenter.hide();
-      expect(notificationCenter.container.hidden).toBe(true);
+      notificationForm.show("", {});
+      expect(notificationForm.container.hidden).toBe(false);
+      notificationForm.hide();
+      expect(notificationForm.container.hidden).toBe(true);
     });
   });
 });

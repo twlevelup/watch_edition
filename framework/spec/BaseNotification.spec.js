@@ -1,14 +1,17 @@
 const BaseNotification = require("../src/BaseNotification");
+const NotificationHub = require("../src/NotificationHub");
+
+jest.mock("../src/NotificationHub", () => ({
+  hide: jest.fn(),
+}));
 
 describe("BaseNotification", () => {
-  let baseNotification, hideNotification;
+  let baseNotification;
   beforeEach(() => {
-    hideNotification = jest.fn();
-    baseNotification = new BaseNotification({ hideNotification });
+    baseNotification = new BaseNotification();
   });
 
-  describe('default hehaviour', () => {
-
+  describe("default hehaviour", () => {
     it("should return a default template", () => {
       const template = baseNotification.template();
       expect(template).toContain("Base notification:");
@@ -16,29 +19,27 @@ describe("BaseNotification", () => {
 
     it("should hideNotification on leftButtonEvent", () => {
       baseNotification.leftButtonEvent();
-      expect(hideNotification).toHaveBeenCalled();
+      expect(NotificationHub.hide).toHaveBeenCalled();
     });
 
     it("should hideNotification on topButtonEvent", () => {
       baseNotification.topButtonEvent();
-      expect(hideNotification).toHaveBeenCalled();
+      expect(NotificationHub.hide).toHaveBeenCalled();
     });
 
     it("should hideNotification on rightButtonEvent", () => {
       baseNotification.rightButtonEvent();
-      expect(hideNotification).toHaveBeenCalled();
+      expect(NotificationHub.hide).toHaveBeenCalled();
     });
-
 
     it("should hideNotification on bottomButtonEvent", () => {
       baseNotification.bottomButtonEvent();
-      expect(hideNotification).toHaveBeenCalled();
+      expect(NotificationHub.hide).toHaveBeenCalled();
     });
 
     it("should hideNotification on faceButtonEvent", () => {
       baseNotification.faceButtonEvent();
-      expect(hideNotification).toHaveBeenCalled();
+      expect(NotificationHub.hide).toHaveBeenCalled();
     });
-  })
-
+  });
 });

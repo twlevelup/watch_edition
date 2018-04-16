@@ -1,5 +1,6 @@
 const find = require("lodash/find");
 const first = require("lodash/first");
+const NotificationHub = require("./NotificationHub");
 
 const setupSelectDropdown = (notifications, formTypeSelect) => {
   notifications.forEach(notification => {
@@ -18,16 +19,16 @@ const setupDefaultMessage = (notifications, formMessage, formTypeSelect) => {
 };
 
 const setupSubmitButton = context => {
-  const { formSend, formMessage, formTypeSelect, show } = context;
+  const { formSend, formMessage, formTypeSelect } = context;
 
   formSend.addEventListener("click", () => {
     const type = formTypeSelect.value;
-    const message = formMessage.value;
-    show(type, { message });
+    const payload = { message: formMessage.value };
+    NotificationHub.show(type, payload)
   });
 };
 
-module.exports = (notifications, show) => {
+module.exports = (notifications) => {
   const formSend = document.getElementById("notification-form-send");
   const formMessage = document.getElementById("notification-form-message");
   const formTypeSelect = document.getElementById("notification-form-type-select");
@@ -37,7 +38,6 @@ module.exports = (notifications, show) => {
     formSend,
     formMessage,
     formTypeSelect,
-    show
   };
 
   setupSelectDropdown(notifications, formTypeSelect);

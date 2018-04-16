@@ -1,7 +1,8 @@
 
 require('../styles/main.scss');
 require('../fonts/fonts.scss');
-const NotificationCenter = require('./NotificationCenter');
+const NotificationForm = require('./NotificationForm');
+const NotificationHub = require('./NotificationHub');
 
 module.exports = class App {
   constructor(routes, notifications) {
@@ -11,7 +12,7 @@ module.exports = class App {
     this.setupEventListeners = this.setupEventListeners.bind(this);
 
     this.routes = routes;
-    this.notificationCenter = new NotificationCenter(notifications, this.render);
+    this.notificationForm = new NotificationForm(notifications, this.render);
 
     this.watchFace = document.getElementById("watch-face");
     this.leftButton = document.getElementById("button-left");
@@ -20,6 +21,11 @@ module.exports = class App {
     this.bottomButton = document.getElementById("button-bottom");
     this.notificationContainer = document.getElementById("notification-container");
 
+    const hideNotification = () => {
+      this.navigateToLocation(window.location, this.props);
+    }
+
+    NotificationHub.onHide(hideNotification);
   }
 
   navigateToLocation(location, props = {}) {
@@ -53,22 +59,18 @@ module.exports = class App {
   }
 
   navigate(path, props = {}) {
+    this.props = props;
     const Page = this.routes[path] || this.routes["404"];
     this.render(this.watchFace, Page, props);
     window.location.hash = path;
   }
 
   render(element, ViewType, props) {
-    const hideNotification = () => {
-      this.notificationCenter.hide();
-      this.navigateToLocation(window.location, props);
-    }
 
     const view = new ViewType({
       ...props,
       navigate: this.navigate,
       watchFace: this.watchFace,
-      hideNotification: hideNotification,
     })
 
     this.setupEventListeners(view);

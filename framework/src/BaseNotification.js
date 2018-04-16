@@ -1,23 +1,25 @@
 const BasePage = require('./BasePage');
+const NotificationHub = require('../PublicNotificationHub');
+
 const compiledTemplate = require('../templates/baseNotification.hbs')
 class BaseNotification extends BasePage {
   template() {
     return compiledTemplate(this.props);
   }
   leftButtonEvent() {
-    this.hideNotification();
+    NotificationHub.hide();
   }
   rightButtonEvent() {
-    this.hideNotification();
+    NotificationHub.hide();
   }
   topButtonEvent() {
-    this.hideNotification();
+    NotificationHub.hide();
   }
   bottomButtonEvent() {
-    this.hideNotification();
+    NotificationHub.hide();
   }
   faceButtonEvent() {
-    this.hideNotification();
+    NotificationHub.hide();
   }
 }
 
