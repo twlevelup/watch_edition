@@ -1,7 +1,7 @@
 {
   "name": "proto-watch",
   "version": "1.1.0",
-  "description": "Scaffoling for a proto watch app",
+  "description": "Scaffolding for a proto watch app",
   "author": "LevelUp",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "ci": "npm -s run stylecheck && npm -s run test",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
-    "heroku-postbuild": "webpack --progress"
+    "heroku-postbuild": "webpack --progress",
+    "postinstall": "npm rebuild node-sass"
   },
   "dependencies": {
     "babel": "^6.5.2",
