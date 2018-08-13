@@ -43,7 +43,6 @@ jobs:
     branches:
       ignore:
         - gh-pages
-
 EOF > .circleci/config.yml
 
 git add -A
