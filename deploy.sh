@@ -30,9 +30,9 @@ else
 fi
 
 # stage any changes and new files, include circleci config to avoid auto-build.
-cp -a ../public .
+cp -a ../public/* .
 mkdir -p  .circleci
-cat <<EOF
+cat > .circleci/config.yml <<EOF
 version: 2
 jobs:
   build:
@@ -43,7 +43,7 @@ jobs:
     branches:
       ignore:
         - gh-pages
-EOF > .circleci/config.yml
+EOF
 
 git add -A
 
