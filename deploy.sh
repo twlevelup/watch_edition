@@ -12,9 +12,9 @@ mkdir -p gh-pages-branch/
 cd gh-pages-branch
 
 # now lets setup a new repo so we can update the gh-pages branch
-git config --global user.email levelup@thoughtworks.com > /dev/null 2>&1
-git config --global user.name levelup > /dev/null 2>&1
 git init
+git config --local user.email levelup@thoughtworks.com > /dev/null 2>&1
+git config --local user.name levelup > /dev/null 2>&1
 git remote add --fetch origin https://github.com/twlevelup/watch_edition.git
 
 
