@@ -32,7 +32,7 @@ fi
 # stage any changes and new files, include circleci config to avoid auto-build.
 cp -a ../public .
 mkdir -p  .circleci
-echo "version: 2" > .circleci/config.yml
+echo "version: 2\njobs:\n\tdummy:\n\t\tbranches:\n\t\t\tignore:\n\t\t\t\t- gh-pages" > .circleci/config.yml
 
 git add -A
 
