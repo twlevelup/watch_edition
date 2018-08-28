@@ -1,18 +1,11 @@
 const BasePage = require('watch-framework').BasePage;
 const StorageHub = require('watch-framework').StorageHub;
-const compiledTemplate = require('../../templates/contactsPage.hbs')
 
 class ContactsPage extends BasePage {
+  template = require('../../templates/contactsPage.hbs');
 
   pageWillLoad() {
     this.contacts = StorageHub.getData('contacts')
-  }
-
-  template() {
-    const context = {
-      contacts: this.contacts,
-    };
-    return compiledTemplate(context);
   }
 
   leftButtonEvent() {

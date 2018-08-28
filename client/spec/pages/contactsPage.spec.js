@@ -11,7 +11,7 @@ describe('ContactsPage', () => {
   describe('#template', () => {
     it('should have a template', () => {
       const page = new ContactsPage();
-      expect(page.template()).toContain("<h1>Contacts</h1>");
+      expect(page.render()).toContain("<h1>Contacts</h1>");
     });
 
     it('should have a template with specific contacts', () => {
@@ -21,8 +21,8 @@ describe('ContactsPage', () => {
       StorageHub.setData('contacts', contacts)
       const page = new ContactsPage();
       page.pageWillLoad();
-      expect(page.template()).toContain("<span>Name: hi</span>");
-      expect(page.template()).toContain("<span>Phone: 1234</span>");
+      expect(page.render()).toContain("<span>Name: hi</span>");
+      expect(page.render()).toContain("<span>Phone: 1234</span>");
     });
   });
 
