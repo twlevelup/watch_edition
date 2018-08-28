@@ -9,6 +9,11 @@ class StorageHub {
   }
 
   setData(field, value) {
+
+    if (typeof field !== 'string') {
+      throw new Error('First parameter must be a string')
+    }
+
     if (this.shouldDebug) {
       console.debug('[StorageHub] Before:', this.store)
     }

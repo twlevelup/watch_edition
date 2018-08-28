@@ -17,6 +17,14 @@ describe("StorageHub", () => {
     expect(storageHub.getData('hello')).toEqual(['1', 2, '3']);
   })
 
+  it('should only accept string as the field parameter', () => {
+    expect(() => storageHub.setData([], 'world')).toThrowError('First parameter must be a string')
+    expect(() => storageHub.setData(undefined, 'world')).toThrowError('First parameter must be a string')
+    expect(() => storageHub.setData(null, 'world')).toThrowError('First parameter must be a string')
+    expect(() => storageHub.setData(1, 'world')).toThrowError('First parameter must be a string')
+    expect(() => storageHub.setData({ random: "" }, 'world')).toThrowError('First parameter must be a string')
+  })
+
   it('should reset store', () => {
     storageHub.setData('hello', 'world')
     expect(storageHub.getData('hello')).toEqual('world');
