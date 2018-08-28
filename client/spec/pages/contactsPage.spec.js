@@ -1,4 +1,5 @@
 const ContactsPage = require('../../src/js/pages/contactsPage');
+const StorageHub = require('watch-framework').StorageHub;
 
 describe('ContactsPage', () => {
   let watchFace;
@@ -15,10 +16,11 @@ describe('ContactsPage', () => {
 
     it('should have a template with specific contacts', () => {
       const contacts = [
-        {name: 'hi', phoneNumber: '1234'},
+        { name: 'hi', phoneNumber: '1234' },
       ];
-      const props = { contacts }
-      const page = new ContactsPage(props);
+      StorageHub.setData('contacts', contacts)
+      const page = new ContactsPage();
+      page.pageWillLoad();
       expect(page.template()).toContain("<span>Name: hi</span>");
       expect(page.template()).toContain("<span>Phone: 1234</span>");
     });

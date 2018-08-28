@@ -1,4 +1,5 @@
 const HomePage = require('../../src/js/pages/homePage');
+const StorageHub = require('watch-framework').StorageHub;
 
 describe('HomePage', () => {
   let watchFace;
@@ -6,6 +7,15 @@ describe('HomePage', () => {
     document.body.innerHTML = `<div id='watch-face' style='height: 100px; width: 100px;'></div>`;
     watchFace = document.getElementById('watch-face');
   });
+
+  describe('#pageWillLoad', () => {
+    it('should set contacts data on page load', () => {
+      spyOn(StorageHub, 'setData')
+      const page = new HomePage();
+      page.pageWillLoad();
+      expect(StorageHub.setData).toBeCalledWith('contacts', expect.any(Array))
+    })
+  })
 
   describe('#template', () => {
     it('should have a template', () => {
