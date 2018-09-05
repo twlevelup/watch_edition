@@ -9,7 +9,7 @@ describe('App', () => {
   let watch = {};
   let routes = {};
   let notifications = [
-    {type: 'blah', label: 'test', defaultValue: ''}
+    { type: 'blah', label: 'test', defaultValue: '' }
   ];
   let app;
 
@@ -39,6 +39,14 @@ describe('App', () => {
     NotificationHub.reset();
     app = new App(routes, notifications);
   });
+
+  describe('#onhashchange', () => {
+    it('should respond to window hashChangeEvent', () => {
+      spyOn(app, 'navigate').and.stub();
+      window.onhashchange({ newURL: "http://localhost:8080/#contacts" })
+      expect(app.navigate).toHaveBeenCalledWith("contacts")
+    })
+  })
 
   describe('#hideNotification', () => {
     it('rerenders the page when hiding notification', () => {
@@ -208,7 +216,7 @@ describe('App', () => {
       app.navigate('/', {});
       expect(element.innerHTML).toBe(`<div>Some page</div>`);
 
-      app.navigate('someOtherPage', { message: 'I like to move it move it'});
+      app.navigate('someOtherPage', { message: 'I like to move it move it' });
       expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
     });
 
