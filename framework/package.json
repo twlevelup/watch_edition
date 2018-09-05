@@ -1,6 +1,9 @@
 {
   "name": "watch-framework",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "description": "Watch framework",
   "author": "LevelUp",
   "scripts": {
@@ -33,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "jest-handlebars": "^1.0.1",
     "jest": "^21.2.1"
   },
   "dependencies": {

@@ -20,8 +20,13 @@ describe('App', () => {
   }
 
   class DummyPage2 extends BasePage {
-    template() {
-      return `<div>${this.props.message}</div>`;
+
+    pageWillLoad() {
+      this.message = 'I like to move it move it'
+    }
+    
+    template({ message }) {
+      return `<div>${message}</div>`;
     }
   }
 
@@ -212,12 +217,16 @@ describe('App', () => {
       };
 
       let element = document.getElementById('watch-face');
+      spyOn(DummyPage.prototype, 'render').and.callThrough();
+      spyOn(DummyPage2.prototype, 'render').and.callThrough();
 
       app.navigate('/', {});
       expect(element.innerHTML).toBe(`<div>Some page</div>`);
+      expect(DummyPage.prototype.render).toHaveBeenCalledTimes(1);
 
-      app.navigate('someOtherPage', { message: 'I like to move it move it' });
+      app.navigate('someOtherPage');
       expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
+      expect(DummyPage2.prototype.render).toHaveBeenCalledTimes(1);
     });
 
     it('shows 404 when path does not match any predefined routes', () => {

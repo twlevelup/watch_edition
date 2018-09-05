@@ -1,10 +1,8 @@
 const BasePage = require('watch-framework').BasePage;
-const compiledTemplate = require('../../templates/404Page.hbs');
 
 class FourOhFourPage extends BasePage {
-  template() {
-    return compiledTemplate();
-  }
+  template = require('../../templates/404Page.hbs');
+
   leftButtonEvent() {
     this.navigate('/');
   }
