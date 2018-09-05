@@ -75,7 +75,7 @@ module.exports = class App {
 
     this.setupEventListeners(view);
     view.pageWillLoad();
-    element.innerHTML = view.template();
+    element.innerHTML = view.render();
     view.pageDidLoad();
   }
 };
