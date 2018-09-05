@@ -9,7 +9,7 @@ describe('App', () => {
   let watch = {};
   let routes = {};
   let notifications = [
-    {type: 'blah', label: 'test', defaultValue: ''}
+    { type: 'blah', label: 'test', defaultValue: '' }
   ];
   let app;
 
@@ -20,8 +20,13 @@ describe('App', () => {
   }
 
   class DummyPage2 extends BasePage {
-    template() {
-      return `<div>${this.props.message}</div>`;
+
+    pageWillLoad() {
+      this.message = 'I like to move it move it'
+    }
+    
+    template({ message }) {
+      return `<div>${message}</div>`;
     }
   }
 
@@ -211,7 +216,7 @@ describe('App', () => {
       expect(element.innerHTML).toBe(`<div>Some page</div>`);
       expect(DummyPage.prototype.render).toHaveBeenCalledTimes(1);
 
-      app.navigate('someOtherPage', { message: 'I like to move it move it'});
+      app.navigate('someOtherPage');
       expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
       expect(DummyPage2.prototype.render).toHaveBeenCalledTimes(1);
     });
