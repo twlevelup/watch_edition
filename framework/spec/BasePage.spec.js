@@ -5,20 +5,19 @@ class EmptyPage extends BasePage {
 };
 
 class NonEmptyPage extends BasePage {
-  template() {
-    return 'hello';
-  }
+  template = jest.fn()
 };
 
 describe('BasePage', () => {
   it('should throw error during render for empty page', () => {
     const page = new EmptyPage();
-    expect(page.template).toThrowError("Unimplemented template")
+    expect(() => page.render()).toThrowError("Template not defined: Did you forget `template = require('path/to/template.hbs');`")
   })
 
-  it('should not throw error during render for page with template function', () => {
+  it('should call the compiled template with gettable properties', () => {
     const page = new NonEmptyPage();
-    expect(page.template).not.toThrowError();
-    expect(page.template()).toEqual("hello");
+    page.data = { some: 'property', randomFn: jest.fn() };
+    expect(() => page.render()).not.toThrowError();
+    expect(page.template).toBeCalledWith({ props: {}, data: { some: 'property' } });
   })
 });

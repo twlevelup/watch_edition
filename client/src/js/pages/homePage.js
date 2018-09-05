@@ -3,11 +3,9 @@ require('../../styles/pages/home.scss');
 const BasePage = require('watch-framework').BasePage;
 const StorageHub = require('watch-framework').StorageHub;
 const logo = require('../../images/logo.png')
-const date = new Date(Date.now()).toLocaleString().split(",")[0];
-const time = new Date(Date.now()).toLocaleString().split(",")[1];
-const compiledTemplate = require("../../templates/homePage.hbs");
 
 class HomePage extends BasePage {
+  template = require('../../templates/homePage.hbs');
 
   pageWillLoad() {
     StorageHub.setData('contacts', [
@@ -15,15 +13,11 @@ class HomePage extends BasePage {
       { name: 'Sinan', phoneNumber: '0431 222 222' },
       { name: 'Jafari', phoneNumber: '0431 333 333' },
     ])
-  }
-  
-  template() {
-    const context = {
-      date: date,
-      time: time,
-      logo: logo,
-    };
-    return compiledTemplate(context);
+
+    const [date, time] = new Date(Date.now()).toLocaleString().split(",");
+    this.date = date
+    this.time = time
+    this.logo = logo
   }
 
   rightButtonEvent() {
