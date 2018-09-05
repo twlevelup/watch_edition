@@ -3,6 +3,9 @@ class BasePage {
 
   constructor(props = {}) {
     this.props = props;
+    Object.keys(props).forEach((key) => {
+      this[key] = props[key];
+    });
     this.navigate = props.navigate;
     this.watchFace = props.watchFace;
   }

@@ -16,7 +16,7 @@
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
     "heroku-postbuild": "webpack --progress",
-    "postinstall": "npm rebuild node-sass"
+    "postinstall": "npm rebuild node-sass && cd ./framework && npm install"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -44,7 +44,7 @@
     "watch-framework": "file:./framework/"
   },
   "engines": {
-    "node": "9.2.0"
+    "node": "10.9.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
