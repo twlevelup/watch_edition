@@ -45,6 +45,14 @@ describe('App', () => {
     app = new App(routes, notifications);
   });
 
+  describe('#onhashchange', () => {
+    it('should respond to window hashChangeEvent', () => {
+      spyOn(app, 'navigate').and.stub();
+      window.onhashchange({ newURL: "http://localhost:8080/#contacts" })
+      expect(app.navigate).toHaveBeenCalledWith("contacts")
+    })
+  })
+
   describe('#hideNotification', () => {
     it('rerenders the page when hiding notification', () => {
       app.routes = {

@@ -25,6 +25,11 @@ module.exports = class App {
       this.navigateToLocation(window.location, this.props);
     }
 
+    window.onhashchange = (hashChangeEvent) => { 
+      const pageName = hashChangeEvent.newURL.split("#")[1];
+      this.navigate(pageName);
+    }
+
     NotificationHub.onHide(hideNotification);
   }
 
