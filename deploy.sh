@@ -37,7 +37,7 @@ version: 2
 jobs:
   build:
     docker:
-        - image: circleci/node:8.1.4
+        - image: circleci/node:10.7.0
     steps:
       - run: "false"
     branches:
