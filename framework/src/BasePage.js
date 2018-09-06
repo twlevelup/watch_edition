@@ -40,6 +40,29 @@ class BasePage {
 
   faceButtonEvent() {
   }
+
+  keyDownEvent(key) {
+    let command = key.which;
+    console.log(command);
+    switch(command) {
+      case (37): // left arrow
+        this.leftButtonEvent();
+        break;
+      case (39): // right arrow
+        this.rightButtonEvent();
+        break;
+      case (38): // up arrow
+        this.topButtonEvent();
+        break;
+      case (40): // down arrow
+        this.bottomButtonEvent();
+        break;
+      case (32): // space
+        this.faceButtonEvent();
+        break;
+      default:
+    }
+  }
 }
 
 module.exports = BasePage;

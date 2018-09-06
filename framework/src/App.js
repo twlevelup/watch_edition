@@ -20,6 +20,7 @@ module.exports = class App {
     this.topButton = document.getElementById("button-top");
     this.bottomButton = document.getElementById("button-bottom");
     this.notificationContainer = document.getElementById("notification-container");
+    this.wholePage = document.body;
 
     const hideNotification = () => {
       this.navigateToLocation(window.location, this.props);
@@ -61,6 +62,7 @@ module.exports = class App {
     this.bottomButton.addEventListener("click", this.bottomListener);
     this.watchFace.addEventListener("click", this.faceListener);
     this.notificationContainer.addEventListener("click", this.faceListener);
+    this.wholePage.addEventListener("keydown",view.keyDownEvent.bind(view));
   }
 
   navigate(path, props = {}) {
