@@ -58,4 +58,31 @@ describe('HomePage', () => {
       expect(watchFace.scrollTop).toEqual(-40);
     });
   });
+
+  describe('#updateTimeDisplay', () => {
+    it('gets current time if there is a clock-time', () => {
+      const page = new HomePage();
+      watchFace.innerHTML = page.template();
+
+      spyOn(page, 'getTime');
+
+      page.updateTimeDisplay();
+      expect(page.getTime).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('#updateTimeEverySecond', () => {
+    it('update time display gets called three times in 3500 ms', () => {
+      const page = new HomePage();
+
+      spyOn(page, 'updateTimeDisplay');
+
+      page.updateTimeEverySecond();
+
+      jest.useFakeTimers();
+      setTimeout(() => {
+        expect(page.updateTimeDisplay).toHaveBeenCalledTimes(3);
+      }, 3500)
+    });
+  });
 });
