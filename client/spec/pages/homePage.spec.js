@@ -60,14 +60,18 @@ describe('HomePage', () => {
   });
 
   describe('#updateTimeDisplay', () => {
-    it('gets current time if there is a clock-time', () => {
-      const page = new HomePage();
+    it('updateTimeDisplays updates the time display', () => {
+      const page = new HomePage();      
       watchFace.innerHTML = page.template();
-
-      spyOn(page, 'getTime');
-
-      page.updateTimeDisplay();
-      expect(page.getTime).toHaveBeenCalledTimes(1);
+      
+      jest.useFakeTimers();
+      setTimeout(() => {
+        page.updateTimeDisplay();
+        const face = watchFace.getElementsByClassName("clock-time");
+        const currentTime = new Date(Date.now()).toLocaleString().split(",")[1];
+        expect(face.textContent).toEqual(currentTime);
+      }, 3000)
+      
     });
   });
 
