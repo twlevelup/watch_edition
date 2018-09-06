@@ -6,30 +6,35 @@ const logo = require('../../images/logo.png')
 
 class HomePage extends BasePage {
   template = require('../../templates/homePage.hbs');
-
   pageWillLoad() {
+    this.updateTimeEverySecond();
     StorageHub.setData('contacts', [
       { name: 'Ray', phoneNumber: '0431 111 111' },
       { name: 'Sinan', phoneNumber: '0431 222 222' },
       { name: 'Jafari', phoneNumber: '0431 333 333' },
     ])
 
-    this.updateTimeEverySecond();
-    const [date, time] = getTime();
-    this.date = date;
-    this.time = time;
-    this.logo = logo;
+    const [date, time] = new Date(Date.now()).toLocaleString().split(",");
+    this.date = date
+    this.time = time
+    this.logo = logo
   }
 
   updateTimeEverySecond() {
-    window.setInterval(this.updateTimeDisplay, 1000);
+    window.setInterval(function() {
+      updateTimeDisplay();
+    }, 1000);
   }
 
   updateTimeDisplay() {
     const clockTime = document.getElementsByClassName("clock-time");
     if (clockTime && clockTime[0]) {
-      clockTime[0].textContent = getTime()[1];
+      clockTime[0].textContent = this.getTime();
     }
+  }
+
+  getTime() {
+    return new Date(Date.now()).toLocaleString().split(",")[1]
   }
 
   rightButtonEvent() {
@@ -46,7 +51,3 @@ class HomePage extends BasePage {
 }
 
 module.exports = HomePage;
-
-function getTime() {
-  return new Date(Date.now()).toLocaleString().split(",");
-}
