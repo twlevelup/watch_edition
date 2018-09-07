@@ -82,17 +82,16 @@ describe('HomePage', () => {
   });
 
   describe('#updateTimeEverySecond', () => {
-    it('update time display gets called three times in 3500 ms', () => {
+    it('update time display gets called three times in 3000 ms', () => {
       const page = new HomePage();
 
       spyOn(page, 'updateTimeDisplay');
 
-      page.updateTimeEverySecond();
-
       jest.useFakeTimers();
-      setTimeout(() => {
-        expect(page.updateTimeDisplay).toHaveBeenCalledTimes(3);
-      }, 3500)
+      page.updateTimeEverySecond();
+      jest.runTimersToTime(3000);
+
+      expect(page.updateTimeDisplay).toHaveBeenCalledTimes(3);
     });
   });
 });
