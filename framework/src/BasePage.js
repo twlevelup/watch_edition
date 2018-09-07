@@ -41,9 +41,9 @@ class BasePage {
   faceButtonEvent() {
   }
 
-  keyDownEvent(key) {
+  keyEvent(key) {
     let command = key.which;
-    console.log(command);
+
     switch(command) {
       case (37): // left arrow
         this.leftButtonEvent();

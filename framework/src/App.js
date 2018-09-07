@@ -62,7 +62,7 @@ module.exports = class App {
     this.bottomButton.addEventListener("click", this.bottomListener);
     this.watchFace.addEventListener("click", this.faceListener);
     this.notificationContainer.addEventListener("click", this.faceListener);
-    this.wholePage.addEventListener("keyup",view.keyDownEvent.bind(view));
+    this.wholePage.addEventListener("keyup",view.keyEvent.bind(view));
   }
 
   navigate(path, props = {}) {

@@ -24,7 +24,7 @@ describe('App', () => {
     pageWillLoad() {
       this.message = 'I like to move it move it'
     }
-    
+
     template({ message }) {
       return `<div>${message}</div>`;
     }
@@ -37,6 +37,7 @@ describe('App', () => {
       rightButton: document.getElementById('button-right'),
       topButton: document.getElementById('button-top'),
       bottomButton: document.getElementById('button-bottom'),
+      pageBody: document.body,
     };
     routes = {
       'teamRocket': DummyPage,
@@ -203,6 +204,132 @@ describe('App', () => {
       app.navigate('/');
 
       watch.watchFace.click();
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).toHaveBeenCalled();
+    });
+
+    // keyboard event tests
+    it('registers page left button event when left arrow pressed', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      let command = new Event("keyup");
+      command.which = 37;
+
+      watch.pageBody.dispatchEvent(command);
+
+      expect(DummyPage.prototype.leftButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page right button event when right arrow pressed', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      let command = new Event("keyup");
+      command.which = 39;
+
+      watch.pageBody.dispatchEvent(command);
+
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page top button event when up arrow pressed', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      let command = new Event("keyup");
+      command.which = 38;
+
+      watch.pageBody.dispatchEvent(command);
+
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page bottom button event when down arrow pressed', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      let command = new Event("keyup");
+      command.which = 40;
+
+      watch.pageBody.dispatchEvent(command);
+
+      expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
+      expect(DummyPage.prototype.bottomButtonEvent).toHaveBeenCalled();
+      expect(DummyPage.prototype.faceButtonEvent).not.toHaveBeenCalled();
+    });
+
+    it('registers page face button event when spacebar pressed', () => {
+      app.routes = {
+        '/': DummyPage,
+        'someOtherPage': DummyPage2,
+      };
+      spyOn(DummyPage.prototype, 'leftButtonEvent');
+      spyOn(DummyPage.prototype, 'rightButtonEvent');
+      spyOn(DummyPage.prototype, 'topButtonEvent');
+      spyOn(DummyPage.prototype, 'bottomButtonEvent');
+      spyOn(DummyPage.prototype, 'faceButtonEvent');
+
+      app.navigate('/');
+
+      let command = new Event("keyup");
+      command.which = 32;
+
+      watch.pageBody.dispatchEvent(command);
+
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.topButtonEvent).not.toHaveBeenCalled();
