@@ -106,11 +106,13 @@ describe('App', () => {
   });
 
   describe('#navigate', () => {
-    it('registers page left button event', () => {
+
+    beforeEach(() => {
       app.routes = {
         '/': DummyPage,
         'someOtherPage': DummyPage2,
       };
+
       spyOn(DummyPage.prototype, 'leftButtonEvent');
       spyOn(DummyPage.prototype, 'rightButtonEvent');
       spyOn(DummyPage.prototype, 'topButtonEvent');
@@ -118,6 +120,9 @@ describe('App', () => {
       spyOn(DummyPage.prototype, 'faceButtonEvent');
 
       app.navigate('/');
+    });
+
+    it('registers page left button event', () => {
 
       watch.leftButton.click();
       expect(DummyPage.prototype.leftButtonEvent).toHaveBeenCalled();
@@ -128,18 +133,6 @@ describe('App', () => {
     });
 
     it('registers page right button event', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
       watch.rightButton.click();
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).toHaveBeenCalled();
@@ -149,18 +142,6 @@ describe('App', () => {
     });
 
     it('registers page top button event', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
       watch.topButton.click();
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -170,18 +151,6 @@ describe('App', () => {
     });
 
     it('registers page bottom button event', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
       watch.bottomButton.click();
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -191,18 +160,6 @@ describe('App', () => {
     });
 
     it('registers page face button event', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
       watch.watchFace.click();
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -213,22 +170,7 @@ describe('App', () => {
 
     // keyboard event tests
     it('registers page left button event when left arrow pressed', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
-      let command = new Event("keyup");
-      command.which = 37;
-
-      watch.pageBody.dispatchEvent(command);
+      watch.pageBody.dispatchEvent(createKeyUpEvent(BasePage.LEFT_ARROW_KEY));
 
       expect(DummyPage.prototype.leftButtonEvent).toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -238,22 +180,7 @@ describe('App', () => {
     });
 
     it('registers page right button event when right arrow pressed', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
-      let command = new Event("keyup");
-      command.which = 39;
-
-      watch.pageBody.dispatchEvent(command);
+      watch.pageBody.dispatchEvent(createKeyUpEvent(BasePage.RIGHT_ARROW_KEY));
 
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).toHaveBeenCalled();
@@ -263,22 +190,7 @@ describe('App', () => {
     });
 
     it('registers page top button event when up arrow pressed', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
-      let command = new Event("keyup");
-      command.which = 38;
-
-      watch.pageBody.dispatchEvent(command);
+      watch.pageBody.dispatchEvent(createKeyUpEvent(BasePage.UP_ARROW_KEY));
 
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -288,22 +200,8 @@ describe('App', () => {
     });
 
     it('registers page bottom button event when down arrow pressed', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
-      let command = new Event("keyup");
-      command.which = 40;
-
-      watch.pageBody.dispatchEvent(command);
+      console.log("+++ base page", BasePage.DOWN_ARROW_KEY);
+      watch.pageBody.dispatchEvent(createKeyUpEvent(BasePage.DOWN_ARROW_KEY));
 
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -313,22 +211,7 @@ describe('App', () => {
     });
 
     it('registers page face button event when spacebar pressed', () => {
-      app.routes = {
-        '/': DummyPage,
-        'someOtherPage': DummyPage2,
-      };
-      spyOn(DummyPage.prototype, 'leftButtonEvent');
-      spyOn(DummyPage.prototype, 'rightButtonEvent');
-      spyOn(DummyPage.prototype, 'topButtonEvent');
-      spyOn(DummyPage.prototype, 'bottomButtonEvent');
-      spyOn(DummyPage.prototype, 'faceButtonEvent');
-
-      app.navigate('/');
-
-      let command = new Event("keyup");
-      command.which = 32;
-
-      watch.pageBody.dispatchEvent(command);
+      watch.pageBody.dispatchEvent(createKeyUpEvent(BasePage.SPACE_BAR_KEY));
 
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
       expect(DummyPage.prototype.rightButtonEvent).not.toHaveBeenCalled();
@@ -374,3 +257,9 @@ describe('App', () => {
     });
   });
 });
+
+function createKeyUpEvent(keyCode) {
+  const keyupEvent = new Event("keyup");
+  keyupEvent.which = keyCode;
+  return keyupEvent;
+}

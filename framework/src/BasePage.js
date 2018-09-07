@@ -1,4 +1,10 @@
 class BasePage {
+  static LEFT_ARROW_KEY = 37;
+  static RIGHT_ARROW_KEY = 39;
+  static UP_ARROW_KEY = 38;
+  static DOWN_ARROW_KEY = 40;
+  static SPACE_BAR_KEY = 32;
+
   template;
 
   constructor(props = {}) {
@@ -45,19 +51,19 @@ class BasePage {
     let command = key.which;
 
     switch(command) {
-      case (37): // left arrow
+      case (BasePage.LEFT_ARROW_KEY): // left arrow
         this.leftButtonEvent();
         break;
-      case (39): // right arrow
+      case (BasePage.RIGHT_ARROW_KEY): // right arrow
         this.rightButtonEvent();
         break;
-      case (38): // up arrow
+      case (BasePage.UP_ARROW_KEY): // up arrow
         this.topButtonEvent();
         break;
-      case (40): // down arrow
+      case (BasePage.DOWN_ARROW_KEY): // down arrow
         this.bottomButtonEvent();
         break;
-      case (32): // space
+      case (BasePage.SPACE_BAR_KEY): // space
         this.faceButtonEvent();
         break;
       default:

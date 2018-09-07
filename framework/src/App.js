@@ -49,12 +49,14 @@ module.exports = class App {
     this.bottomButton.removeEventListener("click", this.bottomListener);
     this.watchFace.removeEventListener("click", this.faceListener);
     this.notificationContainer.removeEventListener("click", this.faceListener);
+    this.wholePage.removeEventListener("keyup",this.keyEventListener);
 
     this.leftListener = view.leftButtonEvent.bind(view);
     this.rightListener = view.rightButtonEvent.bind(view);
     this.topListener = view.topButtonEvent.bind(view);
     this.bottomListener = view.bottomButtonEvent.bind(view);
     this.faceListener = view.faceButtonEvent.bind(view);
+    this.keyEventListener = view.keyEvent.bind(view);
 
     this.leftButton.addEventListener("click", this.leftListener);
     this.rightButton.addEventListener("click", this.rightListener);
@@ -62,7 +64,7 @@ module.exports = class App {
     this.bottomButton.addEventListener("click", this.bottomListener);
     this.watchFace.addEventListener("click", this.faceListener);
     this.notificationContainer.addEventListener("click", this.faceListener);
-    this.wholePage.addEventListener("keyup",view.keyEvent.bind(view));
+    this.wholePage.addEventListener("keyup",this.keyEventListener);
   }
 
   navigate(path, props = {}) {
