@@ -15,22 +15,32 @@ class HomePage extends BasePage {
     ])
 
     this.updateTimeEverySecond();
-    const [date, time] = getTime();
-    this.date = date;
-    this.time = time;
+    const dateTime = this.getDateTime();
+    this.date = dateTime.date;
+    this.time = dateTime.time;
     this.logo = logo;
   }
 
-  updateTimeEverySecond() {
-    window.setInterval(this.updateTimeDisplay, 1000);
+  getDateTime() {
+    const dateTime = new Date(Date.now()).toLocaleString().split(",");
+    return { 
+      date: dateTime[0], 
+      time: dateTime[1] 
+    };
   }
 
-  updateTimeDisplay() {
+  updateTimeEverySecond() {
+    setInterval(() => this.updateTimeDisplay(this.getDateTime), 1000);
+  }
+
+  updateTimeDisplay(getTime) {
     const clockTime = document.getElementsByClassName("clock-time");
     if (clockTime && clockTime[0]) {
-      clockTime[0].textContent = getTime()[1];
+      const dateTime = this.getDateTime();
+      clockTime[0].textContent = dateTime.time;
     }
   }
+
 
   rightButtonEvent() {
     this.navigate('contacts');
@@ -46,7 +56,3 @@ class HomePage extends BasePage {
 }
 
 module.exports = HomePage;
-
-function getTime() {
-  return new Date(Date.now()).toLocaleString().split(",");
-}

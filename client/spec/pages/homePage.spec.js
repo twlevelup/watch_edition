@@ -60,18 +60,24 @@ describe('HomePage', () => {
   });
 
   describe('#updateTimeDisplay', () => {
-    it('updateTimeDisplays updates the time display', () => {
+    it('updateTimeDisplays calls clock-time if its in the window', () => {
       const page = new HomePage();      
+
       watchFace.innerHTML = page.template();
-      
-      jest.useFakeTimers();
-      setTimeout(() => {
-        page.updateTimeDisplay();
-        const face = watchFace.getElementsByClassName("clock-time");
-        const currentTime = new Date(Date.now()).toLocaleString().split(",")[1];
-        expect(face.textContent).toEqual(currentTime);
-      }, 3000)
-      
+
+      jest.spyOn(page,"getDateTime");
+      page.updateTimeDisplay(page.getDateTime);
+      expect(page.getDateTime).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('#updateTimeDisplay', () => {
+    it('updateTimeDisplays does not call clock-time if its not in the window', () => {
+      const page = new HomePage();
+
+      jest.spyOn(page,"getDateTime");
+      page.updateTimeDisplay(page.getDateTime);
+      expect(page.getDateTime).toHaveBeenCalledTimes(0);
     });
   });
 
