@@ -36,8 +36,7 @@ class HomePage extends BasePage {
   updateTimeDisplay(getTime) {
     const clockTime = document.getElementsByClassName("clock-time");
     if (clockTime && clockTime[0]) {
-      const dateTime = this.getDateTime();
-      clockTime[0].textContent = dateTime.time;
+      clockTime[0].textContent = this.getDateTime().time;
     }
   }
 
