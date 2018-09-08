@@ -32,31 +32,22 @@ fi
 [[ -d node_modules ]] || initial_setup
 
 if [[ $1 ]]; then
-  if [[ $1 == "--help" || $1 == "-h" ]]; then
-    show_instructions
-  fi
-
   if [[ $1 == "install" ]]; then
     npm -s install
-  fi
-
-  if [[ $1 == "test" ]]; then
+  elif [[ $1 == "test" ]]; then
     npm -s test
     exit $?
-  fi
-
-  if [[ $1 == "test:dev" ]]; then
+  elif [[ $1 == "test:dev" ]]; then
     npm -s run test:dev
     exit $?
-  fi
-
-  if [[ $1 == "pre-commit" ]]; then
+  elif [[ $1 == "pre-commit" ]]; then
     npm -s run ci
     exit $?
-  fi
-
-  if [[ $1 == "start" ]]; then
+  elif [[ $1 == "start" ]]; then
     npm -s start
+  else
+    echo "Unrecognised command: '$1'"
+    show_instructions
   fi
 else
   show_instructions
