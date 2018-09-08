@@ -25,7 +25,7 @@ class HomePage extends BasePage {
     const dateTime = new Date(Date.now()).toLocaleString().split(",");
     return { 
       date: dateTime[0], 
-      time: dateTime[1] 
+      time: dateTime[1],
     };
   }
 
@@ -34,12 +34,11 @@ class HomePage extends BasePage {
   }
 
   updateTimeDisplay(getTime) {
-    const clockTime = document.getElementsByClassName("clock-time");
-    if (clockTime && clockTime[0]) {
-      clockTime[0].textContent = this.getDateTime().time;
+    const clockTime = document.getElementById("clock-time");
+    if (clockTime) {
+      clockTime.textContent = getTime().time;
     }
   }
-
 
   rightButtonEvent() {
     this.navigate('contacts');
