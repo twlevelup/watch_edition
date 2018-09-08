@@ -200,7 +200,6 @@ describe('App', () => {
     });
 
     it('registers page bottom button event when down arrow pressed', () => {
-      console.log("+++ base page", BasePage.DOWN_ARROW_KEY);
       watch.pageBody.dispatchEvent(createKeyUpEvent(BasePage.DOWN_ARROW_KEY));
 
       expect(DummyPage.prototype.leftButtonEvent).not.toHaveBeenCalled();
