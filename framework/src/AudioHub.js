@@ -20,7 +20,7 @@ class AudioHub {
 
   playSound(name) {
     if (!this.store[name]) {
-      throw new Error('No reference found');
+      throw new Error('No audio reference found');
     }
     this.store[name].play();
   }
