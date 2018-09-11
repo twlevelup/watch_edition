@@ -12,11 +12,9 @@ describe('HomePage', () => {
   describe('#pageWillLoad', () => {
     it('should set contacts data on page load', () => {
       spyOn(StorageHub, 'setData')
-      spyOn(AudioHub, 'setSound')
       const page = new HomePage();
       page.pageWillLoad();
       expect(StorageHub.setData).toBeCalledWith('contacts', expect.any(Array));
-      expect(AudioHub.setSound).toBeCalledWith('bark', expect.any(String));
     })
   })
 
@@ -32,7 +30,7 @@ describe('HomePage', () => {
       spyOn(AudioHub, 'playSound')
       const page = new HomePage();
       page.leftButtonEvent();
-      expect(AudioHub.playSound).toBeCalledWith('bark');
+      expect(AudioHub.playSound).toBeCalledWith('./client/src/sounds/Street-dogs-barking.mp3');
     });
   });
 

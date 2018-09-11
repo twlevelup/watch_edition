@@ -3,13 +3,13 @@ require('../../styles/pages/home.scss');
 const BasePage = require('watch-framework').BasePage;
 const StorageHub = require('watch-framework').StorageHub;
 const AudioHub = require('watch-framework').AudioHub;
-const logo = require('../../images/logo.png')
+const logo = require('../../images/logo.png');
+const bark = './client/src/sounds/Street-dogs-barking.mp3';
 
 class HomePage extends BasePage {
   template = require('../../templates/homePage.hbs');
 
   pageWillLoad() {
-    AudioHub.setSound('bark', './client/src/sounds/Street-dogs-barking.mp3');
     StorageHub.setData('contacts', [
       { name: 'Ray', phoneNumber: '0431 111 111' },
       { name: 'Sinan', phoneNumber: '0431 222 222' },
@@ -47,7 +47,7 @@ class HomePage extends BasePage {
   }
 
   leftButtonEvent() {
-    AudioHub.playSound('bark');
+    AudioHub.playSound(bark);
   }
 
   topButtonEvent() {
