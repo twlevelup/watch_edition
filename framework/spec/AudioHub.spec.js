@@ -56,6 +56,19 @@ describe("AudioHub", () => {
     audioHub.setSound('beep', './framework/src/sounds/sound.mp3')
     audioHub.volumeModify('beep', 0.3)
     expect(audioHub.store['beep'].volume).toEqual(0.3);
+  })
 
+  it('should throw an error when giving a value higher than 1 for volume', () => {
+    audioHub.setSound('beep', './framework/src/sounds/sound.mp3');
+    expect(() => {
+      audioHub.volumeModify('beep', 5)
+    }).toThrow();
+  })
+
+  it('should throw an error when giving a value lower than 0 for volume', () => {
+    audioHub.setSound('beep', './framework/src/sounds/sound.mp3');
+    expect(() => {
+      audioHub.volumeModify('beep', -2)
+    }).toThrow();
   })
 });
