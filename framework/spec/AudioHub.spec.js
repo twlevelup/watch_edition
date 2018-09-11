@@ -21,28 +21,41 @@ describe("AudioHub", () => {
 
   it('should throw an error when non-string path is given for a new sound', () => {
     expect(() => {
-      audioHub.playSound('beep', null);
+      audioHub.setSound('beep', null);
     }).toThrow();
   })
 
   it('should throw an error when non-string name is given for a new sound', () => {
+    expect(() => {
+      audioHub.setSound(0, './framework/src/sounds/sound.mp3');
+    }).toThrow();
+  })
+
+  it('should throw an error when trying to play a sound with a non-string name', () => {
     expect(() => {
       audioHub.playSound(0, './framework/src/sounds/sound.mp3');
     }).toThrow();
   })
 
   it('should reset the hub', () => {
-    audioHub.playSound('beep', './framework/src/sounds/sound.mp3')
+    audioHub.setSound('beep', './framework/src/sounds/sound.mp3')
     expect(audioHub.store['beep']).toBeInstanceOf(Audio);
     audioHub.reset()
     expect(audioHub.store).toEqual({});
   })
 
-  it('should play a sound', () => {
+  it('should play a sound without manually setting it', () => {
     audioHub.playSound('beep', './framework/src/sounds/sound.mp3')
     const spy = jest.spyOn(audioHub.store['beep'], 'play');
     audioHub.playSound('beep')
     expect(spy).toHaveBeenCalled();
     spy.mockRestore();
+  })
+
+  it('should change the volume of a sound', () => {
+    audioHub.setSound('beep', './framework/src/sounds/sound.mp3')
+    audioHub.volumeModify('beep', 0.3)
+    expect(audioHub.store['beep'].volume).toEqual(0.3);
+
   })
 });

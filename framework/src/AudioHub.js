@@ -5,8 +5,8 @@ class AudioHub {
   }
 
   setSound(name, path) {
-    if (typeof path !== 'string') {
-      throw new Error('File path must be a string')
+    if (typeof name !== 'string' || typeof path !== 'string') {
+      throw new Error('File path and/or name must be a string')
     }
     try {
       this.store = {
