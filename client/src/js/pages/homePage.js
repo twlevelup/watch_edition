@@ -2,12 +2,14 @@ require('../../styles/pages/home.scss');
 
 const BasePage = require('watch-framework').BasePage;
 const StorageHub = require('watch-framework').StorageHub;
+const AudioHub = require('watch-framework').AudioHub;
 const logo = require('../../images/logo.png')
 
 class HomePage extends BasePage {
   template = require('../../templates/homePage.hbs');
 
   pageWillLoad() {
+    AudioHub.setSound('bark', './client/src/sounds/Street-dogs-barking.mp3');
     StorageHub.setData('contacts', [
       { name: 'Ray', phoneNumber: '0431 111 111' },
       { name: 'Sinan', phoneNumber: '0431 222 222' },
@@ -42,6 +44,10 @@ class HomePage extends BasePage {
 
   rightButtonEvent() {
     this.navigate('contacts');
+  }
+
+  leftButtonEvent() {
+    AudioHub.playSound('bark');
   }
 
   topButtonEvent() {
