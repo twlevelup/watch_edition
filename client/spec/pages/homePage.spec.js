@@ -16,7 +16,7 @@ describe('HomePage', () => {
       const page = new HomePage();
       page.pageWillLoad();
       expect(StorageHub.setData).toBeCalledWith('contacts', expect.any(Array));
-      expect(AudioHub.setSound).toBeCalledWith(expect.any(String), expect.any(String));
+      expect(AudioHub.setSound).toBeCalledWith('bark', expect.any(String));
     })
   })
 
@@ -31,7 +31,6 @@ describe('HomePage', () => {
     it('audioHub plays a sound', () => {
       spyOn(AudioHub, 'playSound')
       const page = new HomePage();
-      // page.pageWillLoad();
       page.leftButtonEvent();
       expect(AudioHub.playSound).toBeCalledWith('bark');
     });
