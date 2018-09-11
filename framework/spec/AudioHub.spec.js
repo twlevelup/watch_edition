@@ -37,6 +37,12 @@ describe("AudioHub", () => {
     }).toThrow();
   })
 
+  xit('should throw an error when providing a non-existant filepath', () => {
+    expect(() => {
+      audioHub.playSound('beep', 'fake');
+    }).toThrow();
+  })
+
   it('should reset the hub', () => {
     audioHub.setSound('beep', './framework/src/sounds/sound.mp3')
     expect(audioHub.store['beep']).toBeInstanceOf(Audio);
@@ -44,8 +50,8 @@ describe("AudioHub", () => {
     expect(audioHub.store).toEqual({});
   })
 
-  it('should play a sound without manually setting it', () => {
-    audioHub.playSound('beep', './framework/src/sounds/sound.mp3')
+  it('should play a sound', () => {
+    audioHub.setSound('beep', './framework/src/sounds/sound.mp3')
     const spy = jest.spyOn(audioHub.store['beep'], 'play');
     audioHub.playSound('beep')
     expect(spy).toHaveBeenCalled();

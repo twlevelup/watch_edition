@@ -31,9 +31,9 @@ class HomePage extends BasePage {
   rightButtonEvent() {
     this.navigate('contacts');
   }
-  
-  async leftButtonEvent() {
-    await AudioHub.playSound('bark');
+
+  leftButtonEvent() {
+    AudioHub.playSound('bark');
     AudioHub.volumeModify('bark', 0.9);
   }
 
