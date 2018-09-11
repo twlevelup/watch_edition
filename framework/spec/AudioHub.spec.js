@@ -25,6 +25,12 @@ describe("AudioHub", () => {
     }).toThrow();
   })
 
+  it('should throw an error when non-string name is given for a new sound', () => {
+    expect(() => {
+      audioHub.playSound(0, './framework/src/sounds/sound.mp3');
+    }).toThrow();
+  })
+
   it('should reset the hub', () => {
     audioHub.playSound('beep', './framework/src/sounds/sound.mp3')
     expect(audioHub.store['beep']).toBeInstanceOf(Audio);
