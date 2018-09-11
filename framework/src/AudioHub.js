@@ -22,15 +22,12 @@ class AudioHub {
     if (typeof name !== 'string') {
       throw new Error('Name must be a string')
     }
-
     if (path !== undefined) {
       this.setSound(name, path)
-    }
-    
+    }   
     if (!this.store[name]) {
       throw new Error('No audio reference found');
     }
-
     this.store[name].play();
   }
 
