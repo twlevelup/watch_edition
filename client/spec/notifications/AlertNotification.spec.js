@@ -3,10 +3,10 @@ const NotificationHub = require("watch-framework").NotificationHub;
 const hideSpy = jest.spyOn(NotificationHub, 'hide');
 
 describe("AlertNotification", () => {
-  describe("#template", () => {
-    it("should have a template", () => {
+  describe("#render", () => {
+    it("should render my page correctly", () => {
       const notification = new AlertNotification();
-      expect(notification.template()).toContain("Alert");
+      expect(notification.render()).toContain("Alert");
     });
   });
 

@@ -7,10 +7,10 @@ describe('TeamPage', () => {
     watchFace = document.getElementById('watch-face');
   });
 
-  describe('#template', () => {
-    it('should have a template', () => {
+  describe('#render', () => {
+    it('should render my page correctly', () => {
       const page = new TeamPage();
-      expect(page.template()).toContain("<h1>Made by:</h1>");
+      expect(page.render()).toContain("<h1>Made by:</h1>");
     });
   });
 

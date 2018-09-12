@@ -8,13 +8,8 @@ describe('ContactsPage', () => {
     watchFace = document.getElementById('watch-face');
   });
 
-  describe('#template', () => {
-    it('should have a template', () => {
-      const page = new ContactsPage();
-      expect(page.render()).toContain("<h1>Contacts</h1>");
-    });
-
-    it('should have a template with specific contacts', () => {
+  describe('#render', () => {
+    it('should render my specific contacts', () => {
       const contacts = [
         { name: 'hi', phoneNumber: '1234' },
       ];

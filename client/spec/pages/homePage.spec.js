@@ -18,10 +18,10 @@ describe('HomePage', () => {
     })
   })
 
-  describe('#template', () => {
-    it('should have a template', () => {
+  describe('#render', () => {
+    it('should render my page correctly', () => {
       const page = new HomePage();
-      expect(page.template()).toContain("<div>Hello, World!</div>");
+      expect(page.render()).toContain("<div>Hello, World!</div>");
     });
   });
 
@@ -73,7 +73,7 @@ describe('HomePage', () => {
     it('updateTimeDisplays calls clock-time if its in the window', () => {
       const page = new HomePage();      
 
-      watchFace.innerHTML = page.template();
+      watchFace.innerHTML = page.render();
 
       jest.spyOn(page,"getDateTime");
       page.updateTimeDisplay(page.getDateTime);

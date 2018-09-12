@@ -8,10 +8,10 @@ describe('404Page', () => {
     watchFace = document.getElementById('watch-face');
   });
 
-  describe('#template', () => {
-    it('should have a template', () => {
+  describe('#render', () => {
+    it('should render my page correctly', () => {
       const page = new FourOhFourPage();
-      expect(page.template()).toContain("<h1>Oops!</h1>");
+      expect(page.render()).toContain("<h1>Oops!</h1>");
     });
   });
 
