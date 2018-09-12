@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path');
 const webpack = require('webpack');
 
@@ -56,6 +57,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './framework/templates/watch.hbs',
     }),
+    new CopyWebpackPlugin([
+      { from: 'client/src/sounds', to: 'sounds' }
+    ]),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {

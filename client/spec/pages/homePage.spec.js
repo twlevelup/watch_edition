@@ -30,7 +30,7 @@ describe('HomePage', () => {
       spyOn(AudioHub, 'playSound')
       const page = new HomePage();
       page.leftButtonEvent();
-      expect(AudioHub.playSound).toBeCalledWith('./client/src/sounds/Street-dogs-barking.mp3');
+      expect(AudioHub.playSound).toBeCalledWith('./sounds/bark.mp3');
     });
   });
 

@@ -51,6 +51,7 @@
     "babel-eslint": "^8.2.6",
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "copy-webpack-plugin": "^4.5.2",
     "fixme": "^0.4.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
@@ -86,7 +87,8 @@
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "client/src/js/**/*.js"
+      "client/src/js/**/*.js",
+      "!client/src/js/storage.js"
     ]
   }
 }
