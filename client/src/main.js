@@ -1,3 +1,5 @@
+require('./main.scss');
+
 const App = require('watch-framework').App;
 
 const routes = require("./js/routes");

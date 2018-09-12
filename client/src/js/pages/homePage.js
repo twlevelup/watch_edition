@@ -1,5 +1,3 @@
-require('../../styles/pages/home.scss');
-
 const BasePage = require('watch-framework').BasePage;
 const StorageHub = require('watch-framework').StorageHub;
 const AudioHub = require('watch-framework').AudioHub;
