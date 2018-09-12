@@ -40,7 +40,7 @@ module.exports = {
         loader: 'file-loader?name=[name].[ext]',
       },
       {
-        test: /\.png$/,
+        test: /\.(png|mp3)$/,
         loader: 'file-loader',
       }
     ],
