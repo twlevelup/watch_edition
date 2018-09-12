@@ -8,7 +8,7 @@ describe('TeamPage', () => {
   });
 
   describe('#render', () => {
-    it('should render my page correctly', () => {
+    it('should render my team page', () => {
       const page = new TeamPage();
       expect(page.render()).toContain("<h1>Made by:</h1>");
     });
