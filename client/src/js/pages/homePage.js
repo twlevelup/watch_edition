@@ -2,7 +2,7 @@ const BasePage = require('watch-framework').BasePage;
 const StorageHub = require('watch-framework').StorageHub;
 const AudioHub = require('watch-framework').AudioHub;
 const logo = require('../../images/logo.png');
-const bark = './sounds/bark.mp3';
+const plop = './sounds/plop.mp3';
 
 class HomePage extends BasePage {
   template = require('../../templates/homePage.hbs');
@@ -45,7 +45,7 @@ class HomePage extends BasePage {
   }
 
   leftButtonEvent() {
-    AudioHub.playSound(bark);
+    AudioHub.playSound(plop);
   }
 
   topButtonEvent() {
