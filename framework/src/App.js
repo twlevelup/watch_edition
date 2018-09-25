@@ -1,6 +1,6 @@
 
-require('../styles/main.scss');
-require('../fonts/fonts.scss');
+require('../styles/main.css');
+require('../fonts/fonts.css');
 const NotificationForm = require('./NotificationForm');
 const NotificationHub = require('./NotificationHub');
 
