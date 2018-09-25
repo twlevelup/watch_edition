@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   cache: true,
@@ -65,12 +64,6 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'client/src/sounds', to: 'sounds' }
     ]),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
-      },
-    }),
     new ExtractTextPlugin('[name].bundle.css'),
   ],
 };
