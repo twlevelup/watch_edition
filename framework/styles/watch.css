@@ -1,0 +1,114 @@
+.screen {
+  padding-left: 1.5em;
+  font-family: OpenSans-Light;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+#watch-face {
+  height: 240px;
+  position: absolute;
+  width: 240px;
+  top: 30px;
+  left: 20px;
+  display: block;
+  overflow: hidden;
+}
+
+#watch {
+  background-color: #3F484A;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.watch {
+  position: relative;
+  margin: 0 auto;
+  width: 320px;
+  padding: 7.3em 0
+}
+
+.power {
+  cursor: pointer;
+}
+
+.power:nth-child(1) {
+  position: absolute;
+  right: -1.4em;
+  top: 7.3em;
+  height: 3.5em;
+  width: 0.8em;
+  background: #e4e4e4;
+}
+
+.power:nth-child(2) {
+  position: absolute;
+  left: -1.4em;
+  top: 7.3em;
+  height: 3.5em;
+  width: 0.8em;
+  background: #e4e4e4;
+  transform: rotateY(180deg);
+}
+
+.power:nth-child(3) {
+  position: absolute;
+  left: 8.8em;
+  bottom: -2.7em;
+  height: 3.5em;
+  width: 0.8em;
+  background: #e4e4e4;
+  transform: rotateZ(90deg);
+}
+
+.power:nth-child(4) {
+  position: absolute;
+  left: 8.8em;
+  top: -2.7em;
+  height: 3.5em;
+  width: 0.8em;
+  background: #e4e4e4;
+  transform: rotateZ(90deg) rotateY(180deg);
+}
+
+.case {
+  position: relative;
+  z-index: 2;
+  background: #030303;
+  width: 300px;
+  height: 300px;
+  border-radius: 4em;
+  background: #3F484A;
+  /* Dial colour */
+  border: 10px solid silver;
+  /* Face border */
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.strap {
+  position: absolute;
+  z-index: 1;
+  left: 4.4em;
+  width: 11.2em;
+  height: 7.6em;
+  background: dimgrey;
+  border-radius: 10px 10px 0 0;
+}
+
+.strap.strap-top {
+  top: 0;
+}
+
+.strap.strap-bottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.resizer {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 230px;
+}
