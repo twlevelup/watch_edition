@@ -15,7 +15,6 @@
     "ci": "npm -s run stylecheck && npm -s run test",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
-    "heroku-postbuild": "webpack --progress",
     "postinstall": "npm rebuild node-sass && cd ./framework && npm install"
   },
   "dependencies": {
@@ -41,7 +40,7 @@
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "url-loader": "^1.0.1",
-    "watch-framework": "file:./framework/"
+    "watch-framework": "file:framework"
   },
   "engines": {
     "node": "10.9.0"
