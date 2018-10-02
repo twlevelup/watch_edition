@@ -13,7 +13,7 @@
     "test": "jest",
     "test:dev": "jest --watchAll",
     "ci": "npm -s run stylecheck && npm -s run test",
-    "deploy": "gh-pages -d public -u 'levelup <levelup@thoughtworks.com>' -m 'Deploy to Github Pages' -t", 
+    "deploy": "gh-pages -d public -u 'levelup <levelup@thoughtworks.com>' -m 'Deploy to Github Pages' -t",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
     "postinstall": "npm rebuild node-sass && cd ./framework && npm install"
