@@ -1,6 +1,6 @@
 const BasePage = require('watch-framework').BasePage;
 class TeamPage extends BasePage {
-  template = require('../../templates/teamPage.hbs');
+  template = require('../../pages/teamPage/teamPage.hbs');
 }
 
 module.exports = TeamPage;
