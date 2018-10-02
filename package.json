@@ -13,6 +13,7 @@
     "test": "jest",
     "test:dev": "jest --watchAll",
     "ci": "npm -s run stylecheck && npm -s run test",
+    "deploy": "gh-pages -d public -u 'levelup <levelup@thoughtworks.com>' -m 'Deploy to Github Pages' -t", 
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
     "postinstall": "npm rebuild node-sass && cd ./framework && npm install"
@@ -52,6 +53,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "copy-webpack-plugin": "^4.5.2",
     "fixme": "^0.4.5",
+    "gh-pages": "^2.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
     "jest-cli": "^23.4.2",

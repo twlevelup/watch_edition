@@ -58,7 +58,8 @@ module.exports = {
       template: './framework/templates/watch.hbs',
     }),
     new CopyWebpackPlugin([
-      { from: 'client/src/sounds', to: 'sounds' }
+      { from: 'client/src/sounds', to: 'sounds' },
+      { from: '.circleci', to: '.circleci' },
     ]),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
