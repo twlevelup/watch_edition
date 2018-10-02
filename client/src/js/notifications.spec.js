@@ -1,4 +1,4 @@
-const notifications = require('../src/js/notifications');
+const notifications = require('./notifications');
 
 describe('notifications', () => {
   it('all notifications should exist', () => {

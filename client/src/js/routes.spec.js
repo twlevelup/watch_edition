@@ -1,4 +1,4 @@
-const routes = require('../src/js/routes');
+const routes = require('./routes');
 
 describe('routes', () => {
 
