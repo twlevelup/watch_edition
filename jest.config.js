@@ -12,7 +12,7 @@ module.exports = {
   "moduleFileExtensions": [
     "js"
   ],
-  "testRegex": "/client/spec/.*\\.spec\\.js$",
+  "testRegex": "/client/*/.*\\.spec\\.js$",
   "testPathIgnorePatterns": [
     "/node_modules/"
   ],
