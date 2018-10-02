@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>LevelUp Watch Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="left">
+      <h1>LevelUp Watch Edition</h1>
+
+      <p>This is LevelUp Watch Edition sample app.</p>
+
+      <form class="notification-form" id="notification-form">
+        <p class="notification-form-title">Notifications</p>
+        <div class="form-group">
+            <label>Type</label>
+            <select name="notification-form-type" id="notification-form-type-select" class="notification-form-type">
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Message</label>
+            <textarea id="notification-form-message" class="notification-form-message" maxlength="200"></textarea>
+        </div>
+        <button type="button" id="notification-form-send">Send</button>
+
+      </form>
+    </div>
+
+    <div id="right">
+      <div class="watch-placeholder">
+        <div class="watch">
+          <div class="strap strap-top">
+          </div>
+          <div id="watch-wrapper">
+            <div id="watch" class="case">
+              <div id="button-right" class="power"></div>
+              <div id="button-left" class="power"></div>
+              <div id="button-bottom" class="power"></div>
+              <div id="button-top" class="power"></div>
+              <div id="watch-face" class="screen"></div>
+              <div id="notification-container" hidden/>
+            </div>
+          </div>
+          <div class="strap strap-bottom">
+          </div>
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript" src="main.js"></script></body>
+</html>
