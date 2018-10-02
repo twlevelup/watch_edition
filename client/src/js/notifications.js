@@ -1,4 +1,4 @@
-const AlertNotification = require('./notifications/AlertNotification');
+const AlertNotification = require('./notifications/AlertNotification/AlertNotification');
 
 const notifications = [
   {
