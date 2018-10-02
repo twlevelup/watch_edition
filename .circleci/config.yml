@@ -17,9 +17,9 @@ jobs:
             - ./node_modules
       - run: npm test
       - run: npm run build
-      # - add_ssh_keys:
-      #     fingerprints:
-      #       - "89:58:dc:59:20:ad:6e:0a:01:3b:63:e9:f9:3a:fa:44"
+      - add_ssh_keys:
+          fingerprints:
+            - "89:58:dc:59:20:ad:6e:0a:01:3b:63:e9:f9:3a:fa:44"
       - run: npm run deploy
 
 workflows:
