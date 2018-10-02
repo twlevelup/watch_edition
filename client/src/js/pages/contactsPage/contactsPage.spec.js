@@ -1,4 +1,4 @@
-const ContactsPage = require('../../src/js/pages/contactsPage/contactsPage');
+const ContactsPage = require('./contactsPage');
 const StorageHub = require('watch-framework').StorageHub;
 
 describe('ContactsPage', () => {

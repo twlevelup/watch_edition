@@ -1,4 +1,4 @@
-const TeamPage = require('../../src/js/pages/teamPage/teamPage');
+const TeamPage = require('./teamPage');
 
 describe('TeamPage', () => {
   let watchFace;
