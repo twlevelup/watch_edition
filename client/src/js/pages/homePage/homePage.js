@@ -5,7 +5,7 @@ const logo = require('../../../images/logo.png');
 const plop = './sounds/plop.mp3';
 
 class HomePage extends BasePage {
-  template = require('../../pages/homePage/homePage.hbs');
+  template = require('./homePage.hbs');
 
   pageWillLoad() {
     StorageHub.setData('contacts', [

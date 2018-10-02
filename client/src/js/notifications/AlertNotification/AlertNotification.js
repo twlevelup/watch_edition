@@ -1,7 +1,7 @@
 const BaseNotification = require("watch-framework").BaseNotification;
 const NotificationHub = require("watch-framework").NotificationHub;
 module.exports = class AlertNotification extends BaseNotification {
-  template = require("../../notifications/AlertNotification/AlertNotification.hbs");
+  template = require("./AlertNotification.hbs");
 
   leftButtonEvent() {
     console.log("LEFT");
