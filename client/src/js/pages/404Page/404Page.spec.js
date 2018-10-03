@@ -1,4 +1,4 @@
-const FourOhFourPage = require('../../src/js/pages/404Page');
+const FourOhFourPage = require('./404Page');
 
 describe('404Page', () => {
   let watchFace;

@@ -1,4 +1,4 @@
-const AlertNotification = require("../../src/js/notifications/AlertNotification");
+const AlertNotification = require("./AlertNotification");
 const NotificationHub = require("watch-framework").NotificationHub;
 const hideSpy = jest.spyOn(NotificationHub, 'hide');
 
