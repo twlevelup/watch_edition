@@ -25,11 +25,10 @@ module.exports = {
         ],
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         loaders: [
           'style-loader',
           'css-loader',
-          'sass-loader?sourceMap',
         ],
       },
       {

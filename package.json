@@ -16,7 +16,7 @@
     "deploy": "gh-pages -d public -u 'levelup <levelup@thoughtworks.com>' -m 'Deploy to Github Pages' -t",
     "todos": "fixme -p client/src/js && fixme -p client/spec/",
     "stylecheck": "eslint client/src/js/ client/spec/ --fix",
-    "postinstall": "npm rebuild node-sass && cd ./framework && npm install"
+    "postinstall": "cd ./framework && npm install"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -37,8 +37,6 @@
     "http-server": "^0.11.1",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.10",
-    "node-sass": "^4.9.2",
-    "sass-loader": "^3.2.3",
     "style-loader": "^0.13.1",
     "url-loader": "^1.0.1",
     "watch-framework": "file:framework"
