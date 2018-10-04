@@ -1,18 +1,13 @@
-.page-with-menu {
-
-  .menu {
+.page-with-menu .menu {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
 
-    li {
+.page-with-menu li {
       padding: 4px;
-    }
+}
 
-    .selected {
+.page-with-menu  .selected {
       background-color: red;
-    }
-
-  }
-
 }
