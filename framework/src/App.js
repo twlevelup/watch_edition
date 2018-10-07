@@ -3,13 +3,16 @@ require('../styles/main.css');
 require('../fonts/fonts.css');
 const NotificationForm = require('./NotificationForm');
 const NotificationHub = require('./NotificationHub');
+const { getRxjsTarget, getRxjsTargetFromKey, getTimedEvent } = require('./rxjs/watchOperators');
+const { fromEvent } = require('rxjs');
+const { map, merge, switchMap } = require('rxjs/operators');
 
 module.exports = class App {
   constructor(routes, notifications) {
     this.navigate = this.navigate.bind(this);
     this.navigateToLocation = this.navigateToLocation.bind(this);
     this.render = this.render.bind(this);
-    this.setupEventListeners = this.setupEventListeners.bind(this);
+    this.handleEvent = this.handleEvent.bind(this);
 
     this.routes = routes;
     this.notificationForm = new NotificationForm(notifications, this.render);
@@ -21,17 +24,20 @@ module.exports = class App {
     this.bottomButton = document.getElementById("button-bottom");
     this.notificationContainer = document.getElementById("notification-container");
     this.wholePage = document.body;
+    this.watchContainer = document.getElementById('watch');
 
     const hideNotification = () => {
       this.navigateToLocation(window.location, this.props);
     }
 
-    window.onhashchange = (hashChangeEvent) => { 
-      const pageName = hashChangeEvent.newURL.split("#")[1];
-      this.navigate(pageName);
+    window.onhashchange = (hashChangeEvent) => {
+      const path = hashChangeEvent.newURL.split("#")[1];
+      this.navigate(path);
     }
 
     NotificationHub.onHide(hideNotification);
+
+    this.setupRxjsListeners();
   }
 
   navigateToLocation(location, props = {}) {
@@ -42,29 +48,56 @@ module.exports = class App {
     this.navigate(path, props);
   }
 
-  setupEventListeners(view) {
-    this.leftButton.removeEventListener("click", this.leftListener);
-    this.rightButton.removeEventListener("click", this.rightListener);
-    this.topButton.removeEventListener("click", this.topListener);
-    this.bottomButton.removeEventListener("click", this.bottomListener);
-    this.watchFace.removeEventListener("click", this.faceListener);
-    this.notificationContainer.removeEventListener("click", this.faceListener);
-    this.wholePage.removeEventListener("keyup",this.keyEventListener);
+  setupRxjsListeners() {
+    this.watchMouseDown$ = fromEvent(this.watchContainer, 'mousedown').pipe(getRxjsTarget())
+    this.watchMouseUp$ = fromEvent(this.watchContainer, 'mouseup').pipe(getRxjsTarget())
+    this.watchKeyDown$ = fromEvent(this.wholePage, 'keydown').pipe(getRxjsTargetFromKey())
+    this.watchKeyUp$ = fromEvent(this.wholePage, 'keyup').pipe(getRxjsTargetFromKey())
 
-    this.leftListener = view.leftButtonEvent.bind(view);
-    this.rightListener = view.rightButtonEvent.bind(view);
-    this.topListener = view.topButtonEvent.bind(view);
-    this.bottomListener = view.bottomButtonEvent.bind(view);
-    this.faceListener = view.faceButtonEvent.bind(view);
-    this.keyEventListener = view.keyEvent.bind(view);
+    this.mergeEvents();
+    this.subscribeToEvents();
+  }
 
-    this.leftButton.addEventListener("click", this.leftListener);
-    this.rightButton.addEventListener("click", this.rightListener);
-    this.topButton.addEventListener("click", this.topListener);
-    this.bottomButton.addEventListener("click", this.bottomListener);
-    this.watchFace.addEventListener("click", this.faceListener);
-    this.notificationContainer.addEventListener("click", this.faceListener);
-    this.wholePage.addEventListener("keyup",this.keyEventListener);
+  mergeEvents() {
+    this.watchDown$ = this.watchMouseDown$.pipe(
+      merge(this.watchKeyDown$),
+      getTimedEvent(),
+    );
+    this.watchUp$ = this.watchMouseUp$.pipe(
+      merge(this.watchKeyUp$),
+      getTimedEvent(),
+    );
+  }
+
+  subscribeToEvents() {
+    this.watchClick$ = this.watchDown$.pipe(
+      switchMap((downEvent) => this.watchUp$.pipe(
+        map((upEvent) => {
+          return {
+            target: upEvent.target,
+            timeTaken: upEvent.timestamp - downEvent.timestamp,
+          }
+        }),
+      )),
+    );
+
+    this.watchClick$.subscribe(this.handleEvent)
+  }
+
+  handleEvent({ target, timeTaken }) {
+    let eventName = `${target}ButtonEvent`;
+    if (timeTaken > 750) {
+      eventName = `${eventName}Hold`;
+    }
+    const viewName = this.currentView.constructor.name;
+
+    const eventHandler = this.currentView[eventName];
+    if (eventHandler) {
+      // console.debug(`Executing '${eventName}()' on ${viewName}`);
+      eventHandler.bind(this.currentView)()
+    } else {
+      console.error(`${viewName} needs '${eventName}()' to be defined.`);
+    }
   }
 
   navigate(path, props = {}) {
@@ -82,7 +115,8 @@ module.exports = class App {
       watchFace: this.watchFace,
     })
 
-    this.setupEventListeners(view);
+    this.currentView = view;
+
     view.pageWillLoad();
     element.innerHTML = view.render();
     view.pageDidLoad();
