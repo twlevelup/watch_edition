@@ -60,11 +60,5 @@ module.exports = {
       { from: 'client/src/sounds', to: 'sounds' },
       { from: '.circleci', to: '.circleci' },
     ]),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false,
-      },
-    }),
   ],
 };
