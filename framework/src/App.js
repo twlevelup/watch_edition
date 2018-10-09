@@ -86,15 +86,17 @@ module.exports = class App {
 
   handleEvent({ target, timeTaken }) {
     let eventName = `${target}ButtonEvent`;
+    let eventHandlerParams;
     if (timeTaken > 750) {
       eventName = `${eventName}Hold`;
+      eventHandlerParams = { timeTaken };
     }
     const viewName = this.currentView.constructor.name;
 
     const eventHandler = this.currentView[eventName];
     if (eventHandler) {
       // console.debug(`Executing '${eventName}()' on ${viewName}`);
-      eventHandler.bind(this.currentView)()
+      eventHandler.bind(this.currentView)(eventHandlerParams);
     } else {
       console.error(`${viewName} needs '${eventName}()' to be defined.`);
     }

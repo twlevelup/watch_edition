@@ -114,8 +114,8 @@ describe('App', () => {
 
   describe('event handling', () => {
 
-    const expectOnlyOneEventCalled = (expected) => {
-      expect(DummyPage.prototype[expected]).toHaveBeenCalled();
+    const expectOnlyOneEventCalled = (expected, params) => {
+      expect(DummyPage.prototype[expected]).toHaveBeenCalledWith(params);
       Object.keys(DummyPage.prototype).forEach((key) => {
         if (key.match(/Event/) && key !== expected) {
           expect(DummyPage.prototype[key]).not.toHaveBeenCalled();
@@ -171,27 +171,27 @@ describe('App', () => {
       const timeTaken = 1000;
       it('registers page left button event', () => {
         app.handleEvent({ target: 'left', timeTaken });
-        expectOnlyOneEventCalled('leftButtonEventHold');
+        expectOnlyOneEventCalled('leftButtonEventHold', { timeTaken });
       });
 
       it('registers page right button event', () => {
         app.handleEvent({ target: 'right', timeTaken });
-        expectOnlyOneEventCalled('rightButtonEventHold');
+        expectOnlyOneEventCalled('rightButtonEventHold', { timeTaken });
       });
 
       it('registers page top button event', () => {
         app.handleEvent({ target: 'top', timeTaken });
-        expectOnlyOneEventCalled('topButtonEventHold');
+        expectOnlyOneEventCalled('topButtonEventHold', { timeTaken });
       });
 
       it('registers page bottom button event', () => {
         app.handleEvent({ target: 'bottom', timeTaken });
-        expectOnlyOneEventCalled('bottomButtonEventHold');
+        expectOnlyOneEventCalled('bottomButtonEventHold', { timeTaken });
       });
 
       it('registers page face button event', () => {
         app.handleEvent({ target: 'face', timeTaken });
-        expectOnlyOneEventCalled('faceButtonEventHold');
+        expectOnlyOneEventCalled('faceButtonEventHold', { timeTaken });
       });
     })
 
