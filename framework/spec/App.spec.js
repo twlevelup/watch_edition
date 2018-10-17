@@ -56,9 +56,15 @@ describe('App', () => {
 
   describe('#onhashchange', () => {
     it('should respond to window hashChangeEvent', () => {
-      spyOn(app, 'navigate').and.stub();
-      window.onhashchange({ newURL: "http://localhost:8080/#contacts" })
-      expect(app.navigate).toHaveBeenCalledWith("contacts")
+      spyOn(app, 'renderPath').and.stub();
+      window.onhashchange({ newURL: "http://localhost:8080/#teamRocket", oldURL: "http://localhost:8080/#"  })
+      expect(app.renderPath).toHaveBeenCalledWith("teamRocket")
+    })
+
+    it('should not respond if the hash url has not changed', () => {
+      spyOn(app, 'renderPath').and.stub();
+      window.onhashchange({ newURL: "http://localhost:8080/#teamRocket", oldURL: "http://localhost:8080/#teamRocket" })
+      expect(app.renderPath).not.toHaveBeenCalled();
     })
   })
 
@@ -74,14 +80,14 @@ describe('App', () => {
       };
 
       const props = { message: 'hello' };
-      const renderSpy = spyOn(app, 'render');
+      const renderPath = spyOn(app, 'renderPath').and.stub();
 
       app.navigateToLocation(location, props);
-      expect(renderSpy).toHaveBeenCalledWith(watch.watchFace, DummyPage2, props);
-      expect(renderSpy).toHaveBeenCalledTimes(1);
+      expect(renderPath).toHaveBeenCalledWith('dummy2', props);
+      expect(renderPath).toHaveBeenCalledTimes(1);
       NotificationHub.hide();
-      expect(renderSpy).toHaveBeenLastCalledWith(watch.watchFace, DummyPage2, props);
-      expect(renderSpy).toHaveBeenCalledTimes(2);
+      expect(renderPath).toHaveBeenCalledWith('dummy2', props)
+      expect(renderPath).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -127,7 +133,7 @@ describe('App', () => {
         '/': DummyPage,
         'someOtherPage': DummyPage2,
       };
-      app.navigate('/');
+      app.renderPath('/');
       spyObject(DummyPage.prototype);
     })
 
@@ -260,7 +266,7 @@ describe('App', () => {
         '/': DummyPage,
         'someOtherPage': DummyPage2,
       };
-      app.navigate('/');
+      app.renderPath('/');
     });
 
     it('should changes watch face to the specific page', () => {
@@ -273,11 +279,11 @@ describe('App', () => {
       spyOn(DummyPage.prototype, 'render').and.callThrough();
       spyOn(DummyPage2.prototype, 'render').and.callThrough();
 
-      app.navigate('/', {});
+      app.renderPath('/', {});
       expect(element.innerHTML).toBe(`<div>Some page</div>`);
       expect(DummyPage.prototype.render).toHaveBeenCalledTimes(1);
 
-      app.navigate('someOtherPage');
+      app.renderPath('someOtherPage');
       expect(element.innerHTML).toBe(`<div>I like to move it move it</div>`);
       expect(DummyPage2.prototype.render).toHaveBeenCalledTimes(1);
     });
@@ -295,9 +301,22 @@ describe('App', () => {
 
       let element = document.getElementById('watch-face');
 
-      app.navigate('someRandomPage', {});
+      app.renderPath('someRandomPage', {});
       expect(element.innerHTML).toBe(`<div>Oops, page not found</div>`);
     });
+
+    it('should navigate to the Home page', () => {
+      //const windowHash = spyOn(window.location.hash);
+      app.navigate('/');
+      expect(window.location.hash).toBe('#/');
+    });
+
+    it('should navigate to another page correctly', () => {
+      //const windowHash = spyOn(window.location.hash);
+      app.navigate('someOtherPage');
+      expect(window.location.hash).toBe('#someOtherPage');
+    });
+
   });
 });
 

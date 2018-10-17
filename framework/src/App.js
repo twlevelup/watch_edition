@@ -1,6 +1,6 @@
 
-require('../styles/main.css');
-require('../fonts/fonts.css');
+require('../styles/main.scss');
+require('../fonts/fonts.scss');
 const NotificationForm = require('./NotificationForm');
 const NotificationHub = require('./NotificationHub');
 const { getRxjsTarget, getRxjsTargetFromKey, getTimedEvent } = require('./rxjs/watchOperators');
@@ -12,6 +12,7 @@ module.exports = class App {
     this.navigate = this.navigate.bind(this);
     this.navigateToLocation = this.navigateToLocation.bind(this);
     this.render = this.render.bind(this);
+    this.renderPath = this.renderPath.bind(this);
     this.handleEvent = this.handleEvent.bind(this);
 
     this.routes = routes;
@@ -27,12 +28,14 @@ module.exports = class App {
     this.watchContainer = document.getElementById('watch');
 
     const hideNotification = () => {
-      this.navigateToLocation(window.location, this.props);
+      this.navigateToLocation(window.location, this.prevProps);
     }
 
     window.onhashchange = (hashChangeEvent) => {
-      const path = hashChangeEvent.newURL.split("#")[1];
-      this.navigate(path);
+      if (hashChangeEvent.newURL !== hashChangeEvent.oldURL) {
+        const path = hashChangeEvent.newURL.split("#")[1];
+        this.renderPath(path);
+      }
     }
 
     NotificationHub.onHide(hideNotification);
@@ -45,7 +48,7 @@ module.exports = class App {
     if (path === "") {
       path = "/";
     }
-    this.navigate(path, props);
+    this.renderPath(path, props);
   }
 
   setupRxjsListeners() {
@@ -102,15 +105,13 @@ module.exports = class App {
     }
   }
 
-  navigate(path, props = {}) {
-    this.props = props;
-    const Page = this.routes[path] || this.routes["404"];
-    this.render(this.watchFace, Page, props);
+  navigate(path) {
     window.location.hash = path;
   }
 
   render(element, ViewType, props) {
-
+    this.prevProps = props;
+   
     const view = new ViewType({
       ...props,
       navigate: this.navigate,
@@ -122,5 +123,10 @@ module.exports = class App {
     view.pageWillLoad();
     element.innerHTML = view.render();
     view.pageDidLoad();
+  }
+
+  renderPath(path,props){
+    const Page = this.routes[path] || this.routes["404"];
+    this.render(this.watchFace, Page,props);
   }
 };
