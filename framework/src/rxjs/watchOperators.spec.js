@@ -3,12 +3,22 @@ const watchOperators = require('./watchOperators');
 
 describe('watchOperators', () => {
   it('getRxjsTarget', marbles((m) => {
-    const source = m.hot('a', { a: { target: { dataset: { rxjsTarget: 'left' } } } })
+    const leftTarget = { dataset: { rxjsTarget: 'left' } };
+    const rxjsTargetWithClosest = { ...leftTarget, closest: () => leftTarget };
+    const nonRxjsTargetWithClosest = { closest: () => leftTarget };
+
+    const inputs = {
+      a: { target: rxjsTargetWithClosest },
+      b: { target: nonRxjsTargetWithClosest },
+    };
+
+    const source = m.hot('a--b', inputs);
 
     const piped = source.pipe(watchOperators.getRxjsTarget());
 
-    m.expect(piped).toBeObservable('x', { x: 'left' });
+    m.expect(piped).toBeObservable('x--x', { x: 'left' });
   }))
+
   it('getRxjsTargetFromKey', marbles((m) => {
     const preventDefault = jest.fn();
     const inputs = {

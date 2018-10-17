@@ -16,8 +16,9 @@ const KEY_MAPPINGS = {
 }
 
 const getRxjsTarget = () => pipe(
-  map((event) => event.target.dataset.rxjsTarget),
-  filter((target) => !!target),
+  map((event) => event.target.closest('[data-rxjs-target]')),
+  filter((element) => !!element),
+  map((element) => element.dataset.rxjsTarget),
 )
 
 const getRxjsTargetFromKey = () => pipe(
