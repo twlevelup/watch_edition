@@ -7,8 +7,11 @@ class BasePage {
     Object.keys(props).forEach((key) => {
       this[key] = props[key];
     });
-    this.navigate = props.navigate;
     this.watchFace = props.watchFace;
+  }
+
+  navigate(location) {
+    this.navigate(location)
   }
 
   pageWillLoad() {
@@ -41,7 +44,7 @@ class BasePage {
 
   faceButtonEvent() {
   }
-  
+
 }
 
 module.exports = BasePage;

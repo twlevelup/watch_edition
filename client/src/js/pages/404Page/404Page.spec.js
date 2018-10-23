@@ -17,10 +17,7 @@ describe('404Page', () => {
 
   describe('#rightButtonEvent', () => {
     it('goes to root page', () => {
-      const props = {
-        navigate: () => { },
-      };
-      const page = new FourOhFourPage(props);
+      const page = new FourOhFourPage();
       spyOn(page, 'navigate');
 
       page.rightButtonEvent();
@@ -30,10 +27,7 @@ describe('404Page', () => {
 
   describe('#leftButtonEvent', () => {
     it('goes to root page', () => {
-      const props = {
-        navigate: () => { },
-      };
-      const page = new FourOhFourPage(props);
+      const page = new FourOhFourPage();
       spyOn(page, 'navigate');
 
       page.leftButtonEvent();
@@ -44,10 +38,7 @@ describe('404Page', () => {
 
   describe('#topButtonEvent', () => {
     it('goes to root page', () => {
-      const props = {
-        navigate: () => { },
-      };
-      const page = new FourOhFourPage(props);
+      const page = new FourOhFourPage();
       spyOn(page, 'navigate');
 
       page.topButtonEvent();
@@ -57,10 +48,7 @@ describe('404Page', () => {
 
   describe('#bottomButtonEvent', () => {
     it('goes to root page', () => {
-      const props = {
-        navigate: () => { },
-      };
-      const page = new FourOhFourPage(props);
+      const page = new FourOhFourPage();
       spyOn(page, 'navigate');
 
       page.bottomButtonEvent();
