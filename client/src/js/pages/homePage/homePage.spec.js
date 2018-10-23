@@ -36,10 +36,7 @@ describe('HomePage', () => {
 
   describe('#rightButtonEvent', () => {
     it('goes to contacts page', () => {
-      const props = {
-        navigate: () => { },
-      };
-      const page = new HomePage(props);
+      const page = new HomePage();
       spyOn(page, 'navigate');
 
       page.rightButtonEvent();
@@ -71,7 +68,7 @@ describe('HomePage', () => {
 
   describe('#updateTimeDisplay', () => {
     it('updateTimeDisplays calls clock-time if its in the window', () => {
-      const page = new HomePage();      
+      const page = new HomePage();
 
       watchFace.innerHTML = page.render();
 

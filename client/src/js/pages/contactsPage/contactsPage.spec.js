@@ -23,15 +23,11 @@ describe('ContactsPage', () => {
 
   describe('#leftButtonEvent', () => {
     it('goes to root page', () => {
-      const props = {
-        navigate: () => { },
-      };
-      const page = new ContactsPage(props);
+      const page = new ContactsPage();
       spyOn(page, 'navigate');
 
       page.leftButtonEvent();
       expect(page.navigate).toHaveBeenCalledWith('/');
     });
   });
-
 });

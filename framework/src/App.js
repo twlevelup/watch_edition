@@ -111,12 +111,12 @@ module.exports = class App {
 
   render(element, ViewType, props) {
     this.prevProps = props;
-   
+
     const view = new ViewType({
       ...props,
       navigate: this.navigate,
       watchFace: this.watchFace,
-    })
+    });
 
     this.currentView = view;
 
@@ -127,6 +127,6 @@ module.exports = class App {
 
   renderPath(path,props){
     const Page = this.routes[path] || this.routes["404"];
-    this.render(this.watchFace, Page,props);
+    this.render(this.watchFace, Page, props);
   }
 };
