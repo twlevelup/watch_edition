@@ -1,6 +1,6 @@
 # LevelUp Watch Edition App Development Environment
 
-[![Build Status](https://circleci.com/gh/twlevelup/watch_edition.svg?style=svg)](https://circleci.com/gh/twlevelup/watch_edition)
+[![Build Status](https://circleci.com/gh/twlevelup/watch_edition.svg?style=svg)](https://circleci.com/gh/twlevelup/watch_edition) [![Greenkeeper badge](https://badges.greenkeeper.io/twlevelup/watch_edition.svg)](https://greenkeeper.io/)
 
 This git repo contains all the code you need to prototype apps for the watch.
 
