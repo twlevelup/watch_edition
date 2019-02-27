@@ -8,7 +8,7 @@
     "url": "https://github.com/twlevelup/watch_edition"
   },
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --inline --hot",
+    "start": "webpack-dev-server --host 0.0.0.0 --inline --disableHostCheck --hot",
     "build": "webpack",
     "test": "jest",
     "test:dev": "jest --watchAll",
