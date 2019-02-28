@@ -1,6 +1,8 @@
 class BasePage {
 
-  template;
+  template() {
+    throw new Error("Template not defined: Did you forget `template = require('path/to/template.hbs');`?");
+  };
 
   constructor(props = {}) {
     this.props = props;
@@ -18,10 +20,6 @@ class BasePage {
   }
 
   render() {
-    if (!this.template) {
-      throw new Error("Template not defined: Did you forget `template = require('path/to/template.hbs');`?");
-    }
-
     const context = JSON.parse(JSON.stringify(this))
 
     return this.template(context);
