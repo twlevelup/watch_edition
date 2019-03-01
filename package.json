@@ -56,7 +56,7 @@
     "jest": "23.6.0",
     "jest-cli": "23.6.0",
     "jest-handlebars": "1.0.1",
-    "jsdom": "11.12.0",
+    "jsdom": "13.2.0",
     "regenerator-runtime": "0.11.1",
     "request": "2.88.0",
     "webpack": "2.7.0",
