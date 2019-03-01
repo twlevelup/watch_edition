@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "babel": "6.23.0",
-    "babel-loader": "6.4.1",
+    "babel-loader": "8.0.5",
     "babel-plugin-dynamic-import-webpack": "1.1.0",
     "babel-plugin-syntax-class-properties": "6.13.0",
     "babel-plugin-transform-class-properties": "6.24.1",
