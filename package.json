@@ -42,7 +42,7 @@
     "watch-framework": "file:framework"
   },
   "engines": {
-    "node": "10.15.1"
+    "node": "10.15.2"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
