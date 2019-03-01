@@ -27,7 +27,7 @@
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-preset-es2015": "6.24.1",
     "css-loader": "2.1.0",
-    "eslint": "3.19.0",
+    "eslint": "5.14.1",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-loader": "2.1.2",
     "eslint-plugin-import": "2.16.0",
