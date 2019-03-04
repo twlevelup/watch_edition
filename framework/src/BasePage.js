@@ -45,6 +45,39 @@ class BasePage {
   faceButtonEvent() {
   }
 
+  // double clicks
+  rightButtonEventDoubleClick() {
+  }
+
+  leftButtonEventDoubleClick() {
+  }
+
+  topButtonEventDoubleClick() {
+  }
+
+  bottomButtonEventDoubleClick() {
+  }
+
+  faceButtonEventDoubleClick() {
+  }
+
+  // long hold
+
+  rightButtonEventHold() {
+  }
+
+  leftButtonEventHold() {
+  }
+
+  topButtonEventHold() {
+  }
+
+  bottomButtonEventHold() {
+  }
+
+  faceButtonEventHold() {
+  }
+
 }
 
 module.exports = BasePage;

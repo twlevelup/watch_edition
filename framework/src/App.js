@@ -5,7 +5,7 @@ const NotificationForm = require('./NotificationForm');
 const NotificationHub = require('./NotificationHub');
 const { getRxjsTarget, getRxjsTargetFromKey, getTimedEvent } = require('./rxjs/watchOperators');
 const { fromEvent } = require('rxjs');
-const { map, merge, switchMap } = require('rxjs/operators');
+const { map, merge, switchMap, exhaustMap } = require('rxjs/operators');
 
 module.exports = class App {
   constructor(routes, notifications) {
@@ -26,6 +26,9 @@ module.exports = class App {
     this.notificationContainer = document.getElementById("notification-container");
     this.wholePage = document.body;
     this.watchContainer = document.getElementById('watch');
+
+    this.clicks = 0;
+    this.clickTimeout = null;
 
     const hideNotification = () => {
       this.navigateToLocation(window.location, this.prevProps);
@@ -72,6 +75,29 @@ module.exports = class App {
     );
   }
 
+  testClick(...args) {
+    this.clicks++;
+    if (this.clickTimeout) {
+      if (this.clicks <= 2) {
+        this.setClickTimeout(() => {this.handleDoubleClick(...args)});
+      } else {
+        this.setClickTimeout(() => {});
+      }
+    } else {
+      console.log(this)
+      this.setClickTimeout(() => {this.handleEvent(...args)});
+    }
+  }
+
+  setClickTimeout(cb) {
+    clearTimeout(this.clickTimeout);
+    this.clickTimeout = setTimeout(() => {
+      this.clickTimeout = null;
+      this.clicks = 0;
+      cb();
+    }, 400);
+  }
+
   subscribeToEvents() {
     this.watchClick$ = this.watchDown$.pipe(
       switchMap((downEvent) => this.watchUp$.pipe(
@@ -82,11 +108,10 @@ module.exports = class App {
           }
         }),
       )),
-    );
-
-    this.watchClick$.subscribe(this.handleEvent)
+    )
+    this.watchClick$.subscribe((...args) => {this.testClick(...args)});
   }
-
+  
   handleEvent({ target, timeTaken }) {
     let eventName = `${target}ButtonEvent`;
     let eventHandlerParams;
@@ -98,7 +123,20 @@ module.exports = class App {
 
     const eventHandler = this.currentView[eventName];
     if (eventHandler) {
-      // console.debug(`Executing '${eventName}()' on ${viewName}`);
+      console.log(`Executing '${eventName}()' on ${viewName}`);
+      eventHandler.bind(this.currentView)(eventHandlerParams);
+    } else {
+      console.error(`${viewName} needs '${eventName}()' to be defined.`);
+    }
+  }
+
+  handleDoubleClick({ target, timeTaken }) {
+    let eventName = `${target}ButtonEventDoubleClick`;
+    let eventHandlerParams;
+    const viewName = this.currentView.constructor.name;
+    const eventHandler = this.currentView[eventName];
+    if (eventHandler) {
+      console.log(`Executing '${eventName}()' on ${viewName}`);
       eventHandler.bind(this.currentView)(eventHandlerParams);
     } else {
       console.error(`${viewName} needs '${eventName}()' to be defined.`);
