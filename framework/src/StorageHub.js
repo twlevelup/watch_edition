@@ -34,6 +34,20 @@ class StorageHub {
   reset() {
     this.store = {};
   }
+
+  find(field, applyFn) {
+    const dataRetrieved = this.getData(field);
+    if (!Array.isArray(dataRetrieved) || typeof(applyFn) !== 'function') {
+      return [];
+    }
+
+    return (dataRetrieved || []).reduce((acc, data) => {
+      if(applyFn(data)) {
+        acc.push(data);
+      }
+      return acc;
+    }, []);
+  }
 }
 
 module.exports = StorageHub;
