@@ -5,9 +5,6 @@ export default class Map extends HTMLElement {
     constructor() {
       console.log("wassup");
         super();
-        // var mdiv = document.createElement('div');
-        // mdiv.id = 'map';
-        // document.getElementById('watch').appendChild(mdiv);
         this.renderMap();
     }
     
