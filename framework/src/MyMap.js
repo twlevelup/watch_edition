@@ -1,15 +1,17 @@
-import Map from 'ol/Map.js';
-import View from 'ol/View.js';
-import TileLayer from 'ol/layer/Tile.js';
-import BingMaps from 'ol/source/BingMaps.js';
+// import Map from 'ol/Map.js';
+// import View from 'ol/View.js';
+// import TileLayer from 'ol/layer/Tile.js';
+// import BingMaps from 'ol/source/BingMaps.js';
 //const Handlebars = require('handlebars');
 //require("handlebars.element").default(Handlebars);
 
 class MyMap extends HTMLElement {
     constructor() {
       console.log("wassup");
+        // constructCustomElement(MyMap);
         super();
         var shadow = this.attachShadow({mode: 'open'});
+        
         let s = document.createElement('div');
         s.id = 'map';
         s.className = 'map';
@@ -39,9 +41,10 @@ class MyMap extends HTMLElement {
         })
       });
 
-      s.appendChild(map);
+      //s.appendChild(map);
     }
 }
-console.log("hi");
-customElements.define('my-map', MyMap);
-//Handlebars.registerElement('my-map', MyMap);
+
+document.body.appendChild(document.createElement('MyMap'));
+//customElements.define('my-map', MyMap);
+module.exports = MyMap;
