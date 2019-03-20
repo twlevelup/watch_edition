@@ -1,7 +1,19 @@
+const fs = require("fs");
 class StorageHub {
-  constructor() {
+  constructor(filePath=null) {
     this.store = {};
     this.shouldDebug = false;
+    this.filePath = filePath;
+    if(this.filePath){
+      let content = this._loadFile();
+      this.store = content
+    }
+  }
+
+  _loadFile(filePath) {
+    const content = JSON.parse(fs.readFileSync(this.filePath, 'utf8'));
+
+    return content
   }
 
   setDebug(shouldDebug) {
