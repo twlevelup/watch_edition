@@ -16,9 +16,12 @@ describe('App', () => {
   let app;
 
   class DummyPage extends BasePage {
-    template() {
-      return '<div>Some page</div>';
+
+
+    template = function(){
+      return '<div>Some page</div>'
     }
+
 
     leftButtonEventHold() { }
     rightButtonEventHold() { }
@@ -29,13 +32,15 @@ describe('App', () => {
 
   class DummyPage2 extends BasePage {
 
+    template = function (message) {
+      return `<div>${message.message}</div>`;
+
+    };
+
     pageWillLoad() {
       this.message = 'I like to move it move it'
     }
 
-    template({ message }) {
-      return `<div>${message}</div>`;
-    }
   }
 
   beforeEach(() => {
@@ -290,9 +295,10 @@ describe('App', () => {
 
     it('shows 404 when path does not match any predefined routes', () => {
       class FourOhFour extends BasePage {
-        template() {
+        template = function () {
           return '<div>Oops, page not found</div>';
         }
+
       }
 
       app.routes = {
