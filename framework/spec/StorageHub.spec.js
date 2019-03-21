@@ -25,19 +25,11 @@ describe("StorageHub", () => {
     expect(() => storageHub.setData({ random: "" }, 'world')).toThrowError('First parameter must be a string');
   });
 
-  it('should load a json file from disk and store it onto storage hub', () => {
-    let filePath = __dirname + '/resources/test.json';
-    storageHub.filePath = filePath;
-    let fileContent = storageHub._loadFile();
-    expect(fileContent).toEqual({
-      "iAmAKey": "iAmAValue"
-    });
-  })
-
-  it('should load a file from path that is provided in the construtor', () => {
-    let filePath = __dirname + '/resources/test.json';
-    let anotherHub = new StorageHub(filePath=filePath);
-    expect(anotherHub.getData('iAmAKey')).toEqual('iAmAValue');
+  it('should load a file from path and override the current content', () => {
+    storageHub.setData('aKey', 'aValue')
+    let json = require('./resources/test.json');
+    storageHub.setJSON(json)
+    expect(storageHub.getData('iAmAKey')).toEqual('iAmAValue');    
   })
 
   it('should reset store', () => {
