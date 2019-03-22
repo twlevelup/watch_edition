@@ -1,7 +1,12 @@
+const fs = require("fs");
 class StorageHub {
-  constructor() {
+  constructor(filePath=null) {
     this.store = {};
     this.shouldDebug = false;
+  }
+
+  setJSON(json) {
+    this.store = json
   }
 
   setDebug(shouldDebug) {

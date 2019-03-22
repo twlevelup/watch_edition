@@ -25,6 +25,13 @@ describe("StorageHub", () => {
     expect(() => storageHub.setData({ random: "" }, 'world')).toThrowError('First parameter must be a string');
   });
 
+  it('should load a file from path and override the current content', () => {
+    storageHub.setData('aKey', 'aValue')
+    let json = require('./resources/test.json');
+    storageHub.setJSON(json)
+    expect(storageHub.getData('iAmAKey')).toEqual('iAmAValue');    
+  })
+
   it('should reset store', () => {
     storageHub.setData('hello', 'world');
     expect(storageHub.getData('hello')).toEqual('world');
