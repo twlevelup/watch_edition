@@ -1,4 +1,3 @@
-
 require('../styles/main.css');
 require('../fonts/fonts.css');
 const NotificationForm = require('./NotificationForm');
@@ -6,6 +5,7 @@ const NotificationHub = require('./NotificationHub');
 const { getRxjsTarget, getRxjsTargetFromKey, getTimedEvent } = require('./rxjs/watchOperators');
 const { fromEvent } = require('rxjs');
 const { map, merge, switchMap, exhaustMap } = require('rxjs/operators');
+import { default as MyMap } from '../src/MyMap';
 
 module.exports = class App {
   constructor(routes, notifications) {
@@ -26,6 +26,7 @@ module.exports = class App {
     this.notificationContainer = document.getElementById("notification-container");
     this.wholePage = document.body;
     this.watchContainer = document.getElementById('watch');
+    customElements.define('my-map', MyMap);
 
     this.clicks = 0;
     this.clickTimeout = null;

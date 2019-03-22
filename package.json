@@ -19,7 +19,10 @@
     "postinstall": "cd ./framework && npm install"
   },
   "dependencies": {
+    "acorn": "^6.1.1",
+    "handlebars.element": "^0.4.0",
     "http-server": "0.11.1",
+    "leaflet": "^1.4.0",
     "lodash": "4.17.11",
     "watch-framework": "file:framework"
   },
@@ -40,8 +43,8 @@
     "babel-loader": "8.0.5",
     "babel-plugin-transform-class-properties": "6.24.1",
     "copy-webpack-plugin": "5.0.0",
-    "css-loader": "2.1.1",
-    "eslint": "3.19.0",
+    "css-loader": "2.1.0",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-loader": "2.1.2",
     "eslint-plugin-import": "2.16.0",
