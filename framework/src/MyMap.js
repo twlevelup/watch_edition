@@ -3,7 +3,6 @@ import 'leaflet/dist/leaflet.css';
 
 export default class Map extends HTMLElement {
     constructor() {
-      console.log("wassup");
         super();
         this.renderMap();
     }

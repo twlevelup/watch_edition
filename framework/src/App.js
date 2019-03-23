@@ -26,7 +26,6 @@ module.exports = class App {
     this.notificationContainer = document.getElementById("notification-container");
     this.wholePage = document.body;
     this.watchContainer = document.getElementById('watch');
-    customElements.define('my-map', MyMap);
 
     this.clicks = 0;
     this.clickTimeout = null;
@@ -45,6 +44,11 @@ module.exports = class App {
     NotificationHub.onHide(hideNotification);
 
     this.setupRxjsListeners();
+  }
+
+  defineCustomElements(){
+    customElements.define('my-map', MyMap);
+    return this;
   }
 
   navigateToLocation(location, props = {}) {
