@@ -1,4 +1,4 @@
-require('./main.css');
+require('./app.css');
 require('./js/storage');
 
 const App = require('watch-framework').App;
