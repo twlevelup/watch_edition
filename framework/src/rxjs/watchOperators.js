@@ -22,7 +22,7 @@ const getRxjsTarget = () => pipe(
 )
 
 const getRxjsTargetFromKey = () => pipe(
-  filter((event) => !!KEY_MAPPINGS[event.which]),
+  filter((event) => !!(KEY_MAPPINGS[event.which]) && document.activeElement.id != 'notification-form-message'),
   tap((event) => event.preventDefault()),
   filter((event) => !event.repeat),
   map((event) => KEY_MAPPINGS[event.which]),
