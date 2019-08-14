@@ -42,6 +42,8 @@ workflows:
               branches:
                 ignore: gh-pages
         - deploy:
+            requires:
+              - build_test
             filters:
               branches:
                 ignore: gh-pages
