@@ -42,7 +42,7 @@ workflows:
                 ignore: gh-pages
         - build_deploy:
             requires:
-              - build_test
+              - test_and_stylecheck
             filters:
               branches:
                 ignore: gh-pages
