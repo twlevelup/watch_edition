@@ -3,7 +3,7 @@ version: 2
 jobs:
   build_test_deploy:
     docker:
-      - image: circleci/node:10.16.2
+      - image: circleci/node:10.16.3
     environment:
       TZ: "/usr/share/zoneinfo/Australia/Melbourne"
     steps:
