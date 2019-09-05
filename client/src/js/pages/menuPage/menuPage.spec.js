@@ -19,14 +19,4 @@ describe('MenuPage', () => {
       expect(page.render()).toContain("<span>hi</span>");
     });
   });
-
-  describe('#leftButtonEvent', () => {
-    it('goes to root page', () => {
-      const page = new MenuPage();
-      spyOn(page, 'navigate');
-
-      page.leftButtonEvent();
-      expect(page.navigate).toHaveBeenCalledWith('/');
-    });
-  });
 });

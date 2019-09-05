@@ -45,10 +45,6 @@ class MenuPage extends BasePage {
 
   }
 
-  leftButtonEvent() {
-    this.navigate("/");
-  }
-
   topButtonEvent() {
     this.move(-1);
   }
