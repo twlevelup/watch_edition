@@ -21,7 +21,7 @@
   "dependencies": {
     "acorn": "6.4.0",
     "handlebars.element": "0.4.0",
-    "http-server": "0.12.0",
+    "http-server": "0.12.1",
     "leaflet": "1.6.0",
     "lodash": "4.17.15",
     "watch-framework": "file:framework"
