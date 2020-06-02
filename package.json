@@ -27,7 +27,7 @@
     "watch-framework": "file:framework"
   },
   "engines": {
-    "node": "10.20.1"
+    "node": "10.21.0"
   },
   "devDependencies": {
     "@babel/cli": "7.10.1",
