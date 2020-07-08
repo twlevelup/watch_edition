@@ -23,7 +23,7 @@
     "handlebars.element": "0.4.0",
     "http-server": "0.12.3",
     "leaflet": "1.6.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.17",
     "watch-framework": "file:framework"
   },
   "engines": {
