@@ -59,7 +59,7 @@
     "jest-handlebars": "1.0.1",
     "jsdom": "13.2.0",
     "json-loader": "0.5.7",
-    "regenerator-runtime": "0.13.5",
+    "regenerator-runtime": "0.13.6",
     "request": "2.88.2",
     "style-loader": "0.23.1",
     "url-loader": "1.1.2",
