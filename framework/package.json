@@ -50,6 +50,6 @@
   },
   "dependencies": {
     "lodash": "4.17.20",
-    "rxjs": "6.6.2"
+    "rxjs": "6.6.3"
   }
 }
