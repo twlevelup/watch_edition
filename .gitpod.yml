@@ -1,0 +1,6 @@
+image: node:11.10.1-alpine
+ports:
+- port: 8080
+
+tasks:
+  - command: "./go install"
