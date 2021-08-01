@@ -45,7 +45,7 @@
     "jest-environment-jsdom-global": "1.2.1",
     "jest-handlebars": "1.0.1",
     "jest-spy-object": "1.4.0",
-    "jsdom": "13.2.0",
+    "jsdom": "16.7.0",
     "rxjs-marbles": "5.0.6"
   },
   "dependencies": {
