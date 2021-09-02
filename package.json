@@ -57,7 +57,7 @@
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
     "jest-handlebars": "1.0.1",
-    "jsdom": "13.2.0",
+    "jsdom": "17.0.0",
     "json-loader": "0.5.7",
     "regenerator-runtime": "0.13.9",
     "request": "2.88.2",
