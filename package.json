@@ -42,7 +42,7 @@
     "babel-jest": "24.9.0",
     "babel-loader": "8.2.3",
     "babel-plugin-transform-class-properties": "6.24.1",
-    "copy-webpack-plugin": "5.1.2",
+    "copy-webpack-plugin": "10.2.4",
     "css-loader": "5.2.7",
     "eslint": "5.0.0",
     "eslint-config-airbnb-base": "13.2.0",
