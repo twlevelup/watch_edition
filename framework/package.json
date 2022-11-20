@@ -46,7 +46,7 @@
     "jest-handlebars": "1.0.1",
     "jest-spy-object": "1.4.0",
     "jsdom": "16.5.0",
-    "rxjs-marbles": "5.0.6"
+    "rxjs-marbles": "7.0.1"
   },
   "dependencies": {
     "lodash": "4.17.21",
