@@ -19,7 +19,7 @@
     "postinstall": "cd ./framework && npm install"
   },
   "dependencies": {
-    "acorn": "6.4.2",
+    "acorn": "8.15.0",
     "handlebars.element": "0.4.0",
     "http-server": "0.13.0",
     "leaflet": "1.9.4",
